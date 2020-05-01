@@ -12,9 +12,12 @@ public class HexTileMapGenerator : MonoBehaviour
     public float tileXOffset = 1.8f;
     public float tileZOffset = 1.565f;
 
+
     void Start()
     {
-        CreateHexTileMap();
+        SphereCollider SphereCollider = GetComponent<SphereCollider>();
+        CreateHexTileMap(SphereCollider.radius);
+        
     }
 
     /* Tutorial 1: https://www.youtube.com/watch?reload=9&v=rjBD-4gNcfA&t=71s */
@@ -47,7 +50,8 @@ public class HexTileMapGenerator : MonoBehaviour
     
 
     /* Tutorial 2: https://www.youtube.com/watch?v=BE54igXh5-Q */
-    void CreateHexTileMap()
+    /* parameter not used here, it's just meant for the improved, but not working method below */
+    void CreateHexTileMap(float mapRadius)
     {
         float mapXMin = -mapWidth/2;
         float mapXMax = mapWidth/2;
@@ -75,6 +79,46 @@ public class HexTileMapGenerator : MonoBehaviour
         }
     }
 
+
+     /* Not working, yet */
+     /* Idea is to get rid of the OnTriggerExit-method, which might make us some problem later, 
+     that's why this method needs the mapRadius as a parameter here, so it only Instantiates the tiles inside of the radius */
+
+    // void CreateHexTileMap(float mapRadius)
+    // {
+    //     float mapXMin = -mapWidth/2;
+    //     float mapXMax = mapWidth/2;
+
+    //     float mapZMin = -mapHeight/2;
+    //     float mapZMax = mapHeight/2;
+
+    //     for(float x = mapXMin; x < mapXMax; x++)
+    //     {
+    //         for(float z = mapZMin; z < mapZMax; z++)
+    //         {                
+    //             Vector3 pos;                
+    //             float xPos = x * tileXOffset; 
+    //             float zPos = z * tileZOffset;
+
+    //             if(z % 2 == 1)
+    //             {
+    //                 xPos = xPos + tileXOffset/2;
+    //             }
+
+    //             float distanceToCenter = Mathf.Sqrt(Mathf.Pow(xPos, 2) + Mathf.Pow(zPos, 2));
+
+    //             if(distanceToCenter < mapRadius)
+    //             {
+    //                 // Debug.Log(distanceToCenter);
+    //                 GameObject TempGO = Instantiate(hexTilePrefab);
+    //                 pos = new Vector3(xPos, 0, zPos);
+    //                 StartCoroutine(SetTileInfo(TempGO, x, z, pos));
+    //             }
+    //         }
+    //     }
+    // }
+
+
     IEnumerator SetTileInfo(GameObject GO, float x, float z, Vector3 pos)
     {
         yield return new WaitForSeconds(0.00001f);
@@ -83,6 +127,7 @@ public class HexTileMapGenerator : MonoBehaviour
         GO.transform.position = pos;
     }
 
+    // We should get rid of this, might cause problems when we wanna use the tiles later
     void OnTriggerExit(Collider other)
     {
         Destroy(other.gameObject);
