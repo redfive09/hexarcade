@@ -18,6 +18,14 @@ public class HexTileMapGenerator : MonoBehaviour
         
     }
 
+    public void GenerateMap(int mapWidth, int mapHeight, float mapRadius)
+    {
+        this.mapWidth = mapWidth;
+        this.mapHeight = mapHeight;
+
+        CreateHexTileMap(mapRadius);
+    }
+
     // Made with the help of this tutorial: https://www.youtube.com/watch?v=BE54igXh5-Q
     void CreateHexTileMap(float mapRadius)
     {
