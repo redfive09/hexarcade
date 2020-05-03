@@ -6,23 +6,24 @@ public class HexTileMapGenerator : MonoBehaviour
 {
     [SerializeField]  GameObject hexTilePrefab;
     [SerializeField]  Transform holder;
-    [SerializeField] int mapWidth = 25;
-    [SerializeField] int mapHeight = 12;
+    [SerializeField] int mapWidth = 12;
+    [SerializeField] int mapHeight = 6;
     [SerializeField] float tileXOffset = 1.8f;
     [SerializeField]  float tileZOffset = 1.565f;
 
+    private SphereCollider SphereCollider;
+
     void Start()
     {
-        SphereCollider SphereCollider = GetComponent<SphereCollider>();
-        CreateHexTileMap(SphereCollider.radius);        
+        this.SphereCollider = GetComponent<SphereCollider>();
+        CreateHexTileMap(SphereCollider.radius);
     }
 
     // Make sure for UI later, that the minimal map values are met!
     public void GenerateMap(int mapWidth, int mapHeight, float mapRadius)
     {
         if(mapWidth > 1 && mapHeight > 1 && mapRadius >= 2)
-        {
-            SphereCollider SphereCollider = GetComponent<SphereCollider>();
+        {            
             SphereCollider.radius = mapRadius;
             this.mapWidth = mapWidth;
             this.mapHeight = mapHeight;
