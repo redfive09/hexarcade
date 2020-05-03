@@ -14,16 +14,27 @@ public class HexTileMapGenerator : MonoBehaviour
     void Start()
     {
         SphereCollider SphereCollider = GetComponent<SphereCollider>();
-        CreateHexTileMap(SphereCollider.radius);
-        
+        CreateHexTileMap(SphereCollider.radius);        
     }
 
+    // Make sure for UI later, that the minimal map values are met!
     public void GenerateMap(int mapWidth, int mapHeight, float mapRadius)
     {
-        this.mapWidth = mapWidth;
-        this.mapHeight = mapHeight;
-
-        CreateHexTileMap(mapRadius);
+        if(mapWidth > 1 && mapHeight > 1 && mapRadius >= 2)
+        {
+            SphereCollider SphereCollider = GetComponent<SphereCollider>();
+            SphereCollider.radius = mapRadius;
+            this.mapWidth = mapWidth;
+            this.mapHeight = mapHeight;
+            CreateHexTileMap(mapRadius);
+        }
+        else
+        {
+            Debug.Log(
+            "Couldn't generate a map, since there's a problem with at least one of the map values:" + "\n" +
+            "mapWidth: " + mapWidth + " || " + "mapHeight: " + mapHeight + " || " + "mapRadius: " + mapRadius
+            );
+        }       
     }
 
     // Made with the help of this tutorial: https://www.youtube.com/watch?v=BE54igXh5-Q
