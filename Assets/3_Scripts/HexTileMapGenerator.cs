@@ -86,8 +86,10 @@ public class HexTileMapGenerator : MonoBehaviour
                     GameObject TempGO = Instantiate(hexTilePrefab);  
                     pos = new Vector3(xPos, 0, zPos);
                     StartCoroutine(SetTileInfo(TempGO, x, z, pos));
+
                     tilePos.Add(pos);
                     numberOfTiles++;
+
                     if(IsPartOfPath(x, z))
                     {
                         path.Add(TempGO);
@@ -95,7 +97,7 @@ public class HexTileMapGenerator : MonoBehaviour
                 }
             }
         }
-        PrintPath();
+        ShowPath();
         // PrintAllTileCoordinats();        
     }
 
@@ -119,17 +121,13 @@ public class HexTileMapGenerator : MonoBehaviour
         return false;        
     }
 
-    void PrintPath()
+    void ShowPath()
     {
-        string pathString = "";
         for(int i = 0; i < pathCoordinates.GetLength(0); i++)
         {
-            pathString += path[i] + " || ";
+            path[i].transform.GetChild(0).GetComponent<Renderer> ().material.color = Color.yellow;
         }
-        Debug.Log(pathString);
     }
-
-
 
     void PrintAllTileCoordinats()
     {
