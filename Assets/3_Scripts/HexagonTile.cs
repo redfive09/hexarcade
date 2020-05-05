@@ -15,22 +15,18 @@ public class HexagonTile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Debug.Log(gameObject.GetComponent<Renderer>().material.color);
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        // if (other.gameObject.tag == "Player") 
+        // {
+        //     Debug.Log(gameObject.GetComponent<Renderer>().material.color);
+        //     gameObject.GetComponent<Renderer>().material.color = Color.green;
+        //     Debug.Log(gameObject.GetComponent<Renderer>().material.color);
+        //     Debug.Log(gameObject);
+        // }
         
     }
-
-void OnCollisionEnter(Collision other)
-{
-    if (other.gameObject.tag == "Player") 
-    {
-        Debug.Log(gameObject.GetComponent<Renderer>().material.color);
-        gameObject.GetComponent<Renderer>().material.color = Color.green;
-        Debug.Log(gameObject.GetComponent<Renderer>().material.color);
-        Debug.Log(gameObject);
-    }
-    
-}
-    
-
-    
-
 }

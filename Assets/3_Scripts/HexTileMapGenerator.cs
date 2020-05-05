@@ -12,6 +12,18 @@ public class HexTileMapGenerator : MonoBehaviour
     [SerializeField]  float tileZOffset = 1.565f;
 
     private SphereCollider SphereCollider;
+    private List<Vector3> tilePos = new List<Vector3>();
+    private int numberOfTiles = 0;
+    private List<GameObject> path = new List<GameObject>();
+    private int[,] pathCoordinates = {
+        {  0,  2},
+        {  0,  1},
+        {  1,  0},
+        {  0, -1},
+        {  0, -2},
+        { -1, -3}
+    };
+
 
     void Start()
     {
@@ -56,7 +68,7 @@ public class HexTileMapGenerator : MonoBehaviour
             {                
                 Vector3 pos;                
                 float xPos;
-                float zPos = z * tileZOffset;                
+                float zPos = z * tileZOffset;
 
                 if(z % 2 == 0)
                 {
@@ -74,9 +86,17 @@ public class HexTileMapGenerator : MonoBehaviour
                     GameObject TempGO = Instantiate(hexTilePrefab);  
                     pos = new Vector3(xPos, 0, zPos);
                     StartCoroutine(SetTileInfo(TempGO, x, z, pos));
+                    tilePos.Add(pos);
+                    numberOfTiles++;
+                    if(IsPartOfPath(x, z))
+                    {
+                        path.Add(TempGO);
+                    }
                 }
             }
         }
+        PrintPath();
+        // PrintAllTileCoordinats();        
     }
 
     IEnumerator SetTileInfo(GameObject GO, float x, float z, Vector3 pos)
@@ -86,4 +106,39 @@ public class HexTileMapGenerator : MonoBehaviour
         GO.name = x.ToString() + ", " + z.ToString();
         GO.transform.position = pos;
     }
+
+    bool IsPartOfPath(float x, float z)
+    {
+        for(int i = 0; i < pathCoordinates.GetLength(0); i++)
+        {
+            if(pathCoordinates[i, 0] == x && pathCoordinates[i, 1] == z)
+            {
+                return true;
+            }            
+        }
+        return false;        
+    }
+
+    void PrintPath()
+    {
+        string pathString = "";
+        for(int i = 0; i < pathCoordinates.GetLength(0); i++)
+        {
+            pathString += path[i] + " || ";
+        }
+        Debug.Log(pathString);
+    }
+
+
+
+    void PrintAllTileCoordinats()
+    {
+        string coord = "";
+        for(int i = 0; i < numberOfTiles; i++)
+        {
+            coord += tilePos[i].x + ", " + tilePos[i].z + " || ";
+        }
+        Debug.Log(coord);
+    }
+
 }
