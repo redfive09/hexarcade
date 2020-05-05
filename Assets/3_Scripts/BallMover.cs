@@ -4,7 +4,7 @@ using System;
 public class BallMover : MonoBehaviour 
 {
 
-    public float speed = 800.0f;
+    public float speed = 500.0f;
 
     void FixedUpdate()
     {
