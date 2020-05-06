@@ -2,45 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+    /*  
+     *  Class purpose: Storing values of each individual tile
+    **/ 
     public class Hexagon : MonoBehaviour
     {
         private bool isPath = false;
-        private float x;
+
+        // Map coordinates, not world coordinates!
+        private float x; 
         private float z;
-        
-        void Start()
-        {
-            // if (isPartOfPath())
-            // {
-            //     gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.yellow;
-            //     isPath = true;
-            // }
-        }
 
-        private void Update()
-        {
- 
-        }
-
-        public void setIsPath()
+        public void SetIsPath()
         {
             isPath = true;
-            gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.yellow;
+            SetColor(Color.yellow); // Should not be here, but for now it's okay
         }
         
-        public void setPosition(float x, float z) 
+        // Setting map coordinates, not world coordinates
+        public void SetPosition(float x, float z)
         {
             this.x = x;
             this.z = z;
         }
 
-        public float getPositionX() 
+        public void SetColor(Color color)
+        {
+            gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = color;
+        }
+
+        public float GetPositionX()
         {
             return x;
         }
 
-        public float getPositionZ() 
+        public float GetPositionZ() 
         {
             return z;
         }
