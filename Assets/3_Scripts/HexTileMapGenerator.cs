@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _3_Scripts;
 using UnityEngine;
 
 public class HexTileMapGenerator : MonoBehaviour
@@ -10,19 +11,9 @@ public class HexTileMapGenerator : MonoBehaviour
     [SerializeField] int mapHeight = 6;
     [SerializeField] float tileXOffset = 1.8f;
     [SerializeField]  float tileZOffset = 1.565f;
-
     private SphereCollider SphereCollider;
     private List<Vector3> tilePos = new List<Vector3>();
     private int numberOfTiles = 0;
-    private List<GameObject> path = new List<GameObject>();
-    private int[,] pathCoordinates = {
-        {  0,  2},
-        {  0,  1},
-        {  1,  0},
-        {  0, -1},
-        {  0, -2},
-        { -1, -3}
-    };
 
 
     void Start()
@@ -89,16 +80,10 @@ public class HexTileMapGenerator : MonoBehaviour
 
                     tilePos.Add(pos);
                     numberOfTiles++;
-
-                    if(IsPartOfPath(x, z))
-                    {
-                        path.Add(TempGO);
-                    }
                 }
             }
         }
-        ShowPath();
-        // PrintAllTileCoordinats();        
+        // PrintAllTileCoordinats();
     }
 
     IEnumerator SetTileInfo(GameObject GO, float x, float z, Vector3 pos)
@@ -107,36 +92,17 @@ public class HexTileMapGenerator : MonoBehaviour
         GO.transform.parent = holder;
         GO.name = x.ToString() + ", " + z.ToString();
         GO.transform.position = pos;
-    }
-
-    bool IsPartOfPath(float x, float z)
-    {
-        for(int i = 0; i < pathCoordinates.GetLength(0); i++)
-        {
-            if(pathCoordinates[i, 0] == x && pathCoordinates[i, 1] == z)
-            {
-                return true;
-            }            
-        }
-        return false;        
-    }
-
-    void ShowPath()
-    {
-        for(int i = 0; i < pathCoordinates.GetLength(0); i++)
-        {
-            path[i].transform.GetChild(0).GetComponent<Renderer> ().material.color = Color.yellow;
-        }
+        GO.AddComponent<Hexagon>();
     }
 
     void PrintAllTileCoordinats()
     {
         string coord = "";
-        for(int i = 0; i < numberOfTiles; i++)
+        for (int i = 0; i < numberOfTiles; i++)
         {
             coord += tilePos[i].x + ", " + tilePos[i].z + " || ";
         }
+
         Debug.Log(coord);
     }
-
 }
