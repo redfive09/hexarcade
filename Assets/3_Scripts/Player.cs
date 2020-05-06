@@ -6,20 +6,8 @@ public class Player : MonoBehaviour
 {
     private const float MOVE_SPEED = 10f;
     private const float ROTATION_SPEED = 300f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-        private void FixedUpdate()
+    
+    private void FixedUpdate()
     {
 
         float y = Time.deltaTime * ROTATION_SPEED;
