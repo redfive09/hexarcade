@@ -7,18 +7,20 @@ namespace _3_Scripts
     
     public class Hexagon : MonoBehaviour
     {
-        public static bool isPath = false;
+        private bool isPath = false;
+        
         void Start()
         {
+            if (isPartOfPath())
+            {
+                gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.yellow;
+                isPath = true;
+            }
         }
 
         private void Update()
         {
-            isPath = isPartOfPath();
-            if (isPath)
-            {
-                gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.yellow;
-            }
+ 
         }
 
         bool isPartOfPath()

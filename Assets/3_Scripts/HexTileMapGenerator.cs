@@ -14,8 +14,6 @@ public class HexTileMapGenerator : MonoBehaviour
     private SphereCollider SphereCollider;
     private List<Vector3> tilePos = new List<Vector3>();
     private int numberOfTiles = 0;
-    private List<GameObject> path = new List<GameObject>();
-    private List<int[]> pathCoordinates = GeneratePath.getPathList();
 
 
     void Start()
@@ -82,16 +80,10 @@ public class HexTileMapGenerator : MonoBehaviour
 
                     tilePos.Add(pos);
                     numberOfTiles++;
-
-                    if(IsPartOfPath(x, z))
-                    {
-                        path.Add(TempGO);
-                    }
                 }
             }
         }
-        ShowPath();
-        PrintAllTileCoordinats();        
+        // PrintAllTileCoordinats();
     }
 
     IEnumerator SetTileInfo(GameObject GO, float x, float z, Vector3 pos)
@@ -101,28 +93,6 @@ public class HexTileMapGenerator : MonoBehaviour
         GO.name = x.ToString() + ", " + z.ToString();
         GO.transform.position = pos;
         GO.AddComponent<Hexagon>();
-    }
-
-    bool IsPartOfPath(float x, float z)
-        {
-            foreach(var variable in pathCoordinates)
-            {
-                if (variable[0] == x && variable[1] == z)
-                {
-                    print(variable[0] + ", " + variable[1]);
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-    void ShowPath()
-    {
-        foreach(var element in path)
-        {
-            element.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.yellow;
-        }
     }
 
     void PrintAllTileCoordinats()

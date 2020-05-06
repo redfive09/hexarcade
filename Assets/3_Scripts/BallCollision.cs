@@ -3,8 +3,7 @@
 public class BallCollision : MonoBehaviour
 {
     private float delay = 2f;
-    void OnCollisionEnter(Collision collisionInfo)
-    
+    void OnCollisionEnter(Collision collisionInfo)    
     {
         if(collisionInfo.collider.tag == "Tile")
         {
