@@ -10,14 +10,14 @@ namespace _3_Scripts
         public static bool isPath = false;
         void Start()
         {
-            isPath = isPartOfPath();
         }
 
         private void Update()
         {
+            isPath = isPartOfPath();
             if (isPath)
             {
-                gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);
+                gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.yellow;
             }
         }
 
