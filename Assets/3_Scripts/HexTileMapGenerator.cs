@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _3_Scripts;
 using UnityEngine;
 
 public class HexTileMapGenerator : MonoBehaviour
@@ -10,7 +11,7 @@ public class HexTileMapGenerator : MonoBehaviour
     [SerializeField] int mapHeight = 6;
     [SerializeField] float tileXOffset = 1.8f;
     [SerializeField]  float tileZOffset = 1.565f;
-
+    private static List<GameObject> _gameObjects = new List<GameObject>();
     private SphereCollider SphereCollider;
     private List<Vector3> tilePos = new List<Vector3>();
     private int numberOfTiles = 0;
@@ -89,17 +90,23 @@ public class HexTileMapGenerator : MonoBehaviour
 
                     tilePos.Add(pos);
                     numberOfTiles++;
+                    _gameObjects.Add(TempGO);
 
-                    if(IsPartOfPath(x, z))
-                    {
-                        path.Add(TempGO);
-                    }
+                    // if(IsPartOfPath(x, z))
+                    // {
+                    //     path.Add(TempGO);
+                    // }
                 }
             }
         }
-        ShowPath();
+        // ShowPath();
         // PrintAllTileCoordinats();        
     }
+
+    // public static List<GameObject> getGameObjects()
+    // {
+    //     return _gameObjects;
+    // }
 
     IEnumerator SetTileInfo(GameObject GO, float x, float z, Vector3 pos)
     {
@@ -107,36 +114,37 @@ public class HexTileMapGenerator : MonoBehaviour
         GO.transform.parent = holder;
         GO.name = x.ToString() + ", " + z.ToString();
         GO.transform.position = pos;
+        GO.AddComponent<Hexagon>();
     }
 
-    bool IsPartOfPath(float x, float z)
-    {
-        for(int i = 0; i < pathCoordinates.GetLength(0); i++)
-        {
-            if(pathCoordinates[i, 0] == x && pathCoordinates[i, 1] == z)
-            {
-                return true;
-            }            
-        }
-        return false;        
-    }
-
-    void ShowPath()
-    {
-        for(int i = 0; i < pathCoordinates.GetLength(0); i++)
-        {
-            path[i].transform.GetChild(0).GetComponent<Renderer> ().material.color = Color.yellow;
-        }
-    }
-
-    void PrintAllTileCoordinats()
-    {
-        string coord = "";
-        for(int i = 0; i < numberOfTiles; i++)
-        {
-            coord += tilePos[i].x + ", " + tilePos[i].z + " || ";
-        }
-        Debug.Log(coord);
-    }
+    // bool IsPartOfPath(float x, float z)
+    // {
+    //     for(int i = 0; i < pathCoordinates.GetLength(0); i++)
+    //     {
+    //         if(pathCoordinates[i, 0] == x && pathCoordinates[i, 1] == z)
+    //         {
+    //             return true;
+    //         }            
+    //     }
+    //     return false;        
+    // }
+    //
+    // void ShowPath()
+    // {
+    //     for(int i = 0; i < pathCoordinates.GetLength(0); i++)
+    //     {
+    //         path[i].transform.GetChild(0).GetComponent<Renderer> ().material.color = Color.yellow;
+    //     }
+    // }
+    //
+    // void PrintAllTileCoordinats()
+    // {
+    //     string coord = "";
+    //     for(int i = 0; i < numberOfTiles; i++)
+    //     {
+    //         coord += tilePos[i].x + ", " + tilePos[i].z + " || ";
+    //     }
+    //     Debug.Log(coord);
+    // }
 
 }
