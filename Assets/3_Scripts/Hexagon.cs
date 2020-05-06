@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _3_Scripts
-{
-    
+
     public class Hexagon : MonoBehaviour
     {
         private bool isPath = false;
+        private float x;
+        private float z;
         
         void Start()
         {
-            if (isPartOfPath())
-            {
-                gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.yellow;
-                isPath = true;
-            }
+            // if (isPartOfPath())
+            // {
+            //     gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.yellow;
+            //     isPath = true;
+            // }
         }
 
         private void Update()
@@ -23,18 +23,28 @@ namespace _3_Scripts
  
         }
 
-        bool isPartOfPath()
+        public void setIsPath()
         {
-            foreach (var VARIABLE in GeneratePath.getPathList())
-            {
-                
-                if (gameObject.name.Equals(VARIABLE[0] + ", " + VARIABLE[1]))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            isPath = true;
+            gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.yellow;
         }
+        
+        public void setPosition(float x, float z) 
+        {
+            this.x = x;
+            this.z = z;
+        }
+
+        public float getPositionX() 
+        {
+            return x;
+        }
+
+        public float getPositionZ() 
+        {
+            return z;
+        }
+    
     }
-}
+
+

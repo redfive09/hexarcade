@@ -1,36 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using _3_Scripts;
 using UnityEngine;
 
 public class HexTileMapGenerator : MonoBehaviour
 {
     [SerializeField]  GameObject hexTilePrefab;
     [SerializeField]  Transform holder;
-    [SerializeField] int mapWidth = 12;
-    [SerializeField] int mapHeight = 6;
+    [SerializeField] int mapWidth;
+    [SerializeField] int mapHeight;
     [SerializeField] float tileXOffset = 1.8f;
     [SerializeField]  float tileZOffset = 1.565f;
-    private SphereCollider SphereCollider;
+    // private SphereCollider SphereCollider;
     private List<Vector3> tilePos = new List<Vector3>();
-    private int numberOfTiles = 0;
-
+    private int numberOfTiles;
 
     void Start()
-    {
-        this.SphereCollider = GetComponent<SphereCollider>();
-        CreateHexTileMap(SphereCollider.radius);
+    {        
+        // SphereCollider = GetComponent<SphereCollider>();
+        // CreateHexTileMap(SphereCollider.radius);
     }
 
     // Make sure for UI later, that the minimal map values are met!
-    public void GenerateMap(int mapWidth, int mapHeight, float mapRadius)
+    public List<GameObject> GenerateMap(int mapWidth, int mapHeight, float mapRadius)
     {
         if(mapWidth > 1 && mapHeight > 1 && mapRadius >= 2)
-        {            
-            SphereCollider.radius = mapRadius;
+        {
+            // SphereCollider.radius = mapRadius;
             this.mapWidth = mapWidth;
             this.mapHeight = mapHeight;
-            CreateHexTileMap(mapRadius);
+            
+            return CreateHexTileMap(mapRadius);
         }
         else
         {
@@ -38,12 +37,18 @@ public class HexTileMapGenerator : MonoBehaviour
             "Couldn't generate a map, since there's a problem with at least one of the map values:" + "\n" +
             "mapWidth: " + mapWidth + " || " + "mapHeight: " + mapHeight + " || " + "mapRadius: " + mapRadius
             );
-        }       
+            return null;
+        }
     }
 
     // Made with the help of this tutorial: https://www.youtube.com/watch?v=BE54igXh5-Q
-    void CreateHexTileMap(float mapRadius)
+    List<GameObject> CreateHexTileMap(float mapRadius)
     {
+        var tiles = new GameObject();
+        tiles.name = "AllTiles";
+        numberOfTiles = 0;
+
+        List<GameObject> allTiles = new List<GameObject>();
         float mapXMin = -mapWidth/2;
         float mapXMax = mapWidth/2;
  
@@ -73,17 +78,26 @@ public class HexTileMapGenerator : MonoBehaviour
                 float distanceToCenter = Mathf.Sqrt(Mathf.Pow(xPos, 2) + Mathf.Pow(zPos, 2));
  
                 if(distanceToCenter < mapRadius)
-                {                    
+                {
                     GameObject TempGO = Instantiate(hexTilePrefab);  
                     pos = new Vector3(xPos, 0, zPos);
-                    StartCoroutine(SetTileInfo(TempGO, x, z, pos));
+                    // StartCoroutine(SetTileInfo(TempGO, x, z, pos));
+                    
+                    // TempGO.transform.parent = holder;
+                    TempGO.transform.parent = tiles.transform;
+                    TempGO.name = x.ToString() + ", " + z.ToString();
+                    TempGO.transform.position = pos;
+                    // TempGO.AddComponent<Hexagon>();
 
+                    TempGO.GetComponent<Hexagon>().setPosition(x, z);
+                    allTiles.Add(TempGO);
                     tilePos.Add(pos);
                     numberOfTiles++;
                 }
             }
-        }
+        }        
         // PrintAllTileCoordinats();
+        return allTiles;
     }
 
     IEnumerator SetTileInfo(GameObject GO, float x, float z, Vector3 pos)
@@ -94,9 +108,10 @@ public class HexTileMapGenerator : MonoBehaviour
         GO.transform.position = pos;
         GO.AddComponent<Hexagon>();
     }
-
+    
     void PrintAllTileCoordinats()
     {
+        Debug.Log(numberOfTiles);
         string coord = "";
         for (int i = 0; i < numberOfTiles; i++)
         {

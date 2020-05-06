@@ -1,18 +1,38 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace _3_Scripts
-{
+// namespace _3_Scripts
+// {
     public class GeneratePath : MonoBehaviour
     {
-        private static List<int[]>  pathCoordinates = new List<int[]>();
+        public List<int[]>  pathCoordinates = new List<int[]>();
+
+        private int[,] pathCoord = {
+            {  0,  2},
+            {  0,  1},
+            {  1,  0},
+            {  0, -1},
+            {  0, -2},
+            { -1, -3}
+        };
+
+
+        public GeneratePath(List<GameObject> allTiles)
+        {
+            // getStartPoint(Random.Range(1, 3));
+            // getNextCoordinate();
+
+            
+
+            SetPathTiles(allTiles);
+            // print("loaded");
+        }
 
         void Start()
         {
-            getStartPoint(Random.Range(1, 3));
-            getNextCoordinate();
-            print("loaded");
+            
         }
+
 
         //Next Step of the path
         void getNextCoordinate()
@@ -23,10 +43,12 @@ namespace _3_Scripts
                 int randomNumber = Random.Range(1, 4);
                 bool odd = (currentPath[1] % 2) != 0;
                 int[] nextPath = new int[] {currentPath[0] + getNextPath(odd, randomNumber)[0], currentPath[1] + getNextPath(odd, randomNumber)[1]};
-                if (nextPath[1] > 2 || nextPath[1] < -3) break;
+                if (nextPath[1] > 2 || nextPath[1] < -3) {
+                    break;
+                }
                 pathCoordinates.Add(nextPath);
                 currentPath = nextPath;
-                print(currentPath[0] + ", " + currentPath[1]);
+                // print(currentPath[0] + ", " + currentPath[1]);
             }
         }
 
@@ -69,24 +91,39 @@ namespace _3_Scripts
             {
                 case 1:
                     pathCoordinates.Add(new int[] {-4, 1});
-                    print("-4, 1");
+                    // print("-4, 1");
                     break;
                 case 2:
                     pathCoordinates.Add(new int[] {-4, -1});
-                    print("-4, -1");
+                    // print("-4, -1");
                     break;
             }
 
         }
 
-        public List<int[]> getPathList()
+        void SetPathTiles(List<GameObject> allTiles)
         {
-            return pathCoordinates;
+            for(int i = 0; i < allTiles.Count; i++)
+            {
+                float x = allTiles[i].GetComponent<Hexagon>().getPositionX();
+                float z = allTiles[i].GetComponent<Hexagon>().getPositionZ();
+
+                for(int k = 0; k < pathCoord.GetLength(0); k++)
+                {
+                    if(pathCoord[k, 0] == x && pathCoord[k, 1] == z)
+                    {
+                        allTiles[i].GetComponent<Hexagon>().setIsPath();
+                    }
+                }
+            }
         }
 
-        public int[] getStartTile() 
+        public int[,] GetPath()
         {
-            return pathCoordinates[0];
+            return pathCoord;
         }
+
+        // public float Get
+
     }
-}
+// }
