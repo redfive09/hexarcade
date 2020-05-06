@@ -79,9 +79,14 @@ namespace _3_Scripts
 
         }
 
-        public static List<int[]> getPathList()
+        public List<int[]> getPathList()
         {
             return pathCoordinates;
+        }
+
+        public int[] getStartTile() 
+        {
+            return pathCoordinates[0];
         }
     }
 }
