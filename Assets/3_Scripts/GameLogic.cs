@@ -38,9 +38,8 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         CreateLevel();
-        SpawnBall();
-        PaintTheWorld();
-        
+        SpawnBall(pathTiles[0]); // First element of the "path" list is the starting tile
+        PaintTheWorld();        
     }
 
 
@@ -77,11 +76,9 @@ public class GameLogic : MonoBehaviour
     /*  
      *  Let the Ball spawn at the desired position
     **/
-    void SpawnBall()
-    {
-        GameObject startingTile = pathTiles[0]; // First element of the "path" list is the starting tile
-        Ball.GetComponent<BallMover>().GoToSpawnPosition(startingTile);
-        Debug.Log(startingTile);
+    void SpawnBall(GameObject spawnTile)
+    {        
+        Ball.GetComponent<BallMover>().GoToSpawnPosition(spawnTile);
     }
 
 
@@ -98,15 +95,14 @@ public class GameLogic : MonoBehaviour
 
 
     /*  This method will make the colour of the path
-     * Works : tiles are colored in with a delay
-     *  ToFix:
-     * - Tile (1,0) appears last despite it being in the middle of the way. The problem is in PathGenerator
-     * */
+     *  Works : tiles are colored in with a delay
+     *  
+    **/
     IEnumerator SetPathColor(Color color, List<GameObject> tiles, float time)
     {
         for(int i = 0; i < tiles.Count; i++)
         {
-            tiles[i].GetComponent<Hexagon>().SetColor(color); 
+            tiles[i].GetComponent<Hexagon>().SetColor(color);            
             yield return new WaitForSeconds(time); //wait 2 seconds before continuing with the loop 
             // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
         }

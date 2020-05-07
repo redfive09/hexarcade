@@ -4,7 +4,7 @@ using System;
 public class BallMover : MonoBehaviour 
 {
 
-    [SerializeField] float speed = 500.0f;
+    [SerializeField] float speed = 1000.0f;
 
     void FixedUpdate()
     {
@@ -21,7 +21,7 @@ public class BallMover : MonoBehaviour
     **/
     public void GoToSpawnPosition(GameObject spawnTile)
     {
-        float distanceAboveTile = 1f; // Should go later to a central place for all settings
+        float distanceAboveTile = 1f; // Should go later to a central place for all settings        
         gameObject.transform.position = new Vector3(spawnTile.transform.position.x, spawnTile.transform.position.y + distanceAboveTile, spawnTile.transform.position.z);
     }
 }
