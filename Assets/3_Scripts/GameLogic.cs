@@ -6,7 +6,7 @@ using UnityEngine;
 *  Class purpose: Coordinating all information between the gameObjects
 **/ 
 public class GameLogic : MonoBehaviour
-{
+{    
     [SerializeField] GameObject Ball;
     [SerializeField] GameObject MapGenerator;
     [SerializeField] GameObject PathGenerator;
@@ -50,6 +50,9 @@ public class GameLogic : MonoBehaviour
     {
         // Get information from BallCollision, what's the current tile the ball is on (update field "currentTile") and then give orders, what should be done with the information
         // E. g. ball is on crackedTile or pathTile or winningTile and then do something
+        // currentTile = Ball.GetComponent<BallMover>().GetCurrentTile();
+        currentTile = Ball.GetComponent<BallMover>().currentTile;
+        Debug.Log(currentTile);
     }
 
 

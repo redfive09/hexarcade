@@ -4,7 +4,12 @@ using System;
 public class BallMover : MonoBehaviour 
 {
 
+<<<<<<< Updated upstream
     [SerializeField] float speed = 500.0f;
+=======
+    [SerializeField] float speed = 1000.0f;
+    public GameObject currentTile;
+>>>>>>> Stashed changes
 
     void FixedUpdate()
     {
@@ -14,6 +19,21 @@ public class BallMover : MonoBehaviour
         Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
         GetComponent<Rigidbody>().AddForce (movement * (speed * Time.fixedDeltaTime));
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Tile")
+        {
+            currentTile = collision.gameObject;
+            Debug.Log(currentTile);
+        }
+    }
+
+    public GameObject GetCurrentTile()
+    {
+        // Debug.Log(currentTile);
+        return currentTile;
     }
 
     /*  
