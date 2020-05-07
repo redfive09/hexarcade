@@ -83,13 +83,12 @@ public class MapGenerator : MonoBehaviour
  
                 // Making sure, if the potential new hexagon position is still within the desired radius
                 if(distanceToCenter < mapRadius)
-                {
-                    GameObject HexTile = Instantiate(hexTilePrefab);        // Creating a new tile
-                    HexTile.transform.parent = tilesFolder.transform;       // Putting tile into folder
-                    HexTile.name = x.ToString() + ", " + z.ToString();      // Naming the tile after it's map coordinates
-                    HexTile.GetComponent<Hexagon>().SetMapPosition(x, z);   // Saving the map coordinates inside the tile         
-                    HexTile.transform.position = new Vector3(xPos, 0, zPos);// Moving tile to it's calculated world coordinates                    
-                    allTiles.Add(HexTile);                                  // Adding tile to the list of all the created tiles of this map
+                {   
+                    string nameOfNewTile = x.ToString() + ", " + z.ToString();      // Naming the tile after it's map coordinates
+                    GameObject newHexTile = CreateTile(xPos, zPos, nameOfNewTile);  // Creating a new tile
+                    newHexTile.GetComponent<Hexagon>().SetMapPosition(x, z);        // Saving the map coordinates inside the tile
+                    newHexTile.transform.parent = tilesFolder.transform;            // Putting tile into folder                    
+                    allTiles.Add(newHexTile);                                       // Adding tile to the list of all the created tiles of this map
                 }
             }
         }        
@@ -97,6 +96,16 @@ public class MapGenerator : MonoBehaviour
         return allTiles;
     }
     
+    /*  Indeed public, so individual tiles can easily be created here for specific level design purposes
+     *  Returns: New Tile at the desired place in world coordinates
+    **/ 
+    public GameObject CreateTile(float xWorld, float zWorld, string name)
+    {
+        GameObject hexTile = Instantiate(hexTilePrefab);                // Creating a new tile
+        hexTile.name = name;                                            // Give it a name
+        hexTile.transform.position = new Vector3(xWorld, 0, zWorld);    // Moving tile to it's calculated world coordinates
+        return hexTile;
+    }
     
     /*  
      *  Prints one console log of the total number of tiles and its individual positions
