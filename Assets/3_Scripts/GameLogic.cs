@@ -38,7 +38,7 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         CreateLevel();
-        SpawnBall();
+        SpawnBall(pathTiles[0]); // First element of the "path" list is the starting tile
         PaintTheWorld();
     }
 
@@ -79,11 +79,9 @@ public class GameLogic : MonoBehaviour
     /*  
      *  Let the Ball spawn at the desired position
     **/
-    void SpawnBall()
+    void SpawnBall(GameObject spawnTile)
     {
-        GameObject startingTile = pathTiles[0]; // First element of the "path" list is the starting tile
-        Ball.GetComponent<BallMover>().GoToSpawnPosition(startingTile);
-        Debug.Log(startingTile);
+        Ball.GetComponent<BallMover>().GoToSpawnPosition(spawnTile);
     }
 
 

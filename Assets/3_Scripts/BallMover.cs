@@ -4,12 +4,10 @@ using System;
 public class BallMover : MonoBehaviour 
 {
 
-<<<<<<< Updated upstream
     [SerializeField] float speed = 500.0f;
-=======
-    [SerializeField] float speed = 1000.0f;
+
     public GameObject currentTile;
->>>>>>> Stashed changes
+
 
     void FixedUpdate()
     {
