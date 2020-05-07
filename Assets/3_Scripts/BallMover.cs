@@ -16,13 +16,12 @@ public class BallMover : MonoBehaviour
         GetComponent<Rigidbody>().AddForce (movement * (speed * Time.fixedDeltaTime));
     }
 
-    /*  Let the Ball spawn above the desired tile
-     *  Not working yet, eventhough the spawnTile is correct
+    /*  
+     *  Let the Ball spawn above the desired tile
     **/
     public void GoToSpawnPosition(GameObject spawnTile)
     {
-        float distanceAboveTile = 1f;
-        transform.position = new Vector3(spawnTile.transform.position.x, spawnTile.transform.position.y + distanceAboveTile, spawnTile.transform.position.z);
+        float distanceAboveTile = 1f; // Should go later to a central place for all settings
+        gameObject.transform.position = new Vector3(spawnTile.transform.position.x, spawnTile.transform.position.y + distanceAboveTile, spawnTile.transform.position.z);
     }
-
 }

@@ -28,7 +28,7 @@ using UnityEngine;
                     if(pathCoordinates[k, 0] == x && pathCoordinates[k, 1] == z) 
                     {                        
                         path.Add(tiles[i]);
-                        tiles[i].GetComponent<Hexagon>().SetIsPath(); // Tell the current tile, that it is part of the path
+                        tiles[i].GetComponent<Hexagon>().SetIsPath(true); // Tell the current tile, that it is part of the path
                     }
                 }
             }

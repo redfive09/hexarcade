@@ -87,7 +87,7 @@ public class MapGenerator : MonoBehaviour
                     GameObject HexTile = Instantiate(hexTilePrefab);        // Creating a new tile
                     HexTile.transform.parent = tilesFolder.transform;       // Putting tile into folder
                     HexTile.name = x.ToString() + ", " + z.ToString();      // Naming the tile after it's map coordinates
-                    HexTile.GetComponent<Hexagon>().SetPosition(x, z);      // Saving the map coordinates inside the tile         
+                    HexTile.GetComponent<Hexagon>().SetMapPosition(x, z);   // Saving the map coordinates inside the tile         
                     HexTile.transform.position = new Vector3(xPos, 0, zPos);// Moving tile to it's calculated world coordinates                    
                     allTiles.Add(HexTile);                                  // Adding tile to the list of all the created tiles of this map
                 }
@@ -96,6 +96,7 @@ public class MapGenerator : MonoBehaviour
         // PrintAllTileCoordinats();
         return allTiles;
     }
+    
     
     /*  
      *  Prints one console log of the total number of tiles and its individual positions

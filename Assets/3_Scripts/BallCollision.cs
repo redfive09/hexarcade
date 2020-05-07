@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/* Class purpose: Gathering information of the current tile the ball is on 
+*  ToFix: Should pass on its information to the GameLogic, which is responsible to decide what happens with it
+**/ 
 public class BallCollision : MonoBehaviour
 {
     private float delay = 2f;
