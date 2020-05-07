@@ -25,7 +25,7 @@ public class GameLogic : MonoBehaviour
     {
         {  0,  2},
         {  0,  1},
-        {  1,  0},
+        {  1,  0}, 
         {  0, -1},
         {  0, -2},
         { -1, -3}
@@ -40,6 +40,7 @@ public class GameLogic : MonoBehaviour
         CreateLevel();
         SpawnBall();
         PaintTheWorld();
+        
     }
 
 
@@ -91,19 +92,43 @@ public class GameLogic : MonoBehaviour
     {
         // Specific color should go later to a central place for all settings        
         SetColorOfTilesList(Color.cyan, levelTiles);
-        SetPathColor(Color.yellow);
+        StartCoroutine(SetPathColor(Color.yellow, pathTiles, 2f)); //since the method returns an IEnumerator it has to be calles with startCoroutine
+        
     }
 
 
-    /*  This method will make the colour of the way
-     *  ToFix: Show first tile for a short time, then the next and so on until the end, then make it disappear
-    **/
-    void SetPathColor(Color color)
+    /*  This method will make the colour of the path
+     * Works : tiles are colored in with a delay
+     *  ToFix:
+     * - Tile (1,0) appears last despite it being in the middle of the way. The problem is in PathGenerator
+     * */
+    IEnumerator SetPathColor(Color color, List<GameObject> tiles, float time)
     {
-        SetColorOfTilesList(color, pathTiles);
+        for(int i = 0; i < tiles.Count; i++)
+        {
+            tiles[i].GetComponent<Hexagon>().SetColor(color); 
+            yield return new WaitForSeconds(time); //wait 2 seconds before continuing with the loop 
+            // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
+        }
+        yield return new WaitForSeconds(time); //wait two seconds after entire path has lit up
+        StartCoroutine(MakePathDisappear(Color.cyan, pathTiles, 1f)); //start the disappering backwards
     }
 
-
+    /*
+    * Method goes trough the list of path tiles in the opposite ordner and colors them in the color of all other tiles,
+    * in this case: cyan
+    */
+    IEnumerator MakePathDisappear(Color color, List<GameObject> tiles, float time)
+    {
+        for(int i = tiles.Count -1 ; i > 0 ; i--)
+        {
+            tiles[i].GetComponent<Hexagon>().SetColor(color); 
+            yield return new WaitForSeconds(time); //wait 2 seconds before continuing with the loop 
+            // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
+        }
+        
+    }
+    
     /*  
      *  This method goes through all tiles and changes their colors
     **/
@@ -114,4 +139,5 @@ public class GameLogic : MonoBehaviour
             tiles[i].GetComponent<Hexagon>().SetColor(color); 
         }
     }
+   
 }
