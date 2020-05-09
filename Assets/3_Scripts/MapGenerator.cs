@@ -6,12 +6,12 @@ using UnityEngine;
 **/ 
 public class MapGenerator : MonoBehaviour
 {    
-    [SerializeField] GameObject hexTilePrefab; // For used hexagon tile
+    [SerializeField] private GameObject hexTilePrefab; // For used hexagon tile
 
 
     // Offset are used for the gap between the tiles
-    [SerializeField] float tileXOffset = 1.8f;
-    [SerializeField] float tileZOffset = 1.565f;
+    [SerializeField] private float tileXOffset = 1.8f;
+    [SerializeField] private float tileZOffset = 1.565f;
 
 
     // Saves all positions of all tiles
@@ -23,7 +23,7 @@ public class MapGenerator : MonoBehaviour
     /*  This method checks first all the parameters, if something is wrong, then it prints a message to the console
      *  Returns: List of hexagon tiles of a new map with the entered values
     **/     
-    public List<GameObject> GenerateMap(int mapWidth, int mapHeight, float mapRadius, string folderName)
+    public List<Hexagon> GenerateMap(int mapWidth, int mapHeight, float mapRadius, string folderName)
     {
         if(mapWidth > 1 && mapHeight > 1 && mapRadius >= 2)
         {
@@ -44,9 +44,9 @@ public class MapGenerator : MonoBehaviour
      *  Returns: List of hexagon tiles of a new map with the entered values 
      *  Made with the help of this tutorial: https://www.youtube.com/watch?v=BE54igXh5-Q
     **/ 
-    List<GameObject> NewHexTileMap(int mapWidth, int mapHeight, float mapRadius, string folderName)
+    List<Hexagon> NewHexTileMap(int mapWidth, int mapHeight, float mapRadius, string folderName)
     {
-        List<GameObject> allTiles = new List<GameObject>(); // all the created tiles will be added here
+        List<Hexagon> allTiles = new List<Hexagon>(); // all the created tiles will be added here
         var tilesFolder = new GameObject(); // this will contain all the tile objects in the hierachy
         tilesFolder.name = folderName;
         
@@ -84,11 +84,15 @@ public class MapGenerator : MonoBehaviour
                 // Making sure, if the potential new hexagon position is still within the desired radius
                 if(distanceToCenter < mapRadius)
                 {   
+                    // First, creating a tile object
                     string nameOfNewTile = x.ToString() + ", " + z.ToString();      // Naming the tile after it's map coordinates
                     GameObject newHexTile = CreateTile(xPos, zPos, nameOfNewTile);  // Creating a new tile
-                    newHexTile.GetComponent<Hexagon>().SetMapPosition(x, z);        // Saving the map coordinates inside the tile
-                    newHexTile.transform.parent = tilesFolder.transform;            // Putting tile into folder                    
-                    allTiles.Add(newHexTile);                                       // Adding tile to the list of all the created tiles of this map
+                    newHexTile.transform.parent = tilesFolder.transform;            // Putting tile into folder
+
+                    // Second, setting up its script
+                    Hexagon hexagonScript = newHexTile.GetComponent<Hexagon>();     // Getting the script of the tile
+                    hexagonScript.SetMapPosition(x, z);                             // Saving the map coordinates inside the tile                  
+                    allTiles.Add(hexagonScript);                                    // Adding tile to the list of all the created tiles of this map                    
                 }
             }
         }        
@@ -101,7 +105,7 @@ public class MapGenerator : MonoBehaviour
     **/ 
     public GameObject CreateTile(float xWorld, float zWorld, string name)
     {
-        GameObject hexTile = Instantiate(hexTilePrefab);                // Creating a new tile
+        GameObject hexTile = Instantiate(hexTilePrefab);                   // Creating a new tile
         hexTile.name = name;                                            // Give it a name
         hexTile.transform.position = new Vector3(xWorld, 0, zWorld);    // Moving tile to it's calculated world coordinates
         return hexTile;

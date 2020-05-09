@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 7806642066602230682}
   - component: {fileID: 7806642066602230677}
   - component: {fileID: 7806642066602230676}
-  - component: {fileID: 7806642066602230680}
-  - component: {fileID: 7806642066602230681}
   - component: {fileID: 7806642066602230679}
+  - component: {fileID: 114912644331216670}
   - component: {fileID: 114248383995355222}
   m_Layer: 0
   m_Name: Ball
@@ -95,31 +94,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7806642066602230680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7806642066602230678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55ebe19a721f2eb4a9b3bbb6eb4c6cef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 500
---- !u!114 &7806642066602230681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7806642066602230678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a8f8e09373326f4ebc87d196b6d80cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &7806642066602230679
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,6 +110,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114912644331216670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806642066602230678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d00f2aa735a4374ab31f43a9fd37a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1000
 --- !u!114 &114248383995355222
 MonoBehaviour:
   m_ObjectHideFlags: 0

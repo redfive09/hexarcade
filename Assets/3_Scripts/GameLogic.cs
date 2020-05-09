@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*  
-*  Class purpose: Coordinating all information between the gameObjects
+ *  Class purpose: Coordinating all information between the gameObjects
 **/ 
 public class GameLogic : MonoBehaviour
 {
-    [SerializeField] private GameObject Ball;
-    [SerializeField] GameObject MapGenerator;
-    [SerializeField] GameObject PathGenerator;
+    [SerializeField] private GameObject ball;
+    [SerializeField] private GameObject mapGenerator;
+    [SerializeField] private GameObject pathGenerator;
 
-
-    private List<GameObject> levelTiles = new List<GameObject>(); // Holds all tiles of the current level
-    private List<GameObject> pathTiles = new List<GameObject>(); // Holds all tiles of the current path
+    private Ball player;
+    private List<Hexagon> levelTiles = new List<Hexagon>(); // Holds all tiles of the current level
+    private List<Hexagon> pathTiles = new List<Hexagon>(); // Holds all tiles of the current path
     // probably also a list for crackedTiles
 
 
-    private Hexagon currentTile; // Not used yet, should be updated every frame
+    // private Hexagon currentTile; // Not used yet, should be updated every frame
 
 
     // Predefined path for a specific level, should go to another file later
@@ -25,7 +25,7 @@ public class GameLogic : MonoBehaviour
     {
         {  0,  2},
         {  0,  1},
-        {  1,  0}, 
+        {  1,  0},
         {  0, -1},
         {  0, -2},
         { -1, -3}
@@ -38,33 +38,8 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         CreateLevel();
-        SpawnBall(pathTiles[0]); // First element of the "path" list is the starting tile
+        CreatePlayers();
         PaintTheWorld();        
-    }
-
-
-    /*  
-     *  In this method, all the information between the files should be shared
-    **/
-        void Update()
-    {
-        // Get information from BallCollision, what's the current tile the ball is on (update field "currentTile") and then give orders, what should be done with the information
-        // E. g. ball is on crackedTile or pathTile or winningTile and then do something
-        BallMover ball = Ball.GetComponent<BallMover>();
-        currentTile = ball.GetCurrentTile();
-        Debug.Log(currentTile);
-
-        // Debug.Log(ball.GetPos());
-
-    }
-
-
-    /*  
-     *  All the physical logic should be here
-    **/
-        void FixedUpdate()
-    {
-        
     }
 
 
@@ -73,18 +48,21 @@ public class GameLogic : MonoBehaviour
     **/
     void CreateLevel()
     {
-        levelTiles = MapGenerator.GetComponent<MapGenerator>().GenerateMap(12, 6, 7, "AllTiles"); // Save tiles of the new generated map, specific information should be outsourced into another file later
-        pathTiles = PathGenerator.GetComponent<PathGenerator>().GetPathTiles(levelTiles, pathCoordLevel1); // Create a path
+        levelTiles = mapGenerator.GetComponent<MapGenerator>().GenerateMap(12, 6, 7, "AllTiles"); // Save tiles of the new generated map, specific information should be outsourced into another file later
+        pathTiles = pathGenerator.GetComponent<PathGenerator>().GetPathTiles(levelTiles, pathCoordLevel1); // Create a path
 
     }
 
-
     /*  
-     *  Let the Ball spawn at the desired position
+     *  Written in plural, just in case if we add multiple players later :)
     **/
-    void SpawnBall(GameObject spawnTile)
-    {        
-        Ball.GetComponent<BallMover>().GoToSpawnPosition(spawnTile);
+    void CreatePlayers()
+    {
+        GameObject player1Ball = Instantiate(ball);
+        player1Ball.name = "Player1";
+        player = player1Ball.GetComponent<Ball>();
+        player.GoToSpawnPosition(pathTiles[0]); // First element of the "path" list is the starting tile
+         
     }
 
 
@@ -104,7 +82,7 @@ public class GameLogic : MonoBehaviour
      *  Works : tiles are colored in with a delay
      *  
     **/
-    IEnumerator SetPathColor(Color color, List<GameObject> tiles, float time)
+    IEnumerator SetPathColor(Color color, List<Hexagon> tiles, float time)
     {
         for(int i = 0; i < tiles.Count; i++)
         {
@@ -120,7 +98,7 @@ public class GameLogic : MonoBehaviour
     * Method goes trough the list of path tiles in the opposite ordner and colors them in the color of all other tiles,
     * in this case: cyan
     */
-    IEnumerator MakePathDisappear(Color color, List<GameObject> tiles, float time)
+    IEnumerator MakePathDisappear(Color color, List<Hexagon> tiles, float time)
     {
         for(int i = tiles.Count -1 ; i > 0 ; i--)
         {
@@ -128,13 +106,12 @@ public class GameLogic : MonoBehaviour
             yield return new WaitForSeconds(time); //wait 2 seconds before continuing with the loop 
             // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
         }
-        
     }
     
     /*  
      *  This method goes through all tiles and changes their colors
     **/
-    void SetColorOfTilesList(Color color, List<GameObject> tiles)
+    void SetColorOfTilesList(Color color, List<Hexagon> tiles)
     {
         for(int i = 0; i < tiles.Count; i++)
         {
