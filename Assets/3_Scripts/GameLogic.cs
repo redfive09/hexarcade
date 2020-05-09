@@ -7,7 +7,7 @@ using UnityEngine;
 **/ 
 public class GameLogic : MonoBehaviour
 {
-    [SerializeField] GameObject Ball;
+    [SerializeField] private GameObject Ball;
     [SerializeField] GameObject MapGenerator;
     [SerializeField] GameObject PathGenerator;
 
@@ -54,7 +54,7 @@ public class GameLogic : MonoBehaviour
         currentTile = ball.GetCurrentTile();
         Debug.Log(currentTile);
 
-        Debug.Log(ball.GetPos());
+        // Debug.Log(ball.GetPos());
 
     }
 

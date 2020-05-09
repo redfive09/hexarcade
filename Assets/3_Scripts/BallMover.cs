@@ -35,8 +35,7 @@ public class BallMover : MonoBehaviour
     }
 
     public Hexagon GetCurrentTile()
-    {
-        Debug.Log(currentTile);
+    {        
         return currentTile;
     }
 
