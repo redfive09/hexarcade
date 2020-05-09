@@ -12,23 +12,24 @@ using UnityEngine;
         /* Method receives tiles (of a map) and the coordinates of the path
         *  Returns: List of hexagon tiles, which are part of the path, only
         **/     
-        public List<GameObject> GetPathTiles(List<GameObject> tiles, int[,] pathCoordinates)
+        public List<Hexagon> GetPathTiles(List<Hexagon> tiles, int[,] pathCoordinates)
         {
-            List<GameObject> path = new List<GameObject>(); // All tiles of the path get added here
-            for(int i = 0; i < tiles.Count; i++) // Loop goes through each tile (of a map)
-            {
-                // Getting map coordinates of the current tile
-                float x = tiles[i].GetComponent<Hexagon>().GetPositionX();
-                float z = tiles[i].GetComponent<Hexagon>().GetPositionZ();
+            List<Hexagon> path = new List<Hexagon>(); // All tiles of the path get added here
 
-                for(int k = 0; k < pathCoordinates.GetLength(0); k++) // Going through each path coordinate
+            for(int k = 0; k < pathCoordinates.GetLength(0); k++) // Going through each path coordinate
+            {
+                
+                for(int i = 0; i < tiles.Count; i++) // Loop goes through each tile (of a map)
                 {
+                // Getting map coordinates of the current tile
+                float x = tiles[i].GetPositionX();
+                float z = tiles[i].GetPositionZ();
 
                     // If the path coordinate is identical with the tile coordinate, then add it to "path"
                     if(pathCoordinates[k, 0] == x && pathCoordinates[k, 1] == z) 
                     {                        
                         path.Add(tiles[i]);
-                        tiles[i].GetComponent<Hexagon>().SetIsPath(true); // Tell the current tile, that it is part of the path
+                        tiles[i].SetIsPath(true); // Tell the current tile, that it is part of the path                        
                     }
                 }
             }
