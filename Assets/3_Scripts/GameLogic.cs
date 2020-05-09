@@ -17,7 +17,7 @@ public class GameLogic : MonoBehaviour
     // probably also a list for crackedTiles
 
 
-    private GameObject currentTile; // Not used yet, should be updated every frame
+    private Hexagon currentTile; // Not used yet, should be updated every frame
 
 
     // Predefined path for a specific level, should go to another file later
@@ -50,6 +50,12 @@ public class GameLogic : MonoBehaviour
     {
         // Get information from BallCollision, what's the current tile the ball is on (update field "currentTile") and then give orders, what should be done with the information
         // E. g. ball is on crackedTile or pathTile or winningTile and then do something
+        BallMover ball = Ball.GetComponent<BallMover>();
+        currentTile = ball.GetCurrentTile();
+        Debug.Log(currentTile);
+
+        Debug.Log(ball.GetPos());
+
     }
 
 
