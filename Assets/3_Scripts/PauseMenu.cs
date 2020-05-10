@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,21 +15,6 @@ public class PauseMenu : MonoBehaviour
     private String sceneToLoad = "MenuScene"; //I just put in a fake Menu Scene to test
     // Scene to load can be changed later 
     
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (GameIsCurrentlyPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
-    }
-
     public void Resume() //public to be able to call it from the button
     {
         pauseMenuUI.SetActive(false); //disable Pause Menu (Child of the Canvas this script is linked to 
@@ -39,7 +22,7 @@ public class PauseMenu : MonoBehaviour
         GameIsCurrentlyPaused = false;
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true); //enable Pause Menu (Child of the Canvas this script is linked to 
         Time.timeScale = 0f; // Stop time
