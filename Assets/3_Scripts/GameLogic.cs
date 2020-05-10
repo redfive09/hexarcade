@@ -73,8 +73,11 @@ public class GameLogic : MonoBehaviour
     {
         // Specific color should go later to a central place for all settings
         SetColorOfTilesList(Color.cyan, levelTiles);
-        StartCoroutine(SetPathColor(Color.yellow, pathTiles, 2f)); //since the method returns an IEnumerator it has to be calles with startCoroutine
-
+        StartCoroutine(SetPathColor(Color.yellow, pathTiles, 1f));  // Since the method returns an IEnumerator it has to be calles with startCoroutine
+        
+        Hexagon winningTile = pathTiles[pathTiles.Count-1];         // winningTile is the last element in the pathTiles list
+        winningTile.SetColor(Color.green);                          // Give winningTile a different colour
+        winningTile.SetIsWinningTile(true);                         // Generally should this not be set here, it just stays for now
     }
 
 
@@ -84,13 +87,13 @@ public class GameLogic : MonoBehaviour
     **/
     IEnumerator SetPathColor(Color color, List<Hexagon> tiles, float time)
     {
-        for(int i = 0; i < tiles.Count; i++)
+        for(int i = 0; i < tiles.Count-1; i++) // Spare the winningTile, that's why we calculate "tiles.Count -1"
         {
             tiles[i].GetComponent<Hexagon>().SetColor(color);
             yield return new WaitForSeconds(time); //wait 2 seconds before continuing with the loop
             // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
         }
-        yield return new WaitForSeconds(time); //wait two seconds after entire path has lit up
+        yield return new WaitForSeconds(time); //wait the specified seconds in time after entire path has lit up
         StartCoroutine(MakePathDisappear(Color.cyan, pathTiles, 1f)); //start the disappering backwards
     }
 
@@ -100,7 +103,7 @@ public class GameLogic : MonoBehaviour
     */
     IEnumerator MakePathDisappear(Color color, List<Hexagon> tiles, float time)
     {
-        for(int i = tiles.Count -1 ; i > 0 ; i--)
+        for(int i = tiles.Count-2 ; i > 0 ; i--) // Spare the winningTile, that's why we calculate "tiles.Count -2"
         {
             tiles[i].GetComponent<Hexagon>().SetColor(color);
             yield return new WaitForSeconds(time); //wait 2 seconds before continuing with the loop
