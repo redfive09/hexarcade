@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*  
+/*
  *  Class purpose: Coordinating all information between the gameObjects
-**/ 
+**/
 public class GameLogic : MonoBehaviour
 {
     [SerializeField] private GameObject ball;
@@ -21,7 +21,7 @@ public class GameLogic : MonoBehaviour
 
 
     // Predefined path for a specific level, should go to another file later
-    private int[,] pathCoordLevel1 = 
+    private int[,] pathCoordLevel1 =
     {
         {  0,  2},
         {  0,  1},
@@ -32,18 +32,18 @@ public class GameLogic : MonoBehaviour
     };
 
 
-    /*  
+    /*
     *   When level starts, it organizes every part of the game in the logical order
-    **/ 
+    **/
     void Start()
     {
         CreateLevel();
         CreatePlayers();
-        PaintTheWorld();        
+        PaintTheWorld();
     }
 
 
-    /*  
+    /*
      *  Create all the level relevant stuff, like the map and the path
     **/
     void CreateLevel()
@@ -53,7 +53,7 @@ public class GameLogic : MonoBehaviour
 
     }
 
-    /*  
+    /*
      *  Written in plural, just in case if we add multiple players later :)
     **/
     void CreatePlayers()
@@ -62,35 +62,38 @@ public class GameLogic : MonoBehaviour
         player1Ball.name = "Player1";
         player = player1Ball.GetComponent<Ball>();
         player.GoToSpawnPosition(pathTiles[0]); // First element of the "path" list is the starting tile
-         
+
     }
 
 
-    /*  
+    /*
      *  In this method, all the colours and effects have its place
     **/
     void PaintTheWorld()
     {
-        // Specific color should go later to a central place for all settings        
+        // Specific color should go later to a central place for all settings
         SetColorOfTilesList(Color.cyan, levelTiles);
-        StartCoroutine(SetPathColor(Color.yellow, pathTiles, 2f)); //since the method returns an IEnumerator it has to be calles with startCoroutine
+        StartCoroutine(SetPathColor(Color.yellow, pathTiles, 1f));  // Since the method returns an IEnumerator it has to be calles with startCoroutine
         
+        Hexagon winningTile = pathTiles[pathTiles.Count-1];         // winningTile is the last element in the pathTiles list
+        winningTile.SetColor(Color.green);                          // Give winningTile a different colour
+        winningTile.SetIsWinningTile(true);                         // Generally should this not be set here, it just stays for now
     }
 
 
     /*  This method will make the colour of the path
      *  Works : tiles are colored in with a delay
-     *  
+     *
     **/
     IEnumerator SetPathColor(Color color, List<Hexagon> tiles, float time)
     {
-        for(int i = 0; i < tiles.Count; i++)
+        for(int i = 0; i < tiles.Count-1; i++) // Spare the winningTile, that's why we calculate "tiles.Count -1"
         {
-            tiles[i].GetComponent<Hexagon>().SetColor(color);            
-            yield return new WaitForSeconds(time); //wait 2 seconds before continuing with the loop 
+            tiles[i].GetComponent<Hexagon>().SetColor(color);
+            yield return new WaitForSeconds(time); //wait 2 seconds before continuing with the loop
             // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
         }
-        yield return new WaitForSeconds(time); //wait two seconds after entire path has lit up
+        yield return new WaitForSeconds(time); //wait the specified seconds in time after entire path has lit up
         StartCoroutine(MakePathDisappear(Color.cyan, pathTiles, 1f)); //start the disappering backwards
     }
 
@@ -100,23 +103,23 @@ public class GameLogic : MonoBehaviour
     */
     IEnumerator MakePathDisappear(Color color, List<Hexagon> tiles, float time)
     {
-        for(int i = tiles.Count -1 ; i > 0 ; i--)
+        for(int i = tiles.Count-2 ; i > 0 ; i--) // Spare the winningTile, that's why we calculate "tiles.Count -2"
         {
-            tiles[i].GetComponent<Hexagon>().SetColor(color); 
-            yield return new WaitForSeconds(time); //wait 2 seconds before continuing with the loop 
+            tiles[i].GetComponent<Hexagon>().SetColor(color);
+            yield return new WaitForSeconds(time); //wait 2 seconds before continuing with the loop
             // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
         }
     }
-    
-    /*  
+
+    /*
      *  This method goes through all tiles and changes their colors
     **/
     void SetColorOfTilesList(Color color, List<Hexagon> tiles)
     {
         for(int i = 0; i < tiles.Count; i++)
         {
-            tiles[i].GetComponent<Hexagon>().SetColor(color); 
+            tiles[i].GetComponent<Hexagon>().SetColor(color);
         }
     }
-   
+
 }

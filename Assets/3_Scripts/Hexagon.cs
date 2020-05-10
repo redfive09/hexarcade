@@ -30,6 +30,11 @@ using UnityEngine;
         {
             isCrackedTile = status;
         }
+
+        public void SetIsWinningTile(bool status)
+        {
+            isWinningTile = status;
+        }
         
         // Setting map coordinates, not world coordinates
         public void SetMapPosition(float x, float z)
@@ -83,15 +88,16 @@ using UnityEngine;
             isCurrentlyOccupied = true;
             currentlyOccupiedCounter++; // Count the number of players on the tile
 
-            float delay = 2f;
-
+            
+            // All colour settings and other values like "delay" gotta go to another place later
             if(isPath)
             {
                 SetColor(Color.red);
             }
             else if(isCrackedTile)
             {
-                SetColor(Color.blue);
+                SetColor(Color.black);
+                float delay = 2f;
                 Destroy (gameObject, delay);
             }
         }
@@ -108,6 +114,11 @@ using UnityEngine;
             if (currentlyOccupiedCounter == 0)
             {
                 isCurrentlyOccupied = false;
+            }
+
+            if(!isCurrentlyOccupied)
+            {
+                SetColor(Color.blue);
             }
 
             // Maybe do something else
