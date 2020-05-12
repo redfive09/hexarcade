@@ -14,6 +14,7 @@ public class GameLogic : MonoBehaviour
     private Ball player;
     private List<Hexagon> levelTiles = new List<Hexagon>(); // Holds all tiles of the current level
     private List<Hexagon> pathTiles = new List<Hexagon>(); // Holds all tiles of the current path
+    private float tileColorTime = 1.0f; // time between each tile coloring (used in level intro)
     // probably also a list for crackedTiles
 
 
@@ -62,9 +63,28 @@ public class GameLogic : MonoBehaviour
         player1Ball.name = "Player1";
         player = player1Ball.GetComponent<Ball>();
         player.GoToSpawnPosition(pathTiles[0]); // First element of the "path" list is the starting tile
-
+        DeactivatePlayerControls();
+        Invoke("ActivatePlayerControls", pathCoordLevel1.Length * tileColorTime);
     }
 
+    /*
+     *  Deaktivates the player attached scripts "Ball" and "AccelerometerMovement". Hence all the effects and manipulations caused by them will be absent.
+    **/
+    void DeactivatePlayerControls()
+    {
+        player.GetComponent<Ball>().enabled = false;
+        player.GetComponent<AccelorometerMovement>().enabled = false;
+    }
+
+
+    /*
+     * Activates the player attached scripts "Ball" and "AccelerometerMovement"
+     **/
+    void ActivatePlayerControls()
+    {
+        player.GetComponent<Ball>().enabled = true;
+        player.GetComponent<AccelorometerMovement>().enabled = true;
+    }
 
     /*
      *  In this method, all the colours and effects have its place
@@ -73,7 +93,7 @@ public class GameLogic : MonoBehaviour
     {
         // Specific color should go later to a central place for all settings
         SetColorOfTilesList(Color.cyan, levelTiles);
-        StartCoroutine(SetPathColor(Color.yellow, pathTiles, 1f));  // Since the method returns an IEnumerator it has to be calles with startCoroutine
+        StartCoroutine(SetPathColor(Color.yellow, pathTiles, tileColorTime));  // Since the method returns an IEnumerator it has to be calles with startCoroutine
         
         Hexagon winningTile = pathTiles[pathTiles.Count-1];         // winningTile is the last element in the pathTiles list
         winningTile.SetColor(Color.green);                          // Give winningTile a different colour
