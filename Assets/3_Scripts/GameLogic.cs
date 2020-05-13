@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
  *  Class purpose: Coordinating all information between the gameObjects
@@ -10,11 +11,14 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private GameObject ball;
     [SerializeField] private GameObject mapGenerator;
     [SerializeField] private GameObject pathGenerator;
+    [SerializeField] private int levelTime; // time the player has to complete the level
+    [SerializeField] private Text timeDisplay; // text on the canvas to comunicate the time left to the player
 
     private Ball player;
     private List<Hexagon> levelTiles = new List<Hexagon>(); // Holds all tiles of the current level
     private List<Hexagon> pathTiles = new List<Hexagon>(); // Holds all tiles of the current path
     private float tileColorTime = 1.0f; // time between each tile coloring (used in level intro)
+
     // probably also a list for crackedTiles
 
 
@@ -41,6 +45,7 @@ public class GameLogic : MonoBehaviour
         CreateLevel();
         CreatePlayers();
         PaintTheWorld();
+        StartTimers();
         SetDistractorTilesLevel1();
     }
 
@@ -51,6 +56,14 @@ public class GameLogic : MonoBehaviour
     {
         pathTiles[2].SetIsCrackedTile(true);
         pathTiles[3].SetIsMovingTile(true);
+    }
+
+    void Update()
+    {
+        if (levelTime <= 0)
+        {
+            CancelInvoke("ElapseLevelTime");
+        }
     }
 
 
@@ -104,10 +117,30 @@ public class GameLogic : MonoBehaviour
         // Specific color should go later to a central place for all settings
         SetColorOfTilesList(Color.cyan, levelTiles);
         StartCoroutine(SetPathColor(Color.yellow, pathTiles, tileColorTime));  // Since the method returns an IEnumerator it has to be calles with startCoroutine
-        
-        Hexagon winningTile = pathTiles[pathTiles.Count-1];         // winningTile is the last element in the pathTiles list
+
+        Hexagon winningTile = pathTiles[pathTiles.Count - 1];         // winningTile is the last element in the pathTiles list
         winningTile.SetColor(Color.green);                          // Give winningTile a different colour
         winningTile.SetIsWinningTile(true);                         // Generally should this not be set here, it just stays for now
+    }
+
+    /*
+     *  Starts the elapsing of the time the player has to finish the level after the path was shown. It is coordinated through a time per tile to light up and basically the lenght of the path.
+     **/
+    void StartTimers()
+    {
+        InvokeRepeating("ElapseLevelTime", pathCoordLevel1.Length * tileColorTime, 1);
+    }
+
+    /*
+     * Counts down level Time by a decement of 1. Set the UI according to the time value;
+     **/
+    void ElapseLevelTime()
+    {
+        if (levelTime > 0)
+        {
+            levelTime -= 1;
+            timeDisplay.text = string.Format("Time left:\n{0:G3}", levelTime);
+        }
     }
 
 
