@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
  *  Class purpose: Coordinating all information between the gameObjects
@@ -11,6 +12,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private GameObject mapGenerator;
     [SerializeField] private GameObject pathGenerator;
     [SerializeField] private int levelTime; // time the player has to complete the level
+    [SerializeField] private Text timeDisplay; // text on the canvas to comunicate the time left to the player
 
     private Ball player;
     private List<Hexagon> levelTiles = new List<Hexagon>(); // Holds all tiles of the current level
@@ -120,14 +122,14 @@ public class GameLogic : MonoBehaviour
     }
 
     /*
-     * Counts down level Time by a decement of 1.
+     * Counts down level Time by a decement of 1. Set the UI according to the time value;
      **/
     void ElapseLevelTime()
     {
         if (levelTime > 0)
         {
-            //Debug.Log(levelTime);
             levelTime -= 1;
+            timeDisplay.text = string.Format("Time left:\n{0:G3}", levelTime);
         }
     }
 
