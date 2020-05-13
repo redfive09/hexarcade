@@ -1,25 +1,29 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace _3_Scripts
 {
-    public class LoseState : State
+    public class LoseState : MonoBehaviour, IState
     {
-        public override string OnEnter()
+        
+        //Change the time scale to 0, so that nothing moves, then destroy the ball
+        public IEnumerator OnEnter()
         {
+            print("Entering Lose State");
             Time.timeScale = 0;
-            return "Entering lose state";
+            Destroy(GameObject.Find("Player1"));
+            yield break;
         }
 
-        public override string OnExit()
+        public IEnumerator OnExit()
         {
-            Time.timeScale = 1;
-            return "exiting lose state";
+            yield break;
         }
 
-        public override string Run()
+        public IEnumerator Run()
         {
-            
-            return "running lose state";
+            print("Running Lose State");
+            yield break;
         }
     }
 }

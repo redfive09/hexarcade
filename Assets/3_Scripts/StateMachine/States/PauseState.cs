@@ -1,24 +1,26 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace _3_Scripts
 {
-    public class PauseState : State
+    public class PauseState: MonoBehaviour, IState
     {
-        public override string OnEnter()
+        public IEnumerator OnEnter()
         {
-            Time.timeScale = 0;
-            return "entering pause state";
+            print("Entering Pause State");
+            yield break;
         }
 
-        public override string OnExit()
+        public IEnumerator OnExit()
         {
-            Time.timeScale = 1;
-            return "exiting pause state";
+            print("Exiting Pause State");
+            yield break;
         }
 
-        public override string Run()
+        public IEnumerator Run()
         {
-            return "running pause state";
+            print("Running Pause State");
+            yield break;
         }
     }
 }

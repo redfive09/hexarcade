@@ -1,20 +1,26 @@
-﻿namespace _3_Scripts
+﻿using System.Collections;
+using UnityEngine;
+
+namespace _3_Scripts
 {
-    internal class PlayState : State
+    public class PlayState : MonoBehaviour, IState
     {
-        public override string OnEnter()
+        public IEnumerator OnEnter()
         {
-            return "entering play state";
+            print("Entering Play State");
+            yield break;
         }
 
-        public override string OnExit()
+        public IEnumerator OnExit()
         {
-            return "exiting play state";
+            print("Exiting Play State");
+            yield break;
         }
 
-        public override string Run()
+        public IEnumerator Run()
         {
-            return "running play state";
+            print("Running Play State");
+            yield break;
         }
     }
 }

@@ -4,14 +4,21 @@ namespace _3_Scripts
 {
     public class StateMachine : MonoBehaviour
     {
+        
+        //Fields
         private static StateMachine _sm;
         private States _currentState, _nextState;
         private Transitions _transition;
-        private State beginState = new BeginState();
-        private State playState = new PlayState();
-        private State pauseState = new PauseState();
-        private State loseState = new LoseState();
+        private IState _beginState;
+        private IState _playState;
+        private IState _pauseState;
+        private IState _loseState;
 
+        /*
+         *Give instance of State Machine
+         * 
+         *returns _sm - StateMachine Object
+         */
         public static StateMachine GetInstance()
         {
             if (_sm == null)
@@ -21,15 +28,31 @@ namespace _3_Scripts
             return _sm;
         }
 
+        /*
+         * Create instance of State Machine
+         */
         private static void CreateInstance()
         {
             var go = new GameObject();
             _sm = go.AddComponent<StateMachine>();
         }
 
+        /*
+         * Initiate states from the field
+         */
+        private void initiateState()
+        {
+            var go = new GameObject();
+            _beginState = go.AddComponent<BeginState>();
+            _playState = go.AddComponent<PlayState>();
+            _pauseState = go.AddComponent<PauseState>();
+            _loseState = go.AddComponent<LoseState>();
+        }
+
         private void Start()
         {
             _sm = StateMachine.GetInstance();
+            initiateState();
             _currentState = States.Begin;
             _nextState = States.Play;
             _transition = Transitions.None;
@@ -44,107 +67,117 @@ namespace _3_Scripts
             CheckState();
             
             ExecuteState();
-            
+
+            _currentState = _nextState;
             _transition = Transitions.None;
         }
-
+        
+        /*
+         * Checks if transition has changed or not
+         * If transition is changed, change next state with ChangeState()
+         */
+        private void CheckTransition()
+        {
+            if (_transition == Transitions.None) return;
+            _nextState = ChangeState();
+        }
+        
+        /*
+         * Checks if the current state is the same as next state
+         * If not, call OnStateChange() which should be called, as soon as the state changes in a frame
+         */
         private void CheckState()
         {
             if (_currentState == _nextState) return;
             OnStateChange();
-            _currentState = _nextState;
+            
         }
 
-        private void CheckTransition()
-        {
-            if (_transition == Transitions.None) return;
-            ChangeState();
-        }
-
+        /*
+         * Run coroutine from each state when state is going to change
+         * These coroutines are the one to set up the runing phase of a state or before the state is changing
+         */
         private void OnStateChange()
         {
             switch (_currentState)
             {
                 case States.Begin when _nextState == States.Play:
-                    beginState.OnExit();
-                    _currentState = _nextState;
-                    playState.OnEnter();
+                    StartCoroutine(_beginState.OnExit());
+                    StartCoroutine(_playState.OnEnter());
                     break;
                 case States.Play when _nextState == States.Pause:
-                    playState.OnExit();
-                    _currentState = _nextState;
-                    pauseState.OnEnter();
+                    StartCoroutine(_playState.OnExit());
+                    StartCoroutine(_pauseState.OnEnter());
                     break;
                 case States.Pause when _nextState == States.Play:
-                    pauseState.OnExit();
-                    _currentState = _nextState;
-                    playState.OnEnter();
+                    StartCoroutine(_pauseState.OnExit());
+                    StartCoroutine(_playState.OnEnter());
                     break;
                 case States.Pause when _nextState == States.Begin:
-                    pauseState.OnExit();
-                    _currentState = _nextState;
-                    playState.OnEnter();
+                    StartCoroutine(_pauseState.OnExit());
+                    StartCoroutine(_playState.OnEnter());
                     break;
                 case States.Play when _nextState == States.Lose:
-                    playState.OnExit();
-                    _currentState = _nextState;
-                    loseState.OnEnter();
+                    StartCoroutine(_playState.OnExit());
+                    StartCoroutine(_loseState.OnEnter());
                     break;
                 case States.Lose when _nextState == States.Play:
-                    loseState.OnExit();
-                    _currentState = _nextState;
-                    playState.OnEnter();
+                    StartCoroutine(_loseState.OnExit());
+                    StartCoroutine(_playState.OnEnter());
                     break;
             }
         }
 
+        /*
+         * Run the code from certain State
+         */
         private void ExecuteState()
         {
             switch (_currentState)
             {
                 case States.Begin :
-                    beginState.Run();
+                    _beginState.Run();
                     break;
                 case States.Play : 
-                    playState.Run();
+                    _playState.Run();
                     break;
                 case States.Pause : 
-                    pauseState.Run();
+                    _pauseState.Run();
                     break;
                 case States.Lose : 
-                    loseState.Run();
+                    _loseState.Run();
                     break;
             }
         }
 
-        private void ChangeState()
+        /*
+         * Checks if certain state and certain transition meets
+         * 
+         * returns States when condition met with certain mapping
+         */
+        private States ChangeState()
         {
             switch (_currentState)
             {
                 case States.Begin when _transition == Transitions.Playpressed:
-                    _nextState = States.Play;
-                    break;
+                    return States.Play;
                 case States.Play when _transition == Transitions.Pausepressed:
-                    _nextState = States.Pause;
-                    break;
+                    return States.Pause;
                 case States.Pause when _transition == Transitions.Resumepressed:
-                    _nextState = States.Play;
-                    break;
+                    return States.Play;
                 case States.Pause when _transition == Transitions.Quitpressed:
-                    _nextState = States.Begin;
-                    break;
+                    return States.Begin;
                 case States.Play when _transition == Transitions.Levelup:
-                    _nextState = States.Begin;
-                    break;
+                    return States.Begin;
                 case States.Play when _transition == Transitions.Loseball:
-                    _nextState = States.Lose;
-                    break;
+                    return States.Lose;
                 case States.Lose when _transition == Transitions.Restartpressed:
-                    _nextState = States.Begin;
-                    break;
+                    return States.Begin;
             }
+            return _currentState;
         }
 
+        //======================Function to call when something happens in the game and make a transition=====================//
         public void Play()
         {
             _transition = Transitions.Playpressed;

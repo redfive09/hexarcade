@@ -77,6 +77,11 @@ using UnityEngine;
             return isCurrentlyOccupied;
         }
 
+        public bool GetIsWinningTile()
+        {
+            return isWinningTile;
+        }
+
 
         /* ------------------------------ BEHAVIOUR METHODS BEGINN ------------------------------  */
 
@@ -124,6 +129,11 @@ using UnityEngine;
             // Maybe do something else
         }
 
+
+        void Start()
+        {
+            gameObject.AddComponent<WinScenario>();
+        }
     } // CLASS END
 
 

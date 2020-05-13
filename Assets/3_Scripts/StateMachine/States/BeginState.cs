@@ -1,22 +1,26 @@
-﻿using System;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace _3_Scripts
 {
-    class BeginState : State
+    public class BeginState : MonoBehaviour, IState
     {
-        public override string OnEnter()
+        public IEnumerator OnEnter()
         {
-            return "entering begin state";
+            print("Entering Begin State, Generating map");
+            yield break;
         }
 
-        public override string OnExit()
+        public IEnumerator OnExit()
         {
-            return "exiting begin state";
+            print("Exiting Begin State, Done Generating map");
+            yield break;
         }
 
-        public override String Run()
+        public IEnumerator Run()
         {
-            return "running begin state";
+            print("Running Begin State");
+            yield break;
         }
     }
 }
