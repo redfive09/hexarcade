@@ -1,6 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
+using Vector3 = UnityEngine.Vector3;
+
 /*
  * Code from this tutorial: https://www.youtube.com/watch?v=fsEkZLBeTJ8
  * Check out the Glide Game Tutorial on his channel, it's a great game using the AccelorometerMovement Mechanic

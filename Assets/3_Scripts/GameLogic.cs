@@ -41,6 +41,16 @@ public class GameLogic : MonoBehaviour
         CreateLevel();
         CreatePlayers();
         PaintTheWorld();
+        SetDistractorTilesLevel1();
+    }
+
+    /*
+     *  Sets the distractor tiles for Level 1.
+     */
+    void SetDistractorTilesLevel1()
+    {
+        pathTiles[2].SetIsCrackedTile(true);
+        pathTiles[3].SetIsMovingTile(true);
     }
 
 
@@ -103,7 +113,6 @@ public class GameLogic : MonoBehaviour
 
     /*  This method will make the colour of the path
      *  Works : tiles are colored in with a delay
-     *
     **/
     IEnumerator SetPathColor(Color color, List<Hexagon> tiles, float time)
     {

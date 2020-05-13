@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 /*  
  *  Class purpose: Giving each ball (respectively player) values and behaviour 
 **/
