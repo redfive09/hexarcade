@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,16 +9,34 @@ using UnityEngine;
     {
         // Different booleans, not all them have setters or getters yet
         private bool isPath = false;
-        private bool isCrackedTile = true;
+        private bool isCrackedTile = false;
         private bool isWinningTile = false;
+        private bool isMovingTile = false;
         private bool isCurrentlyOccupied = false;
         private int currentlyOccupiedCounter = 0;
-        
 
         // Map coordinates, not world coordinates!
         private float x;
         private float z;
+        
+        // Start and End positions for moving tiles
+        private Vector3 movingTilePosA;
+        private Vector3 movingTilePosB;
 
+        
+        /*
+         * Method is called at initiation of the game object.
+         * Calls the method to set the positions of moving tiles and performs a coroutine that moves the tiles up and
+         * down, as long as isMovingTile is set to true.
+         */
+        IEnumerator Start()
+        {
+            SetMovingTilePositions();
+            while (isMovingTile) {
+                yield return StartCoroutine(MoveObject(transform, movingTilePosA, movingTilePosB, 3));
+                yield return StartCoroutine(MoveObject(transform, movingTilePosB, movingTilePosA, 3));
+            }
+        }
 
         /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
         public void SetIsPath(bool status)
@@ -35,6 +53,13 @@ using UnityEngine;
         {
             isWinningTile = status;
         }
+
+        // New
+        public void SetIsMovingTile(bool status)
+        {
+            isMovingTile = status;
+        }
+        // New
         
         // Setting map coordinates, not world coordinates
         public void SetMapPosition(float x, float z)
@@ -57,6 +82,17 @@ using UnityEngine;
         public void SetIsCurrentlyOccupied(bool status)
         {
             isCurrentlyOccupied = status;
+        }
+
+        /*
+         * Sets the initial positions of moving tiles
+         */
+        private void SetMovingTilePositions()
+        {
+            this.movingTilePosA = transform.position;
+            Vector3 pointB = transform.position;
+            pointB.y = -2;
+            this.movingTilePosB = pointB;
         }
 
 
@@ -90,15 +126,17 @@ using UnityEngine;
 
             
             // All colour settings and other values like "delay" gotta go to another place later
-            if(isPath)
+            if(isPath & !isCrackedTile)
             {
-                SetColor(Color.red);
+                SetColor(Color.blue);
             }
             else if(isCrackedTile)
             {
-                SetColor(Color.black);
-                float delay = 2f;
-                Destroy (gameObject, delay);
+                ActivateCrackedTile();
+            }
+            else if(!isPath)
+            {
+                SetColor(Color.red);
             }
         }
 
@@ -115,15 +153,32 @@ using UnityEngine;
             {
                 isCurrentlyOccupied = false;
             }
-
-            if(!isCurrentlyOccupied)
-            {
-                SetColor(Color.blue);
-            }
-
-            // Maybe do something else
         }
 
+        
+        /* 
+        *  Method gets called to change the color of the cracked tile and destroy it after a delay.
+        **/
+        private void ActivateCrackedTile()
+        {
+            SetColor(Color.grey);
+            float delay = 1f;
+            Destroy (gameObject, delay);
+        }
+        
+        
+        /*
+         *  Method gets called to move the tile up and down.
+         */
+        IEnumerator MoveObject (Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
+        {
+            float i = 0.0f;
+            float rate = 1.0f / time;
+            while (i < 1.0f) {
+                i += Time.deltaTime * rate;
+                thisTransform.position = Vector3.Lerp(startPos, endPos, i);
+                yield return null;
+            }
+        }
     } // CLASS END
-
-
+    
