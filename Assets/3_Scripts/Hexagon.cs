@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-    /*  
+    /*
      *  Class purpose: Storing values of each individual tile and giving it behaviour, e. g. do something, when the ball stands on it
-    **/ 
+    **/
     public class Hexagon : MonoBehaviour
     {
         // Different booleans, not all them have setters or getters yet
@@ -18,12 +18,12 @@ using UnityEngine;
         // Map coordinates, not world coordinates!
         private float x;
         private float z;
-        
+
         // Start and End positions for moving tiles
         private Vector3 movingTilePosA;
         private Vector3 movingTilePosB;
 
-        
+
         /*
          * Method is called at initiation of the game object.
          * Calls the method to set the positions of moving tiles and performs a coroutine that moves the tiles up and
@@ -41,7 +41,7 @@ using UnityEngine;
         /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
         public void SetIsPath(bool status)
         {
-            isPath = status;            
+            isPath = status;
         }
 
         public void SetIsCrackedTile(bool status)
@@ -60,7 +60,7 @@ using UnityEngine;
             isMovingTile = status;
         }
         // New
-        
+
         // Setting map coordinates, not world coordinates
         public void SetMapPosition(float x, float z)
         {
@@ -103,7 +103,7 @@ using UnityEngine;
             return x;
         }
 
-        public float GetPositionZ() 
+        public float GetPositionZ()
         {
             return z;
         }
@@ -113,10 +113,15 @@ using UnityEngine;
             return isCurrentlyOccupied;
         }
 
+        public bool GetIsWinningTile()
+        {
+            return isWinningTile;
+        }
+
 
         /* ------------------------------ BEHAVIOUR METHODS BEGINN ------------------------------  */
 
-        /* Method gets called in order to tell the tile that a player stands on it 
+        /* Method gets called in order to tell the tile that a player stands on it
         *  Depending on its values, the tile knows what to do
         **/
         public void GotOccupied()
@@ -124,7 +129,7 @@ using UnityEngine;
             isCurrentlyOccupied = true;
             currentlyOccupiedCounter++; // Count the number of players on the tile
 
-            
+
             // All colour settings and other values like "delay" gotta go to another place later
             if(isPath & !isCrackedTile)
             {
@@ -145,7 +150,7 @@ using UnityEngine;
         *  Depending on its values, the tile knows what to do
         **/
         public void GotUnoccupied()
-        {            
+        {
 
             // First check, if no more player is on the field
             currentlyOccupiedCounter--;
@@ -155,8 +160,8 @@ using UnityEngine;
             }
         }
 
-        
-        /* 
+
+        /*
         *  Method gets called to change the color of the cracked tile and destroy it after a delay.
         **/
         private void ActivateCrackedTile()
@@ -165,8 +170,8 @@ using UnityEngine;
             float delay = 1f;
             Destroy (gameObject, delay);
         }
-        
-        
+
+
         /*
          *  Method gets called to move the tile up and down.
          */
@@ -180,5 +185,10 @@ using UnityEngine;
                 yield return null;
             }
         }
+
+
+        void Start()
+        {
+            gameObject.AddComponent<WinScenario>();
+        }
     } // CLASS END
-    
