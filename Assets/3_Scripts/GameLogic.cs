@@ -15,9 +15,10 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private Text timeDisplay; // text on the canvas to comunicate the time left to the player
 
     private Ball player;
+    private Timer timer;
     private List<Hexagon> levelTiles = new List<Hexagon>(); // Holds all tiles of the current level
     private List<Hexagon> pathTiles = new List<Hexagon>(); // Holds all tiles of the current path
-    private float tileColorTime = 1.0f; // time between each tile coloring (used in level intro)
+    private float tileColorTime = 0.1f; // time between each tile coloring (used in level intro)
 
     // probably also a list for crackedTiles
 
@@ -45,7 +46,7 @@ public class GameLogic : MonoBehaviour
         CreateLevel();
         CreatePlayers();
         PaintTheWorld();
-        SetDistractorTilesLevel1();
+        SetDistractorTilesLevel1();        
     }
 
     void Update()
@@ -54,7 +55,7 @@ public class GameLogic : MonoBehaviour
         {
             CancelInvoke("ElapseLevelTime");
         }
-      }
+    }
 
     /*
      *  Sets the distractor tiles for Level 1.
