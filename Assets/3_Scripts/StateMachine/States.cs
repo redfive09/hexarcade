@@ -5,6 +5,7 @@
         Begin,
         Play,
         Pause,
-        Lose
+        Lose,
+        Win
     }
 }

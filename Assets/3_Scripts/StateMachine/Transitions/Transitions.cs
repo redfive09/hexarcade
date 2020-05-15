@@ -8,6 +8,7 @@
         Resumepressed,
         Quitpressed,
         Loseball,
+        Winball,
         Restartpressed,
         Levelup
     }

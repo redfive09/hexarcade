@@ -13,6 +13,7 @@ namespace _3_Scripts
         private IState _playState;
         private IState _pauseState;
         private IState _loseState;
+        private IState _winState;
 
         /*
          *Give instance of State Machine
@@ -34,6 +35,7 @@ namespace _3_Scripts
         private static void CreateInstance()
         {
             var go = new GameObject();
+            go.name = "StateMachine";
             _sm = go.AddComponent<StateMachine>();
         }
 
@@ -47,6 +49,7 @@ namespace _3_Scripts
             _playState = go.AddComponent<PlayState>();
             _pauseState = go.AddComponent<PauseState>();
             _loseState = go.AddComponent<LoseState>();
+            _winState = go.AddComponent<WinState>();
         }
 
         private void Start()
@@ -147,6 +150,9 @@ namespace _3_Scripts
                 case States.Lose : 
                     _loseState.Run();
                     break;
+                case States.Win : 
+                    _winState.Run();
+                    break;
             }
         }
 
@@ -161,18 +167,27 @@ namespace _3_Scripts
             {
                 case States.Begin when _transition == Transitions.Playpressed:
                     return States.Play;
+
                 case States.Play when _transition == Transitions.Pausepressed:
                     return States.Pause;
+
                 case States.Pause when _transition == Transitions.Resumepressed:
                     return States.Play;
+
                 case States.Pause when _transition == Transitions.Quitpressed:
                     return States.Begin;
+
                 case States.Play when _transition == Transitions.Levelup:
                     return States.Begin;
+
                 case States.Play when _transition == Transitions.Loseball:
                     return States.Lose;
+
                 case States.Lose when _transition == Transitions.Restartpressed:
                     return States.Begin;
+                    
+                case States.Win when _transition == Transitions.Winball:
+                    return States.Win;
             }
             return _currentState;
         }
@@ -201,6 +216,11 @@ namespace _3_Scripts
         public void Lose()
         {
             _transition = Transitions.Loseball;
+        }
+
+        public void Win()
+        {
+            _transition = Transitions.Winball;
         }
 
         public void Restart()

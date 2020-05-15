@@ -31,6 +31,7 @@ using UnityEngine;
          */
         IEnumerator Start()
         {
+            gameObject.AddComponent<WinScenario>();
             SetMovingTilePositions();
             while (isMovingTile) {
                 yield return StartCoroutine(MoveObject(transform, movingTilePosA, movingTilePosB, 3));
@@ -186,9 +187,4 @@ using UnityEngine;
             }
         }
 
-
-        void Start()
-        {
-            gameObject.AddComponent<WinScenario>();
-        }
     } // CLASS END
