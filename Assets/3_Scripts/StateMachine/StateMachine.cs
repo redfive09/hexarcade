@@ -98,35 +98,50 @@ namespace _3_Scripts
 
         /*
          * Run coroutine from each state when state is going to change
-         * These coroutines are the one to set up the runing phase of a state or before the state is changing
+         * These coroutines are the ones to set up the running phase of a state or before the state is changing
          */
         private void OnStateChange()
         {
             switch (_currentState)
             {
-                case States.Begin when _nextState == States.Play:
+                case States.Begin when _nextState == States.Play: // Start playing
                     StartCoroutine(_beginState.OnExit());
                     StartCoroutine(_playState.OnEnter());
                     break;
-                case States.Play when _nextState == States.Pause:
+
+                case States.Play when _nextState == States.Pause: // Player pauses
                     StartCoroutine(_playState.OnExit());
                     StartCoroutine(_pauseState.OnEnter());
                     break;
-                case States.Pause when _nextState == States.Play:
-                    StartCoroutine(_pauseState.OnExit());
-                    StartCoroutine(_playState.OnEnter());
-                    break;
-                case States.Pause when _nextState == States.Begin:
-                    StartCoroutine(_pauseState.OnExit());
-                    StartCoroutine(_playState.OnEnter());
-                    break;
-                case States.Play when _nextState == States.Lose:
+
+                case States.Play when _nextState == States.Lose: // Player looses
                     StartCoroutine(_playState.OnExit());
                     StartCoroutine(_loseState.OnEnter());
                     break;
-                case States.Lose when _nextState == States.Play:
+
+                case States.Play when _nextState == States.Win: // Player wins
+                    StartCoroutine(_playState.OnExit());
+                    StartCoroutine(_winState.OnEnter());
+                    break;
+
+                case States.Pause when _nextState == States.Play: // Player resumes
+                    StartCoroutine(_pauseState.OnExit());
+                    StartCoroutine(_playState.OnEnter());
+                    break;
+
+                case States.Pause when _nextState == States.Begin: // Player restarts by choice
+                    StartCoroutine(_pauseState.OnExit());
+                    StartCoroutine(_playState.OnEnter());
+                    break;
+
+                case States.Lose when _nextState == States.Begin: // Player restarts after loss
                     StartCoroutine(_loseState.OnExit());
                     StartCoroutine(_playState.OnEnter());
+                    break;
+
+                case States.Win when _nextState == States.Begin: // Game restarts by choice after winning
+                    StartCoroutine(_winState.OnExit());
+                    StartCoroutine(_beginState.OnEnter());
                     break;
             }
         }
@@ -185,7 +200,7 @@ namespace _3_Scripts
 
                 case States.Lose when _transition == Transitions.Restartpressed:
                     return States.Begin;
-                    
+
                 case States.Win when _transition == Transitions.Winball:
                     return States.Win;
             }
