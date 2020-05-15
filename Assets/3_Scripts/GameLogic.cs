@@ -18,6 +18,7 @@ public class GameLogic : MonoBehaviour
     private Timer timer;
     private List<Hexagon> levelTiles = new List<Hexagon>(); // Holds all tiles of the current level
     private List<Hexagon> pathTiles = new List<Hexagon>(); // Holds all tiles of the current path
+    
     private float tileColorTime = 0.1f; // time between each tile coloring (used in level intro)
 
     // probably also a list for crackedTiles
@@ -46,7 +47,7 @@ public class GameLogic : MonoBehaviour
         CreateLevel();
         CreatePlayers();
         PaintTheWorld();
-        SetDistractorTilesLevel1();        
+        SetDistractorTilesLevel1();
     }
 
     void Update()

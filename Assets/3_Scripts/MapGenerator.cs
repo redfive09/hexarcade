@@ -12,13 +12,15 @@ public class MapGenerator : MonoBehaviour
     // Offset are used for the gap between the tiles
     [SerializeField] private float tileXOffset = 1.8f;
     [SerializeField] private float tileZOffset = 1.565f;
+    [SerializeField] private int mapWidth = 12;
+    [SerializeField] private int mapHeight = 6;
+    [SerializeField] private string folderName = "platform_1";
 
 
     // Saves all positions of all tiles
     // Not used yet, but maybe we need it later
     private List<Vector3> tilePos = new List<Vector3>();
-
-
+    
 
     /*  This method checks first all the parameters, if something is wrong, then it prints a message to the console
      *  Returns: List of hexagon tiles of a new map with the entered values
@@ -37,6 +39,11 @@ public class MapGenerator : MonoBehaviour
             );
             return null;
         }
+    }
+
+    public void GenerateMapWithEditor()
+    {
+        GenerateMap(mapWidth, mapHeight, GetComponent<SphereCollider>().radius, folderName);
     }
 
 

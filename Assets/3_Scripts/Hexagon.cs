@@ -8,20 +8,22 @@ using UnityEngine;
     public class Hexagon : MonoBehaviour
     {
         // Different booleans, not all them have setters or getters yet
-        private bool isPath = false;
-        private bool isCrackedTile = false;
-        private bool isWinningTile = false;
-        private bool isMovingTile = false;
-        private bool isCurrentlyOccupied = false;
-        private int currentlyOccupiedCounter = 0;
+        [SerializeField] private bool isPath = false;
+        [SerializeField] private bool isCrackedTile = false;
+        [SerializeField] private bool isStartingTile = false;
+        [SerializeField] private bool isWinningTile = false;
+        [SerializeField] private bool isMovingTile = false;
+        [SerializeField] private bool isCurrentlyOccupied = false;
+
+        // Start and End positions for moving tiles
+        [SerializeField] private Vector3 movingTilePosA;
+        [SerializeField] private Vector3 movingTilePosB;
+
+        private int currentlyOccupiedCounter = 0; // Counts the number of players, who are currently on the tile
 
         // Map coordinates, not world coordinates!
         private float x;
         private float z;
-
-        // Start and End positions for moving tiles
-        private Vector3 movingTilePosA;
-        private Vector3 movingTilePosB;
 
 
         /*
@@ -31,7 +33,6 @@ using UnityEngine;
          */
         IEnumerator Start()
         {
-            gameObject.AddComponent<WinScenario>();
             SetMovingTilePositions();
             while (isMovingTile) {
                 yield return StartCoroutine(MoveObject(transform, movingTilePosA, movingTilePosB, 3));
@@ -124,15 +125,18 @@ using UnityEngine;
 
         /* Method gets called in order to tell the tile that a player stands on it
         *  Depending on its values, the tile knows what to do
-        **/
+        **/ // All colour settings and other values like "delay" gotta go to another place later
         public void GotOccupied()
         {
             isCurrentlyOccupied = true;
             currentlyOccupiedCounter++; // Count the number of players on the tile
-
-
-            // All colour settings and other values like "delay" gotta go to another place later
-            if(isPath & !isCrackedTile)
+            
+            if(isWinningTile)
+            {
+                print("touched winning tile");
+                // StateMachine.LevelUp();
+            }
+            else if(isPath & !isCrackedTile)
             {
                 SetColor(Color.blue);
             }

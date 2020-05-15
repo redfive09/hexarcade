@@ -10,8 +10,8 @@ namespace _3_Scripts
         public IEnumerator OnEnter()
         {
             print("Entering Win State");
-            Time.timeScale = 0;
-            Destroy(GameObject.Find("Player1"));
+            // Time.timeScale = 0;
+            // Destroy(GameObject.Find("Player1"));
             yield break;
         }
 
