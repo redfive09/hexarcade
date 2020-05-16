@@ -2,6 +2,7 @@
 using UnityEditor;
 
 [CustomEditor(typeof(MapGenerator))]
+
 public class MapEditor : Editor {
     MapGenerator mapGenerator;
 
