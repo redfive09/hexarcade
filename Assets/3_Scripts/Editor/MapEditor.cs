@@ -5,6 +5,7 @@ using UnityEditor;
 public class MapEditor : Editor {
     MapGenerator mapGenerator;
 
+    // Thank you Brackeys: https://www.youtube.com/watch?v=RInUu1_8aGw
 	public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();

@@ -13,6 +13,7 @@ using UnityEngine;
         [SerializeField] private bool isStartingTile = false;
         [SerializeField] private bool isWinningTile = false;
         [SerializeField] private bool isMovingTile = false;
+        [SerializeField] private bool isCheckPoint = false;
         [SerializeField] private bool isCurrentlyOccupied = false;
 
         // Start and End positions for moving tiles

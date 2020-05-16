@@ -14,9 +14,12 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private float tileZOffset = 1.565f;
     [SerializeField] private int mapWidth = 12;
     [SerializeField] private int mapHeight = 6;
-    [SerializeField] private string folderName = "platform_1";
-
-
+    [SerializeField] private string folderName = "Platform1";
+    [SerializeField] GameObject mapFolder; // Prefab-Folder for all platforms and tiles
+    
+    private GameObject newMap; // Actual Folder of new map
+    private Map map; // Script of actual map
+    
     // Saves all positions of all tiles
     // Not used yet, but maybe we need it later
     private List<Vector3> tilePos = new List<Vector3>();
@@ -46,6 +49,11 @@ public class MapGenerator : MonoBehaviour
         GenerateMap(mapWidth, mapHeight, GetComponent<SphereCollider>().radius, folderName);
     }
 
+    public void GenerateTileWithEditor()
+    {
+        GenerateMap(mapWidth, mapHeight, GetComponent<SphereCollider>().radius, folderName);
+    }
+
 
     /*  The method creates a new hexagon tile map, which can be found in a new folder in the hierachy
      *  Returns: List of hexagon tiles of a new map with the entered values 
@@ -56,6 +64,12 @@ public class MapGenerator : MonoBehaviour
         List<Hexagon> allTiles = new List<Hexagon>(); // all the created tiles will be added here
         var tilesFolder = new GameObject(); // this will contain all the tile objects in the hierachy
         tilesFolder.name = folderName;
+
+        if(map == null)
+        {
+            CreateMapFolder();
+        }
+        tilesFolder.transform.parent = map.transform;
         
         // The following calculations prepare, that one tile will be in the centre of the generated map (x/z at 0/0)
         // All the other tiles, will be around the centre tile
@@ -106,6 +120,17 @@ public class MapGenerator : MonoBehaviour
         // PrintAllTileCoordinats();
         return allTiles;
     }
+
+    /*  This method gets created when a platform or individual tile gets generated for the first time
+     *  It created a GameObject called "Map", which holds all platforms and individual tiles
+    **/ 
+        void CreateMapFolder()
+    {
+        this.newMap = Instantiate(mapFolder);
+        this.newMap.name = "Map";
+        this.map = newMap.GetComponent<Map>();
+    }
+
     
     /*  Indeed public, so individual tiles can easily be created here for specific level design purposes
      *  Returns: New Tile at the desired place in world coordinates
