@@ -16,5 +16,9 @@ public class Platform : MonoBehaviour
         return platformTiles;
     }
 
+    public int GetNumberOfTiles()
+    {
+        return platformTiles.Count;
+    }
 
 }

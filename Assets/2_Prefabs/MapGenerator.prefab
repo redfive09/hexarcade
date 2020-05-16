@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1721394227197139243}
   - component: {fileID: 135998053509063168}
   - component: {fileID: 1721394227197139242}
+  - component: {fileID: 114976011983242604}
   m_Layer: 0
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -80,6 +81,18 @@ MonoBehaviour:
   tileZOffset: 1.565
   mapWidth: 12
   mapHeight: 6
-  folderName: Platform_1
-  mapFolder: {fileID: 8446515829675074676, guid: 0c30013c81bd0ee4aa3e5e79cdc7cd0f,
-    type: 3}
+  platformName: 
+--- !u!114 &114976011983242604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721394227197139238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee2b68b7eb932d41a7cf8edbe9838b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hexagonName: 
+  platformName: IndividualTiles

@@ -33,4 +33,9 @@ public class Tiles : MonoBehaviour
         return null;
     }
 
+    public int GetNumberOfPlatforms()
+    {
+        return platforms.Count;
+    }
+
 }
