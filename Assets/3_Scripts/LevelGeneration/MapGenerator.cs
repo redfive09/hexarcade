@@ -32,7 +32,7 @@ public class MapGenerator : MonoBehaviour
     {
         if(mapWidth > 1 && mapHeight > 1 && mapRadius >= 2)
         {
-            return NewHexTileMap(mapWidth, mapHeight, mapRadius, folderName);
+            return NewHexagonPlatform(mapWidth, mapHeight, mapRadius, folderName);
         }
         else
         {
@@ -59,17 +59,16 @@ public class MapGenerator : MonoBehaviour
      *  Returns: List of hexagon tiles of a new map with the entered values 
      *  Made with the help of this tutorial: https://www.youtube.com/watch?v=BE54igXh5-Q
     **/ 
-    List<Hexagon> NewHexTileMap(int mapWidth, int mapHeight, float mapRadius, string folderName)
+    List<Hexagon> NewHexagonPlatform(int mapWidth, int mapHeight, float mapRadius, string platformName)
     {
-        List<Hexagon> allTiles = new List<Hexagon>(); // all the created tiles will be added here
-        var tilesFolder = new GameObject(); // this will contain all the tile objects in the hierachy
-        tilesFolder.name = folderName;
+        GameObject platform = CreatePlatform(platformName); // this will contain all the tile objects in the hierachy
+        Platform platformTiles = platform.GetComponent<Platform>(); // all the created tiles will be added here
 
         if(map == null)
         {
-            CreateMapFolder();
+            CreateMap();
         }
-        tilesFolder.transform.parent = map.transform;
+        platform.transform.parent = map.transform;
         
         // The following calculations prepare, that one tile will be in the centre of the generated map (x/z at 0/0)
         // All the other tiles, will be around the centre tile
@@ -108,28 +107,40 @@ public class MapGenerator : MonoBehaviour
                     // First, creating a tile object
                     string nameOfNewTile = x.ToString() + ", " + z.ToString();      // Naming the tile after it's map coordinates
                     GameObject newHexTile = CreateTile(xPos, zPos, nameOfNewTile);  // Creating a new tile
-                    newHexTile.transform.parent = tilesFolder.transform;            // Putting tile into folder
+                    newHexTile.transform.parent = platform.transform;               // Putting tile into folder
 
                     // Second, setting up its script
-                    Hexagon hexagonScript = newHexTile.GetComponent<Hexagon>();     // Getting the script of the tile
-                    hexagonScript.SetMapPosition(x, z);                             // Saving the map coordinates inside the tile                  
-                    allTiles.Add(hexagonScript);                                    // Adding tile to the list of all the created tiles of this map                    
+                    Hexagon hexagon = newHexTile.GetComponent<Hexagon>();           // Getting the script of the tile
+                    hexagon.SetMapPosition(x, z);                                   // Saving the map coordinates inside the tile                  
+                    platformTiles.AddTile(hexagon);                                 // Adding tile to the list of all the created tiles of this map
                 }
             }
-        }        
+        }
         // PrintAllTileCoordinats();
-        return allTiles;
+        return platformTiles.GetTilesList();
     }
 
-    /*  This method gets created when a platform or individual tile gets generated for the first time
-     *  It created a GameObject called "Map", which holds all platforms and individual tiles
+    /*  This method gets called when a platform or individual tile are generated for the first time
+     *  It creates a GameObject called "Map", which holds all platforms and individual tiles
     **/ 
-        void CreateMapFolder()
+        void CreateMap()
     {
         this.newMap = Instantiate(mapFolder);
         this.newMap.name = "Map";
         this.map = newMap.GetComponent<Map>();
     }
+
+    /*  This method gets created when a platform or individual tile gets generated for the first time
+     *  It created a GameObject called "Map", which holds all platforms and individual tiles
+    **/ 
+    GameObject CreatePlatform(string platformName)
+    {        
+        var platform = new GameObject(); // this will contain all the tile objects in the hierachy        
+        platform.name = platformName;
+        platform.AddComponent<Platform>();
+        return platform;
+    }
+
 
     
     /*  Indeed public, so individual tiles can easily be created here for specific level design purposes
@@ -137,7 +148,7 @@ public class MapGenerator : MonoBehaviour
     **/ 
     public GameObject CreateTile(float xWorld, float zWorld, string name)
     {
-        GameObject hexTile = Instantiate(hexTilePrefab);                   // Creating a new tile
+        GameObject hexTile = Instantiate(hexTilePrefab);                // Creating a new tile
         hexTile.name = name;                                            // Give it a name
         hexTile.transform.position = new Vector3(xWorld, 0, zWorld);    // Moving tile to it's calculated world coordinates
         return hexTile;
