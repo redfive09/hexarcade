@@ -12,10 +12,19 @@ public class HexagonEditor : Editor {
 
         Hexagon hexagon = (Hexagon) target;
         
+        if (GUILayout.Button("Change Color"))
+        {            
+            hexagon.SetColor();
+        }
+
         if (GUILayout.Button("Delete Hexagon"))
         {
             // bool inEditor = !EditorApplication.isPlaying;
             hexagon.DestroyHexagon(true);
         }
+
+        // Please don't delete the following link, need it for later:
+        // https://forum.unity.com/threads/in-editor-select-the-parent-instead-of-an-object-in-the-messy-hierarchy-it-creates.543479/
+
     }
 } // END OF CLASS

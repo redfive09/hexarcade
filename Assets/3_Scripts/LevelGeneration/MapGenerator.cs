@@ -115,20 +115,30 @@ public class MapGenerator : MonoBehaviour
      *  "Tiles" will hold all tiles of the map
     **/ 
         void SetupMap()
-    {        
+    {     
         if(tiles == null)
         {
-            var newMap = new GameObject();                      // Create a new map
-            newMap.name = "Map";                                // Name the map
-            newMap.AddComponent<Map>();                         // Add the script to it
-            Map map = newMap.GetComponent<Map>();               // Get the script (used at the very end of this method)
+            // In case we hit play and then we wanna add something again, we have to set "tiles" again
+            GameObject mapInScene = GameObject.Find("/Map");
 
-            var tilesFolder = new GameObject();                 // Creates the tilesFolder
-            tilesFolder.name = "Tiles";                         // Name it
-            tilesFolder.transform.parent = newMap.transform;    // Make the map to its parent
-            tilesFolder.AddComponent<Tiles>();                  // Add the script to it
-            this.tiles = tilesFolder.GetComponent<Tiles>();     // Save the script in the fields
-            map.AddTiles(tiles);                                // Add the "tiles" script to the map
+            if(mapInScene != null)
+            {                
+                tiles = mapInScene.GetComponentInChildren<Tiles>();
+            }
+            else // there's no map and no tiles, everything has to be created first
+            {
+                var newMap = new GameObject();                      // Create a new map
+                newMap.name = "Map";                                // Name the map
+                newMap.AddComponent<Map>();                         // Add the script to it
+                Map map = newMap.GetComponent<Map>();               // Get the script (used at the very end of this method)
+
+                var tilesFolder = new GameObject();                 // Creates the tilesFolder
+                tilesFolder.name = "Tiles";                         // Name it
+                tilesFolder.transform.parent = newMap.transform;    // Make the map to its parent
+                tilesFolder.AddComponent<Tiles>();                  // Add the script to it
+                this.tiles = tilesFolder.GetComponent<Tiles>();     // Save the script in the fields
+                map.AddTiles(tiles);                                // Add the "tiles" script to the map
+            }
         }
     }
 
@@ -148,6 +158,7 @@ public class MapGenerator : MonoBehaviour
         platformObject.transform.parent = tiles.transform;            // make the map to its parent
         platformObject.AddComponent<Platform>();                      // add the script to the platform
         Platform platform = platformObject.GetComponent<Platform>();  // get the platform script
+        platform.Setup();                                             // Tell the platform to setup itself
         tiles.AddPlatform(platform);                                  // add it to the tilesFolder        
         return platform;
     }

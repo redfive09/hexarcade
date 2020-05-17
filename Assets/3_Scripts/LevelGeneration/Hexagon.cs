@@ -22,19 +22,22 @@ using UnityEngine;
         [SerializeField] private int isPath;
         [SerializeField] private int isStartingTile;
         [SerializeField] private int isWinningTile;
+        [SerializeField] private int isCheckpointTile;
 
 
         // Different booleans, not all them have setters or getters yet
         [SerializeField] private bool isCrackedTile;
         [SerializeField] private bool isMovingTile;
-        [SerializeField] private bool isCheckPoint;
         [SerializeField] private bool isCurrentlyOccupied;
 
 
         // Start and End positions for moving tiles
         [SerializeField] private Vector3 movingTilePosA;
         [SerializeField] private Vector3 movingTilePosB;
+        
+        [SerializeField] private Color color;
 
+        private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here
         private int currentlyOccupiedCounter = 0; // Counts the number of players, who are currently on the tile
         
         // Map coordinates, not world coordinates!
@@ -47,10 +50,11 @@ using UnityEngine;
             isPath = -1;
             isStartingTile = -1;
             isWinningTile = -1;
+            isCheckpointTile = -1;
             isCrackedTile = false;
-            isMovingTile = false;
-            isCheckPoint = false;
-            isCurrentlyOccupied = false;           
+            isMovingTile = false;            
+            isCurrentlyOccupied = false;
+            color = gameObject.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial.color;
         }
 
         /*
@@ -60,11 +64,12 @@ using UnityEngine;
          */
         IEnumerator Start()
         {
+            SetColor();
             SetMovingTilePositions();
             while (isMovingTile) {
                 yield return StartCoroutine(MoveObject(transform, movingTilePosA, movingTilePosB, 3));
                 yield return StartCoroutine(MoveObject(transform, movingTilePosB, movingTilePosA, 3));
-            }
+            }            
         }
 
         /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
@@ -74,17 +79,24 @@ using UnityEngine;
             isPath = status; // negative numbers mean, it is not part of the path
         }
         
+        // 0 for player 0;   1 for player 1,    2 for player 2,     etc.
+        // Alternative: different starting tiles for each map
         public void SetIsStartingTile(int status)
         {
             isStartingTile = status; // negative numbers mean, it is not part of the path
         }
 
+        // Same like starting tile
         public void SetIsWinningTile(int status)
         {
             isWinningTile = status; // negative numbers mean, it is not a winningTile
         }
 
-
+        // Same like starting tile
+        public void SetIsCheckpointTile(int status)
+        {
+            isCheckpointTile = status; // negative numbers mean, it is not a winningTile
+        }
 
         public void SetIsCrackedTile(bool status)
         {
@@ -94,8 +106,7 @@ using UnityEngine;
         public void SetIsMovingTile(bool status)
         {
             isMovingTile = status; 
-        }
-        
+        }        
 
         // Setting map coordinates, not world coordinates
         public void SetMapPosition(float x, float z)
@@ -110,9 +121,15 @@ using UnityEngine;
             // gameObject.transform.GetChild(0).transform.position = pos; // Probably child has to be moved as well, so this has to be tested if it is neccessary
         }
 
+        // The first SetColor() method is made for the editor mode, to use the SerializeField color
+        public void SetColor()
+        {
+            SetColor(color);
+        }
+
         public void SetColor(Color color)
         {
-            gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = color;
+            gameObject.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial.color = color;            
         }
 
         public void SetIsCurrentlyOccupied(bool status)
@@ -149,6 +166,40 @@ using UnityEngine;
             return isCurrentlyOccupied;
         }
 
+        public bool IsPathTile()
+        {
+            if(isPath < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }            
+        }
+
+        public int GetPathNumber()
+        {
+            return isPath;
+        }
+
+        public bool IsStartingTile()
+        {
+            if(isStartingTile < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }            
+        }
+
+        public int GetStartingNumber()
+        {
+            return isStartingTile;
+        }
+
         public bool IsWinningTile()
         {
             if(isWinningTile < 0)
@@ -161,17 +212,54 @@ using UnityEngine;
             }            
         }
 
-        public bool IsPathTile()
+        public int GetWinningNumber()
         {
-            if(isPath < 0)
+            return isWinningTile;
+        }
+
+        public bool IsCheckpointTile()
+        {
+            if(isCheckpointTile < 0)
             {
                 return false;
             }
             else
             {
                 return true;
-            }            
+            }
         }
+
+        public int GetCheckpointNumber()
+        {
+            return isCheckpointTile;
+        }
+
+
+        /* ------------------------------ DELETION METHOD ------------------------------  */
+        public void DestroyHexagon(bool inEditor)
+        {
+            /* <-- here needs to be code added, to remove it from all lists in the tiles-Script, 
+             *     in case it is a pathTile, startingTile, etc.!!! --> */
+
+            Platform platform = GetComponentInParent<Platform>(); // get the platform the tile is in
+            int numberOfHexagonsInPlatform = platform.GetNumberOfHexagons(); // ask it now, platforms dies after last tile got deleted
+
+            platform.RemoveHexagon(this, inEditor); // first tell the platform to remove the tile from the list!
+            
+            // if it wasn't the last tile in the platform, then destroy it
+            if(numberOfHexagonsInPlatform > 1)
+            {
+                if(inEditor)
+                {
+                    DestroyImmediate(gameObject);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+
 
 
         /* ------------------------------ BEHAVIOUR METHODS BEGINN ------------------------------  */
@@ -222,27 +310,6 @@ using UnityEngine;
         *  This method gets called in order to destroy a hexagon. Use always this method for this purpose, never Destroy()!
         *  Parameters: "inEditor" should be "false" if the hexagon should be deleted during Game mode - only inEditor mode "true"!
         **/
-        public void DestroyHexagon(bool inEditor)
-        {
-            Platform platform = GetComponentInParent<Platform>(); // get the platform the tile is in
-            int numberOfHexagonsInPlatform = platform.GetNumberOfHexagons(); // ask it now, platforms dies after last tile got deleted
-
-            platform.RemoveHexagon(this, inEditor); // first tell the platform to remove the tile from the list!
-            
-            // if it wasn't the last tile in the platform, then destroy it
-            if(numberOfHexagonsInPlatform > 1)
-            {
-                if(inEditor)
-                {
-                    DestroyImmediate(gameObject);
-                }
-                else
-                {
-                    Destroy(gameObject);
-                }
-            }
-        }        
-
 
         /*
         *  Method gets called to change the color of the cracked tile and destroy it after a delay.
@@ -268,5 +335,6 @@ using UnityEngine;
                 yield return null;
             }
         }
+
 
     } // CLASS END

@@ -4,18 +4,49 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
+    [SerializeField] private Color color;
     [SerializeField] private int startingTiles;
     [SerializeField] private int winningTiles;
 
     List<Hexagon> platformTiles = new List<Hexagon>(); // all hexagons of this platform will be found here
     
 
+    /* ------------------------------ ONLY EDITOR METHODS BEGINN ------------------------------  */
     // Prepares all the standard values of the [SerializeField] for the editor mode
     public void Setup()
     {
         startingTiles = -1;
         winningTiles = -1;
     }
+
+    /* ------------------------------ STARTING METHODS BEGINN ------------------------------  */
+    public void GetStarted()
+    {
+        CollectHexagons();
+    }
+
+    /*
+     * Each platform goes through each hexagon it's connected to and adds it to the list
+    */
+    void CollectHexagons()
+    {        
+        for(int i = 0; i < this.transform.childCount; i++)
+        {
+            Hexagon hexagon = this.transform.GetChild(i).GetComponent<Hexagon>();
+            platformTiles.Add(hexagon);            
+        }
+    }
+
+
+    /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
+
+
+
+
+
+
+
+    /* ------------------------------ GETTER METHODS BEGINN ------------------------------  */
 
     public void AddHexagon(Hexagon hexagon)
     {
@@ -30,6 +61,17 @@ public class Platform : MonoBehaviour
     public int GetNumberOfHexagons()
     {
         return platformTiles.Count;
+    }
+
+    /*
+     * Changes all the colours of all hexagon tiles 
+    */
+    public void SetColor()
+    {
+        for(int i = 0; i < platformTiles.Count; i++)
+        {
+            platformTiles[i].SetColor(color);
+        }
     }
 
     /*

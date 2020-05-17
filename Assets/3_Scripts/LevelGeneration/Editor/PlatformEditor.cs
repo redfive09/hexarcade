@@ -12,6 +12,10 @@ public class PlatformEditor : Editor {
         Platform platform = (Platform) target;
         base.OnInspectorGUI();
 
+        if (GUILayout.Button("Change Color"))
+        {            
+            platform.SetColor();
+        }
         
         if (GUILayout.Button("Set startingTiles"))
         {
