@@ -13,23 +13,10 @@ public class HexagonEditor : Editor {
         Hexagon hexagon = (Hexagon) target;
         
         if (GUILayout.Button("Delete Hexagon"))
-        {
-            // Platform platform = hexagon.transform.parent;
-            // Debug.Log(hexagon);
-            GameObject hexagonObject = hexagon.transform.gameObject;
-            // Debug.Log();
-            // Debug.Log(hexagonObject.GetInstanceID());
-            // Debug.Log(hexagonObject.GetInstanceID());
-            Platform platform = hexagon.transform.GetComponentInParent<Platform>();
-            platform.RemoveHexagonInEditor(hexagon);
-
-
-
-
-            /*  1. Go to parent
-                2. Look for the selected hexagon
-                3. Destroy() it (and it should disapper)
-            */
+        {            
+            // In order to delete the hexagon, we have to tell the platform about it, ergo we have to remove it first from its platform-list
+            Platform platform = hexagon.transform.GetComponentInParent<Platform>(); // get the platform where the hexagon is inside 
+            platform.RemoveHexagon(hexagon, true);
         }
     }
 } // END OF CLASS

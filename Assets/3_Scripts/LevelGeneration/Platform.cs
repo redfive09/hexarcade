@@ -21,23 +21,30 @@ public class Platform : MonoBehaviour
         return platformTiles.Count;
     }
 
-    public void RemoveHexagonInEditor(Hexagon hexagon)
+    /*
+     * In order to destroy a hexagon tile, we have to remove it first from the list of its platform
+     * Parameters: hexagon which should be deleted; inEditor should be "false" if the hexagon should be deleted inside the game - only inEditor mode "true"!
+    */
+    public void RemoveHexagon(Hexagon hexagon, bool inEditor)
     {
         for(int i = 0; i < platformTiles.Count; i++)
         {
-            // if(platformTiles[i].GetInstanceID() == hexagon.GetInstanceID())
-            // {
-                if(platformTiles[i] == hexagon)
+            if(platformTiles[i] == hexagon)
+            {
+                Debug.Log(platformTiles.Count);
+                platformTiles.RemoveAt(i);
+
+                GameObject hexagonObject = hexagon.transform.gameObject; 
+                if(inEditor)
                 {
-                    // platformTiles[i]
-                    Debug.Log(platformTiles[i].GetInstanceID());
-                    Debug.Log(hexagon.GetInstanceID());
-                    Debug.Log(hexagon);
-                    platformTiles.RemoveAt(i);
-                    // DestroyImmediate(hexagon);
+                    DestroyImmediate(hexagonObject);
                 }
-            // }
+                else
+                {
+                    Destroy(hexagonObject);
+                }
+                Debug.Log(platformTiles.Count);
+            }        
         }
     }
-
 }
