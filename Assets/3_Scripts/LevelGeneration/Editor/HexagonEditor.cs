@@ -14,6 +14,7 @@ public class HexagonEditor : Editor {
         
         if (GUILayout.Button("Delete Hexagon"))
         {
+            // bool inEditor = !EditorApplication.isPlaying;
             hexagon.DestroyHexagon(true);
         }
     }

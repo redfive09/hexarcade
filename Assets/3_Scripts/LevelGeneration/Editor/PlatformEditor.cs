@@ -1,18 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEditor;
 
-public class PlatformEditor : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+[CustomEditor(typeof(Platform))]
 
-    // Update is called once per frame
-    void Update()
+public class PlatformEditor : Editor {
+
+    // Thank you Brackeys: https://www.youtube.com/watch?v=RInUu1_8aGw
+	public override void OnInspectorGUI()
     {
+        base.OnInspectorGUI();
+
+        Platform platform = (Platform) target;
         
+        if (GUILayout.Button("Delete Platform"))
+        {
+            platform.DestroyPlatform(true);
+        }
     }
-}
+} // END OF CLASS

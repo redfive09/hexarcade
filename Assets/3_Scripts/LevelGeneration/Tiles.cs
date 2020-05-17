@@ -33,9 +33,24 @@ public class Tiles : MonoBehaviour
         return null;
     }
 
+    /*     
+     * Remove a platform from this list of platforms, but it does not destroy it!
+     * For destorying a platform, you have to tell the platform itself with DestroyHexagon()!
+    */
+    public void RemovePlatform(Platform platform)
+    {
+        for(int i = 0; i < platforms.Count; i++)
+        {
+            if(platforms[i] == platform)
+            {                
+                platforms.RemoveAt(i);
+            }
+        }
+    }
+
     public int GetNumberOfPlatforms()
     {
         return platforms.Count;
     }
 
-}
+} // END OF CLASS

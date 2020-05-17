@@ -168,8 +168,7 @@ public class MapGenerator : MonoBehaviour
         hexTile.transform.position = new Vector3(xWorld, 0, zWorld);    // Moving tile to it's calculated world coordinates
         Hexagon hexagon = hexTile.GetComponent<Hexagon>();              // Get the hexagon script
         hexagon.transform.parent = platform.transform;                  // Putting hexagon into folder
-        platform.AddHexagon(hexagon);                                   // Adding tile to the list of all the created tiles of this map
-        hexagon.SetParentPlatform(platform);                            // Tell the hexagon who its platform is
+        platform.AddHexagon(hexagon);                                   // Adding tile to the list of all the created tiles of this map        
         return hexagon;
     }
 } // END OF CLASS

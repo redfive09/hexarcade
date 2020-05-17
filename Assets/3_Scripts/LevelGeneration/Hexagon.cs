@@ -21,8 +21,7 @@ using UnityEngine;
         [SerializeField] private Vector3 movingTilePosB;
 
         private int currentlyOccupiedCounter = 0; // Counts the number of players, who are currently on the tile
-        private Platform parentPlatform; // It's the platform the hexagon belongs to
-
+        
         // Map coordinates, not world coordinates!
         private float x;
         private float z;
@@ -86,11 +85,6 @@ using UnityEngine;
         public void SetIsCurrentlyOccupied(bool status)
         {
             isCurrentlyOccupied = status;
-        }
-
-        public void SetParentPlatform(Platform platform)
-        {
-            parentPlatform = platform;
         }
 
         /*
@@ -178,8 +172,9 @@ using UnityEngine;
         **/
         public void DestroyHexagon(bool inEditor)
         {
-            parentPlatform.RemoveHexagon(this); // first tell its parent to remove it from the list!
-            
+            Platform platform = GetComponentInParent<Platform>(); // first tell the platform to remove it from the list!
+            platform.RemoveHexagon(this);
+
             if(inEditor)
             {
                 DestroyImmediate(gameObject);
@@ -187,7 +182,7 @@ using UnityEngine;
             else
             {
                 Destroy(gameObject);
-            }            
+            }
         }        
 
 
