@@ -3,7 +3,7 @@ using UnityEditor;
 
 [CustomEditor(typeof(SingleTilesGenerator))]
 
-public class TilesEditor : Editor {
+public class MapEditorSingleTiles : Editor {
 
     // Thank you Brackeys: https://www.youtube.com/watch?v=RInUu1_8aGw
 	public override void OnInspectorGUI()

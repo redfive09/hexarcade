@@ -160,7 +160,7 @@ public class MapGenerator : MonoBehaviour
     {
         if(hexagonName == null || hexagonName == "")                    // Check if the name is set, otherwise give it one
         {
-            hexagonName = "Hexagon" + platform.GetNumberOfTiles();
+            hexagonName = "Hexagon" + platform.GetNumberOfHexagons();
         }
 
         GameObject hexTile = Instantiate(hexTilePrefab);                // Creating a new tile
@@ -168,7 +168,7 @@ public class MapGenerator : MonoBehaviour
         hexTile.transform.position = new Vector3(xWorld, 0, zWorld);    // Moving tile to it's calculated world coordinates
         Hexagon hexagon = hexTile.GetComponent<Hexagon>();              // Get the hexagon script
         hexagon.transform.parent = platform.transform;                  // Putting hexagon into folder
-        platform.AddTile(hexagon);                                      // Adding tile to the list of all the created tiles of this map
+        platform.AddHexagon(hexagon);                                      // Adding tile to the list of all the created tiles of this map
         return hexagon;
     }
 } // END OF CLASS

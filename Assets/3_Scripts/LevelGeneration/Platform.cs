@@ -6,9 +6,9 @@ public class Platform : MonoBehaviour
 {
     List<Hexagon> platformTiles = new List<Hexagon>(); // all tiles of this platform will be found here
 
-    public void AddTile(Hexagon tile)
+    public void AddHexagon(Hexagon hexagon)
     {
-        platformTiles.Add(tile);
+        platformTiles.Add(hexagon);
     }
 
     public List<Hexagon> GetTilesList()
@@ -16,9 +16,28 @@ public class Platform : MonoBehaviour
         return platformTiles;
     }
 
-    public int GetNumberOfTiles()
+    public int GetNumberOfHexagons()
     {
         return platformTiles.Count;
+    }
+
+    public void RemoveHexagonInEditor(Hexagon hexagon)
+    {
+        for(int i = 0; i < platformTiles.Count; i++)
+        {
+            // if(platformTiles[i].GetInstanceID() == hexagon.GetInstanceID())
+            // {
+                if(platformTiles[i] == hexagon)
+                {
+                    // platformTiles[i]
+                    Debug.Log(platformTiles[i].GetInstanceID());
+                    Debug.Log(hexagon.GetInstanceID());
+                    Debug.Log(hexagon);
+                    platformTiles.RemoveAt(i);
+                    // DestroyImmediate(hexagon);
+                }
+            // }
+        }
     }
 
 }
