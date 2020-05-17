@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,9 +12,6 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsCurrentlyPaused = false;
     public Button pauseButton;
     [SerializeField] GameObject pauseMenuUI;
-
-    private String sceneToLoad = "MenuScene"; //I just put in a fake Menu Scene to test
-    // Scene to load can be changed later 
 
     void Start () {
         Button btn = pauseButton.GetComponent<Button>();
@@ -52,12 +48,18 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f; // normal time
-        SceneManager.LoadScene(sceneToLoad); //load any scene (in this case menu scene)
+        SceneManager.LoadScene(0);
     }
     
     public void QuitGame()
     {
         Debug.Log("Quit"); //Application.Quit does nothing visible, so I left the Debug.Log statement
         Application.Quit();
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Resume();
     }
 }
