@@ -120,9 +120,9 @@ public class GameLogic : MonoBehaviour
         SetColorOfTilesList(Color.cyan, levelTiles);
         StartCoroutine(SetPathColor(Color.yellow, pathTiles, tileColorTime));  // Since the method returns an IEnumerator it has to be calles with startCoroutine
 
-        Hexagon winningTile = pathTiles[pathTiles.Count - 1];         // winningTile is the last element in the pathTiles list
+        Hexagon winningTile = pathTiles[pathTiles.Count - 1];       // winningTile is the last element in the pathTiles list
         winningTile.SetColor(Color.green);                          // Give winningTile a different colour
-        winningTile.SetIsWinningTile(true);                         // Generally should this not be set here, it just stays for now
+        winningTile.SetIsWinningTile(0);                            // Generally should this not be set here, it just stays for now
     }
 
     /*

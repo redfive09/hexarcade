@@ -29,7 +29,7 @@ using UnityEngine;
                     if(pathCoordinates[k, 0] == x && pathCoordinates[k, 1] == z) 
                     {                        
                         path.Add(tiles[i]);
-                        tiles[i].SetIsPath(true); // Tell the current tile, that it is part of the path                        
+                        tiles[i].SetIsPath(0); // Tell the current tile, that it is part of the path                        
                     }
                 }
             }

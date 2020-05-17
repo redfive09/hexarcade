@@ -6,8 +6,8 @@ public class Tiles : MonoBehaviour
 {
     private List<Platform> platforms = new List<Platform>(); // Holds all platforms of the current level
     private List<Hexagon> pathTiles = new List<Hexagon>(); // Holds all tiles of the current path
-    private Hexagon startingTile;
-    private Hexagon winingTile;
+    private List<Hexagon> startingTiles;
+    private List<Hexagon> winningTiles;
 
 
     /*

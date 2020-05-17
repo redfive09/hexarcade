@@ -7,14 +7,29 @@ using UnityEngine;
     **/
     public class Hexagon : MonoBehaviour
     {
+    
+
+        /*
+        *  Negative numbers means false, but these are not booleans anymore
+        *  Positive numbers get an additional meaning, for example:
+        *  "isPath = 0" is the first tile of the path, "isPath = 1" the second and so on
+        *  There can be more tiles which have the same number, which can make sense in the Multiplayer
+        *  e.g.: Imagine a map for several players and each player has a different path,
+        *  then "isPath = 0" will be the first tiles for the players, and
+        *  "isStartingTile = 0" could be the starting tile for the first player,
+        *  "isStartingTile = 1" for the second player, etc.
+        **/
+        [SerializeField] private int isPath;
+        [SerializeField] private int isStartingTile;
+        [SerializeField] private int isWinningTile;
+
+
         // Different booleans, not all them have setters or getters yet
-        [SerializeField] private bool isPath = false;
-        [SerializeField] private bool isCrackedTile = false;
-        [SerializeField] private bool isStartingTile = false;
-        [SerializeField] private bool isWinningTile = false;
-        [SerializeField] private bool isMovingTile = false;
-        [SerializeField] private bool isCheckPoint = false;
-        [SerializeField] private bool isCurrentlyOccupied = false;
+        [SerializeField] private bool isCrackedTile;
+        [SerializeField] private bool isMovingTile;
+        [SerializeField] private bool isCheckPoint;
+        [SerializeField] private bool isCurrentlyOccupied;
+
 
         // Start and End positions for moving tiles
         [SerializeField] private Vector3 movingTilePosA;
@@ -26,6 +41,17 @@ using UnityEngine;
         private float x;
         private float z;
 
+        // Prepares all the standard values of the [SerializeField] for the editor mode
+        public void Setup()
+        {
+            isPath = -1;
+            isStartingTile = -1;
+            isWinningTile = -1;
+            isCrackedTile = false;
+            isMovingTile = false;
+            isCheckPoint = false;
+            isCurrentlyOccupied = false;           
+        }
 
         /*
          * Method is called at initiation of the game object.
@@ -42,27 +68,34 @@ using UnityEngine;
         }
 
         /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
-        public void SetIsPath(bool status)
+        
+        public void SetIsPath(int status)
         {
-            isPath = status;
+            isPath = status; // negative numbers mean, it is not part of the path
         }
+        
+        public void SetIsStartingTile(int status)
+        {
+            isStartingTile = status; // negative numbers mean, it is not part of the path
+        }
+
+        public void SetIsWinningTile(int status)
+        {
+            isWinningTile = status; // negative numbers mean, it is not a winningTile
+        }
+
+
 
         public void SetIsCrackedTile(bool status)
         {
             isCrackedTile = status;
         }
-
-        public void SetIsWinningTile(bool status)
-        {
-            isWinningTile = status;
-        }
-
-        // New
+     
         public void SetIsMovingTile(bool status)
         {
-            isMovingTile = status;
+            isMovingTile = status; 
         }
-        // New
+        
 
         // Setting map coordinates, not world coordinates
         public void SetMapPosition(float x, float z)
@@ -111,14 +144,33 @@ using UnityEngine;
             return z;
         }
 
-        public bool GetIsCurrentlyOccupied()
+        public bool IsCurrentlyOccupied()
         {
             return isCurrentlyOccupied;
         }
 
-        public bool GetIsWinningTile()
+        public bool IsWinningTile()
         {
-            return isWinningTile;
+            if(isWinningTile < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }            
+        }
+
+        public bool IsPathTile()
+        {
+            if(isPath < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }            
         }
 
 
@@ -132,12 +184,12 @@ using UnityEngine;
             isCurrentlyOccupied = true;
             currentlyOccupiedCounter++; // Count the number of players on the tile
             
-            if(isWinningTile)
+            if(IsWinningTile())
             {
                 print("touched winning tile");
                 // StateMachine.LevelUp();
             }
-            else if(isPath & !isCrackedTile)
+            else if(IsPathTile() & !isCrackedTile)
             {
                 SetColor(Color.blue);
             }
@@ -145,7 +197,7 @@ using UnityEngine;
             {
                 ActivateCrackedTile();
             }
-            else if(!isPath)
+            else if(!IsPathTile())
             {
                 SetColor(Color.red);
             }
@@ -172,16 +224,22 @@ using UnityEngine;
         **/
         public void DestroyHexagon(bool inEditor)
         {
-            Platform platform = GetComponentInParent<Platform>(); // first tell the platform to remove it from the list!
-            platform.RemoveHexagon(this);
+            Platform platform = GetComponentInParent<Platform>(); // get the platform the tile is in
+            int numberOfHexagonsInPlatform = platform.GetNumberOfHexagons(); // ask it now, platforms dies after last tile got deleted
 
-            if(inEditor)
+            platform.RemoveHexagon(this, inEditor); // first tell the platform to remove the tile from the list!
+            
+            // if it wasn't the last tile in the platform, then destroy it
+            if(numberOfHexagonsInPlatform > 1)
             {
-                DestroyImmediate(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
+                if(inEditor)
+                {
+                    DestroyImmediate(gameObject);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
         }        
 
