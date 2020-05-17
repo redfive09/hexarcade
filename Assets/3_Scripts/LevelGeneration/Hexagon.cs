@@ -21,6 +21,7 @@ using UnityEngine;
         [SerializeField] private Vector3 movingTilePosB;
 
         private int currentlyOccupiedCounter = 0; // Counts the number of players, who are currently on the tile
+        private Platform parentPlatform; // It's the platform the hexagon belongs to
 
         // Map coordinates, not world coordinates!
         private float x;
@@ -85,6 +86,11 @@ using UnityEngine;
         public void SetIsCurrentlyOccupied(bool status)
         {
             isCurrentlyOccupied = status;
+        }
+
+        public void SetParentPlatform(Platform platform)
+        {
+            parentPlatform = platform;
         }
 
         /*
@@ -166,11 +172,29 @@ using UnityEngine;
             }
         }
 
+        /*
+        *  This method gets called in order to destroy a hexagon. Use always this method for this purpose, never Destroy()!
+        *  Parameters: "inEditor" should be "false" if the hexagon should be deleted during Game mode - only inEditor mode "true"!
+        **/
+        public void DestroyHexagon(bool inEditor)
+        {
+            parentPlatform.RemoveHexagon(this); // first tell its parent to remove it from the list!
+            
+            if(inEditor)
+            {
+                DestroyImmediate(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }            
+        }        
+
 
         /*
         *  Method gets called to change the color of the cracked tile and destroy it after a delay.
         **/
-        private void ActivateCrackedTile()
+        void ActivateCrackedTile()
         {
             SetColor(Color.grey);
             float delay = 1f;

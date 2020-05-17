@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
-    List<Hexagon> platformTiles = new List<Hexagon>(); // all tiles of this platform will be found here
+    List<Hexagon> platformTiles = new List<Hexagon>(); // all hexagons of this platform will be found here
 
     public void AddHexagon(Hexagon hexagon)
     {
@@ -21,30 +21,18 @@ public class Platform : MonoBehaviour
         return platformTiles.Count;
     }
 
-    /*
-     * In order to destroy a hexagon tile, we have to remove it first from the list of its platform
-     * Parameters: hexagon which should be deleted; inEditor should be "false" if the hexagon should be deleted inside the game - only inEditor mode "true"!
+    /*     
+     * Remove a hexagon from its platform, but it does not destroy it!
+     * For destorying a hexagon, you have to tell the hexagon itself with DestroyHexagon()!
     */
-    public void RemoveHexagon(Hexagon hexagon, bool inEditor)
+    public void RemoveHexagon(Hexagon hexagon)
     {
         for(int i = 0; i < platformTiles.Count; i++)
         {
             if(platformTiles[i] == hexagon)
             {
-                Debug.Log(platformTiles.Count);
                 platformTiles.RemoveAt(i);
-
-                GameObject hexagonObject = hexagon.transform.gameObject; 
-                if(inEditor)
-                {
-                    DestroyImmediate(hexagonObject);
-                }
-                else
-                {
-                    Destroy(hexagonObject);
-                }
-                Debug.Log(platformTiles.Count);
-            }        
+            }
         }
     }
 }

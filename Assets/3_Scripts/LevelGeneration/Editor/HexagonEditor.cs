@@ -13,10 +13,8 @@ public class HexagonEditor : Editor {
         Hexagon hexagon = (Hexagon) target;
         
         if (GUILayout.Button("Delete Hexagon"))
-        {            
-            // In order to delete the hexagon, we have to tell the platform about it, ergo we have to remove it first from its platform-list
-            Platform platform = hexagon.transform.GetComponentInParent<Platform>(); // get the platform where the hexagon is inside 
-            platform.RemoveHexagon(hexagon, true);
+        {
+            hexagon.DestroyHexagon(true);
         }
     }
 } // END OF CLASS
