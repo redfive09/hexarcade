@@ -14,7 +14,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private int levelTime; // time the player has to complete the level
     [SerializeField] private Text timeDisplay; // text on the canvas to comunicate the time left to the player
 
-    private Balls player;
+    private Ball player;
     private Timer timer;
     private List<Hexagon> levelTiles = new List<Hexagon>(); // Holds all tiles of the current level
     private List<Hexagon> pathTiles = new List<Hexagon>(); // Holds all tiles of the current path
@@ -44,8 +44,8 @@ public class GameLogic : MonoBehaviour
     **/
     void Start()
     {
-        CreateLevel();
-        CreatePlayers();
+        
+        
         PaintTheWorld();
         SetDistractorTilesLevel1();
     }
@@ -69,37 +69,9 @@ public class GameLogic : MonoBehaviour
     }
 
 
-    /*
-     *  Create all the level relevant stuff, like the map and the path
-    **/
-    void CreateLevel()
-    {
-        levelTiles = mapGenerator.GetComponent<MapGenerator>().GenerateMap(12, 6, 7, "AllTiles"); // Save tiles of the new generated map, specific information should be outsourced into another file later
-        pathTiles = pathGenerator.GetComponent<PathGenerator>().GetPathTiles(levelTiles, pathCoordLevel1); // Create a path
 
-    }
 
-    /*
-     *  Written in plural, just in case if we add multiple players later :)
-    **/
-    void CreatePlayers()
-    {
-        GameObject player1Ball = Instantiate(ball);
-        player1Ball.name = "Player1";
-        player = player1Ball.GetComponent<Balls>();
-        player.GoToSpawnPosition(pathTiles[0]); // First element of the "path" list is the starting tile
-        DeactivatePlayerControls();
-        Invoke("ActivatePlayerControls", pathCoordLevel1.Length * tileColorTime);
-    }
 
-    /*
-     *  Deaktivates the player attached scripts "Ball" and "AccelerometerMovement". Hence all the effects and manipulations caused by them will be absent.
-    **/
-    void DeactivatePlayerControls()
-    {
-        player.GetComponent<Balls>().enabled = false;
-        player.GetComponent<AccelorometerMovement>().enabled = false;
-    }
 
 
     /*
@@ -107,7 +79,7 @@ public class GameLogic : MonoBehaviour
      **/
     void ActivatePlayerControls()
     {
-        player.GetComponent<Balls>().enabled = true;
+        player.GetComponent<Ball>().enabled = true;
         player.GetComponent<AccelorometerMovement>().enabled = true;
     }
 

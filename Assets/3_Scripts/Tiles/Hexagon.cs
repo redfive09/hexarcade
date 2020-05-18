@@ -37,7 +37,7 @@ using UnityEngine;
         
         [SerializeField] private Color color;
 
-        private List<Balls> balls = new List<Balls>(); // All the players who are setting on the tile get saved here
+        private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here
         private int currentlyOccupiedCounter = 0; // Counts the number of players, who are currently on the tile
         
         // Map coordinates, not world coordinates!
@@ -267,7 +267,7 @@ using UnityEngine;
         /* Method gets called in order to tell the tile that a player stands on it
         *  Depending on its values, the tile knows what to do
         **/ // All colour settings and other values like "delay" gotta go to another place later
-        public void GotOccupied(Balls player)
+        public void GotOccupied(Ball player)
         {
             isCurrentlyOccupied = true;
             balls.Add(player);
@@ -295,7 +295,7 @@ using UnityEngine;
         /* Method gets called in order to tell the tile that a player left the tile
         *  Depending on its values, the tile knows what to do
         **/
-        public void GotUnoccupied(Balls player)
+        public void GotUnoccupied(Ball player)
         {            
             balls.Remove(player);
         }

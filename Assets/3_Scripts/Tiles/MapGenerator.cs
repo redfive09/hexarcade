@@ -7,6 +7,7 @@ using UnityEngine;
 public class MapGenerator : MonoBehaviour
 {    
     [SerializeField] private GameObject hexTilePrefab; // For used hexagon tile
+    [SerializeField] private GameObject mapPrefab;     
 
 
     // Offset are used for the gap between the tiles
@@ -110,9 +111,9 @@ public class MapGenerator : MonoBehaviour
 
 
     /*  This method checks if a platform or individual tile are generated for the first time
-     *  If true, it creates the GameObjects "Map" and "Tiles"
+     *  If true, it creates the GameObjects "Map"
      *  "Map" holds all elements, which are on the map, like player, tiles, distractions
-     *  "Tiles" will hold all tiles of the map
+     *  "Tiles", e. g. will hold all tiles of the map, "Players" all players and so on
     **/ 
         void SetupMap()
     {     
@@ -126,18 +127,12 @@ public class MapGenerator : MonoBehaviour
                 tiles = mapInScene.GetComponentInChildren<Tiles>();
             }
             else // there's no map and no tiles, everything has to be created first
-            {
-                var newMap = new GameObject();                      // Create a new map
-                newMap.name = "Map";                                // Name the map
-                newMap.AddComponent<Map>();                         // Add the script to it
-                Map map = newMap.GetComponent<Map>();               // Get the script (used at the very end of this method)
-
-                var tilesFolder = new GameObject();                 // Creates the tilesFolder
-                tilesFolder.name = "Tiles";                         // Name it
-                tilesFolder.transform.parent = newMap.transform;    // Make the map to its parent
-                tilesFolder.AddComponent<Tiles>();                  // Add the script to it
-                this.tiles = tilesFolder.GetComponent<Tiles>();     // Save the script in the fields
-                map.AddTiles(tiles);                                // Add the "tiles" script to the map
+            {                
+                GameObject newMap = Instantiate(mapPrefab);             // Create a new map
+                newMap.name = "Map";                                    // Name it
+                tiles = newMap.GetComponentInChildren<Tiles>();         // Save the script in the fields
+                Map map = newMap.GetComponent<Map>();                   // Get the map script
+                map.AddTiles(tiles);                                    // Add the "tiles" script to the map
             }
         }
     }

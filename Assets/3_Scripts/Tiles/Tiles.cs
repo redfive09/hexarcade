@@ -108,6 +108,7 @@ public class Tiles : MonoBehaviour
     }
 
 
+/* ------------------------------ EDITOR MODE METHODS ------------------------------  */
     /*
      *  Add a new platform
      */
@@ -116,6 +117,9 @@ public class Tiles : MonoBehaviour
         platforms.Add(platform);
     }
 
+
+
+/* ------------------------------ GETTER METHODS BEGIN ------------------------------  */
     /*
      *  Return the searched platform, otherwise return null
      */
@@ -132,18 +136,22 @@ public class Tiles : MonoBehaviour
     }
 
     /*
-     *  Get a Hexagon, where the player should spawn
+     *  Get all startingTiles
      */
-    public Hexagon GetSpawnPosition(int player)
-    {
-        List<Hexagon> spawnPoints = startingTiles[player];
-        return spawnPoints[0]; // More options later
+    public Dictionary<int, List<Hexagon>> GetStartingTiles()
+    {        
+        return startingTiles;
     }
 
 
     public int GetNumberOfPlatforms()
     {
         return platforms.Count;
+    }
+
+    public int GetNumberOfPathTiles(int player)
+    {
+        return pathTiles[player].Count;
     }
 
 

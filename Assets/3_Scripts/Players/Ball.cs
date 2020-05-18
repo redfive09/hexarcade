@@ -2,7 +2,7 @@
 /*  
  *  Class purpose: Giving each ball (respectively player) values and behaviour 
 **/
-public class Balls : MonoBehaviour
+public class Ball : MonoBehaviour
 {
     [SerializeField] float speed = 1000.0f;
     private Hexagon occupiedTile;
