@@ -64,7 +64,7 @@ using UnityEngine;
 
         /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
         
-        public void SetIsPath(int status)
+        public void SetIsPathTile(int status)
         {
             isPath = status; // negative numbers mean, it is not part of the path
         }

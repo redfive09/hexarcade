@@ -5,6 +5,7 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     [SerializeField] private Color color;
+    [SerializeField] private int pathTiles;
     [SerializeField] private int startingTiles;
     [SerializeField] private int winningTiles;
 
@@ -15,6 +16,7 @@ public class Platform : MonoBehaviour
     // Prepares all the standard values of the [SerializeField] for the editor mode
     public void Setup()
     {
+        pathTiles = -1;
         startingTiles = -1;
         winningTiles = -1;
     }
@@ -51,6 +53,17 @@ public class Platform : MonoBehaviour
         for(int i = 0; i < platformTiles.Count; i++)
         {            
             platformTiles[i].SetColor(color);
+        }
+    }
+
+    /*
+     * Uses the [SerializeField] pathTiles to set all tiles at once in the editor
+    */
+    public void SetPathPlatform()
+    {
+        for(int i = 0; i < platformTiles.Count; i++)
+        {
+            platformTiles[i].SetIsPathTile(pathTiles);
         }
     }
 
@@ -104,6 +117,9 @@ public class Platform : MonoBehaviour
     */
     public void RemoveHexagon(Hexagon hexagon, bool inEditor)
     {
+        Tiles tiles = GetComponentInParent<Tiles>();
+        tiles.RemoveHexagonFromAllLists(hexagon); // delete hexagon from all lists!
+
         for(int i = 0; i < platformTiles.Count; i++)
         {
             if(platformTiles[i] == hexagon)

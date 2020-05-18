@@ -16,6 +16,11 @@ public class PlatformEditor : Editor {
         {            
             platform.SetColor();
         }
+
+        if (GUILayout.Button("Set pathTiles"))
+        {
+            platform.SetPathPlatform();
+        }
         
         if (GUILayout.Button("Set startingTiles"))
         {

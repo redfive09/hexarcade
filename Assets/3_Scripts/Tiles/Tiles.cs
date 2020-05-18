@@ -162,6 +162,29 @@ public class Tiles : MonoBehaviour
         }
     }
 
+    public void RemoveHexagonFromAllLists(Hexagon hexagonToDelete)
+    {        
+        for(int i = 0; i < pathTiles.Count; i++)
+        {            
+            pathTiles[i].Remove(hexagonToDelete);
+        }
+
+        for(int i = 0; i < startingTiles.Count; i++)
+        {            
+            startingTiles[i].Remove(hexagonToDelete);
+        }
+
+        for(int i = 0; i < winningTiles.Count; i++)
+        {            
+            winningTiles[i].Remove(hexagonToDelete);
+        }
+
+        for(int i = 0; i < checkpointTiles.Count; i++)
+        {            
+            checkpointTiles[i].Remove(hexagonToDelete);
+        }
+    }
+
     /* ------------------------------ EDITOR MODE METHODS ------------------------------  */
     /*
      *  Add a new platform
