@@ -5,13 +5,14 @@ using UnityEngine;
 public class Players : MonoBehaviour
 {
     [SerializeField] private GameObject ball;
+    [SerializeField] private GameObject stateMachine;
     List<Ball> players = new List<Ball>();
     Dictionary<int, List<Hexagon>> startingTiles;
 
     public void GetStarted(int numberOfPlayers, Dictionary<int, List<Hexagon>> startingTiles)
     {   
         this.startingTiles = startingTiles;
-        SpawnPlayers(numberOfPlayers);        
+        SpawnPlayers(numberOfPlayers);
     }
 
     /*
@@ -24,6 +25,10 @@ public class Players : MonoBehaviour
             GameObject playerBall = Instantiate(ball);
             playerBall.name = "Player" + (i + 1);
             playerBall.transform.parent = this.transform;
+
+            GameObject SM = Instantiate(stateMachine);
+            SM.name = "StateMachine";
+            SM.transform.parent = playerBall.transform;
 
             Ball player = playerBall.GetComponent<Ball>();
             players.Add(player);

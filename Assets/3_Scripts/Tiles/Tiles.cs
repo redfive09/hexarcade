@@ -24,7 +24,7 @@ public class Tiles : MonoBehaviour
     public void CollectTiles()
     {
         CollectPlatforms();
-        CollectTilesForDifferentLists();
+        CollectTilesForListsAndColorThem();
     }
 
     void CollectPlatforms()
@@ -40,7 +40,7 @@ public class Tiles : MonoBehaviour
     /*
      *  Goes through all the tiles of every platform
      */
-    private void CollectTilesForDifferentLists()
+    private void CollectTilesForListsAndColorThem()
     {   
         for(int i = 0; i < platforms.Count; i++)
         {            
@@ -68,6 +68,8 @@ public class Tiles : MonoBehaviour
                 {
                     SaveHexagonInList(checkpointTiles, hexagon, hexagon.GetCheckpointNumber());
                 }
+
+                this.GetComponent<TileColors>().GiveColors(hexagon.GetComponent<HexagonBehaviour>());
             }
         }
     }

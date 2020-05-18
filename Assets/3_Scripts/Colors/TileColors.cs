@@ -4,7 +4,22 @@ using UnityEngine;
 
 public class TileColors : MonoBehaviour
 {
-    [SerializeField] private Color changeColorOfAllTiles;
+
+    // what color, when a player arrives at the tile
+    [SerializeField] private Color arrivedStandardTile; // 0
+    [SerializeField] private Color arrivedCrackedTile; // 1
+    [SerializeField] private Color arrivedPatchTile; // 2
+    [SerializeField] private Color arrivedDistractionTile; // 3
+    [SerializeField] private Color arrivedSpecialTile; // 4
+
+
+    // what color, when a player leaves a tile
+    [SerializeField] private Color leftStandardTile; // 5
+    [SerializeField] private Color leftPatchTile; // 6
+    [SerializeField] private Color leftCrackedTile; // 7
+    [SerializeField] private Color leftDistractionTile; // 8
+    [SerializeField] private Color leftSpecialTile; // 9
+
 
     [SerializeField] private float pathTilesColorTime;
     [SerializeField] private float pathTimeBeforeFading;
@@ -28,6 +43,8 @@ public class TileColors : MonoBehaviour
     [SerializeField] private float checkpointTimeBeforeFading;
     [SerializeField] private float checkpointTilesColorFading;
     [SerializeField] private Color checkpointTilesColor;
+    
+    [SerializeField] private Color changeColorOfAllTiles;
 
 
 
@@ -58,13 +75,27 @@ public class TileColors : MonoBehaviour
 
     public void GetStarted()
     {
-        SetTiles();
+        SetTiles();        
         StartCoroutine(SetColor(pathTilesColor, tiles.GetPathTiles(), pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading));  // Since the method returns an IEnumerator it has to be calles with startCoroutine
         // StartCoroutine(SetColor(checkpointTilesColor, tiles.GetCheckpointTiles(), checkpointTilesColorTime));
         // StartCoroutine(SetColor(winningTilesColor, tiles.GetWinningTiles(), winningTilesColorTime));
     }
 
-
+    public void GiveColors(HexagonBehaviour hexagon)
+    {
+        List<Color> colors = new List<Color>();
+        colors.Add(arrivedStandardTile);
+        colors.Add(arrivedCrackedTile);
+        colors.Add(arrivedPatchTile);
+        colors.Add(arrivedDistractionTile);
+        colors.Add(arrivedSpecialTile);
+        colors.Add(leftStandardTile);
+        colors.Add(leftPatchTile);
+        colors.Add(leftCrackedTile);
+        colors.Add(leftDistractionTile);
+        colors.Add(leftSpecialTile);
+        hexagon.SetColors(colors);
+    }
 
     /*  This method will make the colour of the path
      *  Works : tiles are colored in with a delay
@@ -146,6 +177,9 @@ public class TileColors : MonoBehaviour
         ChangeColor(tiles.GetCheckpointTiles(), checkpointTilesColor);
     }
 
+    /*
+     * Needs to be sperated and called at so many places for the editor
+    */
     private void SetTiles()
     {
         tiles = GetComponent<Tiles>();

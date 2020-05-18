@@ -5,50 +5,46 @@ using UnityEngine;
 public class HexagonBehaviour : MonoBehaviour
 {
 
-[SerializeField] private float crackedTileBreaksInSeconds;
+    [SerializeField] private float crackedTileBreaksInSeconds;
 
-// Start and End positions for moving tiles
-[SerializeField] private Vector3 movingTilePosA;
-[SerializeField] private Vector3 movingTilePosB;
-[SerializeField] private float speedOfMovingTiles;
 
-private Color touchedCrackedTile; // when a player is on the tile
-private Color detouchedCrackedTile; // when the player left the tile
-private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here        
-private Hexagon thisHexagon;
+    // Color list with its codes
+    private List<Color> colors;
+    private Color standardColor;
+    
+    private int arrivedStandardTile = 0; 
+    private int arrivedCrackedTile = 1;
+    private int arrivedPatchTile = 2;
+    private int arrivedDistractionTile = 3;
+    private int arrivedSpecialTile = 4;
+
+    private int leftStandardTile = 5;
+    private int leftPatchTile = 6;
+    private int leftCrackedTile = 7;
+    private int leftDistractionTile = 8;
+    private int leftSpecialTile = 9;
+    
+
+    private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here        
+    private Hexagon thisHexagon;
 
 
     // Setup standard values for the editor mode
     public void Setup()
     {
-        crackedTileBreaksInSeconds = 2f;
-        speedOfMovingTiles = 3f;
+        crackedTileBreaksInSeconds = 2f;        
     }
 
-    IEnumerator Start()
+    void Start()
     {
         GetStarted();
-
-        if(thisHexagon.IsMovingTile())
-        {
-            movingTilePosA = SetValuesForMovingHexagons(movingTilePosA);
-            movingTilePosB = SetValuesForMovingHexagons(movingTilePosB);
-            while (thisHexagon.IsMovingTile()) 
-            {
-                yield return StartCoroutine(MoveObject(this.transform, movingTilePosA, movingTilePosB, speedOfMovingTiles));
-                yield return StartCoroutine(MoveObject(this.transform, movingTilePosB, movingTilePosA, speedOfMovingTiles));                        
-            }
-        }
     }
 
     void GetStarted()
     {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
-        /* Set the colors here, like:
-        touchedCrackedTile =
-        detouchedCrackedTile =  */
+        standardColor = thisHexagon.GetColor();
     }
-
 
 
     /* Method gets called in order to tell the tile that a player stands on it
@@ -63,17 +59,26 @@ private Hexagon thisHexagon;
             print("touched winning tile");
             // StateMachine.LevelUp();
         }
-        else if(thisHexagon.IsPathTile() & !thisHexagon.IsCrackedTile())
+        else if(thisHexagon.IsPathTile())
         {
-            // SetColor(Color.blue);
+            thisHexagon.SetColor(colors[arrivedPatchTile]);
         }
         else if(thisHexagon.IsCrackedTile())
         {
+            thisHexagon.SetColor(colors[arrivedCrackedTile]);
             ActivateCrackedTile();
         }
-        else if(!!thisHexagon.IsPathTile())
+        else if(thisHexagon.IsDistractionTile())
         {
-            // SetColor(Color.red);
+            thisHexagon.SetColor(colors[arrivedDistractionTile]);
+        }
+        else if(thisHexagon.IsSpecialTile())
+        {
+            thisHexagon.SetColor(colors[arrivedSpecialTile]);
+        }
+        else
+        {
+            thisHexagon.SetColor(colors[arrivedStandardTile]);
         }
     }
 
@@ -84,6 +89,27 @@ private Hexagon thisHexagon;
     public void GotUnoccupied(Ball player)
     {            
         balls.Remove(player);
+
+        if(thisHexagon.IsPathTile())
+        {
+            thisHexagon.SetColor(colors[leftPatchTile]);
+        }
+        else if(thisHexagon.IsCrackedTile())
+        {
+            thisHexagon.SetColor(colors[leftCrackedTile]);            
+        }
+        else if(thisHexagon.IsDistractionTile())
+        {
+            thisHexagon.SetColor(colors[leftDistractionTile]);
+        }
+        else if(thisHexagon.IsSpecialTile())
+        {
+            thisHexagon.SetColor(colors[leftSpecialTile]);
+        }
+        else
+        {
+            thisHexagon.SetColor(colors[leftStandardTile]);
+        }
     }
 
   
@@ -93,40 +119,12 @@ private Hexagon thisHexagon;
     void ActivateCrackedTile()
     {
         thisHexagon.DestroyHexagon(false, crackedTileBreaksInSeconds);
-        thisHexagon.SetColor(touchedCrackedTile);
+        thisHexagon.SetColor(colors[arrivedCrackedTile]);
     }
 
-    Vector3 SetValuesForMovingHexagons(Vector3 vector)
+    /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
+    public void SetColors(List<Color> colors)
     {
-        if(vector.x == 0)
-        {
-            vector.x = this.transform.position.x;
-        }
-
-        if(vector.y == 0)
-        {
-            vector.y = this.transform.position.y;
-        }
-
-        if(vector.z == 0)
-        {
-            vector.z = this.transform.position.z;
-        }
-        return vector;
-    }
-
-    /*
-    *  Method gets called to move the tile up and down.
-    */
-    IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
-    {
-        float i = 0.0f;
-        float rate = 1.0f * time/5;
-        while (i < 1.0f) 
-        {
-            i += Time.deltaTime * rate;
-            thisTransform.position = Vector3.Lerp(startPos, endPos, i);
-            yield return null;
-        }
+        this.colors = colors;
     }
 }

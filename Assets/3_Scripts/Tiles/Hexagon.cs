@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
     /*
-     *  Class purpose: Storing values of each individual tile and giving it behaviour, e. g. do something, when the ball stands on it
+     *  Class purpose: Storing values of each individual tile
     **/
     public class Hexagon : MonoBehaviour
     {
@@ -21,15 +21,15 @@ using UnityEngine;
         [SerializeField] private int isStartingTile;
         [SerializeField] private int isWinningTile;
         [SerializeField] private int isCheckpointTile;
+        [SerializeField] private int isDistractionTile; // At a different int could be a different distraction
+        [SerializeField] private int isSpecialTile; // Could be anything, just another option for your creativity :)
 
 
         // Different booleans, not all them have setters or getters yet
         [SerializeField] private bool isCrackedTile;
         [SerializeField] private bool isMovingTile;
-        
-
-   
-        
+                
+                
         [SerializeField] private Color color;
 
         private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here        
@@ -45,10 +45,13 @@ using UnityEngine;
             isStartingTile = -1;
             isWinningTile = -1;
             isCheckpointTile = -1;
+            isDistractionTile = -1;
+            isSpecialTile = -1;
             isCrackedTile = false;
             isMovingTile = false;
             color = this.transform.GetChild(0).GetComponent<Renderer>().material.color;
             this.GetComponent<HexagonBehaviour>().Setup();
+            this.GetComponent<HexagonMovingTiles>().Setup();
         }
 
 
@@ -86,6 +89,18 @@ using UnityEngine;
         public void SetIsCheckpointTile(int status)
         {
             isCheckpointTile = status; // negative numbers mean, it is not a winningTile
+        }
+
+        // At a different int could be a different distraction
+        public void SetIsDistractionTile(int status)
+        {
+            isDistractionTile = status; // negative numbers mean, it is not a winningTile
+        }
+
+        // Could be anything, just another option for your creativity :)
+        public void SetIsSpecialTile(int status)
+        {
+            isSpecialTile = status; // negative numbers mean, it is not a winningTile
         }
 
         public void SetIsCrackedTile(bool status)
@@ -232,11 +247,38 @@ using UnityEngine;
             return isCheckpointTile;
         }
 
-
-        /* ------------------------------ METHODS FOR EDITOR MODE ------------------------------  */
-        public void PrintCurrentWorldPosition()
+        public bool IsDistractionTile()
         {
-            Debug.Log(this.transform.parent.transform.position - this.transform.position);
+            if(isDistractionTile < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public int GetDistractionNumber()
+        {
+            return isDistractionTile;
+        }
+
+        public bool IsSpecialTile()
+        {
+            if(isSpecialTile < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public int GetSpecialTileNumber()
+        {
+            return isSpecialTile;
         }
 
 

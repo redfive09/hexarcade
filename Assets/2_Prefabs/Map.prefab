@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 7806642066602230678, guid: 7effc9b935780834aa6d9fdad5c365ee, type: 3}
+  stateMachine: {fileID: 2689096160421605638, guid: 00e6235329021464c8bcb3de44b72e30,
+    type: 3}
 --- !u!114 &4760833730494697969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +89,7 @@ Transform:
   m_Children:
   - {fileID: 1625658202994110932}
   - {fileID: 1368131106140788763}
+  - {fileID: 6847481425380462635}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -156,5 +159,67 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d1b4501ad6ef7f448b114b032cf12c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeColorOfAllTiles: {r: 0, g: 0, b: 0, a: 0}
+  touchedTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  detouchedTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  pathTilesColorTime: 0
+  pathTimeBeforeFading: 0
+  pathTilesColorFading: 0
+  pathTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  startingTilesColorTime: 0
+  startingTimeBeforeFading: 0
+  startingTilesColorFading: 0
+  startingTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  winningTilesColorTime: 0
+  winningTimeBeforeFading: 0
+  winningTilesColorFading: 0
+  winningTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  checkpointTilesColorTime: 0
+  checkpointTimeBeforeFading: 0
+  checkpointTilesColorFading: 0
+  checkpointTilesColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!1 &6609492161829483270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6847481425380462635}
+  - component: {fileID: 3078633384435142284}
+  m_Layer: 0
+  m_Name: Distractions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6847481425380462635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6609492161829483270}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8304183964364371795}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3078633384435142284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6609492161829483270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb1fc54dd9748b458bebf8f3efbbbc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

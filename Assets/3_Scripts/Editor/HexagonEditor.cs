@@ -12,10 +12,10 @@ public class HexagonEditor : Editor {
 
         Hexagon hexagon = (Hexagon) target;
         
-        if (GUILayout.Button("Print World Position"))
-        {            
-            hexagon.PrintCurrentWorldPosition();
-        }
+        // if (GUILayout.Button("Print World Position"))
+        // {            
+        //     hexagon.PrintCurrentWorldPosition();
+        // }
 
         if (GUILayout.Button("Change Color"))
         {            

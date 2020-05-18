@@ -127,16 +127,16 @@ public class Platform : MonoBehaviour
                 platformTiles.RemoveAt(i);
             }
         }
-
-        // In case last hexagon of a platform gets removed, then destroy its platform as well
-        if(platformTiles.Count == 0)
-        {
-            DestroyPlatform(inEditor);
-        }
     }
     
     public void DestroyPlatform(bool inEditor)
     {
+        // First, delete all its hexagons properly
+        for(int i = 0; i < platformTiles.Count; i++)
+        {          
+            platformTiles[i].DestroyHexagon(inEditor, 0);            
+        }
+
         Tiles tiles = GetComponentInParent<Tiles>();  // first tell the list of all platforms to remove it!
         tiles.RemovePlatform(this);
 

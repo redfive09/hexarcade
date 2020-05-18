@@ -43,13 +43,12 @@ namespace _3_Scripts
          * Initiate states from the field
          */
         private void initiateState()
-        {
-            var go = new GameObject();
-            _beginState = go.AddComponent<BeginState>();
-            _playState = go.AddComponent<PlayState>();
-            _pauseState = go.AddComponent<PauseState>();
-            _loseState = go.AddComponent<LoseState>();
-            _winState = go.AddComponent<WinState>();
+        {            
+            _beginState = gameObject.AddComponent<BeginState>();
+            _playState = gameObject.AddComponent<PlayState>();
+            _pauseState = gameObject.AddComponent<PauseState>();
+            _loseState = gameObject.AddComponent<LoseState>();
+            _winState = gameObject.AddComponent<WinState>();
         }
 
         private void Start()
