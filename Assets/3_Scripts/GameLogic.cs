@@ -14,7 +14,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private int levelTime; // time the player has to complete the level
     [SerializeField] private Text timeDisplay; // text on the canvas to comunicate the time left to the player
 
-    private Ball player;
+    private Balls player;
     private Timer timer;
     private List<Hexagon> levelTiles = new List<Hexagon>(); // Holds all tiles of the current level
     private List<Hexagon> pathTiles = new List<Hexagon>(); // Holds all tiles of the current path
@@ -86,7 +86,7 @@ public class GameLogic : MonoBehaviour
     {
         GameObject player1Ball = Instantiate(ball);
         player1Ball.name = "Player1";
-        player = player1Ball.GetComponent<Ball>();
+        player = player1Ball.GetComponent<Balls>();
         player.GoToSpawnPosition(pathTiles[0]); // First element of the "path" list is the starting tile
         DeactivatePlayerControls();
         Invoke("ActivatePlayerControls", pathCoordLevel1.Length * tileColorTime);
@@ -97,7 +97,7 @@ public class GameLogic : MonoBehaviour
     **/
     void DeactivatePlayerControls()
     {
-        player.GetComponent<Ball>().enabled = false;
+        player.GetComponent<Balls>().enabled = false;
         player.GetComponent<AccelorometerMovement>().enabled = false;
     }
 
@@ -107,7 +107,7 @@ public class GameLogic : MonoBehaviour
      **/
     void ActivatePlayerControls()
     {
-        player.GetComponent<Ball>().enabled = true;
+        player.GetComponent<Balls>().enabled = true;
         player.GetComponent<AccelorometerMovement>().enabled = true;
     }
 

@@ -131,6 +131,21 @@ public class Tiles : MonoBehaviour
         return null;
     }
 
+    /*
+     *  Get a Hexagon, where the player should spawn
+     */
+    public Hexagon GetSpawnPosition(int player)
+    {
+        List<Hexagon> spawnPoints = startingTiles[player];
+        return spawnPoints[0]; // More options later
+    }
+
+
+    public int GetNumberOfPlatforms()
+    {
+        return platforms.Count;
+    }
+
 
     /*     
      * Remove a platform from this list of platforms, but it does not destroy it!
@@ -147,9 +162,5 @@ public class Tiles : MonoBehaviour
         }
     }
 
-    public int GetNumberOfPlatforms()
-    {
-        return platforms.Count;
-    }
 
 } // END OF CLASS

@@ -2,7 +2,7 @@
 /*  
  *  Class purpose: Giving each ball (respectively player) values and behaviour 
 **/
-public class Ball : MonoBehaviour
+public class Balls : MonoBehaviour
 {
     [SerializeField] float speed = 1000.0f;
     private Hexagon occupiedTile;
@@ -40,9 +40,9 @@ public class Ball : MonoBehaviour
             {
                 if(occupiedTile != null)            // Prevent a NullReferenceException
                 {
-                    occupiedTile.GotUnoccupied();   // Tell the former occupiedTile, that it's not occupied anymore
+                    occupiedTile.GotUnoccupied(this);   // Tell the former occupiedTile, that this ball left
                 }                    
-                currentTile.GotOccupied();          // Tell the currentTile, that a player stands on it
+                currentTile.GotOccupied(this);          // Tell the currentTile, that this player stands on it
                 occupiedTile = currentTile;         // Save the current tile
             }            
         }
