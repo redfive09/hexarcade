@@ -60,6 +60,7 @@ using UnityEngine;
         IEnumerator Start()
         {
             SetColor();
+            this.GetComponent<HexagonBehaviour>().GetStarted(this);
             SetMovingTilePositions();
             while (isMovingTile) {
                 yield return StartCoroutine(MoveObject(transform, movingTilePosA, movingTilePosB, 3));
@@ -157,6 +158,11 @@ using UnityEngine;
         public Color GetColor()
         {
             return color;
+        }
+
+        public bool IsCrackedTile()
+        {
+            return isCrackedTile;
         }
 
         public bool IsPathTile()

@@ -96,7 +96,7 @@ public class TileColors : MonoBehaviour
     */
     IEnumerator MakePathDisappear(Dictionary<int, List<Color>> rememberColors, Dictionary<int, List<Hexagon>> tiles, float fading)
     {        
-        for(int i = tiles.Count-1 ; i > 0 ; i--)
+        for(int i = tiles.Count-1 ; i >= 0 ; i--)
         {
             for(int k = 0; k < tiles[i].Count; k++)
             {
