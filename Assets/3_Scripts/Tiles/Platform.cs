@@ -8,6 +8,9 @@ public class Platform : MonoBehaviour
     [SerializeField] private int pathTiles;
     [SerializeField] private int startingTiles;
     [SerializeField] private int winningTiles;
+    [SerializeField] private int checkpointTiles;
+    [SerializeField] private int distractionTiles;
+    [SerializeField] private int specialTiles;
 
     List<Hexagon> platformTiles = new List<Hexagon>(); // all hexagons of this platform will be found here
     
@@ -19,6 +22,9 @@ public class Platform : MonoBehaviour
         pathTiles = -1;
         startingTiles = -1;
         winningTiles = -1;
+        checkpointTiles = -1;
+        distractionTiles = -1;
+        specialTiles = -1;
     }
 
     /* ------------------------------ STARTING METHODS BEGINN ------------------------------  */
@@ -86,6 +92,28 @@ public class Platform : MonoBehaviour
         for(int i = 0; i < platformTiles.Count; i++)
         {
             platformTiles[i].SetIsWinningTile(winningTiles);
+        }
+    }
+    public void SetDistractionPlatform()
+    {
+        for(int i = 0; i < platformTiles.Count; i++)
+        {
+            platformTiles[i].SetIsDistractionTile(distractionTiles);
+        }
+    }
+    public void SetCheckpointPlatform()
+    {
+        for(int i = 0; i < platformTiles.Count; i++)
+        {
+            platformTiles[i].SetIsCheckpointTile(checkpointTiles);
+        }
+    }
+
+    public void SetSpecialPlatform()
+    {
+        for(int i = 0; i < platformTiles.Count; i++)
+        {
+            platformTiles[i].SetIsSpecialTile(specialTiles);
         }
     }
 
