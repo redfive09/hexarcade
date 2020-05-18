@@ -5,8 +5,9 @@ using UnityEngine;
 public class HexagonBehaviour : MonoBehaviour
 {
 
-[SerializeField] private Color UntouchedCrackedTile;
-[SerializeField] private Color TouchedCrackedTile;
+[SerializeField] private Color untouchedCrackedTile;
+[SerializeField] private Color touchedCrackedTile;
+[SerializeField] private float crackedTileBreaksInSeconds;
 
 // Start and End positions for moving tiles
 [SerializeField] private Vector3 movingTilePosA;
@@ -14,6 +15,35 @@ public class HexagonBehaviour : MonoBehaviour
 
 private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here        
 private Hexagon thisHexagon;
+
+
+    public void Setup()
+    {
+        crackedTileBreaksInSeconds = 2f;
+    }
+
+    IEnumerator Start()
+    {
+        GetStarted();
+        
+
+        if(thisHexagon.IsMovingTile())
+        {
+            movingTilePosA = SetValuesForMovingHexagons(movingTilePosA);
+            movingTilePosB = SetValuesForMovingHexagons(movingTilePosB);
+            while (thisHexagon.IsMovingTile()) 
+            {
+                yield return StartCoroutine(MoveObject(this.transform, movingTilePosA, movingTilePosB, 3));
+                yield return StartCoroutine(MoveObject(this.transform, movingTilePosB, movingTilePosA, 3));                        
+            }
+        }
+    }
+
+    void GetStarted()
+    {
+        thisHexagon = this.transform.GetComponentInParent<Hexagon>();        
+    }
+
 
 
     /* Method gets called in order to tell the tile that a player stands on it
@@ -52,31 +82,15 @@ private Hexagon thisHexagon;
     }
 
   
-    /*
+    /* 
     *  Method gets called to change the color of the cracked tile and destroy it after a delay.
     **/
     void ActivateCrackedTile()
     {
-        // SetColor(Color.grey);
-        float delay = 1f;
-        Destroy (gameObject, delay);
+        this.thisHexagon.DestroyHexagon(false, crackedTileBreaksInSeconds);
     }
 
-    IEnumerator Start()
-    {
-        thisHexagon = this.transform.GetComponentInParent<Hexagon>();
 
-        if(thisHexagon.IsMovingTile())
-        {
-            movingTilePosA = SetValuesForMovingHexagons(movingTilePosA);
-            movingTilePosB = SetValuesForMovingHexagons(movingTilePosB);
-            while (thisHexagon.IsMovingTile()) 
-            {
-                yield return StartCoroutine(MoveObject(this.transform, movingTilePosA, movingTilePosB, 3));
-                yield return StartCoroutine(MoveObject(this.transform, movingTilePosB, movingTilePosA, 3));                        
-            }
-        }
-    }
 
     Vector3 SetValuesForMovingHexagons(Vector3 vector)
     {

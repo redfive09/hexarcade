@@ -5,7 +5,7 @@
 public class Ball : MonoBehaviour
 {
     [SerializeField] float speed = 1000.0f;
-    private Hexagon occupiedTile;
+    private HexagonBehaviour occupiedTile;
     private Vector3 pos;
 
 
@@ -34,7 +34,7 @@ public class Ball : MonoBehaviour
 
         if(tile.tag == "Tile")
         {
-            Hexagon currentTile = tile.GetComponent<Hexagon>();
+            HexagonBehaviour currentTile = tile.GetComponent<HexagonBehaviour>();
         
             if(occupiedTile != currentTile)         // Check if the former occupiedTile has changed   
             {
@@ -50,11 +50,7 @@ public class Ball : MonoBehaviour
 
 
     /* ------------------------------ GETTER METHODS BEGINN ------------------------------  */
-    public Hexagon GetoccupiedTile()
-    {        
-        return occupiedTile;
-    }
-    
+        
     public Vector3 GetPos()
     {
         return pos; // current position in world

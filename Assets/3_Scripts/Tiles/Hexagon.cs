@@ -48,7 +48,9 @@ using UnityEngine;
             isCrackedTile = false;
             isMovingTile = false;
             color = this.transform.GetChild(0).GetComponent<Renderer>().material.color;
+            this.GetComponent<HexagonBehaviour>().Setup();
         }
+
 
         /*
          * Method is called at initiation of the game object.
@@ -231,8 +233,15 @@ using UnityEngine;
         }
 
 
+        /* ------------------------------ METHODS FOR EDITOR MODE ------------------------------  */
+        public void PrintCurrentWorldPosition()
+        {
+            Debug.Log(this.transform.parent.transform.position - this.transform.position);
+        }
+
+
         /* ------------------------------ DELETION METHOD ------------------------------  */
-        public void DestroyHexagon(bool inEditor)
+        public void DestroyHexagon(bool inEditor, float seconds)
         {
             /* <-- here needs to be code added, to remove it from all lists in the tiles-Script, 
              *     in case it is a pathTile, startingTile, etc.!!! --> */
@@ -251,79 +260,8 @@ using UnityEngine;
                 }
                 else
                 {
-                    Destroy(gameObject);
+                    Destroy(gameObject, seconds);
                 }
             }
         }
-
-
-
-        /* ------------------------------ BEHAVIOUR METHODS BEGINN ------------------------------  */
-
-        /* Method gets called in order to tell the tile that a player stands on it
-        *  Depending on its values, the tile knows what to do
-        **/ // All colour settings and other values like "delay" gotta go to another place later
-        public void GotOccupied(Ball player)
-        {
-            balls.Add(player);
-            
-            if(IsWinningTile())
-            {
-                print("touched winning tile");
-                // StateMachine.LevelUp();
-            }
-            else if(IsPathTile() & !isCrackedTile)
-            {
-                // SetColor(Color.blue);
-            }
-            else if(isCrackedTile)
-            {
-                ActivateCrackedTile();
-            }
-            else if(!IsPathTile())
-            {
-                // SetColor(Color.red);
-            }
-        }
-
-
-        /* Method gets called in order to tell the tile that a player left the tile
-        *  Depending on its values, the tile knows what to do
-        **/
-        public void GotUnoccupied(Ball player)
-        {            
-            balls.Remove(player);
-        }
-
-        /*
-        *  This method gets called in order to destroy a hexagon. Use always this method for this purpose, never Destroy()!
-        *  Parameters: "inEditor" should be "false" if the hexagon should be deleted during Game mode - only inEditor mode "true"!
-        **/
-
-        /*
-        *  Method gets called to change the color of the cracked tile and destroy it after a delay.
-        **/
-        void ActivateCrackedTile()
-        {
-            // SetColor(Color.grey);
-            float delay = 1f;
-            Destroy (gameObject, delay);
-        }
-
-
-        /*
-         *  Method gets called to move the tile up and down.
-         */
-        IEnumerator MoveObject (Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
-        {
-            float i = 0.0f;
-            float rate = 1.0f / time;
-            while (i < 1.0f) {
-                i += Time.deltaTime * rate;
-                thisTransform.position = Vector3.Lerp(startPos, endPos, i);
-                yield return null;
-            }
-        }
-
-
     } // CLASS END
