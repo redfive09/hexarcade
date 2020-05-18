@@ -11,6 +11,8 @@ public class Tiles : MonoBehaviour
     private Dictionary<int, List<Hexagon>> startingTiles = new Dictionary<int, List<Hexagon>>();
     private Dictionary<int, List<Hexagon>> winningTiles = new Dictionary<int, List<Hexagon>>();
     private Dictionary<int, List<Hexagon>> checkpointTiles = new Dictionary<int, List<Hexagon>>();
+    private Dictionary<int, List<Hexagon>> distractionTiles = new Dictionary<int, List<Hexagon>>();
+    private Dictionary<int, List<Hexagon>> specialTiles = new Dictionary<int, List<Hexagon>>();
 
 
     /* ------------------------------ STARTING METHODS BEGINN ------------------------------  */
@@ -67,6 +69,16 @@ public class Tiles : MonoBehaviour
                 if(hexagon.IsCheckpointTile())
                 {
                     SaveHexagonInList(checkpointTiles, hexagon, hexagon.GetCheckpointNumber());
+                }
+
+                if(hexagon.IsDistractionTile())
+                {
+                    SaveHexagonInList(distractionTiles, hexagon, hexagon.GetDistractionNumber());
+                }
+
+                if(hexagon.IsSpecialTile())
+                {
+                    SaveHexagonInList(specialTiles, hexagon, hexagon.GetSpecialTileNumber());
                 }
 
                 this.GetComponent<TileColors>().GiveColors(hexagon.GetComponent<HexagonBehaviour>());
@@ -126,7 +138,17 @@ public class Tiles : MonoBehaviour
     public Dictionary<int, List<Hexagon>> GetCheckpointTiles()
     {        
         return checkpointTiles;
-    }    
+    }
+
+    public Dictionary<int, List<Hexagon>> GetDistractionTiles()
+    {        
+        return distractionTiles;
+    }
+
+    public Dictionary<int, List<Hexagon>> GetSpecialTiles()
+    {        
+        return specialTiles;
+    }
 
     public int GetNumberOfPlatforms()
     {
@@ -142,9 +164,6 @@ public class Tiles : MonoBehaviour
     {
         return pathTiles[player].Count;
     }
-
-    /* ------------------------------ SETTER METHODS BEGIN ------------------------------  */
-
 
 
 
@@ -184,6 +203,16 @@ public class Tiles : MonoBehaviour
         for(int i = 0; i < checkpointTiles.Count; i++)
         {            
             checkpointTiles[i].Remove(hexagonToDelete);
+        }
+
+        for(int i = 0; i < distractionTiles.Count; i++)
+        {            
+            distractionTiles[i].Remove(hexagonToDelete);
+        }
+
+        for(int i = 0; i < specialTiles.Count; i++)
+        {            
+            specialTiles[i].Remove(hexagonToDelete);
         }
     }
 

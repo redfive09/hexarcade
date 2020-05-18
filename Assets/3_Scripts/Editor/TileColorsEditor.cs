@@ -12,6 +12,10 @@ public class TileColorsEditor : Editor {
         TileColors tileColors = (TileColors) target;
         base.OnInspectorGUI();
 
+        GUILayout.Label("");
+        GUILayout.Label("Buttons for constant colour changes. If they don't work, click once");
+        GUILayout.Label("(not more!) at 'Activate Editor Access' in the 'Map' instructor.");
+
         if (GUILayout.Button("Change Color of PathTiles"))
         {            
             tileColors.ChangePathTilesColor();
@@ -30,6 +34,16 @@ public class TileColorsEditor : Editor {
         if (GUILayout.Button("Change Color of CheckpointTiles"))
         {            
             tileColors.ChangeCheckpointTilesColor();
+        }
+
+        if (GUILayout.Button("Change Color of DistractionTiles"))
+        {            
+            tileColors.ChangeDistractionTilesColor();
+        }
+
+        if (GUILayout.Button("Change Color of SpecialTiles"))
+        {            
+            tileColors.ChangeSpecialTilesColor();
         }
 
         if (GUILayout.Button("Change Color of every Tile"))

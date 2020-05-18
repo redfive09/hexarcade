@@ -43,7 +43,17 @@ public class TileColors : MonoBehaviour
     [SerializeField] private float checkpointTimeBeforeFading;
     [SerializeField] private float checkpointTilesColorFading;
     [SerializeField] private Color checkpointTilesColor;
-    
+
+    [SerializeField] private float distractionTilesColorTime;
+    [SerializeField] private float distractionTimeBeforeFading;
+    [SerializeField] private float distractionTilesColorFading;
+    [SerializeField] private Color distractionTilesColor;
+
+    [SerializeField] private float specialTilesColorTime;
+    [SerializeField] private float specialTimeBeforeFading;
+    [SerializeField] private float specialTilesColorFading;
+    [SerializeField] private Color specialTilesColor;
+
     [SerializeField] private Color changeColorOfAllTiles;
 
 
@@ -64,12 +74,21 @@ public class TileColors : MonoBehaviour
         startingTilesColorFading = 10f;
 
         winningTilesColorTime = 1f;
-        winningTimeBeforeFading = 1f;
-        winningTilesColorFading = 2f;
+        winningTimeBeforeFading = 2f;
+        winningTilesColorFading = 0.5f;
 
-        checkpointTilesColorTime = 0f;
-        checkpointTimeBeforeFading = 2f;
-        checkpointTilesColorFading = 5f;
+        checkpointTilesColorTime = 20f;
+        checkpointTimeBeforeFading = 0f;
+        checkpointTilesColorFading = 0f;
+
+        distractionTilesColorTime = 0f;
+        distractionTimeBeforeFading = 0f;
+        distractionTilesColorFading = 0f;
+
+        specialTilesColorTime = 0f;
+        specialTimeBeforeFading = 0f;        
+        specialTilesColorFading = 0f;
+
     }
 
 
@@ -81,21 +100,6 @@ public class TileColors : MonoBehaviour
         // StartCoroutine(SetColor(winningTilesColor, tiles.GetWinningTiles(), winningTilesColorTime));
     }
 
-    public void GiveColors(HexagonBehaviour hexagon)
-    {
-        List<Color> colors = new List<Color>();
-        colors.Add(arrivedStandardTile);
-        colors.Add(arrivedCrackedTile);
-        colors.Add(arrivedPatchTile);
-        colors.Add(arrivedDistractionTile);
-        colors.Add(arrivedSpecialTile);
-        colors.Add(leftStandardTile);
-        colors.Add(leftPatchTile);
-        colors.Add(leftCrackedTile);
-        colors.Add(leftDistractionTile);
-        colors.Add(leftSpecialTile);
-        hexagon.SetColors(colors);
-    }
 
     /*  This method will make the colour of the path
      *  Works : tiles are colored in with a delay
@@ -177,6 +181,18 @@ public class TileColors : MonoBehaviour
         ChangeColor(tiles.GetCheckpointTiles(), checkpointTilesColor);
     }
 
+    public void ChangeDistractionTilesColor()
+    {
+        SetTiles();
+        ChangeColor(tiles.GetDistractionTiles(), distractionTilesColor);
+    }
+
+    public void ChangeSpecialTilesColor()
+    {
+        SetTiles();
+        ChangeColor(tiles.GetSpecialTiles(), specialTilesColor);
+    }
+
     /*
      * Needs to be sperated and called at so many places for the editor
     */
@@ -196,5 +212,21 @@ public class TileColors : MonoBehaviour
                 tilesList[k].SetColor(color);
             }            
         }
+    }
+
+    public void GiveColors(HexagonBehaviour hexagon)
+    {
+        List<Color> colors = new List<Color>();
+        colors.Add(arrivedStandardTile);
+        colors.Add(arrivedCrackedTile);
+        colors.Add(arrivedPatchTile);
+        colors.Add(arrivedDistractionTile);
+        colors.Add(arrivedSpecialTile);
+        colors.Add(leftStandardTile);
+        colors.Add(leftPatchTile);
+        colors.Add(leftCrackedTile);
+        colors.Add(leftDistractionTile);
+        colors.Add(leftSpecialTile);
+        hexagon.SetColors(colors);
     }
 }
