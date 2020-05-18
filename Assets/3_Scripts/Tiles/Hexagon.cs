@@ -7,8 +7,6 @@ using UnityEngine;
     **/
     public class Hexagon : MonoBehaviour
     {
-    
-
         /*
         *  Negative numbers means false, but these are not booleans anymore
         *  Positive numbers get an additional meaning, for example:
@@ -37,8 +35,7 @@ using UnityEngine;
         
         [SerializeField] private Color color;
 
-        private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here
-        private int currentlyOccupiedCounter = 0; // Counts the number of players, who are currently on the tile
+        private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here        
         
         // Map coordinates, not world coordinates!
         private float x;
@@ -54,7 +51,7 @@ using UnityEngine;
             isCrackedTile = false;
             isMovingTile = false;            
             isCurrentlyOccupied = false;
-            color = gameObject.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial.color;
+            color = this.transform.GetChild(0).GetComponent<Renderer>().material.color;
         }
 
         /*
@@ -124,12 +121,15 @@ using UnityEngine;
         // The first SetColor() method is made for the editor mode, to use the SerializeField color
         public void SetColor()
         {
-            SetColor(color);
+            SetColor(this.color);
         }
 
         public void SetColor(Color color)
         {
-            gameObject.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial.color = color;            
+            this.color = color;
+            // this.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial.color = color;
+            this.transform.GetChild(0).GetComponent<Renderer>().material.color = color;
+            
         }
 
         public void SetIsCurrentlyOccupied(bool status)
@@ -279,7 +279,7 @@ using UnityEngine;
             }
             else if(IsPathTile() & !isCrackedTile)
             {
-                SetColor(Color.blue);
+                // SetColor(Color.blue);
             }
             else if(isCrackedTile)
             {
@@ -287,7 +287,7 @@ using UnityEngine;
             }
             else if(!IsPathTile())
             {
-                SetColor(Color.red);
+                // SetColor(Color.red);
             }
         }
 
@@ -310,7 +310,7 @@ using UnityEngine;
         **/
         void ActivateCrackedTile()
         {
-            SetColor(Color.grey);
+            // SetColor(Color.grey);
             float delay = 1f;
             Destroy (gameObject, delay);
         }

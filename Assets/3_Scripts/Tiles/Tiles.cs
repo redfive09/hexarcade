@@ -7,10 +7,10 @@ public class Tiles : MonoBehaviour
     private List<Platform> platforms = new List<Platform>(); // Holds all platforms of the current level
     // private List<Hexagon> pathTiles = new List<Hexagon>(); // Holds all tiles of the current path
 
-    Dictionary<int, List<Hexagon>> pathTiles = new Dictionary<int, List<Hexagon>>();
-    Dictionary<int, List<Hexagon>> startingTiles = new Dictionary<int, List<Hexagon>>();
-    Dictionary<int, List<Hexagon>> winningTiles = new Dictionary<int, List<Hexagon>>();
-    Dictionary<int, List<Hexagon>> checkpointTiles = new Dictionary<int, List<Hexagon>>();
+    private Dictionary<int, List<Hexagon>> pathTiles = new Dictionary<int, List<Hexagon>>();
+    private Dictionary<int, List<Hexagon>> startingTiles = new Dictionary<int, List<Hexagon>>();
+    private Dictionary<int, List<Hexagon>> winningTiles = new Dictionary<int, List<Hexagon>>();
+    private Dictionary<int, List<Hexagon>> checkpointTiles = new Dictionary<int, List<Hexagon>>();
 
 
     /* ------------------------------ STARTING METHODS BEGINN ------------------------------  */
@@ -81,45 +81,7 @@ public class Tiles : MonoBehaviour
         
     }
 
-
-    /*
-     *  Print all hexagons and their platforms from any given Dictionary
-     */
-    private void PrintDictionaryTiles(Dictionary<int, List<Hexagon>> tiles)
-    {           
-        for(int i = 0; i < tiles.Count; i++)
-        {
-            List<Hexagon> tilesList = tiles[i];
-            Debug.Log("Current: " + i + " || Number of tiles: " + tilesList.Count);
-            
-            for(int k = 0; k < tilesList.Count; k++)
-            {
-                Debug.Log(tilesList[k].GetComponentInParent<Platform>().name + ": " + tilesList[k].name);
-            }            
-        }
-    }
-
-    /*
-     *  Used in the UI for testing with the instructor
-     */
-    public void PrintPathTiles()
-    {
-        PrintDictionaryTiles(pathTiles);
-    }
-
-
-/* ------------------------------ EDITOR MODE METHODS ------------------------------  */
-    /*
-     *  Add a new platform
-     */
-    public void AddPlatform(Platform platform)
-    {
-        platforms.Add(platform);
-    }
-
-
-
-/* ------------------------------ GETTER METHODS BEGIN ------------------------------  */
+    /* ------------------------------ GETTER METHODS BEGIN ------------------------------  */
     /*
      *  Return the searched platform, otherwise return null
      */
@@ -143,10 +105,29 @@ public class Tiles : MonoBehaviour
         return startingTiles;
     }
 
+    public Dictionary<int, List<Hexagon>> GetPathTiles()
+    {        
+        return pathTiles;
+    }
+
+    public Dictionary<int, List<Hexagon>> GetWinningTiles()
+    {        
+        return winningTiles;
+    }
+
+    public Dictionary<int, List<Hexagon>> GetCheckpointTiles()
+    {        
+        return checkpointTiles;
+    }    
 
     public int GetNumberOfPlatforms()
     {
         return platforms.Count;
+    }
+
+    public List<Platform> GetPlatforms()
+    {
+        return platforms;
     }
 
     public int GetNumberOfPathTiles(int player)
@@ -154,7 +135,12 @@ public class Tiles : MonoBehaviour
         return pathTiles[player].Count;
     }
 
+    /* ------------------------------ SETTER METHODS BEGIN ------------------------------  */
 
+
+
+
+    /* ------------------------------ DELETION METHOD ------------------------------  */
     /*     
      * Remove a platform from this list of platforms, but it does not destroy it!
      * For destorying a platform, you have to tell the platform itself with DestroyHexagon()!
@@ -168,6 +154,42 @@ public class Tiles : MonoBehaviour
                 platforms.RemoveAt(i);
             }
         }
+    }
+
+    /* ------------------------------ EDITOR MODE METHODS ------------------------------  */
+    /*
+     *  Add a new platform
+     */
+    public void AddPlatform(Platform platform)
+    {
+        platforms.Add(platform);
+    }
+
+
+    /* ------------------------------ DEBUGGING METHODS ------------------------------  */
+    /*
+     *  Print all hexagons and their platforms from any given Dictionary
+     */
+    private void PrintDictionaryTiles(Dictionary<int, List<Hexagon>> tiles)
+    {           
+        for(int i = 0; i < tiles.Count; i++)
+        {
+            List<Hexagon> tilesList = tiles[i];
+            Debug.Log("Current: " + i + " || Number of tiles: " + tilesList.Count);
+            
+            for(int k = 0; k < tilesList.Count; k++)
+            {
+                Debug.Log(tilesList[k].GetComponentInParent<Platform>().name + ": " + tilesList[k].name);
+            }            
+        }
+    }
+
+    /*
+     *  Used in the UI for testing with the instructor
+     */
+    public void PrintPathTiles()
+    {
+        PrintDictionaryTiles(pathTiles);
     }
 
 

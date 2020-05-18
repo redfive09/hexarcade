@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(MapGenerator))]
+[CustomEditor(typeof(Map))]
 
 public class MapEditor : Editor {
+    
 
     // Thank you Brackeys: https://www.youtube.com/watch?v=RInUu1_8aGw
 	public override void OnInspectorGUI()
     {
+        Map map = (Map) target;
         base.OnInspectorGUI();
 
-        MapGenerator mapGenerator = (MapGenerator) target;
-
-        if (GUILayout.Button("Generate Platform"))
-        {            
-            mapGenerator.GenerateMapWithEditor();
+        if (GUILayout.Button("Activate Editor Access"))
+        {
+            Tiles tiles = map.transform.GetComponentInChildren<Tiles>();
+            tiles.GetStarted();
         }
     }
 } // END OF CLASS
+
+

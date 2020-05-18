@@ -28,48 +28,33 @@ public class Platform : MonoBehaviour
     /*
      * Each platform goes through each hexagon it's connected to and adds it to the list
     */
-    void CollectHexagons()
+    public void CollectHexagons()
     {        
         for(int i = 0; i < this.transform.childCount; i++)
         {
             Hexagon hexagon = this.transform.GetChild(i).GetComponent<Hexagon>();
-            platformTiles.Add(hexagon);            
+            platformTiles.Add(hexagon);
         }
     }
 
 
     /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
 
-
-
-
-
-
-
-    /* ------------------------------ GETTER METHODS BEGINN ------------------------------  */
-
-    public void AddHexagon(Hexagon hexagon)
-    {
-        platformTiles.Add(hexagon);
-    }
-
-    public List<Hexagon> GetTilesList()
-    {
-        return platformTiles;
-    }
-
-    public int GetNumberOfHexagons()
-    {
-        return platformTiles.Count;
-    }
-
     /*
      * Changes all the colours of all hexagon tiles 
     */
     public void SetColor()
     {
+        CollectHexagons();
+        SetColor(this.color);
+        Debug.Log(platformTiles.Count);
+    }
+
+    public void SetColor(Color color)
+    {
+        this.color = color;
         for(int i = 0; i < platformTiles.Count; i++)
-        {
+        {            
             platformTiles[i].SetColor(color);
         }
     }
@@ -96,7 +81,28 @@ public class Platform : MonoBehaviour
         }
     }
 
+    public void AddHexagon(Hexagon hexagon)
+    {
+        platformTiles.Add(hexagon);
+    }
 
+
+    /* ------------------------------ GETTER METHODS BEGINN ------------------------------  */
+
+
+    public List<Hexagon> GetTilesList()
+    {
+        return platformTiles;
+    }
+
+    public int GetNumberOfHexagons()
+    {
+        return platformTiles.Count;
+    }
+
+
+
+    /* ------------------------------ DELETION METHODS ------------------------------  */
     /*     
      * Remove a hexagon from its platform, but it does not destroy it!
      * For destorying a hexagon, you have to tell the hexagon itself with DestroyHexagon()!

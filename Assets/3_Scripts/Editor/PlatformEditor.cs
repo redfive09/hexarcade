@@ -26,13 +26,10 @@ public class PlatformEditor : Editor {
         {
             platform.SetWinningPlatform();
         }
-
         
         if (GUILayout.Button("Delete Platform"))
         {
             platform.DestroyPlatform(true);
         }
-
-
     }
 } // END OF CLASS
