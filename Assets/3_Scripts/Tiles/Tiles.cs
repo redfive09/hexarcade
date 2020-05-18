@@ -15,10 +15,16 @@ public class Tiles : MonoBehaviour
 
     /* ------------------------------ STARTING METHODS BEGINN ------------------------------  */
     public void GetStarted()
-    {        
-        CollectPlatforms();
-        CollectTiles();
+    {
+        CollectTiles();        
+        this.GetComponent<TileColors>().GetStarted();
         // PrintDictionaryTiles(startingTiles);
+    }
+
+    public void CollectTiles()
+    {
+        CollectPlatforms();
+        CollectTilesForDifferentLists();
     }
 
     void CollectPlatforms()
@@ -26,7 +32,7 @@ public class Tiles : MonoBehaviour
         for(int i = 0; i < this.transform.childCount; i++)
         {
             Platform platform = this.transform.GetChild(i).GetComponent<Platform>();
-            platform.GetStarted();
+            platform.CollectHexagons();
             platforms.Add(platform);
         }
     }
@@ -34,7 +40,7 @@ public class Tiles : MonoBehaviour
     /*
      *  Goes through all the tiles of every platform
      */
-    private void CollectTiles()
+    private void CollectTilesForDifferentLists()
     {   
         for(int i = 0; i < platforms.Count; i++)
         {            

@@ -20,10 +20,6 @@ public class Platform : MonoBehaviour
     }
 
     /* ------------------------------ STARTING METHODS BEGINN ------------------------------  */
-    public void GetStarted()
-    {
-        CollectHexagons();
-    }
 
     /*
      * Each platform goes through each hexagon it's connected to and adds it to the list
@@ -45,7 +41,6 @@ public class Platform : MonoBehaviour
     */
     public void SetColor()
     {
-        CollectHexagons();
         SetColor(this.color);
         Debug.Log(platformTiles.Count);
     }

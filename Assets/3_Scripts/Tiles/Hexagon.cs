@@ -26,8 +26,7 @@ using UnityEngine;
         // Different booleans, not all them have setters or getters yet
         [SerializeField] private bool isCrackedTile;
         [SerializeField] private bool isMovingTile;
-        [SerializeField] private bool isCurrentlyOccupied;
-
+        
 
         // Start and End positions for moving tiles
         [SerializeField] private Vector3 movingTilePosA;
@@ -49,8 +48,7 @@ using UnityEngine;
             isWinningTile = -1;
             isCheckpointTile = -1;
             isCrackedTile = false;
-            isMovingTile = false;            
-            isCurrentlyOccupied = false;
+            isMovingTile = false;
             color = this.transform.GetChild(0).GetComponent<Renderer>().material.color;
         }
 
@@ -132,11 +130,6 @@ using UnityEngine;
             
         }
 
-        public void SetIsCurrentlyOccupied(bool status)
-        {
-            isCurrentlyOccupied = status;
-        }
-
         /*
          * Sets the initial positions of moving tiles
          */
@@ -161,9 +154,9 @@ using UnityEngine;
             return z;
         }
 
-        public bool IsCurrentlyOccupied()
+        public Color GetColor()
         {
-            return isCurrentlyOccupied;
+            return color;
         }
 
         public bool IsPathTile()
@@ -269,7 +262,6 @@ using UnityEngine;
         **/ // All colour settings and other values like "delay" gotta go to another place later
         public void GotOccupied(Ball player)
         {
-            isCurrentlyOccupied = true;
             balls.Add(player);
             
             if(IsWinningTile())

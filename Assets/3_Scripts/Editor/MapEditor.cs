@@ -15,7 +15,7 @@ public class MapEditor : Editor {
         if (GUILayout.Button("Activate Editor Access"))
         {
             Tiles tiles = map.transform.GetComponentInChildren<Tiles>();
-            tiles.GetStarted();
+            tiles.CollectTiles();
         }
     }
 } // END OF CLASS

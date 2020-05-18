@@ -131,8 +131,9 @@ public class MapGenerator : MonoBehaviour
                 GameObject newMap = Instantiate(mapPrefab);             // Create a new map
                 newMap.name = "Map";                                    // Name it
                 tiles = newMap.GetComponentInChildren<Tiles>();         // Save the script in the fields
+                tiles.GetComponent<TileColors>().Setup();               // Setup the colour script
                 Map map = newMap.GetComponent<Map>();                   // Get the map script
-                map.AddTiles(tiles);                                    // Add the "tiles" script to the map
+                map.AddTiles(tiles);                                    // Add the "tiles" script to the map                
             }
         }
     }
