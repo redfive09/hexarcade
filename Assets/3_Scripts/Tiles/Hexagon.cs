@@ -28,9 +28,7 @@ using UnityEngine;
         [SerializeField] private bool isMovingTile;
         
 
-        // Start and End positions for moving tiles
-        [SerializeField] private Vector3 movingTilePosA;
-        [SerializeField] private Vector3 movingTilePosB;
+   
         
         [SerializeField] private Color color;
 
@@ -57,15 +55,9 @@ using UnityEngine;
          * Calls the method to set the positions of moving tiles and performs a coroutine that moves the tiles up and
          * down, as long as isMovingTile is set to true.
          */
-        IEnumerator Start()
+        void Start()
         {
-            SetColor();
-            this.GetComponent<HexagonBehaviour>().GetStarted(this);
-            SetMovingTilePositions();
-            while (isMovingTile) {
-                yield return StartCoroutine(MoveObject(transform, movingTilePosA, movingTilePosB, 3));
-                yield return StartCoroutine(MoveObject(transform, movingTilePosB, movingTilePosA, 3));
-            }            
+            SetColor();        
         }
 
         /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
@@ -134,13 +126,13 @@ using UnityEngine;
         /*
          * Sets the initial positions of moving tiles
          */
-        private void SetMovingTilePositions()
-        {
-            this.movingTilePosA = transform.position;
-            Vector3 pointB = transform.position;
-            pointB.y = -2;
-            this.movingTilePosB = pointB;
-        }
+        // private void SetMovingTilePositions()
+        // {
+        //     this.movingTilePosA = transform.position;
+        //     Vector3 pointB = transform.position;
+        //     pointB.y = -2;
+        //     this.movingTilePosB = pointB;
+        // }
 
 
         /* ------------------------------ GETTER METHODS BEGINN ------------------------------  */
@@ -163,6 +155,11 @@ using UnityEngine;
         public bool IsCrackedTile()
         {
             return isCrackedTile;
+        }
+
+        public bool IsMovingTile()
+        {
+            return isMovingTile;
         }
 
         public bool IsPathTile()
