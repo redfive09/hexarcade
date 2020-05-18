@@ -7,12 +7,12 @@ public class AiNavigation : MonoBehaviour
 {
     [SerializeField] private GameObject loveObject = null;
     private NavMeshAgent ThisNavAgent = null;
-    [SerializeField] private float distanceSatisfaction = 1.0f;
-    [SerializeField] private float distanceEager = 3.0f;
+    [SerializeField] private float distanceSatisfaction = 2.0f;
+    [SerializeField] private float distanceEager = 6.0f;
 
     public enum STATES { IDLE = 0, TRAVEL = 1 };
     private STATES currentState = STATES.IDLE;
-    [SerializeField] private STATES startState = STATES.IDLE;
+    //[SerializeField] private STATES startState = STATES.IDLE;
 
     public STATES CurrentState
     {
