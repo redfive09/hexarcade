@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3672075565666513910}
   - component: {fileID: 23016770578853154}
   - component: {fileID: 114140466879502834}
+  - component: {fileID: 114974907210070270}
+  - component: {fileID: 241537107505066640}
   m_Layer: 0
   m_Name: hexagon
   m_TagString: Tile
@@ -112,6 +114,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 794fd410ec1177f49a5164d340233fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPath: 0
+  isStartingTile: 0
+  isWinningTile: 0
+  isCheckpointTile: 0
+  isCrackedTile: 0
+  isMovingTile: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114974907210070270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624019070745550841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crackedTileBreaksInSeconds: 0
+  movingTilePosA: {x: 0, y: 0, z: 0}
+  movingTilePosB: {x: 0, y: 0, z: 0}
+  speedOfMovingTiles: 0
+--- !u!114 &241537107505066640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624019070745550841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3624019070745550843
