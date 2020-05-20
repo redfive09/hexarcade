@@ -18,7 +18,7 @@ public class Ball : MonoBehaviour
     public void GetStarted()
     {
         timer = new Timer();
-        
+        timer.GetStarted();
     }
 
     /*  
@@ -26,14 +26,15 @@ public class Ball : MonoBehaviour
     **/
     void FixedUpdate()
     {
-        
+        timerField.text = timer.TimeToString(timer.GetCurrentTime());
+
         float moveHorizontal = Input.GetAxis ("Horizontal");
         float moveVertical = Input.GetAxis ("Vertical");
 
         Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
         pos = transform.position;
 
-        GetComponent<Rigidbody>().AddForce (movement * (speed * Time.fixedDeltaTime));        
+        GetComponent<Rigidbody>().AddForce (movement * (speed * Time.fixedDeltaTime));
     }
 
     /*  
@@ -88,7 +89,23 @@ public class Ball : MonoBehaviour
 
         if(hexagon.IsStartingTile())
         {
-            
+            timer.StartTiming();
+        }
+        else if(hexagon.IsWinningTile())
+        {
+
+            timer.StopTiming();
+
+            Debug.Log(timer.TimeToString(timer.GetCurrentTime()));
+
+            if(timer.IsNewBestTime())
+            {
+                Debug.Log("New record");
+            }
+            else
+            {
+                Debug.Log("No new record");
+            }
         }
     }
     
