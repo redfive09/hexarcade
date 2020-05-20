@@ -1,27 +1,75 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
     // [SerializeField] private Text timerText;
     private float startTime;
+    private float stopTime;
     private float timeCounter;
 
+    private float bestTime;  // of current level
+    private float[] bestTimes;
+
+
     // Start is called before the first frame update
-    private void Start()
+    private void GetStarted()
     {
-        startTime = Time.fixedTime;
+        bestTimes = SaveLoadManager.LoadTimes();
+        bestTime = bestTimes[SceneManager.GetActiveScene().buildIndex];
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
         timeCounter = Time.fixedTime - startTime;
-        // timerText.text = TimeToString(timeCounter);
+    }   
+
+    public float GetCurrentTime()
+    {
+        return timeCounter;
     }
 
-    public static string TimeToString(float time)
+    public void StartTiming() // = Reset timer
+    {
+        startTime = Time.fixedTime;
+    }
+
+    public void StopTiming()
+    {
+        stopTime = timeCounter;
+    }
+
+        public float GetBestTime()
+    {
+        return bestTime;
+    }
+
+     public bool IsNewBestTime()
+    {
+        if (CompareWithBestTime(stopTime))
+        {
+            bestTime = stopTime;
+            bestTimes[SceneManager.GetActiveScene().buildIndex] = bestTime;
+            SaveLoadManager.SaveTimes(bestTimes);
+            return true;
+        }
+        return false;
+    }
+
+    private bool CompareWithBestTime(float newTime)
+    {
+        // best times of not yet cleared levels are negative floats
+        if (bestTime < 0.0f || newTime < bestTime)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public string TimeToString(float time)
     {
         int minutes = (int)(time / 60);
         int seconds = (int)time % 60;
@@ -29,21 +77,6 @@ public class Timer : MonoBehaviour
 
         return minutes.ToString() + ":" + (seconds.ToString("00")) + ":" + (miliseconds * 1000).ToString("000");
     }
-
-    public float GetCurrentTime()
-    {
-        return timeCounter;
-    }
-
-    public void ResetTime()
-    {
-        startTime = Time.fixedTime;
-    }
-
-    // public void StopTimer()
-    // {
-    //     timerText.gameObject.SetActive(false);
-    // }
 
 
 } // END of class
