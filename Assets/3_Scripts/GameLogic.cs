@@ -18,7 +18,7 @@ public class GameLogic : MonoBehaviour
     private Timer timer;
     private List<Hexagon> levelTiles = new List<Hexagon>(); // Holds all tiles of the current level
     private List<Hexagon> pathTiles = new List<Hexagon>(); // Holds all tiles of the current path
-    
+
     private float tileColorTime = 0.1f; // time between each tile coloring (used in level intro)
 
     // probably also a list for crackedTiles
@@ -44,10 +44,20 @@ public class GameLogic : MonoBehaviour
     **/
     void Start()
     {
-        
-        
-        
+        CreateLevel();
+        CreatePlayers();
+        PaintTheWorld();
+        StartTimers();
         SetDistractorTilesLevel1();
+    }
+
+    /*
+     *  Sets the distractor tiles for Level 1.
+     */
+    void SetDistractorTilesLevel1()
+    {
+        pathTiles[2].SetIsCrackedTile(true);
+        pathTiles[3].SetIsMovingTile(true);
     }
 
     void Update()
@@ -58,14 +68,28 @@ public class GameLogic : MonoBehaviour
         }
     }
 
+
     /*
-     *  Sets the distractor tiles for Level 1.
-     */
-    void SetDistractorTilesLevel1()
+     *  Create all the level relevant stuff, like the map and the path
+    **/
+    void CreateLevel()
     {
-        pathTiles[2].SetIsCrackedTile(true);
-        pathTiles[3].SetIsMovingTile(true);
-        StartTimers();
+        levelTiles = mapGenerator.GetComponent<MapGenerator>().GenerateMap(12, 6, 7, "AllTiles"); // Save tiles of the new generated map, specific information should be outsourced into another file later
+        pathTiles = pathGenerator.GetComponent<PathGenerator>().GetPathTiles(levelTiles, pathCoordLevel1); // Create a path
+
+    }
+
+    /*
+     *  Written in plural, just in case if we add multiple players later :)
+    **/
+    void CreatePlayers()
+    {
+        GameObject player1Ball = Instantiate(ball);
+        player1Ball.name = "Player1";
+        player = player1Ball.GetComponent<Ball>();
+        player.GoToSpawnPosition(pathTiles[0]); // First element of the "path" list is the starting tile
+        DeactivatePlayerControls();
+        Invoke("ActivatePlayerControls", pathCoordLevel1.Length * tileColorTime);
     }
 
 
