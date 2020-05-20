@@ -1,4 +1,4 @@
-﻿    using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,18 +15,18 @@ public class Timer : MonoBehaviour
 
 
     // Start is called before the first frame update
-    public void GetStarted()
+    void Start()
     {
         bestTimes = SaveLoadManager.LoadTimes();
-        bestTime = bestTimes[SceneManager.GetActiveScene().buildIndex];
-        timeCounter = 0;
+        bestTime = bestTimes[SceneManager.GetActiveScene().buildIndex];        
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
-    {
-        timeCounter = Time.fixedTime - startTime;
-    }   
+    void FixedUpdate()
+    {   
+        this.timeCounter = Time.fixedTime - startTime;        
+        
+    }
 
     public float GetCurrentTime()
     {
@@ -34,21 +34,26 @@ public class Timer : MonoBehaviour
     }
 
     public void StartTiming() // = Reset timer
-    {
-        startTime = Time.fixedTime;
+    {        
+        startTime = Time.fixedTime;        
     }
 
     public void StopTiming()
     {
-        stopTime = timeCounter;
+        stopTime = timeCounter;        
     }
 
-        public float GetBestTime()
+    public float GetLastFinishTime()
+    {
+        return stopTime;
+    }
+
+    public float GetBestTime()
     {
         return bestTime;
     }
 
-     public bool IsNewBestTime()
+    public bool IsNewBestTime()
     {
         if (CompareWithBestTime(stopTime))
         {

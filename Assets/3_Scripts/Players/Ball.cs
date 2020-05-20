@@ -17,15 +17,14 @@ public class Ball : MonoBehaviour
 
     public void GetStarted()
     {
-        timer = new Timer();
-        timer.GetStarted();
+        timer = this.GetComponentInChildren<Timer>();
     }
 
     /*  
      *  This is the place, where the player gets controlled 
     **/
     void FixedUpdate()
-    {
+    {        
         timerField.text = timer.TimeToString(timer.GetCurrentTime());
 
         float moveHorizontal = Input.GetAxis ("Horizontal");
@@ -90,13 +89,13 @@ public class Ball : MonoBehaviour
         if(hexagon.IsStartingTile())
         {
             timer.StartTiming();
+            Debug.Log("Timer started/reseted");
         }
         else if(hexagon.IsWinningTile())
         {
-
             timer.StopTiming();
 
-            Debug.Log(timer.TimeToString(timer.GetCurrentTime()));
+            Debug.Log("Finish time: " + timer.GetLastFinishTime());
 
             if(timer.IsNewBestTime())
             {

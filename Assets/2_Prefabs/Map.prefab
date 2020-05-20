@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8304183964364371795}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7819804448688216966
 MonoBehaviour:
@@ -87,9 +87,9 @@ Transform:
   m_LocalPosition: {x: -19.92485, y: 3.9918365, z: 3.680128}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1625658202994110932}
   - {fileID: 1368131106140788763}
   - {fileID: 6847481425380462635}
+  - {fileID: 1625658202994110932}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -135,7 +135,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8304183964364371795}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3522351982723486733
 MonoBehaviour:
@@ -161,9 +161,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1b4501ad6ef7f448b114b032cf12c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeColorOfAllTiles: {r: 0, g: 0, b: 0, a: 0}
-  touchedTilesColor: {r: 0, g: 0, b: 0, a: 0}
-  detouchedTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  arrivedStandardTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedCrackedTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedPatchTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedDistractionTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedSpecialTile: {r: 0, g: 0, b: 0, a: 0}
+  leftStandardTile: {r: 0, g: 0, b: 0, a: 0}
+  leftPatchTile: {r: 0, g: 0, b: 0, a: 0}
+  leftCrackedTile: {r: 0, g: 0, b: 0, a: 0}
+  leftDistractionTile: {r: 0, g: 0, b: 0, a: 0}
+  leftSpecialTile: {r: 0, g: 0, b: 0, a: 0}
   pathTilesColorTime: 0
   pathTimeBeforeFading: 0
   pathTilesColorFading: 0
@@ -180,6 +187,15 @@ MonoBehaviour:
   checkpointTimeBeforeFading: 0
   checkpointTilesColorFading: 0
   checkpointTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  distractionTilesColorTime: 0
+  distractionTimeBeforeFading: 0
+  distractionTilesColorFading: 0
+  distractionTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  specialTilesColorTime: 0
+  specialTimeBeforeFading: 0
+  specialTilesColorFading: 0
+  specialTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  changeColorOfAllTiles: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6609492161829483270
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +225,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8304183964364371795}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3078633384435142284
 MonoBehaviour:
