@@ -8,10 +8,6 @@ public class Map : MonoBehaviour
     Tiles tiles;
     Players players;
 
-
-    // TO-MOVE ONCE STATE_MACHINE IS USED --- BEGINN
-    private float tileColorTime = 0.1f; // time between each tile coloring (used in level intro)
-    // TO-MOVE ONCE STATE_MACHINE IS USED --- END
     
     void Start()
     {
@@ -32,8 +28,6 @@ public class Map : MonoBehaviour
         players = this.transform.GetComponentInChildren<Players>();
         players.GetStarted(numberOfPlayers, tiles.GetStartingTiles());
     }
-
-
 
 
 /* ------------------------------ EDITOR MODE METHODS ------------------------------  */

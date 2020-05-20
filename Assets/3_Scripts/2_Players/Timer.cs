@@ -15,17 +15,18 @@ public class Timer : MonoBehaviour
 
 
     // Start is called before the first frame update
-    private void GetStarted()
+    void Start()
     {
         bestTimes = SaveLoadManager.LoadTimes();
-        bestTime = bestTimes[SceneManager.GetActiveScene().buildIndex];
+        bestTime = bestTimes[SceneManager.GetActiveScene().buildIndex];        
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
-    {
-        timeCounter = Time.fixedTime - startTime;
-    }   
+    void FixedUpdate()
+    {   
+        timeCounter = Time.fixedTime - startTime;        
+        
+    }
 
     public float GetCurrentTime()
     {
@@ -33,21 +34,26 @@ public class Timer : MonoBehaviour
     }
 
     public void StartTiming() // = Reset timer
-    {
-        startTime = Time.fixedTime;
+    {        
+        startTime = Time.fixedTime;        
     }
 
     public void StopTiming()
     {
-        stopTime = timeCounter;
+        stopTime = timeCounter;        
     }
 
-        public float GetBestTime()
+    public float GetLastFinishTime()
+    {
+        return stopTime;
+    }
+
+    public float GetBestTime()
     {
         return bestTime;
     }
 
-     public bool IsNewBestTime()
+    public bool IsNewBestTime()
     {
         if (CompareWithBestTime(stopTime))
         {
@@ -75,7 +81,7 @@ public class Timer : MonoBehaviour
         int seconds = (int)time % 60;
         float miliseconds = time - (int)time;
 
-        return minutes.ToString() + ":" + (seconds.ToString("00")) + ":" + (miliseconds * 1000).ToString("000");
+        return minutes.ToString() + ":" + (seconds.ToString("00")) + ":" + (miliseconds * 100).ToString("00");
     }
 
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Players : MonoBehaviour
 {
     [SerializeField] private GameObject ball;
+    [SerializeField] private Camera playerCamera;
     [SerializeField] private GameObject stateMachine;
     List<Ball> players = new List<Ball>();
     Dictionary<int, List<Hexagon>> startingTiles;
@@ -12,7 +13,7 @@ public class Players : MonoBehaviour
     public void GetStarted(int numberOfPlayers, Dictionary<int, List<Hexagon>> startingTiles)
     {   
         this.startingTiles = startingTiles;
-        SpawnPlayers(numberOfPlayers);
+        SpawnPlayers(numberOfPlayers);        
     }
 
     /*
@@ -26,13 +27,13 @@ public class Players : MonoBehaviour
             playerBall.name = "Player" + (i + 1);
             playerBall.transform.parent = this.transform;
 
-            GameObject SM = Instantiate(stateMachine);
-            SM.name = "StateMachine";
-            SM.transform.parent = playerBall.transform;
+            CameraFollow playerCam = GetComponentInChildren<CameraFollow>();
+            playerCam.GetStarted(playerBall.transform);
 
             Ball player = playerBall.GetComponent<Ball>();
             players.Add(player);
             player.GoToSpawnPosition(GetSpawnPosition(i));
+            player.GetStarted();
 
             // Change place later
             // DeactivatePlayerControls(playerBall);

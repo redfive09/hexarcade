@@ -9,28 +9,31 @@ public class PauseMenu : MonoBehaviour
     /*
      * Tutorial used: https://youtu.be/JivuXdrIHK0
      */
-    public static bool GameIsCurrentlyPaused = false;
+    public bool GameIsCurrentlyPaused = false;
     public Button pauseButton;
     [SerializeField] GameObject pauseMenuUI;
 
-    void Start () {
-        Button btn = pauseButton.GetComponent<Button>();
-        btn.onClick.AddListener(Pause);
-    }
+
     void Update()
     {
-       /* if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsCurrentlyPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }*/
+            ResumeOrPause();
+        }        
     }
+
+    public void ResumeOrPause()
+    {
+        if (GameIsCurrentlyPaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Pause();
+        }
+    }
+
     public void Resume() //public to be able to call it from the button
     {
         pauseMenuUI.SetActive(false); //disable Pause Menu (Child of the Canvas this script is linked to 
@@ -51,15 +54,15 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
     
-    public void QuitGame()
-    {
-        Debug.Log("Quit"); //Application.Quit does nothing visible, so I left the Debug.Log statement
-        Application.Quit();
-    }
-
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Resume();
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quit"); //Application.Quit does nothing visible, so I left the Debug.Log statement
+        Application.Quit();
     }
 }
