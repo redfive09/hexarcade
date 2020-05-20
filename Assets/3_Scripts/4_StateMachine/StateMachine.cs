@@ -37,6 +37,7 @@ namespace _3_Scripts
             var go = new GameObject();
             go.name = "StateMachine";
             _sm = go.AddComponent<StateMachine>();
+            go.transform.parent = _sm.transform;
         }
 
         /*
@@ -53,7 +54,8 @@ namespace _3_Scripts
 
         private void Start()
         {
-            _sm = StateMachine.GetInstance();
+            // _sm = StateMachine.GetInstance();            
+            _sm = this;            
             initiateState();
             _currentState = States.Begin;
             _nextState = States.Play;

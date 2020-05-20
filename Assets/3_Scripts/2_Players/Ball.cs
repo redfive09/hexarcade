@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerField;
     [SerializeField] float speed = 1000.0f;
+    
     private HexagonBehaviour occupiedTile;
     
     private Timer timer;
@@ -24,16 +25,18 @@ public class Ball : MonoBehaviour
      *  This is the place, where the player gets controlled 
     **/
     void FixedUpdate()
-    {        
+    {   
+        // Set timer
         timerField.text = timer.TimeToString(timer.GetCurrentTime());
 
+        // Be ready for moving
         float moveHorizontal = Input.GetAxis ("Horizontal");
-        float moveVertical = Input.GetAxis ("Vertical");
-
+        float moveVertical = Input.GetAxis ("Vertical");    
         Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-        pos = transform.position;
-
         GetComponent<Rigidbody>().AddForce (movement * (speed * Time.fixedDeltaTime));
+
+        // Save current position, not used yet
+        pos = transform.position;        
     }
 
     /*  
@@ -62,27 +65,12 @@ public class Ball : MonoBehaviour
     }
 
 
-    /* ------------------------------ GETTER METHODS BEGINN ------------------------------  */
-        
-    public Vector3 GetPos()
-    {
-        return pos; // current position in world
-    }
-
 
     /* ------------------------------ BEHAVIOUR METHODS BEGINN ------------------------------  */
 
     /*  
      *  Let the player spawn above the desired tile
     **/
-
-
-    public void GoToSpawnPosition(Hexagon spawnTile)
-    {
-        float distanceAboveTile = 1f; // Should go later to a central place for all settings
-        gameObject.transform.position = new Vector3(spawnTile.transform.position.x, spawnTile.transform.position.y + distanceAboveTile, spawnTile.transform.position.z);
-    }
-
     private void AnalyseHexagon(Hexagon hexagon)
     {
 
@@ -106,6 +94,13 @@ public class Ball : MonoBehaviour
                 Debug.Log("No new record");
             }
         }
+    }
+
+    
+    public void GoToSpawnPosition(Hexagon spawnTile)
+    {
+        float distanceAboveTile = 1f; // Should go later to a central place for all settings
+        gameObject.transform.position = new Vector3(spawnTile.transform.position.x, spawnTile.transform.position.y + distanceAboveTile, spawnTile.transform.position.z);
     }
     
 } // CLASS END
