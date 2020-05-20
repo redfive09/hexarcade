@@ -5,6 +5,7 @@ using UnityEngine;
 public class Players : MonoBehaviour
 {
     [SerializeField] private GameObject ball;
+    [SerializeField] private Camera playerCamera;
     [SerializeField] private GameObject stateMachine;
     List<Ball> players = new List<Ball>();
     Dictionary<int, List<Hexagon>> startingTiles;
@@ -26,9 +27,8 @@ public class Players : MonoBehaviour
             playerBall.name = "Player" + (i + 1);
             playerBall.transform.parent = this.transform;
 
-            GameObject SM = Instantiate(stateMachine);
-            SM.name = "StateMachine";
-            SM.transform.parent = playerBall.transform;
+            // Camera playerCam = Instantiate(playerCamera);
+            // playerCam.GetComponent<CameraFollow>().GetStarted(playerBall.transform);
 
             Ball player = playerBall.GetComponent<Ball>();
             players.Add(player);

@@ -5278,10 +5278,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114181261015468620, guid: 927f9a8841326864bb4f2fe1c5392627,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1189700445693153184, guid: 927f9a8841326864bb4f2fe1c5392627,
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189700445693153184, guid: 927f9a8841326864bb4f2fe1c5392627,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1189700445693153191, guid: 927f9a8841326864bb4f2fe1c5392627,
         type: 3}
@@ -20170,6 +20180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 7806642066602230678, guid: 7effc9b935780834aa6d9fdad5c365ee, type: 3}
+  playerCamera: {fileID: 0}
   stateMachine: {fileID: 2689096160421605638, guid: 00e6235329021464c8bcb3de44b72e30,
     type: 3}
 --- !u!21 &1739944722
