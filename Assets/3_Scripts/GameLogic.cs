@@ -44,11 +44,11 @@ public class GameLogic : MonoBehaviour
     **/
     void Start()
     {
-        CreateLevel();
-        CreatePlayers();
-        PaintTheWorld();
-        StartTimers();
-        SetDistractorTilesLevel1();
+        // CreateLevel();
+        // CreatePlayers();
+        // PaintTheWorld();
+        // StartTimers();
+        // SetDistractorTilesLevel1();
     }
 
     /*
@@ -88,7 +88,7 @@ public class GameLogic : MonoBehaviour
         player1Ball.name = "Player1";
         player = player1Ball.GetComponent<Ball>();
         player.GoToSpawnPosition(pathTiles[0]); // First element of the "path" list is the starting tile
-        DeactivatePlayerControls();
+        // DeactivatePlayerControls();
         Invoke("ActivatePlayerControls", pathCoordLevel1.Length * tileColorTime);
     }
 

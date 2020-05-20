@@ -1,28 +1,39 @@
 ﻿using UnityEngine;
+using TMPro;
 /*  
  *  Class purpose: Giving each ball (respectively player) values and behaviour 
 **/
 public class Ball : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI timerField;
     [SerializeField] float speed = 1000.0f;
     private HexagonBehaviour occupiedTile;
+    
+    private Timer timer;
     private Vector3 pos;
 
 
     /* ------------------------------ STANDARD METHODS BEGINN ------------------------------  */
+
+    public void GetStarted()
+    {
+        timer = new Timer();
+        
+    }
 
     /*  
      *  This is the place, where the player gets controlled 
     **/
     void FixedUpdate()
     {
+        
         float moveHorizontal = Input.GetAxis ("Horizontal");
         float moveVertical = Input.GetAxis ("Vertical");
 
         Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
         pos = transform.position;
 
-        GetComponent<Rigidbody>().AddForce (movement * (speed * Time.fixedDeltaTime));
+        GetComponent<Rigidbody>().AddForce (movement * (speed * Time.fixedDeltaTime));        
     }
 
     /*  
@@ -44,6 +55,8 @@ public class Ball : MonoBehaviour
                 }                    
                 currentTile.GotOccupied(this);          // Tell the currentTile, that this player stands on it
                 occupiedTile = currentTile;         // Save the current tile
+
+                AnalyseHexagon(occupiedTile.GetComponent<Hexagon>());
             }            
         }
     }
@@ -62,10 +75,21 @@ public class Ball : MonoBehaviour
     /*  
      *  Let the player spawn above the desired tile
     **/
+
+
     public void GoToSpawnPosition(Hexagon spawnTile)
     {
         float distanceAboveTile = 1f; // Should go later to a central place for all settings
         gameObject.transform.position = new Vector3(spawnTile.transform.position.x, spawnTile.transform.position.y + distanceAboveTile, spawnTile.transform.position.z);
+    }
+
+    private void AnalyseHexagon(Hexagon hexagon)
+    {
+
+        if(hexagon.IsStartingTile())
+        {
+            
+        }
     }
     
 } // CLASS END

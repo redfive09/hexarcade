@@ -12,7 +12,7 @@ public class Players : MonoBehaviour
     public void GetStarted(int numberOfPlayers, Dictionary<int, List<Hexagon>> startingTiles)
     {   
         this.startingTiles = startingTiles;
-        SpawnPlayers(numberOfPlayers);
+        SpawnPlayers(numberOfPlayers);        
     }
 
     /*
@@ -33,6 +33,7 @@ public class Players : MonoBehaviour
             Ball player = playerBall.GetComponent<Ball>();
             players.Add(player);
             player.GoToSpawnPosition(GetSpawnPosition(i));
+            player.GetStarted();
 
             // Change place later
             // DeactivatePlayerControls(playerBall);
