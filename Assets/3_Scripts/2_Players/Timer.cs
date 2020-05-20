@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {   
-        this.timeCounter = Time.fixedTime - startTime;        
+        timeCounter = Time.fixedTime - startTime;        
         
     }
 

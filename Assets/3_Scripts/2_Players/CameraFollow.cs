@@ -5,20 +5,19 @@ public class CameraFollow : MonoBehaviour
    /*
     * Tutorial by Brackeys: https://youtu.be/MFQhpwc6cKE
     */
-   [SerializeField] private Transform target;
-   [SerializeField] private  float smoothSpeed;
-   [SerializeField] private  Vector3 offset;
-   [SerializeField] private  Vector3 velocity;
+   [SerializeField] private  float smoothSpeed = 0.125f;
+   [SerializeField] private  Vector3 offset = new Vector3(-5, 10, -10);
+   [SerializeField] private  Vector3 velocity = new Vector3(0, 0, 0);
+
+   private Transform target;
 
    public void GetStarted(Transform player)
    {
-      smoothSpeed = 0.125f;
-      offset = new Vector3(0,10,0);
-      velocity = new Vector3(0,0,0);
+      this.transform.position = player.position;
       target = player;
    }
    
-   void FixedUpdate() //better for non-physics related actions
+   void LateUpdate()
    {
       /*smoothDamp works better than lerp apparently https://docs.unity3d.com/ScriptReference/Vector3.SmoothDamp.html*/
       var position = transform.position;
