@@ -9,6 +9,7 @@ public class AiNavigation : MonoBehaviour
     private NavMeshAgent ThisNavAgent = null;
     [SerializeField] private float distanceSatisfaction = 2.0f;
     [SerializeField] private float distanceEager = 6.0f;
+    [SerializeField] private bool maniac = true;
 
     public enum STATES { IDLE = 0, TRAVEL = 1 };
     private STATES currentState = STATES.IDLE;
@@ -38,9 +39,22 @@ public class AiNavigation : MonoBehaviour
         }
     }
 
+    public GameObject SetGameObject
+    {
+        set
+        {
+            loveObject = value;
+        }
+    }
+
     void Awake()
     {
         ThisNavAgent = GetComponent<NavMeshAgent>();
+        if (loveObject == null && maniac == true)
+        {
+            loveObject = new GameObject();
+            InvokeRepeating("AlterDesiredPosition", 0.0f, 5.0f);
+        }
     }
 
     // Start is called before the first frame update
@@ -63,7 +77,7 @@ public class AiNavigation : MonoBehaviour
         //ThisNavAgent.SetDestination(sexualDesire.transform.position);    
     }
 
-    public IEnumerator idleState()
+    IEnumerator idleState()
     {
         while (currentState == STATES.IDLE)
         {
@@ -77,7 +91,7 @@ public class AiNavigation : MonoBehaviour
         }
     }
 
-    public IEnumerator travelState()
+    IEnumerator travelState()
     {
         while (CurrentState == STATES.TRAVEL)
         {
@@ -89,5 +103,10 @@ public class AiNavigation : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    void AlterDesiredPosition()
+    {
+        loveObject.transform.position = new Vector3(Random.Range(-5.0f, 5.0f), 0.0f, Random.Range(-5.0f, 5.0f));
     }
 }
