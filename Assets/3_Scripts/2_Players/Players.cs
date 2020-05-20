@@ -27,8 +27,8 @@ public class Players : MonoBehaviour
             playerBall.name = "Player" + (i + 1);
             playerBall.transform.parent = this.transform;
 
-            // Camera playerCam = Instantiate(playerCamera);
-            // playerCam.GetComponent<CameraFollow>().GetStarted(playerBall.transform);
+            CameraFollow playerCam = GetComponentInChildren<CameraFollow>();
+            playerCam.GetStarted(playerBall.transform);
 
             Ball player = playerBall.GetComponent<Ball>();
             players.Add(player);
