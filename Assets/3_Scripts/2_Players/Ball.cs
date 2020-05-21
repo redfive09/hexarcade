@@ -6,10 +6,9 @@ using TMPro;
 public class Ball : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerField;
-    [SerializeField] float speed = 1000.0f;
+
     
-    private HexagonBehaviour occupiedTile;
-    
+    private HexagonBehaviour occupiedTile;    
     private Timer timer;
     private Vector3 pos;
 
@@ -22,18 +21,12 @@ public class Ball : MonoBehaviour
     }
 
     /*  
-     *  This is the place, where the player gets controlled 
+     *  Everythign which has to do with the players movement 
     **/
     void FixedUpdate()
     {   
         // Set timer
         timerField.text = timer.TimeToString(timer.GetCurrentTime());
-
-        // Be ready for moving
-        float moveHorizontal = Input.GetAxis ("Horizontal");
-        float moveVertical = Input.GetAxis ("Vertical");    
-        Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-        GetComponent<Rigidbody>().AddForce (movement * (speed * Time.fixedDeltaTime));
 
         // Save current position, not used yet
         pos = transform.position;        
@@ -78,6 +71,7 @@ public class Ball : MonoBehaviour
         {
             timer.StartTiming();
             Debug.Log("Timer started/reseted");
+            Debug.Log("Record to beat: " + timer.GetBestTime());
         }
         else if(hexagon.IsWinningTile())
         {
@@ -102,5 +96,26 @@ public class Ball : MonoBehaviour
         float distanceAboveTile = 1f; // Should go later to a central place for all settings
         gameObject.transform.position = new Vector3(spawnTile.transform.position.x, spawnTile.transform.position.y + distanceAboveTile, spawnTile.transform.position.z);
     }
-    
+
+
+    /*
+     *  Deactivates the player attached scripts "Ball" and "AccelerometerMovement". Hence all the effects and manipulations caused by them will be absent.
+    **/
+    void DeactivatePlayerControls()
+    {
+        GetComponent<BallControls>().enabled = false;
+        GetComponent<AccelorometerMovement>().enabled = false;
+    }
+
+
+    /*
+     * Activates the player attached scripts "Ball" and "AccelerometerMovement"
+     **/
+    void ActivatePlayerControls()
+    {
+        GetComponent<BallControls>().enabled = true;
+        GetComponent<AccelorometerMovement>().enabled = true;
+    }
+
+
 } // CLASS END
