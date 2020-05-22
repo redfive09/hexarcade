@@ -82,7 +82,6 @@ public class AiNavigation : MonoBehaviour
         if (random == true)
         {
             loveObject = new GameObject();
-            loveObject.DistractorDestination ;
             InvokeRepeating("AlterDesiredPosition", 0.0f, randomFrequency);
         }
     }
