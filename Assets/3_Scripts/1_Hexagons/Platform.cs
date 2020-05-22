@@ -27,6 +27,7 @@ public class Platform : MonoBehaviour
         specialTiles = -1;
     }
 
+
     /* ------------------------------ STARTING METHODS BEGINN ------------------------------  */
 
     /*
@@ -176,6 +177,22 @@ public class Platform : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void PrintTransform()
+    {
+        string tempString = "";
+
+        tempString += "PositionX: " + this.transform.position.x + " || ";
+        tempString += "PositionY: " + this.transform.position.y + " || ";
+        tempString += "PositionZ: " + this.transform.position.z + " || ";
+        tempString += "RotationX: " + this.transform.rotation.x + " || ";
+        tempString += "RotationY: " + this.transform.rotation.y + " || ";
+        tempString += "RotationZ: " + this.transform.rotation.z;
+
+        Debug.Log(tempString);
+
+        // Debug.Log(transform.position.x) <-- check position in world space
     }
 
 } // END OF CLASS

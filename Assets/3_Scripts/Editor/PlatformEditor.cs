@@ -55,5 +55,10 @@ public class PlatformEditor : Editor {
         {
             platform.DestroyPlatform(true);
         }
+
+        if (GUILayout.Button("Print transform"))
+        {
+            platform.PrintTransform();
+        }
     }
 } // END OF CLASS
