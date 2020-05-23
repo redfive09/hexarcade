@@ -9,7 +9,10 @@ public class AiNavigation : MonoBehaviour
     private NavMeshAgent ThisNavAgent = null;
     [SerializeField] private float distanceSatisfaction = 2.0f;
     [SerializeField] private float distanceEager = 6.0f;
-    [SerializeField] private bool maniac = true;
+    [SerializeField] private bool random = true;
+    [SerializeField] private float randomFrequency = 2.0f;
+    [SerializeField] private Vector3 center = new Vector3(0.0f, 0.0f, 0.0f);
+    [SerializeField] private float radius = 5.0f;
 
     public enum STATES { IDLE = 0, TRAVEL = 1 };
     private STATES currentState = STATES.IDLE;
@@ -47,13 +50,39 @@ public class AiNavigation : MonoBehaviour
         }
     }
 
+    public Vector3 Center
+    {
+        set
+        {
+            center = value;
+        }
+    }
+
+    public float Radius
+    {
+        set
+        {
+            Radius = value;
+        }
+    }
+
+    public float RandomFrequenzy
+    {
+        set
+        {
+            RandomFrequenzy = value;
+            StopCoroutine("AlterDesiredPosition");
+            InvokeRepeating("AlterDesiredPosition", 0.0f, randomFrequency);
+        }
+    }
+
     void Awake()
     {
         ThisNavAgent = GetComponent<NavMeshAgent>();
-        if (loveObject == null && maniac == true)
+        if (random == true)
         {
             loveObject = new GameObject();
-            InvokeRepeating("AlterDesiredPosition", 0.0f, 5.0f);
+            InvokeRepeating("AlterDesiredPosition", 0.0f, randomFrequency);
         }
     }
 
@@ -73,7 +102,7 @@ public class AiNavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Vector3.Distance(transform.position, loveObject.transform.position));
+       // Debug.Log(Vector3.Distance(transform.position, loveObject.transform.position));
         //ThisNavAgent.SetDestination(sexualDesire.transform.position);    
     }
 
@@ -107,6 +136,8 @@ public class AiNavigation : MonoBehaviour
 
     void AlterDesiredPosition()
     {
-        loveObject.transform.position = new Vector3(Random.Range(-5.0f, 5.0f), 0.0f, Random.Range(-5.0f, 5.0f));
+        //Vector3 desPos = center + new Vector3(Random.Range(-radius, radius), 0.0f, Random.Range(-radius, radius));
+        //Debug.Log(desPos);
+        loveObject.transform.position = center + new Vector3(Random.Range(-radius, radius), 0.0f, Random.Range(-radius, radius)); //desPos;
     }
 }

@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 114694915476404736}
   - component: {fileID: 114248383995355222}
   - component: {fileID: 114794042878200722}
+  - component: {fileID: 208232732979815616}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Player
@@ -309,6 +310,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa55d12a50a05eb4f882603e2403900b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &208232732979815616
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806642066602230678}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7980574085284668371
 GameObject:
   m_ObjectHideFlags: 0
