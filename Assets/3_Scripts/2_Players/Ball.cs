@@ -8,16 +8,20 @@ public class Ball : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerField;
 
     
-    private HexagonBehaviour occupiedTile;    
+    private HexagonBehaviour occupiedTile;
+    private Hexagon lastSpawnPosition;
     private Timer timer;
     private Vector3 pos;
+    private int playerNumber;
+    
 
 
     /* ------------------------------ STANDARD METHODS BEGINN ------------------------------  */
 
-    public void GetStarted()
+    public void GetStarted(int playerNumber)
     {
         timer = this.GetComponentInChildren<Timer>();
+        this.playerNumber = playerNumber;
     }
 
     /*  
@@ -95,6 +99,7 @@ public class Ball : MonoBehaviour
     {
         float distanceAboveTile = 1f; // Should go later to a central place for all settings
         gameObject.transform.position = new Vector3(spawnTile.transform.position.x, spawnTile.transform.position.y + distanceAboveTile, spawnTile.transform.position.z);
+        lastSpawnPosition = spawnTile;
     }
 
 
