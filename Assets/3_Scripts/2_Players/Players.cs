@@ -32,8 +32,8 @@ public class Players : MonoBehaviour
 
             Ball player = playerBall.GetComponent<Ball>();
             players.Add(player);
-            player.GoToSpawnPosition(GetSpawnPosition(i));
             player.GetStarted(i);
+            player.GoToSpawnPosition(GetSpawnPosition(i));
 
             // Change place later
             // DeactivatePlayerControls(playerBall);

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using TMPro;
 /*  
  *  Class purpose: Giving each ball (respectively player) values and behaviour 
@@ -7,11 +8,11 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerField;
 
-    
+    private Rigidbody rb;
     private HexagonBehaviour occupiedTile;
     private Hexagon lastSpawnPosition;
     private Timer timer;
-    private Vector3 pos;
+    private List<Vector3> positions = new List<Vector3>();
     private int playerNumber;
     
 
@@ -20,12 +21,13 @@ public class Ball : MonoBehaviour
 
     public void GetStarted(int playerNumber)
     {
-        timer = this.GetComponentInChildren<Timer>();
+        rb = GetComponent<Rigidbody>();
+        timer = this.GetComponentInChildren<Timer>();        
         this.playerNumber = playerNumber;
     }
 
     /*  
-     *  Everythign which has to do with the players movement 
+     *  Everythign which has to do with the players movement
     **/
     void FixedUpdate()
     {   
@@ -33,7 +35,14 @@ public class Ball : MonoBehaviour
         timerField.text = timer.TimeToString(timer.GetCurrentTime());
 
         // Save current position, not used yet
-        pos = transform.position;        
+        positions.Add(transform.position);
+
+        // Start ghost/replay
+        if(Input.GetKeyDown(KeyCode.R))
+        {                        
+            // coroutine and yield || implemented later
+            // use rb.MovePosition();
+        }
     }
 
     /*  
@@ -98,7 +107,7 @@ public class Ball : MonoBehaviour
     public void GoToSpawnPosition(Hexagon spawnTile)
     {
         float distanceAboveTile = 1f; // Should go later to a central place for all settings
-        gameObject.transform.position = new Vector3(spawnTile.transform.position.x, spawnTile.transform.position.y + distanceAboveTile, spawnTile.transform.position.z);
+        transform.position = new Vector3(spawnTile.transform.position.x, spawnTile.transform.position.y + distanceAboveTile, spawnTile.transform.position.z);
         lastSpawnPosition = spawnTile;
     }
 
