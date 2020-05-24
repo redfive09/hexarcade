@@ -94,7 +94,7 @@ public class TileColors : MonoBehaviour
 
     public void GetStarted()
     {
-        SetTiles();        
+        SetTiles();
         StartCoroutine(SetColor(pathTilesColor, tiles.GetPathTiles(), pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading));  // Since the method returns an IEnumerator it has to be calles with startCoroutine
         // StartCoroutine(SetColor(checkpointTilesColor, tiles.GetCheckpointTiles(), checkpointTilesColorTime));
         // StartCoroutine(SetColor(winningTilesColor, tiles.GetWinningTiles(), winningTilesColorTime));

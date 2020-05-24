@@ -13,7 +13,7 @@ public class Players : MonoBehaviour
     public void GetStarted(int numberOfPlayers, Dictionary<int, List<Hexagon>> startingTiles)
     {   
         this.startingTiles = startingTiles;
-        SpawnPlayers(numberOfPlayers);        
+        SpawnPlayers(numberOfPlayers);
     }
 
     /*

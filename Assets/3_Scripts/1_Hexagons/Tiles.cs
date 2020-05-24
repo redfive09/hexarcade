@@ -5,9 +5,11 @@ using UnityEngine;
 public class Tiles : MonoBehaviour
 {
     private List<Platform> platforms = new List<Platform>(); // Holds all platforms of the current level
-    // private List<Hexagon> pathTiles = new List<Hexagon>(); // Holds all tiles of the current path
+    // private List<Dictionary<int, List<Hexagon>>> tileLists = new List<Dictionary<int, List<Hexagon>>>();
 
-    private Dictionary<int, List<Hexagon>> pathTiles = new Dictionary<int, List<Hexagon>>();
+    private Dictionary<int, List<Hexagon>>[] tileLists;    
+
+    private Dictionary<int, List<Hexagon>> pathTiles = new Dictionary<int, List<Hexagon>>();  
     private Dictionary<int, List<Hexagon>> startingTiles = new Dictionary<int, List<Hexagon>>();
     private Dictionary<int, List<Hexagon>> winningTiles = new Dictionary<int, List<Hexagon>>();
     private Dictionary<int, List<Hexagon>> checkpointTiles = new Dictionary<int, List<Hexagon>>();
@@ -17,7 +19,7 @@ public class Tiles : MonoBehaviour
 
     /* ------------------------------ STARTING METHODS BEGINN ------------------------------  */
     public void GetStarted()
-    {
+    {        
         CollectTiles();        
         this.GetComponent<TileColors>().GetStarted();
         // PrintDictionaryTiles(startingTiles);
@@ -25,8 +27,22 @@ public class Tiles : MonoBehaviour
 
     public void CollectTiles()
     {
+        AddAllLists();
         CollectPlatforms();
         CollectTilesForListsAndColorThem();
+        
+    }
+
+    private void AddAllLists()
+    {
+    tileLists = new Dictionary<int, List<Hexagon>>[] {
+        pathTiles,
+        startingTiles,
+        winningTiles,
+        checkpointTiles,
+        distractionTiles,
+        specialTiles
+        };
     }
 
     void CollectPlatforms()
@@ -45,7 +61,7 @@ public class Tiles : MonoBehaviour
     private void CollectTilesForListsAndColorThem()
     {   
         for(int i = 0; i < platforms.Count; i++)
-        {            
+        {
             List<Hexagon> platformTiles = platforms[i].GetTilesList();
             for(int k = 0; k < platformTiles.Count; k++)
             {                
@@ -63,7 +79,7 @@ public class Tiles : MonoBehaviour
 
                 if(hexagon.IsWinningTile())
                 {
-                    SaveHexagonInList(winningTiles, hexagon, hexagon.GetWinningNumber());
+                    SaveHexagonInList(winningTiles, hexagon, hexagon.GetWinningNumber());                    
                 }
 
                 if(hexagon.IsCheckpointTile())
@@ -231,7 +247,7 @@ public class Tiles : MonoBehaviour
      *  Print all hexagons and their platforms from any given Dictionary
      */
     private void PrintDictionaryTiles(Dictionary<int, List<Hexagon>> tiles)
-    {           
+    {
         for(int i = 0; i < tiles.Count; i++)
         {
             List<Hexagon> tilesList = tiles[i];
