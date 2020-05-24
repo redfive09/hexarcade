@@ -14,8 +14,9 @@ public class Ball : MonoBehaviour
     private List<Vector3> positions = new List<Vector3>();
     private int playerNumber;
     TileColors tileColors;
+    private float loseHeight = -10;
 
-    private int replayPositionCounter = 0;    
+    private int replayPositionCounter = 0;
 
 
     /* ------------------------------ STANDARD METHODS BEGINN ------------------------------  */
@@ -26,14 +27,17 @@ public class Ball : MonoBehaviour
         timer = this.GetComponentInChildren<Timer>();
         this.playerNumber = playerNumber;
 
+        GameObject loseTile = GameObject.Find("Map/LoseHeight");
+        loseHeight = loseTile.transform.position.y;
+
         GameObject tiles = GameObject.Find("Map/Tiles");
         tileColors = tiles.GetComponent<TileColors>();
         
-        StartCoroutine(StartIntroduction());
+        StartCoroutine(Introduction());
     }
 
 
-    IEnumerator StartIntroduction()
+    IEnumerator Introduction()
     {
         tileColors.DisplayTiles();
         
@@ -44,8 +48,27 @@ public class Ball : MonoBehaviour
         }        
         ActivatePlayerControls();
         timer.Show();
+
+        GameStarts();
     }
 
+    void GameStarts()
+    {
+        StartCoroutine(CheckLoseCondition());
+    }
+
+    IEnumerator CheckLoseCondition()
+    {
+        // Lose condition through falling
+        for(;;)
+        {
+            if(loseHeight > transform.position.y)
+            {
+                PlayerLost();
+            }
+            yield return new WaitForSeconds(0.1f);
+        }            
+    }
 
     /*  
      *  Everythign which has to do with the players movement
@@ -60,7 +83,7 @@ public class Ball : MonoBehaviour
         {                     
             transform.position = positions[replayPositionCounter];
             replayPositionCounter++;
-        }
+        }     
     }
 
     /*  
@@ -119,6 +142,11 @@ public class Ball : MonoBehaviour
                 Debug.Log("No new record");
             }
         }
+    }
+
+    private void PlayerLost()
+    {
+        GoToSpawnPosition(lastSpawnPosition);
     }
 
     

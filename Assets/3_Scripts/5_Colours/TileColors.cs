@@ -30,8 +30,6 @@ public class TileColors : MonoBehaviour
     [SerializeField] private float pathTimeBeforeFading;
     [SerializeField] private float pathTilesColorFading;
     [SerializeField] private Color pathTilesColor;
-    private bool pathTilesColorFinished = false;
-
     
 
     [SerializeField] private float startingTilesColorStartTime;
@@ -39,7 +37,6 @@ public class TileColors : MonoBehaviour
     [SerializeField] private float startingTimeBeforeFading;
     [SerializeField] private float startingTilesColorFading;
     [SerializeField] private Color startingTilesColor;
-    private bool startingTilesColorFinished = false;
 
 
     [SerializeField] private float winningTilesColorStartTime;
@@ -47,7 +44,6 @@ public class TileColors : MonoBehaviour
     [SerializeField] private float winningTimeBeforeFading;
     [SerializeField] private float winningTilesColorFading;
     [SerializeField] private Color winningTilesColor;
-    private bool winningTilesColorFinished = false;
 
 
     [SerializeField] private float checkpointTilesColorStartTime;
@@ -55,7 +51,6 @@ public class TileColors : MonoBehaviour
     [SerializeField] private float checkpointTimeBeforeFading;
     [SerializeField] private float checkpointTilesColorFading;
     [SerializeField] private Color checkpointTilesColor;
-    private bool checkpointTilesColorFinished = false;
 
 
     [SerializeField] private float distractionTilesColorStartTime;
@@ -63,7 +58,6 @@ public class TileColors : MonoBehaviour
     [SerializeField] private float distractionTimeBeforeFading;
     [SerializeField] private float distractionTilesColorFading;
     [SerializeField] private Color distractionTilesColor;
-    private bool distractionTilesColorFinished = false;
 
 
     [SerializeField] private float specialTilesColorStartTime;
@@ -71,7 +65,7 @@ public class TileColors : MonoBehaviour
     [SerializeField] private float specialTimeBeforeFading;
     [SerializeField] private float specialTilesColorFading;
     [SerializeField] private Color specialTilesColor;
-    private bool specialTilesColorFinished = false;
+
 
     [SerializeField] private Color changeColorOfAllTiles;
 
