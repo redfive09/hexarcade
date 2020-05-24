@@ -932,7 +932,7 @@ MonoBehaviour:
   isPath: -1
   isStartingTile: -1
   isWinningTile: -1
-  isCheckpointTile: -1
+  isCheckpointTile: 0
   isDistractionTile: -1
   isSpecialTile: -1
   isCrackedTile: 0
@@ -5176,7 +5176,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 485498907}
+  - component: {fileID: 485498910}
   - component: {fileID: 485498909}
+  - component: {fileID: 485498911}
   - component: {fileID: 485498908}
   m_Layer: 0
   m_Name: Tiles
@@ -5213,36 +5215,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1b4501ad6ef7f448b114b032cf12c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrivedStandardTile: {r: 0.110137075, g: 0.7075472, b: 0.12126527, a: 0}
+  arrivedStandardTile: {r: 0.109803915, g: 0.7058824, b: 0.63627213, a: 0}
   arrivedCrackedTile: {r: 0, g: 0.14916277, b: 1, a: 0}
-  arrivedPatchTile: {r: 0.764151, g: 0.19785485, b: 0.10453011, a: 0}
+  arrivedPathTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedDistractionTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedSpecialTile: {r: 0, g: 0, b: 0, a: 0}
   leftStandardTile: {r: 0, g: 0, b: 0, a: 0}
-  leftPatchTile: {r: 0.8845462, g: 0.9245283, b: 0.100302614, a: 0}
+  leftPathTile: {r: 0, g: 0, b: 0, a: 0}
   leftCrackedTile: {r: 0.26633143, g: 0.30534688, b: 0.4245283, a: 0}
   leftDistractionTile: {r: 0, g: 0, b: 0, a: 0}
   leftSpecialTile: {r: 0, g: 0, b: 0, a: 0}
-  pathTilesColorTime: 2.19
+  pathTilesColorStartTime: 0
+  pathTilesColorTime: 1
   pathTimeBeforeFading: 2
-  pathTilesColorFading: 1.4
+  pathTilesColorFading: 0.5
   pathTilesColor: {r: 0.8862745, g: 0.56798923, b: 0.07843135, a: 0}
+  startingTilesColorStartTime: 0
   startingTilesColorTime: 0
   startingTimeBeforeFading: 5
   startingTilesColorFading: 10
   startingTilesColor: {r: 1, g: 1, b: 1, a: 0}
+  winningTilesColorStartTime: 0
   winningTilesColorTime: 1
   winningTimeBeforeFading: 1
   winningTilesColorFading: 2
   winningTilesColor: {r: 0.66988224, g: 0.7924528, b: 0, a: 0}
-  checkpointTilesColorTime: 0
+  checkpointTilesColorStartTime: 6
+  checkpointTilesColorTime: 10
   checkpointTimeBeforeFading: 2
-  checkpointTilesColorFading: 5
+  checkpointTilesColorFading: 0
   checkpointTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  distractionTilesColorStartTime: 0
   distractionTilesColorTime: 0
   distractionTimeBeforeFading: 0
   distractionTilesColorFading: 0
   distractionTilesColor: {r: 0.7924528, g: 0.6058187, b: 0.16073336, a: 0}
+  specialTilesColorStartTime: 0
   specialTilesColorTime: 0
   specialTimeBeforeFading: 0
   specialTilesColorFading: 0
@@ -5258,6 +5266,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a0ba334cfef05b488274837dab06a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &485498910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485498906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3555b169a026cb4eb400eb4fe261a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &485498911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485498906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3555b169a026cb4eb400eb4fe261a8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!21 &488709777
@@ -17684,6 +17716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8fcb5dc5c0a724baa576eb116de9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfPlayers: 1
 --- !u!4 &1558160115
 Transform:
   m_ObjectHideFlags: 0

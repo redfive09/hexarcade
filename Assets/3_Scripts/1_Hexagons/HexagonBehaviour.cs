@@ -14,12 +14,12 @@ public class HexagonBehaviour : MonoBehaviour
     
     private int arrivedStandardTile = 0; 
     private int arrivedCrackedTile = 1;
-    private int arrivedPatchTile = 2;
+    private int arrivedPathTile = 2;
     private int arrivedDistractionTile = 3;
     private int arrivedSpecialTile = 4;
 
     private int leftStandardTile = 5;
-    private int leftPatchTile = 6;
+    private int leftPathTile = 6;
     private int leftCrackedTile = 7;
     private int leftDistractionTile = 8;
     private int leftSpecialTile = 9;
@@ -61,7 +61,7 @@ public class HexagonBehaviour : MonoBehaviour
         }
         else if(thisHexagon.IsPathTile())
         {
-            thisHexagon.SetColor(colors[arrivedPatchTile]);
+            thisHexagon.SetColor(colors[arrivedPathTile]);
         }
         else if(thisHexagon.IsCrackedTile())
         {
@@ -92,7 +92,7 @@ public class HexagonBehaviour : MonoBehaviour
 
         if(thisHexagon.IsPathTile())
         {
-            thisHexagon.SetColor(colors[leftPatchTile]);
+            thisHexagon.SetColor(colors[leftPathTile]);
         }
         else if(thisHexagon.IsCrackedTile())
         {

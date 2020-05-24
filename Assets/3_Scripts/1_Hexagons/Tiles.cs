@@ -9,19 +9,22 @@ public class Tiles : MonoBehaviour
 
     private Dictionary<int, List<Hexagon>>[] tileLists;    
 
-    private Dictionary<int, List<Hexagon>> pathTiles = new Dictionary<int, List<Hexagon>>();  
-    private Dictionary<int, List<Hexagon>> startingTiles = new Dictionary<int, List<Hexagon>>();
-    private Dictionary<int, List<Hexagon>> winningTiles = new Dictionary<int, List<Hexagon>>();
-    private Dictionary<int, List<Hexagon>> checkpointTiles = new Dictionary<int, List<Hexagon>>();
-    private Dictionary<int, List<Hexagon>> distractionTiles = new Dictionary<int, List<Hexagon>>();
-    private Dictionary<int, List<Hexagon>> specialTiles = new Dictionary<int, List<Hexagon>>();
+    private Dictionary<int, List<Hexagon>> standardTiles = new Dictionary<int, List<Hexagon>>();        // 0
+    private Dictionary<int, List<Hexagon>> crackedTiles = new Dictionary<int, List<Hexagon>>();         // 1
+    private Dictionary<int, List<Hexagon>> pathTiles = new Dictionary<int, List<Hexagon>>();            // 2
+    private Dictionary<int, List<Hexagon>> distractionTiles = new Dictionary<int, List<Hexagon>>();     // 3
+    private Dictionary<int, List<Hexagon>> checkpointTiles = new Dictionary<int, List<Hexagon>>();      // 4
+    private Dictionary<int, List<Hexagon>> specialTiles = new Dictionary<int, List<Hexagon>>();         // 5
+    private Dictionary<int, List<Hexagon>> startingTiles = new Dictionary<int, List<Hexagon>>();        // 6
+    private Dictionary<int, List<Hexagon>> winningTiles = new Dictionary<int, List<Hexagon>>();         // 7
+
+
 
 
     /* ------------------------------ STARTING METHODS BEGINN ------------------------------  */
     public void GetStarted()
     {        
-        CollectTiles();        
-        this.GetComponent<TileColors>().GetStarted();
+        CollectTiles();
         // PrintDictionaryTiles(startingTiles);
     }
 
@@ -36,12 +39,14 @@ public class Tiles : MonoBehaviour
     private void AddAllLists()
     {
     tileLists = new Dictionary<int, List<Hexagon>>[] {
+        standardTiles,
+        crackedTiles,
         pathTiles,
+        distractionTiles,
+        checkpointTiles,
+        specialTiles,
         startingTiles,
         winningTiles,
-        checkpointTiles,
-        distractionTiles,
-        specialTiles
         };
     }
 

@@ -14,6 +14,7 @@ public class Ball : MonoBehaviour
     private Timer timer;
     private List<Vector3> positions = new List<Vector3>();
     private int playerNumber;
+    TileColors tileColors;
     
 
 
@@ -24,7 +25,22 @@ public class Ball : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         timer = this.GetComponentInChildren<Timer>();        
         this.playerNumber = playerNumber;
+
+        GameObject tiles = GameObject.Find("Map/Tiles");
+        tileColors = tiles.GetComponent<TileColors>();
+        // tileColors.ColorTilesInLists();
+        tileColors.GetStarted();
     }
+
+
+    void Update()
+    {
+        if(tileColors.IsFinished())
+        {
+            ActivatePlayerControls();
+        }
+    }
+
 
     /*  
      *  Everythign which has to do with the players movement
