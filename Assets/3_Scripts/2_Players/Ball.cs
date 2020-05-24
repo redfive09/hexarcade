@@ -1,13 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using UnityEngine;
+
 /*  
  *  Class purpose: Giving each ball (respectively player) values and behaviour 
 **/
 public class Ball : MonoBehaviour
-{
-    [SerializeField] TextMeshProUGUI timerField;
-
+{    
     private Rigidbody rb;
     private HexagonBehaviour occupiedTile;
     private Hexagon lastSpawnPosition;
@@ -15,7 +14,8 @@ public class Ball : MonoBehaviour
     private List<Vector3> positions = new List<Vector3>();
     private int playerNumber;
     TileColors tileColors;
-    
+
+    private int replayPositionCounter = 0;    
 
 
     /* ------------------------------ STANDARD METHODS BEGINN ------------------------------  */
@@ -23,22 +23,27 @@ public class Ball : MonoBehaviour
     public void GetStarted(int playerNumber)
     {
         rb = GetComponent<Rigidbody>();
-        timer = this.GetComponentInChildren<Timer>();        
+        timer = this.GetComponentInChildren<Timer>();
         this.playerNumber = playerNumber;
 
         GameObject tiles = GameObject.Find("Map/Tiles");
         tileColors = tiles.GetComponent<TileColors>();
-        // tileColors.ColorTilesInLists();
-        tileColors.GetStarted();
+        
+        StartCoroutine(StartIntroduction());
     }
 
 
-    void Update()
+    IEnumerator StartIntroduction()
     {
-        if(tileColors.IsFinished())
+        tileColors.DisplayTiles();
+        
+        // Just wait for the tiles to finish 
+        while(!tileColors.IsFinished())
         {
-            ActivatePlayerControls();
-        }
+            yield return new WaitForSeconds(0.1f);
+        }        
+        ActivatePlayerControls();
+        timer.Show();
     }
 
 
@@ -46,18 +51,15 @@ public class Ball : MonoBehaviour
      *  Everythign which has to do with the players movement
     **/
     void FixedUpdate()
-    {   
-        // Set timer
-        timerField.text = timer.TimeToString(timer.GetCurrentTime());
-
+    {
         // Save current position, not used yet
         positions.Add(transform.position);
 
-        // Start ghost/replay
+        // Start ghost/replay --- JUST A TEST SO FAR ---
         if(Input.GetKeyDown(KeyCode.R))
-        {                        
-            // coroutine and yield || implemented later
-            // use rb.MovePosition();
+        {                     
+            transform.position = positions[replayPositionCounter];
+            replayPositionCounter++;
         }
     }
 

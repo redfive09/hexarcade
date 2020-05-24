@@ -77,29 +77,34 @@ public class TileColors : MonoBehaviour
 
 
     private Tiles tiles;
-    private List<TileTypeOptions> colors = new List<TileTypeOptions>();
+    private TileTypeOptions[] colors;
 
+    // Filling the array and setting up the tiles    
     public void GetStarted()
     {
         SetTiles();
-        // TileTypeOptions pathTileOptions = new TileTypeOptions(pathTilesColorStartTime, pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading, pathTilesColor, tiles.GetPathTiles());
-        colors.Add(new TileTypeOptions(pathTilesColorStartTime, pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading, pathTilesColor, tiles.GetPathTiles()));
 
-        for(int i = 0; i < colors.Count; i++)
+        colors = new TileTypeOptions[] {
+        new TileTypeOptions(pathTilesColorStartTime, pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading, pathTilesColor, tiles.GetPathTiles()),
+        new TileTypeOptions(distractionTilesColorStartTime, distractionTilesColorTime, distractionTimeBeforeFading, distractionTilesColorFading, distractionTilesColor, tiles.GetDistractionTiles()),
+        new TileTypeOptions(checkpointTilesColorStartTime, checkpointTilesColorTime, checkpointTimeBeforeFading, checkpointTilesColorFading, checkpointTilesColor, tiles.GetCheckpointTiles()),
+        new TileTypeOptions(specialTilesColorStartTime, specialTilesColorTime, specialTimeBeforeFading, specialTilesColorFading, specialTilesColor, tiles.GetSpecialTiles()),
+        new TileTypeOptions(startingTilesColorStartTime, startingTilesColorTime, startingTimeBeforeFading, startingTilesColorFading, startingTilesColor, tiles.GetStartingTiles()),
+        new TileTypeOptions(winningTilesColorStartTime, winningTilesColorTime, winningTimeBeforeFading, winningTilesColorFading, winningTilesColor, tiles.GetWinningTiles())
+        };
+    }
+
+    public void DisplayTiles()
+    {
+        for(int i = 0; i < colors.Length; i++)
         {
             StartCoroutine(SetColor(colors[i]));
-        }        
+        }
     }
 
-
-    public void ColorTilesInLists()
-    {
-        SetTiles();
-        // StartCoroutine(SetColor(pathTilesColor, tiles.GetPathTiles(), pathTilesColorStartTime, pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading));  // Since the method returns an IEnumerator it has to be calles with startCoroutine
-        // StartCoroutine(SetColor(checkpointTilesColor, tiles.GetCheckpointTiles(), checkpointTilesColorStartTime, checkpointTilesColorTime, checkpointTimeBeforeFading, checkpointTilesColorFading));
-        // StartCoroutine(SetColor(winningTilesColor, tiles.GetWinningTiles(), winningTilesColorTime));
-    }
-
+    /*  This method will make the colour of the path
+     *  Works : tiles are colored in with a delay
+    **/
     IEnumerator SetColor(TileTypeOptions tileOptions)
     {
         yield return new WaitForSeconds(tileOptions.GetStartingTime()); // wait seconds before continuing with the loop
@@ -122,31 +127,6 @@ public class TileColors : MonoBehaviour
         }
         StartCoroutine(MakePathDisappear(rememberColors, tiles, tileOptions)); //start the disappering backwards
     }
-
-    /*  This method will make the colour of the path
-     *  Works : tiles are colored in with a delay
-    **/
-    // IEnumerator SetColor(Color color, Dictionary<int, List<Hexagon>> tiles, float beforeStart, float nextTile, float beforeFading, float fading)
-    // {
-    //     yield return new WaitForSeconds(beforeStart); // wait seconds before continuing with the loop
-    //     Dictionary<int, List<Color>> rememberColors = new Dictionary<int, List<Color>>();
-    //     for(int i = 0; i < tiles.Count; i++)
-    //     {               
-    //         rememberColors[i] = new List<Color>();
-    //         List<Hexagon> hexagons = tiles[i];
-            
-    //         for(int k = 0; k < hexagons.Count; k++)
-    //         {
-    //             rememberColors[i].Add(hexagons[k].GetColor());
-    //             hexagons[k].SetColor(color);
-                
-    //             // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
-    //         }
-    //         yield return new WaitForSeconds(nextTile); // wait seconds before continuing with the loop
-    //     }
-    //     yield return new WaitForSeconds(beforeFading); // wait the specified seconds in time after entire path has lit up
-    //     StartCoroutine(MakePathDisappear(rememberColors, tiles, fading)); //start the disappering backwards
-    // }
 
     /*
     * Method goes trough the list of path tiles in the opposite ordner and colors them in the color of all other tiles,
@@ -171,7 +151,7 @@ public class TileColors : MonoBehaviour
 
     public bool IsFinished()
     {
-        for(int i = 0; i < colors.Count; i++)
+        for(int i = 0; i < colors.Length; i++)
         {
             if(!colors[i].IsFinished())
             {

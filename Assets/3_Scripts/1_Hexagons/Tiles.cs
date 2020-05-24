@@ -25,6 +25,7 @@ public class Tiles : MonoBehaviour
     public void GetStarted()
     {        
         CollectTiles();
+        GetComponent<TileColors>().GetStarted();
         // PrintDictionaryTiles(startingTiles);
     }
 
