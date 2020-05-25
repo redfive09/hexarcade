@@ -61,7 +61,8 @@ public class Tiles : MonoBehaviour
     }
 
     /*
-     *  Goes through all the tiles of every platform
+     *  Goes through all the hexagons of every platform (which means going through EVERY single hexagon) and add it to the different lists
+     *  At the end, give it its individual colour settings
      */
     private void CollectTilesForListsAndColorThem()
     {   
@@ -125,7 +126,8 @@ public class Tiles : MonoBehaviour
                     standardTiles.Add(hexagon);
                 }
 
-                this.GetComponent<TileColorsTouching>().GiveColors(hexagon.GetComponent<HexagonBehaviour>()); // send current hexagon to the TileColors, in order to get its individual color settings
+                Color[] getAllTouchingColors = this.GetComponent<TileColorsTouching>().GiveColorSet(); // get all Colors when the ball for touching and leaving a hexagon
+                hexagon.GetComponent<HexagonBehaviour>().SetColors(getAllTouchingColors); // give current hexagon the set, in order to get its individual color settings
             }
         }
     }

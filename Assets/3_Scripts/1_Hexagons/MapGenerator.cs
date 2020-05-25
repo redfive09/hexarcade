@@ -151,8 +151,7 @@ public class MapGenerator : MonoBehaviour
         var platformObject = new GameObject();                        // new platform
         platformObject.name = platformName;                           // name it
         platformObject.transform.parent = tiles.transform;            // make the map to its parent
-        platformObject.AddComponent<Platform>();                      // add the script to the platform
-        platformObject.AddComponent<PlatformMover>();                 // add another script        
+        platformObject.AddComponent<Platform>();                      // add the script to the platform        
         Platform platform = platformObject.GetComponent<Platform>();  // get the platform script
         platform.Setup();                                             // Tell the platform to setup itself
         tiles.AddPlatform(platform);                                  // add it to the tilesFolder        

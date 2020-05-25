@@ -493,16 +493,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ebc8fa1123e843931ac9fed5fd92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrivedStandardTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedCrackedTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedPathTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedDistractionTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedCheckpointTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedSpecialTile: {r: 0, g: 0, b: 0, a: 0}
-  leftStandardTile: {r: 0, g: 0, b: 0, a: 0}
-  leftPathTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedMovingTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedStartingTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedWinningTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedStandardTile: {r: 0, g: 0, b: 0, a: 0}
   leftCrackedTile: {r: 0, g: 0, b: 0, a: 0}
+  leftPathTile: {r: 0, g: 0, b: 0, a: 0}
   leftDistractionTile: {r: 0, g: 0, b: 0, a: 0}
+  leftCheckpointTile: {r: 0, g: 0, b: 0, a: 0}
   leftSpecialTile: {r: 0, g: 0, b: 0, a: 0}
+  leftMovingTile: {r: 0, g: 0, b: 0, a: 0}
+  leftStartingTile: {r: 0, g: 0, b: 0, a: 0}
+  leftWinningTile: {r: 0, g: 0, b: 0, a: 0}
+  leftStandardTile: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &6786331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1160,7 +1168,6 @@ GameObject:
   m_Component:
   - component: {fileID: 62854127}
   - component: {fileID: 62854129}
-  - component: {fileID: 62854128}
   m_Layer: 0
   m_Name: Platform0
   m_TagString: Untagged
@@ -1225,18 +1232,6 @@ Transform:
   m_Father: {fileID: 6786328}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &62854128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62854126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c7f55424d51d634a95af1b1dad1c44c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &62854129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4796,7 +4791,6 @@ GameObject:
   m_Component:
   - component: {fileID: 615553870}
   - component: {fileID: 615553872}
-  - component: {fileID: 615553871}
   m_Layer: 0
   m_Name: IndividualTiles
   m_TagString: Untagged
@@ -4819,18 +4813,6 @@ Transform:
   m_Father: {fileID: 6786328}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &615553871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 615553869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c7f55424d51d634a95af1b1dad1c44c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &615553872
 MonoBehaviour:
   m_ObjectHideFlags: 0
