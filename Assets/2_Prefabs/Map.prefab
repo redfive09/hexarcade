@@ -119,6 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1625658202994110932}
   - component: {fileID: 3522351982723486733}
+  - component: {fileID: 370218022545179627}
   - component: {fileID: 4449128563728522217}
   - component: {fileID: 246039691527781119}
   - component: {fileID: 2139816508060507078}
@@ -155,6 +156,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0ba334cfef05b488274837dab06a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &370218022545179627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291507163197268973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e46712b9065b943b6f6f1bed225df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyForAllCrackableTiles: 0
+  crackedTileBreaksInSeconds: 0
 --- !u!114 &4449128563728522217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,8 +222,6 @@ MonoBehaviour:
   winningTimeBeforeFading: 0
   winningTilesColorFading: 0
   winningTilesColor: {r: 0, g: 0, b: 0, a: 0}
-  changeColorOfStandardTiles: {r: 0, g: 0, b: 0, a: 0}
-  changeColorOfAllTiles: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &246039691527781119
 MonoBehaviour:
   m_ObjectHideFlags: 0

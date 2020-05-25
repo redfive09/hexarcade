@@ -8,6 +8,7 @@ public class HexagonMovingTiles : MonoBehaviour
     [SerializeField] private Vector3 movingTilePosA;
     [SerializeField] private Vector3 movingTilePosB;
     [SerializeField] private float speedOfMovingTiles;
+    // [SerializeField] private bool isRoundTrip;
     [SerializeField] private bool isLift;
     [SerializeField] private int needsNumberOfPlayersForLifting;
 
@@ -19,6 +20,7 @@ public class HexagonMovingTiles : MonoBehaviour
     public void Setup()
     {
         speedOfMovingTiles = 2f;
+        // isRoundTrip = true;
         needsNumberOfPlayersForLifting = 1;
         isLift = false;
     }
@@ -68,7 +70,7 @@ public class HexagonMovingTiles : MonoBehaviour
     {
         if(thisHexagon.IsMovingTile() && !isLift || 
             isLift && needsNumberOfPlayersForLifting <= currentPlayersOnTile)
-        {            
+        {
             return true;
         }
         return false;
@@ -78,9 +80,13 @@ public class HexagonMovingTiles : MonoBehaviour
     private IEnumerator PrepareMoving()
     {
         while (ConditionsMet())
-        {            
+        {
             yield return StartCoroutine(MoveObject(this.transform, movingTilePosA, movingTilePosB, speedOfMovingTiles));
-            yield return StartCoroutine(MoveObject(this.transform, movingTilePosB, movingTilePosA, speedOfMovingTiles));                        
+            
+            // if(isRoundTrip)
+            // {
+                yield return StartCoroutine(MoveObject(this.transform, movingTilePosB, movingTilePosA, speedOfMovingTiles));
+            // }
         }
     }
 

@@ -7,7 +7,6 @@ public class Tiles : MonoBehaviour
     private List<Platform> platforms = new List<Platform>(); // Holds all platforms of the current level
     // private List<Dictionary<int, List<Hexagon>>> tileLists = new List<Dictionary<int, List<Hexagon>>>();
 
-
     private Dictionary<int, List<Hexagon>> crackedTiles = new Dictionary<int, List<Hexagon>>();         // 0
     private Dictionary<int, List<Hexagon>> pathTiles = new Dictionary<int, List<Hexagon>>();            // 1
     private Dictionary<int, List<Hexagon>> distractionTiles = new Dictionary<int, List<Hexagon>>();     // 2
@@ -26,7 +25,7 @@ public class Tiles : MonoBehaviour
     {        
         CollectTiles();
         GetComponent<TileColorsIntroduction>().GetStarted();
-        // PrintDictionaryTiles(startingTiles);
+        GetComponent<TilesAllCrackables>().GetStarted(crackedTiles);        
     }
 
     public void CollectTiles()

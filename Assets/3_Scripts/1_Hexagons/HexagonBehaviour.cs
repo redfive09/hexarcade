@@ -135,4 +135,9 @@ public class HexagonBehaviour : MonoBehaviour
     {
         this.colors = colors;
     }
+
+    public void SetCrackedTileBreaksInTime(float seconds)
+    {
+        crackedTileBreaksInSeconds = seconds;
+    }
 }
