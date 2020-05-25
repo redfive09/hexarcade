@@ -76,7 +76,7 @@ public class HexagonBehaviour : MonoBehaviour
         {
             thisHexagon.SetColor(colors[arrivedSpecialTile]);
         }
-        else
+        else if(thisHexagon.IsStandardTile())
         {
             thisHexagon.SetColor(colors[arrivedStandardTile]);
         }
@@ -106,7 +106,7 @@ public class HexagonBehaviour : MonoBehaviour
         {
             thisHexagon.SetColor(colors[leftSpecialTile]);
         }
-        else
+        else if(thisHexagon.IsStandardTile())
         {
             thisHexagon.SetColor(colors[leftStandardTile]);
         }

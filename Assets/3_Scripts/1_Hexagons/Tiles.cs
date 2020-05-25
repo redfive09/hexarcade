@@ -7,17 +7,17 @@ public class Tiles : MonoBehaviour
     private List<Platform> platforms = new List<Platform>(); // Holds all platforms of the current level
     // private List<Dictionary<int, List<Hexagon>>> tileLists = new List<Dictionary<int, List<Hexagon>>>();
 
-    private Dictionary<int, List<Hexagon>>[] tileLists;    
 
-    private Dictionary<int, List<Hexagon>> standardTiles = new Dictionary<int, List<Hexagon>>();        // 0
-    private Dictionary<int, List<Hexagon>> crackedTiles = new Dictionary<int, List<Hexagon>>();         // 1
-    private Dictionary<int, List<Hexagon>> pathTiles = new Dictionary<int, List<Hexagon>>();            // 2
-    private Dictionary<int, List<Hexagon>> distractionTiles = new Dictionary<int, List<Hexagon>>();     // 3
-    private Dictionary<int, List<Hexagon>> checkpointTiles = new Dictionary<int, List<Hexagon>>();      // 4
-    private Dictionary<int, List<Hexagon>> specialTiles = new Dictionary<int, List<Hexagon>>();         // 5
+    private Dictionary<int, List<Hexagon>> crackedTiles = new Dictionary<int, List<Hexagon>>();         // 0
+    private Dictionary<int, List<Hexagon>> pathTiles = new Dictionary<int, List<Hexagon>>();            // 1
+    private Dictionary<int, List<Hexagon>> distractionTiles = new Dictionary<int, List<Hexagon>>();     // 2
+    private Dictionary<int, List<Hexagon>> checkpointTiles = new Dictionary<int, List<Hexagon>>();      // 3
+    private Dictionary<int, List<Hexagon>> specialTiles = new Dictionary<int, List<Hexagon>>();         // 4
+    private Dictionary<int, List<Hexagon>> movingTiles = new Dictionary<int, List<Hexagon>>();          // 5
     private Dictionary<int, List<Hexagon>> startingTiles = new Dictionary<int, List<Hexagon>>();        // 6
     private Dictionary<int, List<Hexagon>> winningTiles = new Dictionary<int, List<Hexagon>>();         // 7
-
+    private Dictionary<int, List<Hexagon>>[] tileLists;         // all Dictionaries will be added into this area
+    private List<Hexagon> standardTiles = new List<Hexagon>();  // list of all tiles without any special purpose
 
 
 
@@ -31,23 +31,23 @@ public class Tiles : MonoBehaviour
 
     public void CollectTiles()
     {
-        AddAllLists();
+        PrepareLists();
         CollectPlatforms();
         CollectTilesForListsAndColorThem();
         
     }
 
-    private void AddAllLists()
+    private void PrepareLists()
     {
     tileLists = new Dictionary<int, List<Hexagon>>[] {
-        standardTiles,
         crackedTiles,
         pathTiles,
         distractionTiles,
         checkpointTiles,
         specialTiles,
+        movingTiles,
         startingTiles,
-        winningTiles,
+        winningTiles        
         };
     }
 
@@ -73,48 +73,71 @@ public class Tiles : MonoBehaviour
             {                
                 Hexagon hexagon = platformTiles[k];
 
+                if(hexagon.IsCrackedTile())
+                {
+                    SaveHexagonInList(crackedTiles, hexagon, hexagon.GetCrackedNumber());
+                    hexagon.SetStandardTile(false);
+                }
+
                 if(hexagon.IsPathTile())
                 {
                     SaveHexagonInList(pathTiles, hexagon, hexagon.GetPathNumber());
-                }
-
-                if(hexagon.IsStartingTile())
-                {
-                    SaveHexagonInList(startingTiles, hexagon, hexagon.GetStartingNumber());
-                }
-
-                if(hexagon.IsWinningTile())
-                {
-                    SaveHexagonInList(winningTiles, hexagon, hexagon.GetWinningNumber());                    
-                }
-
-                if(hexagon.IsCheckpointTile())
-                {
-                    SaveHexagonInList(checkpointTiles, hexagon, hexagon.GetCheckpointNumber());
+                    hexagon.SetStandardTile(false);
                 }
 
                 if(hexagon.IsDistractionTile())
                 {
                     SaveHexagonInList(distractionTiles, hexagon, hexagon.GetDistractionNumber());
+                    hexagon.SetStandardTile(false);
+                }
+
+                if(hexagon.IsCheckpointTile())
+                {
+                    SaveHexagonInList(checkpointTiles, hexagon, hexagon.GetCheckpointNumber());
+                    hexagon.SetStandardTile(false);
                 }
 
                 if(hexagon.IsSpecialTile())
                 {
                     SaveHexagonInList(specialTiles, hexagon, hexagon.GetSpecialTileNumber());
+                    hexagon.SetStandardTile(false);
                 }
 
-                this.GetComponent<TileColors>().GiveColors(hexagon.GetComponent<HexagonBehaviour>());
+                if(hexagon.IsMovingTile())
+                {
+                    SaveHexagonInList(movingTiles, hexagon, hexagon.GetMovingNumber());
+                    hexagon.SetStandardTile(false);
+                }
+
+                if(hexagon.IsStartingTile())
+                {
+                    SaveHexagonInList(startingTiles, hexagon, hexagon.GetStartingNumber());
+                    hexagon.SetStandardTile(false);
+                }
+
+                if(hexagon.IsWinningTile())
+                {
+                    SaveHexagonInList(winningTiles, hexagon, hexagon.GetWinningNumber());
+                    hexagon.SetStandardTile(false);
+                }
+
+                if(hexagon.IsStandardTile())
+                {
+                    standardTiles.Add(hexagon);
+                }
+
+                this.GetComponent<TileColors>().GiveColors(hexagon.GetComponent<HexagonBehaviour>()); // send current hexagon to the TileColors, in order to get its individual color settings
             }
         }
     }
 
     private void SaveHexagonInList(Dictionary<int, List<Hexagon>> tiles, Hexagon hexagon, int index)
     {
-        if(tiles.TryGetValue(index, out List<Hexagon> hexagonList))
+        if(tiles.TryGetValue(index, out List<Hexagon> hexagonList)) // if there is already a list at the specified index (key), then add the hexagon to it
         {
             hexagonList.Add(hexagon);
         }
-        else
+        else                            // otherwise create a new list, add the hexagon to it and add the new list into the dictionary at the specified index (key)
         {
             List<Hexagon> newHexagonList = new List<Hexagon>();
             newHexagonList.Add(hexagon);
@@ -140,11 +163,27 @@ public class Tiles : MonoBehaviour
     }
 
     /*
-     *  Get all startingTiles
+     *  Get all standardTiles
      */
+
+    public List<Hexagon> GetStandardTiles()
+    {        
+        return standardTiles;
+    }
+
     public Dictionary<int, List<Hexagon>> GetStartingTiles()
     {        
         return startingTiles;
+    }
+
+    public Dictionary<int, List<Hexagon>> GetCrackedTiles()
+    {        
+        return crackedTiles;
+    }
+
+    public Dictionary<int, List<Hexagon>> GetMovingTiles()
+    {        
+        return movingTiles;
     }
 
     public Dictionary<int, List<Hexagon>> GetPathTiles()
@@ -206,35 +245,13 @@ public class Tiles : MonoBehaviour
     }
 
     public void RemoveHexagonFromAllLists(Hexagon hexagonToDelete)
-    {        
-        for(int i = 0; i < pathTiles.Count; i++)
-        {            
-            pathTiles[i].Remove(hexagonToDelete);
-        }
-
-        for(int i = 0; i < startingTiles.Count; i++)
-        {            
-            startingTiles[i].Remove(hexagonToDelete);
-        }
-
-        for(int i = 0; i < winningTiles.Count; i++)
-        {            
-            winningTiles[i].Remove(hexagonToDelete);
-        }
-
-        for(int i = 0; i < checkpointTiles.Count; i++)
-        {            
-            checkpointTiles[i].Remove(hexagonToDelete);
-        }
-
-        for(int i = 0; i < distractionTiles.Count; i++)
-        {            
-            distractionTiles[i].Remove(hexagonToDelete);
-        }
-
-        for(int i = 0; i < specialTiles.Count; i++)
-        {            
-            specialTiles[i].Remove(hexagonToDelete);
+    {
+        for(int i = 0; i < tileLists.Length; i++)
+        {
+            for(int k = 0; k < tileLists[i].Count; k++)
+            {
+                tileLists[i][k].Remove(hexagonToDelete);
+            }
         }
     }
 

@@ -17,23 +17,20 @@ using UnityEngine;
         *  "isStartingTile = 0" could be the starting tile for the first player,
         *  "isStartingTile = 1" for the second player, etc.
         **/
+        [SerializeField] private int isCrackedTile;
         [SerializeField] private int isPath;
+        [SerializeField] private int isDistractionTile; // At a different int could be a different distraction
+        [SerializeField] private int isCheckpointTile;
+        [SerializeField] private int isSpecialTile; // Could be anything, just another option for your creativity :)
+        [SerializeField] private int isMovingTile;
         [SerializeField] private int isStartingTile;
         [SerializeField] private int isWinningTile;
-        [SerializeField] private int isCheckpointTile;
-        [SerializeField] private int isDistractionTile; // At a different int could be a different distraction
-        [SerializeField] private int isSpecialTile; // Could be anything, just another option for your creativity :)
-
-
-        // Different booleans, not all them have setters or getters yet
-        [SerializeField] private bool isCrackedTile;
-        [SerializeField] private bool isMovingTile;
-                
-                
         [SerializeField] private Color color;
-
-        private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here        
         
+        private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here        
+
+        private bool isStandardTile = true; // = no special function at all
+
         // Map coordinates, not world coordinates!
         private float x;
         private float z;
@@ -41,14 +38,14 @@ using UnityEngine;
         // Prepares all the standard values of the [SerializeField] for the editor mode
         public void Setup()
         {
+            isCrackedTile = -1;
             isPath = -1;
+            isDistractionTile = -1;
+            isCheckpointTile = -1;
+            isSpecialTile = -1;            
+            isMovingTile = -1;
             isStartingTile = -1;
             isWinningTile = -1;
-            isCheckpointTile = -1;
-            isDistractionTile = -1;
-            isSpecialTile = -1;
-            isCrackedTile = false;
-            isMovingTile = false;
             color = this.transform.GetChild(0).GetComponent<Renderer>().material.color;
             this.GetComponent<HexagonBehaviour>().Setup();
             this.GetComponent<HexagonMovingTiles>().Setup();
@@ -62,7 +59,7 @@ using UnityEngine;
          */
         void Start()
         {
-            SetColor();        
+            SetColor();
         }
 
         /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
@@ -103,12 +100,12 @@ using UnityEngine;
             isSpecialTile = status; // negative numbers mean, it is not a winningTile
         }
 
-        public void SetIsCrackedTile(bool status)
+        public void SetIsCrackedTile(int status)
         {
             isCrackedTile = status;
         }
      
-        public void SetIsMovingTile(bool status)
+        public void SetIsMovingTile(int status)
         {
             isMovingTile = status; 
         }        
@@ -140,16 +137,10 @@ using UnityEngine;
             
         }
 
-        /*
-         * Sets the initial positions of moving tiles
-         */
-        // private void SetMovingTilePositions()
-        // {
-        //     this.movingTilePosA = transform.position;
-        //     Vector3 pointB = transform.position;
-        //     pointB.y = -2;
-        //     this.movingTilePosB = pointB;
-        // }
+        public void SetStandardTile(bool status)
+        {
+            isStandardTile = status;
+        }
 
 
         /* ------------------------------ GETTER METHODS BEGINN ------------------------------  */
@@ -171,13 +162,39 @@ using UnityEngine;
 
         public bool IsCrackedTile()
         {
+            if(isCrackedTile < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }            
+        }
+
+        public int GetCrackedNumber()
+        {
             return isCrackedTile;
         }
 
         public bool IsMovingTile()
         {
+            if(isMovingTile < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }            
+        }
+
+        public int GetMovingNumber()
+        {
             return isMovingTile;
         }
+
+
 
         public bool IsPathTile()
         {
@@ -279,6 +296,11 @@ using UnityEngine;
         public int GetSpecialTileNumber()
         {
             return isSpecialTile;
+        }
+
+        public bool IsStandardTile()
+        {
+            return isStandardTile;
         }
 
 

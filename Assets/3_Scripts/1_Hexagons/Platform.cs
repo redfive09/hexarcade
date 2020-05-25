@@ -5,6 +5,8 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     [SerializeField] private Color color;
+
+    
     [SerializeField] private int pathTiles;
     [SerializeField] private int startingTiles;
     [SerializeField] private int winningTiles;

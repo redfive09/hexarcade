@@ -25,12 +25,47 @@ public class TileColors : MonoBehaviour
 
 
     /* ------------------------------ COLOUR INDICATIONS OF LIST TILES AT MAP START ------------------------------  */
+    [SerializeField] private float crackedTilesColorStartTime;
+    [SerializeField] private float crackedTilesColorTime;
+    [SerializeField] private float crackedTimeBeforeFading;
+    [SerializeField] private float crackedTilesColorFading;
+    [SerializeField] private Color crackedTilesColor;
+
+
     [SerializeField] private float pathTilesColorStartTime;
     [SerializeField] private float pathTilesColorTime;
     [SerializeField] private float pathTimeBeforeFading;
     [SerializeField] private float pathTilesColorFading;
     [SerializeField] private Color pathTilesColor;
     
+
+    [SerializeField] private float distractionTilesColorStartTime;
+    [SerializeField] private float distractionTilesColorTime;
+    [SerializeField] private float distractionTimeBeforeFading;
+    [SerializeField] private float distractionTilesColorFading;
+    [SerializeField] private Color distractionTilesColor;
+
+
+    [SerializeField] private float checkpointTilesColorStartTime;
+    [SerializeField] private float checkpointTilesColorTime;
+    [SerializeField] private float checkpointTimeBeforeFading;
+    [SerializeField] private float checkpointTilesColorFading;
+    [SerializeField] private Color checkpointTilesColor;
+
+
+    [SerializeField] private float specialTilesColorStartTime;
+    [SerializeField] private float specialTilesColorTime;
+    [SerializeField] private float specialTimeBeforeFading;
+    [SerializeField] private float specialTilesColorFading;
+    [SerializeField] private Color specialTilesColor;
+
+
+    [SerializeField] private float movingTilesColorStartTime;
+    [SerializeField] private float movingTilesColorTime;
+    [SerializeField] private float movingTimeBeforeFading;
+    [SerializeField] private float movingTilesColorFading;
+    [SerializeField] private Color movingTilesColor;
+
 
     [SerializeField] private float startingTilesColorStartTime;
     [SerializeField] private float startingTilesColorTime;
@@ -46,43 +81,25 @@ public class TileColors : MonoBehaviour
     [SerializeField] private Color winningTilesColor;
 
 
-    [SerializeField] private float checkpointTilesColorStartTime;
-    [SerializeField] private float checkpointTilesColorTime;
-    [SerializeField] private float checkpointTimeBeforeFading;
-    [SerializeField] private float checkpointTilesColorFading;
-    [SerializeField] private Color checkpointTilesColor;
-
-
-    [SerializeField] private float distractionTilesColorStartTime;
-    [SerializeField] private float distractionTilesColorTime;
-    [SerializeField] private float distractionTimeBeforeFading;
-    [SerializeField] private float distractionTilesColorFading;
-    [SerializeField] private Color distractionTilesColor;
-
-
-    [SerializeField] private float specialTilesColorStartTime;
-    [SerializeField] private float specialTilesColorTime;
-    [SerializeField] private float specialTimeBeforeFading;
-    [SerializeField] private float specialTilesColorFading;
-    [SerializeField] private Color specialTilesColor;
-
-
+    [SerializeField] private Color changeColorOfStandardTiles;
     [SerializeField] private Color changeColorOfAllTiles;
 
 
     private Tiles tiles;
     private TileTypeOptions[] colors;
 
-    // Filling the array and setting up the tiles    
+    // Filling the array and setting up the tiles
     public void GetStarted()
     {
         SetTiles();
 
         colors = new TileTypeOptions[] {
+        new TileTypeOptions(crackedTilesColorStartTime, crackedTilesColorTime, crackedTimeBeforeFading, crackedTilesColorFading, crackedTilesColor, tiles.GetCrackedTiles()),
         new TileTypeOptions(pathTilesColorStartTime, pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading, pathTilesColor, tiles.GetPathTiles()),
         new TileTypeOptions(distractionTilesColorStartTime, distractionTilesColorTime, distractionTimeBeforeFading, distractionTilesColorFading, distractionTilesColor, tiles.GetDistractionTiles()),
         new TileTypeOptions(checkpointTilesColorStartTime, checkpointTilesColorTime, checkpointTimeBeforeFading, checkpointTilesColorFading, checkpointTilesColor, tiles.GetCheckpointTiles()),
         new TileTypeOptions(specialTilesColorStartTime, specialTilesColorTime, specialTimeBeforeFading, specialTilesColorFading, specialTilesColor, tiles.GetSpecialTiles()),
+        new TileTypeOptions(movingTilesColorStartTime, movingTilesColorTime, movingTimeBeforeFading, movingTilesColorFading, movingTilesColor, tiles.GetMovingTiles()),
         new TileTypeOptions(startingTilesColorStartTime, startingTilesColorTime, startingTimeBeforeFading, startingTilesColorFading, startingTilesColor, tiles.GetStartingTiles()),
         new TileTypeOptions(winningTilesColorStartTime, winningTilesColorTime, winningTimeBeforeFading, winningTilesColorFading, winningTilesColor, tiles.GetWinningTiles())
         };
@@ -157,6 +174,19 @@ public class TileColors : MonoBehaviour
 
 
     /* ------------------------------ EDITOR METHODS FOR PERSISTENT COLOUR CHANGES ------------------------------  */
+
+    public void ChangeColorOfStandardTiles()
+    {
+        SetTiles();
+
+        List<Hexagon> standardTiles = tiles.GetStandardTiles();
+
+        for(int i = 0; i < standardTiles.Count; i++)
+        {
+            standardTiles[i].SetColor(changeColorOfStandardTiles);
+        }
+    }
+
     public void ChangeColorOfAllTiles()
     {
         SetTiles();
@@ -167,6 +197,12 @@ public class TileColors : MonoBehaviour
         {
             platforms[i].SetColor(changeColorOfAllTiles);
         }
+    }
+
+    public void ChangeCrackedTilesColor()
+    {
+        SetTiles();
+        ChangeColor(tiles.GetCrackedTiles(), crackedTilesColor);
     }
 
     public void ChangePathTilesColor()
@@ -204,6 +240,13 @@ public class TileColors : MonoBehaviour
         SetTiles();
         ChangeColor(tiles.GetSpecialTiles(), specialTilesColor);
     }
+
+    public void ChangeMovingTilesColor()
+    {
+        SetTiles();
+        ChangeColor(tiles.GetMovingTiles(), movingTilesColor);
+    }
+
 
     private void ChangeColor(Dictionary<int, List<Hexagon>> tiles, Color color)
     {           
