@@ -120,6 +120,8 @@ GameObject:
   - component: {fileID: 1625658202994110932}
   - component: {fileID: 3522351982723486733}
   - component: {fileID: 4449128563728522217}
+  - component: {fileID: 246039691527781119}
+  - component: {fileID: 2139816508060507078}
   m_Layer: 0
   m_Name: Tiles
   m_TagString: Untagged
@@ -165,21 +167,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1b4501ad6ef7f448b114b032cf12c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrivedStandardTile: {r: 0, g: 0, b: 0, a: 0}
-  arrivedCrackedTile: {r: 0, g: 0, b: 0, a: 0}
-  arrivedPathTile: {r: 0, g: 0, b: 0, a: 0}
-  arrivedDistractionTile: {r: 0, g: 0, b: 0, a: 0}
-  arrivedSpecialTile: {r: 0, g: 0, b: 0, a: 0}
-  leftStandardTile: {r: 0, g: 0, b: 0, a: 0}
-  leftPathTile: {r: 0, g: 0, b: 0, a: 0}
-  leftCrackedTile: {r: 0, g: 0, b: 0, a: 0}
-  leftDistractionTile: {r: 0, g: 0, b: 0, a: 0}
-  leftSpecialTile: {r: 0, g: 0, b: 0, a: 0}
+  crackedTilesColorStartTime: 0
+  crackedTilesColorTime: 0
+  crackedTimeBeforeFading: 0
+  crackedTilesColorFading: 0
+  crackedTilesColor: {r: 0, g: 0, b: 0, a: 0}
   pathTilesColorStartTime: 0
   pathTilesColorTime: 0
   pathTimeBeforeFading: 0
   pathTilesColorFading: 0
   pathTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  distractionTilesColorStartTime: 0
+  distractionTilesColorTime: 0
+  distractionTimeBeforeFading: 0
+  distractionTilesColorFading: 0
+  distractionTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  checkpointTilesColorStartTime: 0
+  checkpointTilesColorTime: 0
+  checkpointTimeBeforeFading: 0
+  checkpointTilesColorFading: 0
+  checkpointTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  specialTilesColorStartTime: 0
+  specialTilesColorTime: 0
+  specialTimeBeforeFading: 0
+  specialTilesColorFading: 0
+  specialTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  movingTilesColorStartTime: 0
+  movingTilesColorTime: 0
+  movingTimeBeforeFading: 0
+  movingTilesColorFading: 0
+  movingTilesColor: {r: 0, g: 0, b: 0, a: 0}
   startingTilesColorStartTime: 0
   startingTilesColorTime: 0
   startingTimeBeforeFading: 0
@@ -190,21 +207,51 @@ MonoBehaviour:
   winningTimeBeforeFading: 0
   winningTilesColorFading: 0
   winningTilesColor: {r: 0, g: 0, b: 0, a: 0}
-  checkpointTilesColorStartTime: 0
-  checkpointTilesColorTime: 0
-  checkpointTimeBeforeFading: 0
-  checkpointTilesColorFading: 0
-  checkpointTilesColor: {r: 0, g: 0, b: 0, a: 0}
-  distractionTilesColorStartTime: 0
-  distractionTilesColorTime: 0
-  distractionTimeBeforeFading: 0
-  distractionTilesColorFading: 0
+  changeColorOfStandardTiles: {r: 0, g: 0, b: 0, a: 0}
+  changeColorOfAllTiles: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &246039691527781119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291507163197268973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518ebc8fa1123e843931ac9fed5fd92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrivedStandardTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedCrackedTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedPathTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedDistractionTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedSpecialTile: {r: 0, g: 0, b: 0, a: 0}
+  leftStandardTile: {r: 0, g: 0, b: 0, a: 0}
+  leftPathTile: {r: 0, g: 0, b: 0, a: 0}
+  leftCrackedTile: {r: 0, g: 0, b: 0, a: 0}
+  leftDistractionTile: {r: 0, g: 0, b: 0, a: 0}
+  leftSpecialTile: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &2139816508060507078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291507163197268973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfadad24a58ff50479e37096a1b32865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crackedTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  pathTilesColor: {r: 0, g: 0, b: 0, a: 0}
   distractionTilesColor: {r: 0, g: 0, b: 0, a: 0}
-  specialTilesColorStartTime: 0
-  specialTilesColorTime: 0
-  specialTimeBeforeFading: 0
-  specialTilesColorFading: 0
+  checkpointTilesColor: {r: 0, g: 0, b: 0, a: 0}
   specialTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  movingTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  startingTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  winningTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  standardTilesColor: {r: 0, g: 0, b: 0, a: 0}
   changeColorOfAllTiles: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6609492161829483270
 GameObject:

@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(TileColors))]
+[CustomEditor(typeof(TileColorsPermanent))]
 
-public class TileColorsEditor : Editor {
+public class TileColorsPermanentEditor : Editor {
     
 
     // Thank you Brackeys: https://www.youtube.com/watch?v=RInUu1_8aGw
 	public override void OnInspectorGUI()
     {
-        TileColors tileColors = (TileColors) target;
+        TileColorsPermanent tileColors = (TileColorsPermanent) target;
         base.OnInspectorGUI();
 
         GUILayout.Label("");

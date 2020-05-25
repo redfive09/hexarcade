@@ -2,28 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileColors : MonoBehaviour
+public class TileColorsIntroduction : MonoBehaviour
 {
-
-    /* ------------------------------ COLOUR CHANGES BY TOUCHING ------------------------------  */
-
-    // what color, when a player arrives at the tile
-    [SerializeField] private Color arrivedStandardTile; // 0
-    [SerializeField] private Color arrivedCrackedTile; // 1
-    [SerializeField] private Color arrivedPathTile; // 2
-    [SerializeField] private Color arrivedDistractionTile; // 3
-    [SerializeField] private Color arrivedSpecialTile; // 4
-
-
-    // what color, when a player leaves a tile
-    [SerializeField] private Color leftStandardTile; // 5
-    [SerializeField] private Color leftPathTile; // 6
-    [SerializeField] private Color leftCrackedTile; // 7
-    [SerializeField] private Color leftDistractionTile; // 8
-    [SerializeField] private Color leftSpecialTile; // 9
-
-
-
     /* ------------------------------ COLOUR INDICATIONS OF LIST TILES AT MAP START ------------------------------  */
     [SerializeField] private float crackedTilesColorStartTime;
     [SerializeField] private float crackedTilesColorTime;
@@ -81,17 +61,13 @@ public class TileColors : MonoBehaviour
     [SerializeField] private Color winningTilesColor;
 
 
-    [SerializeField] private Color changeColorOfStandardTiles;
-    [SerializeField] private Color changeColorOfAllTiles;
-
-
     private Tiles tiles;
     private TileTypeOptions[] colors;
 
     // Filling the array and setting up the tiles
     public void GetStarted()
     {
-        SetTiles();
+        tiles = GetComponent<Tiles>();
 
         colors = new TileTypeOptions[] {
         new TileTypeOptions(crackedTilesColorStartTime, crackedTilesColorTime, crackedTimeBeforeFading, crackedTilesColorFading, crackedTilesColor, tiles.GetCrackedTiles()),
@@ -173,116 +149,66 @@ public class TileColors : MonoBehaviour
     }
 
 
-    /* ------------------------------ EDITOR METHODS FOR PERSISTENT COLOUR CHANGES ------------------------------  */
-
-    public void ChangeColorOfStandardTiles()
+    private class TileTypeOptions
     {
-        SetTiles();
+        private float startingTime;
+        private float timeToNextTile;
+        private float timeBeforeFadingStarts;
+        private float timeForEachTileFading;
+        private Color color;
+        private Dictionary<int, List<Hexagon>> tiles;
+        private bool finished;
 
-        List<Hexagon> standardTiles = tiles.GetStandardTiles();
 
-        for(int i = 0; i < standardTiles.Count; i++)
+        public TileTypeOptions (float startingTime, float timeToNextTile, float timeBeforeFadingStarts, 
+                                float timeForEachTileFading, Color color, Dictionary<int, List<Hexagon>> tiles)
         {
-            standardTiles[i].SetColor(changeColorOfStandardTiles);
+            this.startingTime = startingTime;
+            this.timeToNextTile = timeToNextTile;
+            this.timeBeforeFadingStarts = timeBeforeFadingStarts;
+            this.timeForEachTileFading = timeForEachTileFading;
+            this.color = color; 
+            this.tiles = tiles;
         }
-    }
 
-    public void ChangeColorOfAllTiles()
-    {
-        SetTiles();
-
-        List<Platform> platforms = tiles.GetPlatforms();
-
-        for(int i = 0; i < platforms.Count; i++)
+        public float GetStartingTime()
         {
-            platforms[i].SetColor(changeColorOfAllTiles);
+            return startingTime;
         }
-    }
 
-    public void ChangeCrackedTilesColor()
-    {
-        SetTiles();
-        ChangeColor(tiles.GetCrackedTiles(), crackedTilesColor);
-    }
-
-    public void ChangePathTilesColor()
-    {
-        SetTiles();
-        ChangeColor(tiles.GetPathTiles(), pathTilesColor);
-    }
-
-    public void ChangeStartingTilesColor()
-    {
-        SetTiles();
-        ChangeColor(tiles.GetStartingTiles(), startingTilesColor);
-    }
-
-    public void ChangeWinningTilesColor()
-    {
-        SetTiles();
-        ChangeColor(tiles.GetWinningTiles(), winningTilesColor);
-    }
-
-    public void ChangeCheckpointTilesColor()
-    {
-        SetTiles();
-        ChangeColor(tiles.GetCheckpointTiles(), checkpointTilesColor);
-    }
-
-    public void ChangeDistractionTilesColor()
-    {
-        SetTiles();
-        ChangeColor(tiles.GetDistractionTiles(), distractionTilesColor);
-    }
-
-    public void ChangeSpecialTilesColor()
-    {
-        SetTiles();
-        ChangeColor(tiles.GetSpecialTiles(), specialTilesColor);
-    }
-
-    public void ChangeMovingTilesColor()
-    {
-        SetTiles();
-        ChangeColor(tiles.GetMovingTiles(), movingTilesColor);
-    }
-
-
-    private void ChangeColor(Dictionary<int, List<Hexagon>> tiles, Color color)
-    {           
-        for(int i = 0; i < tiles.Count; i++)
+        public float GetTimeToNextTile()
         {
-            List<Hexagon> tilesList = tiles[i];           
-            
-            for(int k = 0; k < tilesList.Count; k++)
-            {
-                tilesList[k].SetColor(color);
-            }            
+            return timeToNextTile;
         }
-    }
 
-    /*
-     * Needs to be sperated and called at so many places for the editor
-    */
-    private void SetTiles()
-    {
-        tiles = GetComponent<Tiles>();
-    }
+        public float GetTimeBeforeFadingStarts()
+        {
+            return timeBeforeFadingStarts;
+        }
 
+        public float GetTimeForEachTileFading()
+        {
+            return timeForEachTileFading;
+        }
 
-    public void GiveColors(HexagonBehaviour hexagon)
-    {
-        List<Color> colors = new List<Color>();
-        colors.Add(arrivedStandardTile);
-        colors.Add(arrivedCrackedTile);
-        colors.Add(arrivedPathTile);
-        colors.Add(arrivedDistractionTile);
-        colors.Add(arrivedSpecialTile);
-        colors.Add(leftStandardTile);
-        colors.Add(leftPathTile);
-        colors.Add(leftCrackedTile);
-        colors.Add(leftDistractionTile);
-        colors.Add(leftSpecialTile);
-        hexagon.SetColors(colors);
+        public Color GetColor()
+        {
+            return color;
+        }
+
+        public Dictionary<int, List<Hexagon>> GetTiles()
+        {
+            return tiles;
+        }
+
+        public bool IsFinished()
+        {
+            return finished;
+        }
+
+        public void SetFinished(bool status)
+        {
+            finished = status;
+        }
     }
 }

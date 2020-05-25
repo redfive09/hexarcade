@@ -25,7 +25,7 @@ public class Tiles : MonoBehaviour
     public void GetStarted()
     {        
         CollectTiles();
-        GetComponent<TileColors>().GetStarted();
+        GetComponent<TileColorsIntroduction>().GetStarted();
         // PrintDictionaryTiles(startingTiles);
     }
 
@@ -126,7 +126,7 @@ public class Tiles : MonoBehaviour
                     standardTiles.Add(hexagon);
                 }
 
-                this.GetComponent<TileColors>().GiveColors(hexagon.GetComponent<HexagonBehaviour>()); // send current hexagon to the TileColors, in order to get its individual color settings
+                this.GetComponent<TileColorsTouching>().GiveColors(hexagon.GetComponent<HexagonBehaviour>()); // send current hexagon to the TileColors, in order to get its individual color settings
             }
         }
     }

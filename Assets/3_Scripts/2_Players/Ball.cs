@@ -13,13 +13,19 @@ public class Ball : MonoBehaviour
     private Timer timer;
     private List<Vector3> positions = new List<Vector3>();
     private int playerNumber;
-    TileColors tileColors;
     private float loseHeight = -10;
-
     private int replayPositionCounter = 0;
 
 
-    /* ------------------------------ STANDARD METHODS BEGINN ------------------------------  */
+
+    /* ------------------------------ METHODS FOR DIFFERENT STATES BEGINN ------------------------------  */
+
+
+
+                    /* --------------- STATUS: SCENE LOADED, PLAYER GETS PREPARED ---------------  */
+    /*  
+     *  Preparing the ball by saving some of it's components or getting values from the map
+     */
 
     public void GetStarted(int playerNumber)
     {
@@ -30,48 +36,61 @@ public class Ball : MonoBehaviour
         GameObject loseTile = GameObject.Find("Map/LoseHeight");
         loseHeight = loseTile.transform.position.y;
 
-        GameObject tiles = GameObject.Find("Map/Tiles");
-        tileColors = tiles.GetComponent<TileColors>();
-        
         StartCoroutine(Introduction());
     }
 
 
+
+                    /* --------------- STATUS: INTRODUCTION, PLAYER HAS TO WAIT ---------------  */
+    /*
+     *  All the colours of the non-standard tiles will be shown
+     *  When all colours have faded, then the game starts
+     */
     IEnumerator Introduction()
     {
-        tileColors.DisplayTiles();
+        GameObject tiles = GameObject.Find("Map/Tiles");
+        TileColorsIntroduction tileColorsIntroduction = tiles.GetComponent<TileColorsIntroduction>();
+        tileColorsIntroduction.DisplayTiles();
         
         // Just wait for the tiles to finish 
-        while(!tileColors.IsFinished())
+        while(!tileColorsIntroduction.IsFinished())
         {
-            yield return new WaitForSeconds(0.1f);
-        }        
-        ActivatePlayerControls();
-        timer.Show();
-
+            yield return new WaitForSeconds(0.2f);
+        }
         GameStarts();
     }
 
+                /* --------------- STATUS: GAME STARTED, PLAYER CAN DO SOMETHING ---------------  */
+    /*  
+     *  This method is called when the game starts
+     *  The player gets its controls and the timer will show up
+     */
     void GameStarts()
     {
+        ActivatePlayerControls();
+        timer.Show();
         StartCoroutine(CheckLoseCondition());
     }
 
-    IEnumerator CheckLoseCondition()
+                /* --------------- STATUS: PLAYER WON, PLAYER REACHED A FINISH-TILE ---------------  */
+    private void PlayerWon()
     {
-        // Lose condition through falling
-        for(;;)
-        {
-            if(loseHeight > transform.position.y)
-            {
-                PlayerLost();
-            }
-            yield return new WaitForSeconds(0.1f);
-        }            
+        
     }
 
-    /*  
-     *  Everythign which has to do with the players movement
+
+                /* --------------- STATUS: PLAYER LOST, PLAYER MET A LOSE CONDITION ---------------  */
+    private void PlayerLost()
+    {
+        GoToSpawnPosition(lastSpawnPosition);
+    }
+
+
+
+    /* ------------------------------ UPDATING AND WAITING FOR INPUT METHODS ------------------------------  */
+
+    /*       
+     *  So far just testing stuff
     **/
     void FixedUpdate()
     {
@@ -86,10 +105,13 @@ public class Ball : MonoBehaviour
         }     
     }
 
+
+    /* ------------------------------ CHECKING AND ANALYSING ENVIRONMENT ------------------------------  */
+
     /*  
      *  The player checks, if it is standing on a tile; if true, then save the currentTile and tell the current and former tile
     **/
-    void OnCollisionEnter(Collision collision)    
+    void OnCollisionEnter(Collision collision)
     {        
         GameObject tile = collision.gameObject;
 
@@ -112,12 +134,6 @@ public class Ball : MonoBehaviour
     }
 
 
-
-    /* ------------------------------ BEHAVIOUR METHODS BEGINN ------------------------------  */
-
-    /*  
-     *  Let the player spawn above the desired tile
-    **/
     private void AnalyseHexagon(Hexagon hexagon)
     {
 
@@ -144,12 +160,31 @@ public class Ball : MonoBehaviour
         }
     }
 
-    private void PlayerLost()
+
+    /* 
+     *  This is constantly checking if a lose condition (ball fell to deep) has met
+     *  It's packed in a coroutine, so it is not called every single frame -> saves performance
+     */
+    IEnumerator CheckLoseCondition()
     {
-        GoToSpawnPosition(lastSpawnPosition);
+        // Lose condition through falling
+        for(;;)
+        {
+            if(loseHeight > transform.position.y)
+            {
+                PlayerLost();
+            }
+            yield return new WaitForSeconds(0.2f);
+        }            
     }
 
-    
+
+
+    /* ------------------------------ BEHAVIOUR METHODS ------------------------------  */
+
+    /*  
+     *  Let the player spawn above the desired tile
+    **/
     public void GoToSpawnPosition(Hexagon spawnTile)
     {
         float distanceAboveTile = 1f; // Should go later to a central place for all settings
