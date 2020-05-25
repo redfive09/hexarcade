@@ -8,32 +8,44 @@ public class HexagonMovingTiles : MonoBehaviour
     [SerializeField] private Vector3 movingTilePosA;
     [SerializeField] private Vector3 movingTilePosB;
     [SerializeField] private float speedOfMovingTiles;
+    [SerializeField] private bool isLift;
+    [SerializeField] private int needsNumberOfPlayersForLifting;
 
+    // private
     private Hexagon thisHexagon;
+    private int currentPlayersOnTile = 0;
 
     // Setup standard values for editor mode
     public void Setup()
     {
         speedOfMovingTiles = 2f;
+        needsNumberOfPlayersForLifting = 1;
+        isLift = false;
     }
 
-    IEnumerator Start()
-    {   
+    void Start()
+    {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
-        if(thisHexagon.IsMovingTile())
-        {
-            movingTilePosA = SetValuesForMovingHexagons(movingTilePosA);
-            movingTilePosB = SetValuesForMovingHexagons(movingTilePosB);
-            while (thisHexagon.IsMovingTile()) 
-            {
-                yield return StartCoroutine(MoveObject(this.transform, movingTilePosA, movingTilePosB, speedOfMovingTiles));
-                yield return StartCoroutine(MoveObject(this.transform, movingTilePosB, movingTilePosA, speedOfMovingTiles));                        
-            }
-        }
+        movingTilePosA = SetValuesForMovingHexagons(movingTilePosA);
+        movingTilePosB = SetValuesForMovingHexagons(movingTilePosB);
+        StartCoroutine(PrepareMoving());
     }
 
-        Vector3 SetValuesForMovingHexagons(Vector3 vector)
-        {
+    public void MovingTileTouched()
+    {
+        currentPlayersOnTile++;
+        StartCoroutine(PrepareMoving());
+
+    }
+
+    public void MovingTileLeft()
+    {
+        currentPlayersOnTile--;
+    }
+
+
+    private Vector3 SetValuesForMovingHexagons(Vector3 vector)
+    {
         if(vector.x == 0)
         {
             vector.x = this.transform.position.x;
@@ -51,6 +63,28 @@ public class HexagonMovingTiles : MonoBehaviour
         return vector;
     }
 
+
+    private bool ConditionsMet()
+    {
+        if(thisHexagon.IsMovingTile() && !isLift || 
+            isLift && needsNumberOfPlayersForLifting <= currentPlayersOnTile)
+        {            
+            return true;
+        }
+        return false;
+    }
+
+
+    private IEnumerator PrepareMoving()
+    {
+        while (ConditionsMet())
+        {            
+            yield return StartCoroutine(MoveObject(this.transform, movingTilePosA, movingTilePosB, speedOfMovingTiles));
+            yield return StartCoroutine(MoveObject(this.transform, movingTilePosB, movingTilePosA, speedOfMovingTiles));                        
+        }
+    }
+
+
     /*
     *  Method gets called to move the tile up and down.
     */
@@ -66,6 +100,7 @@ public class HexagonMovingTiles : MonoBehaviour
         }
     }
 
+
     /* ------------------------------ METHODS FOR EDITOR MODE ------------------------------  */
     /* 
      * That's not the right way to do it, but it would be helpful     
@@ -75,7 +110,4 @@ public class HexagonMovingTiles : MonoBehaviour
     {
         Debug.Log(this.transform.parent.transform.position - this.transform.position);
     }
-
 }
-
-

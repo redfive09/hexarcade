@@ -80,6 +80,10 @@ public class HexagonBehaviour : MonoBehaviour
         {
             thisHexagon.SetColor(colors[arrivedStandardTile]);
         }
+        else if(thisHexagon.IsMovingTile())
+        {
+            this.transform.GetComponent<HexagonMovingTiles>().MovingTileTouched();
+        }
     }
 
 
@@ -109,6 +113,10 @@ public class HexagonBehaviour : MonoBehaviour
         else if(thisHexagon.IsStandardTile())
         {
             thisHexagon.SetColor(colors[leftStandardTile]);
+        }
+        else if(thisHexagon.IsMovingTile())
+        {
+            this.transform.GetComponent<HexagonMovingTiles>().MovingTileLeft();
         }
     }
 

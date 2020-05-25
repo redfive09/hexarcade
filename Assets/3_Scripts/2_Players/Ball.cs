@@ -65,17 +65,39 @@ public class Ball : MonoBehaviour
      *  This method is called when the game starts
      *  The player gets its controls and the timer will show up
      */
-    void GameStarts()
+    private void GameStarts()
     {
         ActivatePlayerControls();
         timer.Show();
         StartCoroutine(CheckLoseCondition());
     }
 
+    /*  
+     *  This method is called when the game starts
+     */
+    private void PlayerTouchedStartingTile()
+    {
+        timer.StartTiming();
+        Debug.Log("Timer started/reseted");
+        Debug.Log("Record to beat: " + timer.GetBestTime());
+    }
+
+
                 /* --------------- STATUS: PLAYER WON, PLAYER REACHED A FINISH-TILE ---------------  */
     private void PlayerWon()
     {
-        
+        timer.StopTiming();
+
+        Debug.Log("Finish time: " + timer.GetLastFinishTime());
+
+        if(timer.IsNewBestTime())
+        {
+            Debug.Log("New record");
+        }
+        else
+        {
+            Debug.Log("No new record");
+        }
     }
 
 
@@ -139,24 +161,11 @@ public class Ball : MonoBehaviour
 
         if(hexagon.IsStartingTile())
         {
-            timer.StartTiming();
-            Debug.Log("Timer started/reseted");
-            Debug.Log("Record to beat: " + timer.GetBestTime());
+            PlayerTouchedStartingTile();
         }
         else if(hexagon.IsWinningTile())
         {
-            timer.StopTiming();
-
-            Debug.Log("Finish time: " + timer.GetLastFinishTime());
-
-            if(timer.IsNewBestTime())
-            {
-                Debug.Log("New record");
-            }
-            else
-            {
-                Debug.Log("No new record");
-            }
+            PlayerWon();
         }
     }
 
