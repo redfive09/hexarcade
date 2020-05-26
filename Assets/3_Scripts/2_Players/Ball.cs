@@ -32,7 +32,7 @@ public class Ball : MonoBehaviour
      *  Preparing the ball by saving some of it's components or getting values from the map
      */
 
-    public void GetStarted(int playerNumber, int numberOfCheckpoints, Dictionary<int, List<Hexagon>> checkpointTiles)
+    public void GetStarted(int playerNumber, int numberOfCheckpoints, Dictionary<int, List<Hexagon>> checkpointTiles, bool introductionScreen)
     {
         rb = GetComponent<Rigidbody>();
         timer = this.GetComponentInChildren<Timer>();
@@ -44,12 +44,23 @@ public class Ball : MonoBehaviour
         this.numberOfCheckpoints = numberOfCheckpoints;
         this.checkpointTiles = checkpointTiles;
 
+        if(introductionScreen)
+        {
+            ShowIntroductionScreen();
+        }
+
         if(numberOfCheckpoints > 0)
         {
             StartCoroutine(PlayerChoosesCheckpoints());
         }
 
         StartCoroutine(Introduction());
+    }
+
+
+    private void ShowIntroductionScreen()
+    {
+        // do something
     }
 
     /*

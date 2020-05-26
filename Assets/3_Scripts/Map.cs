@@ -5,8 +5,10 @@ using UnityEngine;
 public class Map : MonoBehaviour
 {
     
-    Tiles tiles;
-    Players players;
+    [SerializeField] private bool introductionScreen;
+
+    private Tiles tiles;
+    private Players players;
     
     
     void Start()
@@ -15,7 +17,7 @@ public class Map : MonoBehaviour
         CreatePlayers();
     }
 
-    void CreateTiles()
+    private void CreateTiles()
     {
         tiles = this.transform.GetComponentInChildren<Tiles>();
         tiles.GetStarted();
@@ -25,10 +27,10 @@ public class Map : MonoBehaviour
         mapGenerator.SetActive(false);
     }
 
-    void CreatePlayers()
+    private void CreatePlayers()
     {
         players = this.transform.GetComponentInChildren<Players>();
-        players.GetStarted(tiles.GetStartingTiles(), tiles.GetCheckpointTiles());
+        players.GetStarted(tiles.GetStartingTiles(), tiles.GetCheckpointTiles(), introductionScreen);
     }
 
 
