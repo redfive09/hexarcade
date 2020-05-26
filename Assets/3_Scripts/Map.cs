@@ -5,7 +5,8 @@ using UnityEngine;
 public class Map : MonoBehaviour
 {
     
-    [SerializeField] private bool introductionScreen;
+    [SerializeField] private bool introductionScreen;           // 0
+    [SerializeField] private bool standardTilesMeansLosing;     // 1
 
     private Tiles tiles;
     private Players players;
@@ -29,8 +30,13 @@ public class Map : MonoBehaviour
 
     private void CreatePlayers()
     {
+        bool[] boolSettings = new bool[] {
+            introductionScreen,
+            standardTilesMeansLosing
+        };
+
         players = this.transform.GetComponentInChildren<Players>();
-        players.GetStarted(tiles.GetStartingTiles(), tiles.GetCheckpointTiles(), introductionScreen);
+        players.GetStarted(tiles.GetStartingTiles(), tiles.GetCheckpointTiles(), boolSettings);
     }
 
 

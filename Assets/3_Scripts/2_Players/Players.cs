@@ -16,16 +16,16 @@ public class Players : MonoBehaviour
     private Dictionary<int, List<Hexagon>> startingTiles;
     
 
-    public void GetStarted(Dictionary<int, List<Hexagon>> startingTiles, Dictionary<int, List<Hexagon>> checkpointTiles, bool introductionScreen)
+    public void GetStarted(Dictionary<int, List<Hexagon>> startingTiles, Dictionary<int, List<Hexagon>> checkpointTiles, bool[] boolSettings)
     {   
         this.startingTiles = startingTiles;
-        SpawnPlayers(checkpointTiles, introductionScreen);
+        SpawnPlayers(checkpointTiles, boolSettings);
     }
 
     /*
      * All the players get added here
     **/
-    void SpawnPlayers(Dictionary<int, List<Hexagon>> checkpointTiles, bool introductionScreen)
+    void SpawnPlayers(Dictionary<int, List<Hexagon>> checkpointTiles, bool[] boolSettings)
     {
         for(int i = 0; i < numberOfPlayers; i++)
         {
@@ -39,7 +39,7 @@ public class Players : MonoBehaviour
             Ball player = playerBall.GetComponent<Ball>();
             players.Add(player);
             player.GoToSpawnPosition(GetSpawnPosition(i), spawnPositionAtTile);
-            player.GetStarted(i, numberOfCheckpoints, checkpointTiles, introductionScreen);
+            player.GetStarted(i, numberOfCheckpoints, checkpointTiles, boolSettings);
             
         }
     }

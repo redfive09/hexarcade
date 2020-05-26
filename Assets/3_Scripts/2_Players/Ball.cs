@@ -19,6 +19,7 @@ public class Ball : MonoBehaviour
     private float loseHeight = -10;
     private int replayPositionCounter = 0;
     private int numberOfCheckpoints;
+    private bool standardTilesMeansLosing;
     
     
 
@@ -32,7 +33,7 @@ public class Ball : MonoBehaviour
      *  Preparing the ball by saving some of it's components or getting values from the map
      */
 
-    public void GetStarted(int playerNumber, int numberOfCheckpoints, Dictionary<int, List<Hexagon>> checkpointTiles, bool introductionScreen)
+    public void GetStarted(int playerNumber, int numberOfCheckpoints, Dictionary<int, List<Hexagon>> checkpointTiles, bool[] boolSettings)
     {
         rb = GetComponent<Rigidbody>();
         timer = this.GetComponentInChildren<Timer>();
@@ -44,6 +45,23 @@ public class Ball : MonoBehaviour
         this.numberOfCheckpoints = numberOfCheckpoints;
         this.checkpointTiles = checkpointTiles;
 
+        standardTilesMeansLosing = boolSettings[1];
+
+        StartCoroutine(Introduction(boolSettings[0]));
+    }
+
+
+
+
+
+                    /* --------------- STATUS: INTRODUCTION, PLAYER HAS TO WAIT ---------------  */
+    /*
+     *  All the colours of the non-standard tiles will be shown
+     *  When all colours have faded, then the game starts
+     */
+    IEnumerator Introduction(bool introductionScreen)
+    {
+
         if(introductionScreen)
         {
             ShowIntroductionScreen();
@@ -54,7 +72,16 @@ public class Ball : MonoBehaviour
             StartCoroutine(PlayerChoosesCheckpoints());
         }
 
-        StartCoroutine(Introduction());
+        GameObject tiles = GameObject.Find("Map/Tiles");
+        TileColorsIntroduction tileColorsIntroduction = tiles.GetComponent<TileColorsIntroduction>();
+        tileColorsIntroduction.DisplayTiles();
+        
+        // Just wait for the tiles to finish 
+        while(!tileColorsIntroduction.IsFinished())
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+        GameStarts();
     }
 
 
@@ -62,6 +89,7 @@ public class Ball : MonoBehaviour
     {
         // do something
     }
+
 
     /*
      *  This is just a basic idea how the choosing of checkpoints could look like
@@ -80,26 +108,6 @@ public class Ball : MonoBehaviour
     }
 
 
-
-                    /* --------------- STATUS: INTRODUCTION, PLAYER HAS TO WAIT ---------------  */
-    /*
-     *  All the colours of the non-standard tiles will be shown
-     *  When all colours have faded, then the game starts
-     */
-    IEnumerator Introduction()
-    {
-        GameObject tiles = GameObject.Find("Map/Tiles");
-        TileColorsIntroduction tileColorsIntroduction = tiles.GetComponent<TileColorsIntroduction>();
-        tileColorsIntroduction.DisplayTiles();
-        
-        // Just wait for the tiles to finish 
-        while(!tileColorsIntroduction.IsFinished())
-        {
-            yield return new WaitForSeconds(0.2f);
-        }
-        GameStarts();
-    }
-
                 /* --------------- STATUS: GAME STARTED, PLAYER CAN DO SOMETHING ---------------  */
     /*  
      *  This method is called when the game starts
@@ -112,6 +120,7 @@ public class Ball : MonoBehaviour
         StartCoroutine(CheckLoseCondition());
     }
 
+    
     /*  
      *  This method is called when the game starts
      */
@@ -187,10 +196,9 @@ public class Ball : MonoBehaviour
                     occupiedTile.GotUnoccupied(this);   // Tell the former occupiedTile, that this ball left
                 }
 
-                currentTile.GotOccupied(this);          // Tell the currentTile, that this player stands on it
-
                 if(currentTile != null)                 // in case it is a crackableTile, it could be gone already
-                {                    
+                {
+                    currentTile.GotOccupied(this);      // Tell the currentTile, that this player stands on it
                     occupiedTile = currentTile;         // Save the current tile
                 }
 
@@ -210,9 +218,15 @@ public class Ball : MonoBehaviour
         {
             PlayerTouchedStartingTile();
         }
+
         else if(hexagon.IsWinningTile())
         {
             PlayerWon();
+        }
+        
+        else if(hexagon.IsStandardTile() && standardTilesMeansLosing)
+        {
+            PlayerLost();
         }
     }
 
