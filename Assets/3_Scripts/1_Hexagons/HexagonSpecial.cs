@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class HexagonSpecial : MonoBehaviour
 {    
+
+    /* ------------------------------ SerializeFields ------------------------------  */
     // Teleporter values
+    [SerializeField] private bool teleporterEntrance;
     [SerializeField] private int teleporterNumber;
     [SerializeField] private int teleporterConnectedWith;
-    [SerializeField] private bool teleporterGoingBack;
 
 
-    // General information for different operations
+    /* ------------------------------ USEAGE OF SPECIAL-TILES ------------------------------  */  
+    private const int TELEPORTER = 0;
+
+
+    /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */    
     private List<Ball> players = new List<Ball>();
     private int specialCase;
     private Dictionary<int, List<Hexagon>> specialTiles;
@@ -32,7 +38,7 @@ public class HexagonSpecial : MonoBehaviour
 
         if(getIndexNumberInList >= 0) // catch potential errors with the special tile list
         {        
-            if(specialCase == 0) // Teleporter entry
+            if(specialCase == TELEPORTER)
             {
                 
 
@@ -43,9 +49,9 @@ public class HexagonSpecial : MonoBehaviour
                 
             }
 
-            else if(specialCase == 1) // Teleporter exit
+            else if(specialCase == 1) // what is it for
             {
-                // not done yet
+                // do something
             }
 
 
@@ -78,6 +84,25 @@ public class HexagonSpecial : MonoBehaviour
     
     /* ------------------------------ SPECIFIC METHODS FOR TELEPORTERS ------------------------------  */
 
+    private HexagonSpecial FindTeleporterExit(int teleporterConnectedWith)
+    {
+        List<Hexagon> teleporterList = specialTiles[TELEPORTER];
 
+        for(int i = 0; i < teleporterList.Count; i++)
+        {
+            HexagonSpecial teleporter = teleporterList[i].GetComponent<HexagonSpecial>();
+
+            if(teleporter.GetTeleporterNumber() == teleporterConnectedWith)
+            {
+                return teleporter;
+            }
+        }
+        return null;
+    }
+
+    public int GetTeleporterNumber()
+    {
+        return teleporterNumber;
+    }
 
 }

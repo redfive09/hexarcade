@@ -200,6 +200,9 @@ public class Ball : MonoBehaviour
     }
 
 
+    /*  
+     *  The player has to check for some specific hexagon types in order to decide what to do next, e. g. starting or winning tiles have to change the state of the player
+    **/
     private void AnalyseHexagon(Hexagon hexagon)
     {
 
