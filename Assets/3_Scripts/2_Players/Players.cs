@@ -9,7 +9,8 @@ public class Players : MonoBehaviour
     // [SerializeField] private Camera playerCamera;
 
     [SerializeField] private int numberOfPlayers = 1;
-    [SerializeField] int numberOfCheckpoints;
+    [SerializeField] private int numberOfCheckpoints;
+    [SerializeField] private Vector3 spawnPositionAtTile = new Vector3(0, 1, 0);
 
     private List<Ball> players = new List<Ball>();
     private Dictionary<int, List<Hexagon>> startingTiles;
@@ -38,7 +39,7 @@ public class Players : MonoBehaviour
             Ball player = playerBall.GetComponent<Ball>();
             players.Add(player);
             player.GetStarted(i, numberOfCheckpoints, checkpointTiles);
-            player.GoToSpawnPosition(GetSpawnPosition(i));
+            player.GoToSpawnPosition(GetSpawnPosition(i), spawnPositionAtTile);
         }
     }
 

@@ -10,14 +10,17 @@ public class Ball : MonoBehaviour
     private Rigidbody rb;
     private HexagonBehaviour occupiedTile;
     private Hexagon lastSpawnPosition;
+    private Vector3 lastSpawnVector;
     private Timer timer;
     private List<Vector3> positions = new List<Vector3>();
+    Dictionary<int, List<Hexagon>> checkpointTiles;
+
     private int playerNumber;
     private float loseHeight = -10;
     private int replayPositionCounter = 0;
     private int numberOfCheckpoints;
-    Dictionary<int, List<Hexagon>> checkpointTiles;
-
+    
+    
 
 
     /* ------------------------------ METHODS FOR DIFFERENT STATES BEGINN ------------------------------  */
@@ -130,9 +133,8 @@ public class Ball : MonoBehaviour
                 /* --------------- STATUS: PLAYER LOST, PLAYER MET A LOSE CONDITION ---------------  */
     private void PlayerLost()
     {
-        GoToSpawnPosition(lastSpawnPosition);
+        GoToSpawnPosition(lastSpawnPosition, lastSpawnVector);
     }
-
 
 
     /* ------------------------------ UPDATING AND WAITING FOR INPUT METHODS ------------------------------  */
@@ -172,9 +174,14 @@ public class Ball : MonoBehaviour
                 if(occupiedTile != null)            // Prevent a NullReferenceException
                 {
                     occupiedTile.GotUnoccupied(this);   // Tell the former occupiedTile, that this ball left
-                }                    
+                }
+
                 currentTile.GotOccupied(this);          // Tell the currentTile, that this player stands on it
-                occupiedTile = currentTile;         // Save the current tile
+
+                if(currentTile != null)                 // in case it is a crackableTile, it could be gone already
+                {                    
+                    occupiedTile = currentTile;         // Save the current tile
+                }
 
                 AnalyseHexagon(occupiedTile.GetComponent<Hexagon>());
             }            
@@ -220,11 +227,11 @@ public class Ball : MonoBehaviour
     /*  
      *  Let the player spawn above the desired tile
     **/
-    public void GoToSpawnPosition(Hexagon spawnTile)
+    public void GoToSpawnPosition(Hexagon spawnTile, Vector3 spawnVector)
     {
-        float distanceAboveTile = 1f; // Should go later to a central place for all settings
-        transform.position = new Vector3(spawnTile.transform.position.x, spawnTile.transform.position.y + distanceAboveTile, spawnTile.transform.position.z);
+        transform.position = new Vector3(spawnTile.transform.position.x + spawnVector.x, spawnTile.transform.position.y + spawnVector.y, spawnTile.transform.position.z + spawnVector.z);
         lastSpawnPosition = spawnTile;
+        lastSpawnVector = spawnVector;
     }
 
 
