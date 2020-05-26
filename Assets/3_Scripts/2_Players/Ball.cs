@@ -14,11 +14,12 @@ public class Ball : MonoBehaviour
     private Timer timer;
     private List<Vector3> positions = new List<Vector3>();
     Dictionary<int, List<Hexagon>> checkpointTiles;
+    bool playerMarkedCheckpoints = false;
+    bool hasWatchedIntroductionScreen = false;
 
     private int playerNumber;
     private float loseHeight = -10;
     private int replayPositionCounter = 0;
-    private int numberOfCheckpoints;
     private bool standardTilesMeansLosing;
     
     
@@ -33,7 +34,7 @@ public class Ball : MonoBehaviour
      *  Preparing the ball by saving some of it's components or getting values from the map
      */
 
-    public void GetStarted(int playerNumber, int numberOfCheckpoints, Dictionary<int, List<Hexagon>> checkpointTiles, bool[] boolSettings)
+    public void GetStarted(int playerNumber, int numberOfCheckpoints, bool[] boolSettings)
     {
         rb = GetComponent<Rigidbody>();
         timer = this.GetComponentInChildren<Timer>();
@@ -42,15 +43,11 @@ public class Ball : MonoBehaviour
         GameObject loseTile = GameObject.Find("Map/LoseHeight");
         loseHeight = loseTile.transform.position.y;
 
-        this.numberOfCheckpoints = numberOfCheckpoints;
-        this.checkpointTiles = checkpointTiles;
 
         standardTilesMeansLosing = boolSettings[1];
 
-        StartCoroutine(Introduction(boolSettings[0]));
+        StartCoroutine(Introduction(boolSettings[0], numberOfCheckpoints));
     }
-
-
 
 
 
@@ -59,53 +56,68 @@ public class Ball : MonoBehaviour
      *  All the colours of the non-standard tiles will be shown
      *  When all colours have faded, then the game starts
      */
-    IEnumerator Introduction(bool introductionScreen)
+    IEnumerator Introduction(bool introductionScreen, int numberOfCheckpoints)
     {
 
-        if(introductionScreen)
+        if(introductionScreen)                                                      // check if the level has a introduction screen to show
         {
-            ShowIntroductionScreen();
+            ShowIntroductionScreen();                                               // if so, show it
+
+            while(!hasWatchedIntroductionScreen)                                    // wait for the user to finish watching the introduction screen
+            {
+                yield return new WaitForSeconds(0.2f);
+            }
         }
 
-        if(numberOfCheckpoints > 0)
-        {
-            StartCoroutine(PlayerChoosesCheckpoints());
-        }
-
+        /* --------------- DISPLAYING NON-STANDARD TILES ---------------  */
         GameObject tiles = GameObject.Find("Map/Tiles");
         TileColorsIntroduction tileColorsIntroduction = tiles.GetComponent<TileColorsIntroduction>();
-        tileColorsIntroduction.DisplayTiles();
         
-        // Just wait for the tiles to finish 
-        while(!tileColorsIntroduction.IsFinished())
+
+        bool chooseCheckPoints = numberOfCheckpoints > 0;                           // are there any checkpoints to choose for this map
+
+        tileColorsIntroduction.DisplayTiles(chooseCheckPoints);                     // display the non-standard tiles
+
+        if(chooseCheckPoints)
+        {
+            checkpointTiles = tiles.GetComponent<Tiles>().GetCheckpointTiles();     // prepare the place for adding the checkpoints
+
+            while(!tileColorsIntroduction.IsReadyForCheckpoints())                  // once the colours have appeared, it will wait with the fading process
+            {
+                yield return new WaitForSeconds(0.2f);                              // check regularly if all the colours have appeared
+            }
+            
+            ControlsCheckpoint checkpointController = GetComponent<ControlsCheckpoint>();   // get the controls for choosing the checkpoints
+            checkpointController.enabled = true;                                            // enable it
+            checkpointController.GetStarted(numberOfCheckpoints, checkpointTiles);          // and get it started
+
+            
+            while(!playerMarkedCheckpoints)                                         // check, if the player has marked all available checkpoints
+            {
+                playerMarkedCheckpoints = checkpointController.IsFinished();
+                yield return new WaitForSeconds(0.2f);                              // it will check regularly if the player has choosen the checkpoints
+            }            
+
+            tileColorsIntroduction.Finish();                                        // as soon as the player has choosen the checkpoints, the colours should start fading
+            checkpointController.enabled = false;                                   // disable the checkpointController, since we don't need it anymore
+        }        
+        
+        while(!tileColorsIntroduction.IsFinished())                                 // waiting for the tiles to finish fading
         {
             yield return new WaitForSeconds(0.2f);
         }
+
         GameStarts();
+
     }
 
 
     private void ShowIntroductionScreen()
     {
-        // do something
-    }
+        // do something here
 
-
-    /*
-     *  This is just a basic idea how the choosing of checkpoints could look like
-     */
-    IEnumerator PlayerChoosesCheckpoints()
-    {
-
-        // maybe this way: https://forum.unity.com/threads/detecting-mouse-click-on-object.19450/
-        // for(int i = 0; i < numberOfCheckpoints; i++)
-        // {
-        //     checkpointTiles[i].Add(clickedHexagon);
-        // }
-        
-        // playerFinishedChoosingCheckpoints = true;
-        yield return new WaitForSeconds(0.2f);
-    }
+        hasWatchedIntroductionScreen = true;       // once the introductionScreen has gone, mark the boolean
+    }   
 
 
                 /* --------------- STATUS: GAME STARTED, PLAYER CAN DO SOMETHING ---------------  */

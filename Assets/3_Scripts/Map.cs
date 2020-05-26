@@ -36,7 +36,7 @@ public class Map : MonoBehaviour
         };
 
         players = this.transform.GetComponentInChildren<Players>();
-        players.GetStarted(tiles.GetStartingTiles(), tiles.GetCheckpointTiles(), boolSettings);
+        players.GetStarted(tiles.GetStartingTiles(), boolSettings);
     }
 
 

@@ -65,6 +65,7 @@ public class TileColorsIntroduction : MonoBehaviour
 
     private Tiles tiles;
     private IntroductionTilesManager[] colors;
+    private bool checkpointsHasBeenMarked = false;
 
     // Filling the array and setting up the tiles
     public void GetStarted()
@@ -83,18 +84,18 @@ public class TileColorsIntroduction : MonoBehaviour
         };
     }
 
-    public void DisplayTiles()
+    public void DisplayTiles(bool chooseCheckPoints)
     {
         for(int i = 0; i < colors.Length; i++)
         {
-            StartCoroutine(SetColor(colors[i]));
+            StartCoroutine(SetColor(colors[i], chooseCheckPoints));
         }
     }
 
     /*  This method will colour all the incoming tiles
      *  Works : tiles are colored in with a delay
     **/
-    IEnumerator SetColor(IntroductionTilesManager tileOptions)
+    IEnumerator SetColor(IntroductionTilesManager tileOptions, bool waitForChoosingCheckPoints)
     {
         yield return new WaitForSeconds(tileOptions.GetStartingTime()); // wait seconds before continuing with the loop
 
@@ -124,6 +125,17 @@ public class TileColorsIntroduction : MonoBehaviour
                 numberOfLists++;    // if this key doesn't exist, increase the number to keep looking for every available list
             }
         }
+
+        if(waitForChoosingCheckPoints)
+        {
+            tileOptions.SetReadyForCheckpoints(true);
+
+            while(!checkpointsHasBeenMarked)
+            {
+                yield return new WaitForSeconds(0.2f);
+            }
+        }
+
         StartCoroutine(MakePathDisappear(rememberColors, tiles, tileOptions)); //start the disappering backwards
     }
 
@@ -176,6 +188,24 @@ public class TileColorsIntroduction : MonoBehaviour
         return true;
     }
 
+    public bool IsReadyForCheckpoints()
+    {
+        for(int i = 0; i < colors.Length; i++)
+        {
+            if(!colors[i].IsReadyForCheckpoints())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    public void Finish()
+    {
+        checkpointsHasBeenMarked = true;
+    }
+
 
     /**
       * Abstract data class for an easier way of managing the multiple coroutines above
@@ -188,7 +218,8 @@ public class TileColorsIntroduction : MonoBehaviour
         private float timeForEachTileFading;
         private Color color;
         private Dictionary<int, List<Hexagon>> tiles;
-        private bool finished;
+        private bool finished = false;
+        private bool readyForCheckpoints = false;
 
 
         public IntroductionTilesManager (float startingTime, float timeToNextTile, float timeBeforeFadingStarts, 
@@ -241,5 +272,15 @@ public class TileColorsIntroduction : MonoBehaviour
         {
             finished = status;
         }
+
+        public void SetReadyForCheckpoints(bool status)
+        {
+            readyForCheckpoints = status;            
+        }
+
+        public bool IsReadyForCheckpoints()
+        {
+            return readyForCheckpoints;
+        }        
     }
 }
