@@ -99,8 +99,9 @@ public class Tiles : MonoBehaviour
 
                 if(hexagon.IsSpecialTile())
                 {
-                    SaveHexagonInList(specialTiles, hexagon, hexagon.GetSpecialTileNumber());
+                    SaveHexagonInList(specialTiles, hexagon, hexagon.GetSpecialTileNumber());                    
                     hexagon.SetStandardTile(false);
+                    hexagon.GetComponent<HexagonSpecial>().GetStarted(specialTiles);
                 }
 
                 if(hexagon.IsMovingTile())

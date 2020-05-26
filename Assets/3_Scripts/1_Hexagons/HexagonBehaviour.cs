@@ -66,7 +66,7 @@ public class HexagonBehaviour : MonoBehaviour
         else if(thisHexagon.IsSpecialTile())
         {
             thisHexagon.SetColor(colors[arrivedSpecialTile]);
-            this.transform.GetComponent<HexagonSpecial>().SpecialTileTouched(player, thisHexagon.GetSpecialTileNumber());
+            this.transform.GetComponent<HexagonSpecial>().SpecialTileTouched(player);
         }
 
         else if(thisHexagon.IsMovingTile())
@@ -122,6 +122,7 @@ public class HexagonBehaviour : MonoBehaviour
         else if(thisHexagon.IsSpecialTile())
         {
             thisHexagon.SetColor(colors[leftSpecialTile]);
+            this.transform.GetComponent<HexagonSpecial>().SpecialTileLeft(player);
         }
 
         else if(thisHexagon.IsMovingTile())

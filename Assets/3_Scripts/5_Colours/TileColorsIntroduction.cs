@@ -91,7 +91,7 @@ public class TileColorsIntroduction : MonoBehaviour
         }
     }
 
-    /*  This method will make the colour of the path
+    /*  This method will colour all the incoming tiles
      *  Works : tiles are colored in with a delay
     **/
     IEnumerator SetColor(IntroductionTilesManager tileOptions)
@@ -128,8 +128,7 @@ public class TileColorsIntroduction : MonoBehaviour
     }
 
     /*
-    * Method goes trough the list of path tiles in the opposite ordner and colors them in the color of all other tiles,
-    * in this case: cyan
+    * Method goes trough the Dictionary in the opposite ordner and coulors them back to the old colour
     */
     IEnumerator MakePathDisappear(Dictionary<int, List<Color>> rememberColors, Dictionary<int, List<Hexagon>> tiles, IntroductionTilesManager tileOptions)
     {
