@@ -5,22 +5,26 @@ using UnityEngine;
 public class Players : MonoBehaviour
 {
     [SerializeField] private GameObject ball;
-    [SerializeField] private Camera playerCamera;
-    [SerializeField] private GameObject stateMachine;
-    List<Ball> players = new List<Ball>();
-    Dictionary<int, List<Hexagon>> startingTiles;
+
+    // [SerializeField] private Camera playerCamera;
+
+    [SerializeField] private int numberOfPlayers = 1;
+    [SerializeField] int numberOfCheckpoints;
+
+    private List<Ball> players = new List<Ball>();
+    private Dictionary<int, List<Hexagon>> startingTiles;
     
 
-    public void GetStarted(int numberOfPlayers, Dictionary<int, List<Hexagon>> startingTiles)
+    public void GetStarted(Dictionary<int, List<Hexagon>> startingTiles, Dictionary<int, List<Hexagon>> checkpointTiles)
     {   
         this.startingTiles = startingTiles;
-        SpawnPlayers(numberOfPlayers);
+        SpawnPlayers(checkpointTiles);
     }
 
     /*
      * All the players get added here
     **/
-    void SpawnPlayers(int numberOfPlayers)
+    void SpawnPlayers(Dictionary<int, List<Hexagon>> checkpointTiles)
     {
         for(int i = 0; i < numberOfPlayers; i++)
         {
@@ -28,17 +32,13 @@ public class Players : MonoBehaviour
             playerBall.name = "Player" + (i + 1);
             playerBall.transform.parent = this.transform;
 
-            CameraFollow playerCam = GetComponentInChildren<CameraFollow>();
+            CameraFollow playerCam = GetComponentInChildren<CameraFollow>(); // For multiplayer: a prefab-camera has to be initiated
             playerCam.GetStarted(playerBall.transform);
 
             Ball player = playerBall.GetComponent<Ball>();
             players.Add(player);
-            player.GetStarted(i);
+            player.GetStarted(i, numberOfCheckpoints, checkpointTiles);
             player.GoToSpawnPosition(GetSpawnPosition(i));
-
-            // Change place later
-            // DeactivatePlayerControls(playerBall);
-            // Invoke("ActivatePlayerControls", tiles.GetNumberOfPathTiles(i) * tileColorTime);
         }
     }
 

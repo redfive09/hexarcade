@@ -19,6 +19,7 @@ public class HexagonBehaviour : MonoBehaviour
 
     private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here
     private Hexagon thisHexagon;
+    private bool markedForDestruction = false; // Make sure a hexagon doesn't try to get deleted twice (e. g. crackable tile)
 
 
     // Setup standard values for the editor mode
@@ -155,7 +156,12 @@ public class HexagonBehaviour : MonoBehaviour
     **/
     void ActivateCrackedTile()
     {
-        thisHexagon.DestroyHexagon(false, crackedTileBreaksInSeconds);        
+        if(!markedForDestruction)
+        {
+            thisHexagon.DestroyHexagon(false, crackedTileBreaksInSeconds);
+            markedForDestruction = true;
+            Debug.Log(thisHexagon);
+        }        
     }
 
     /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */

@@ -142,7 +142,7 @@ public class Tiles : MonoBehaviour
         {
             List<Hexagon> newHexagonList = new List<Hexagon>();
             newHexagonList.Add(hexagon);
-            tiles.Add(index, newHexagonList);            
+            tiles.Add(index, newHexagonList);
         }
         
     }
@@ -246,12 +246,20 @@ public class Tiles : MonoBehaviour
     }
 
     public void RemoveHexagonFromAllLists(Hexagon hexagonToDelete)
-    {
+    {        
         for(int i = 0; i < tileLists.Length; i++)
         {
-            for(int k = 0; k < tileLists[i].Count; k++)
+            int dictionaryEntries = tileLists[i].Count;
+            for(int k = 0; k < dictionaryEntries; k++)
             {
-                tileLists[i][k].Remove(hexagonToDelete);
+                if(tileLists[i].TryGetValue(k, out List<Hexagon> hexagonList)) // if the key is available, then just procceed
+                {
+                    tileLists[i][k].Remove(hexagonToDelete);
+                }
+                else
+                {
+                    dictionaryEntries++;    // if this key doesn't exist, increase the number to keep looking for every available list
+                }                
             }
         }
     }

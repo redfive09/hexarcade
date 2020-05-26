@@ -7,8 +7,7 @@ public class Map : MonoBehaviour
     
     Tiles tiles;
     Players players;
-    [SerializeField] int numberOfPlayers = 1;
-
+    
     
     void Start()
     {
@@ -29,7 +28,7 @@ public class Map : MonoBehaviour
     void CreatePlayers()
     {
         players = this.transform.GetComponentInChildren<Players>();
-        players.GetStarted(numberOfPlayers, tiles.GetStartingTiles());
+        players.GetStarted(tiles.GetStartingTiles(), tiles.GetCheckpointTiles());
     }
 
 

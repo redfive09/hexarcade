@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -98,19 +99,29 @@ public class TileColorsIntroduction : MonoBehaviour
 
         Dictionary<int, List<Hexagon>> tiles = tileOptions.GetTiles();
         Dictionary<int, List<Color>> rememberColors = new Dictionary<int, List<Color>>();
-        for(int i = 0; i < tiles.Count; i++)
+        int numberOfLists = tiles.Count;
+
+        for(int i = 0; i < numberOfLists; i++)
         {               
             rememberColors[i] = new List<Color>();
-            List<Hexagon> hexagons = tiles[i];
-            
-            for(int k = 0; k < hexagons.Count; k++)
+
+            if(tiles.TryGetValue(i, out List<Hexagon> hexagonList)) // if the key is available, then just procceed
             {
-                rememberColors[i].Add(hexagons[k].GetColor());
-                hexagons[k].SetColor(tileOptions.GetColor());
-                
-                // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
+                List<Hexagon> hexagons = tiles[i];
+            
+                for(int k = 0; k < hexagons.Count; k++)
+                {
+                    rememberColors[i].Add(hexagons[k].GetColor());
+                    hexagons[k].SetColor(tileOptions.GetColor());
+                    
+                    // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
+                }
+                yield return new WaitForSeconds(tileOptions.GetTimeToNextTile()); // wait seconds before continuing with the loop
             }
-            yield return new WaitForSeconds(tileOptions.GetTimeToNextTile()); // wait seconds before continuing with the loop
+            else
+            {
+                numberOfLists++;    // if this key doesn't exist, increase the number to keep looking for every available list
+            }
         }
         StartCoroutine(MakePathDisappear(rememberColors, tiles, tileOptions)); //start the disappering backwards
     }
@@ -122,16 +133,19 @@ public class TileColorsIntroduction : MonoBehaviour
     IEnumerator MakePathDisappear(Dictionary<int, List<Color>> rememberColors, Dictionary<int, List<Hexagon>> tiles, IntroductionTilesManager tileOptions)
     {
         yield return new WaitForSeconds(tileOptions.GetTimeBeforeFadingStarts()); // wait the specified seconds in time after entire path has lit up
-        for(int i = tiles.Count-1 ; i >= 0 ; i--)
-        {
-            for(int k = 0; k < tiles[i].Count; k++)
-            {
-                Color formerColer = rememberColors[i][k];
-                tiles[i][k].SetColor(formerColer);
+        
+        for(int i = tiles.Keys.Max(); i >= 0 ; i--)
+        {            
+            if(tiles.TryGetValue(i, out List<Hexagon> hexagonList)) // if the key is available, then just procceed
+            {            
+                for(int k = 0; k < hexagonList.Count; k++)
+                {
+                    Color formerColer = rememberColors[i][k];
+                    tiles[i][k].SetColor(formerColer);
+                }
+                yield return new WaitForSeconds(tileOptions.GetTimeForEachTileFading()); //wait before continuing with the loop
+                // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
             }
-
-            yield return new WaitForSeconds(tileOptions.GetTimeForEachTileFading()); //wait before continuing with the loop
-            // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
         }
         tileOptions.SetFinished(true);
     }

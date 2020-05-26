@@ -15,6 +15,8 @@ public class Ball : MonoBehaviour
     private int playerNumber;
     private float loseHeight = -10;
     private int replayPositionCounter = 0;
+    private int numberOfCheckpoints;
+    Dictionary<int, List<Hexagon>> checkpointTiles;
 
 
 
@@ -27,7 +29,7 @@ public class Ball : MonoBehaviour
      *  Preparing the ball by saving some of it's components or getting values from the map
      */
 
-    public void GetStarted(int playerNumber)
+    public void GetStarted(int playerNumber, int numberOfCheckpoints, Dictionary<int, List<Hexagon>> checkpointTiles)
     {
         rb = GetComponent<Rigidbody>();
         timer = this.GetComponentInChildren<Timer>();
@@ -36,7 +38,31 @@ public class Ball : MonoBehaviour
         GameObject loseTile = GameObject.Find("Map/LoseHeight");
         loseHeight = loseTile.transform.position.y;
 
+        this.numberOfCheckpoints = numberOfCheckpoints;
+        this.checkpointTiles = checkpointTiles;
+
+        if(numberOfCheckpoints > 0)
+        {
+            StartCoroutine(PlayerChoosesCheckpoints());
+        }
+
         StartCoroutine(Introduction());
+    }
+
+    /*
+     *  This is just a basic idea how the choosing of checkpoints could look like
+     */
+    IEnumerator PlayerChoosesCheckpoints()
+    {
+
+        // maybe this way: https://forum.unity.com/threads/detecting-mouse-click-on-object.19450/
+        // for(int i = 0; i < numberOfCheckpoints; i++)
+        // {
+        //     checkpointTiles[i].Add(clickedHexagon);
+        // }
+        
+        // playerFinishedChoosingCheckpoints = true;
+        yield return new WaitForSeconds(0.2f);
     }
 
 
