@@ -30,15 +30,10 @@ public class HexagonBehaviour : MonoBehaviour
 
     void Start()
     {
-        GetStarted();
-    }
-
-    void GetStarted()
-    {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
         standardColor = thisHexagon.GetColor();
     }
-
+    
 
     /* Method gets called in order to tell the tile that a player stands on it
     *  Depending on its values, the tile knows what to do
@@ -71,6 +66,7 @@ public class HexagonBehaviour : MonoBehaviour
         else if(thisHexagon.IsSpecialTile())
         {
             thisHexagon.SetColor(colors[arrivedSpecialTile]);
+            this.transform.GetComponent<HexagonSpecial>().SpecialTileTouched(player, thisHexagon.GetSpecialTileNumber());
         }
 
         else if(thisHexagon.IsMovingTile())
@@ -159,8 +155,7 @@ public class HexagonBehaviour : MonoBehaviour
         if(!markedForDestruction)
         {
             thisHexagon.DestroyHexagon(false, crackedTileBreaksInSeconds);
-            markedForDestruction = true;
-            Debug.Log(thisHexagon);
+            markedForDestruction = true;            
         }        
     }
 

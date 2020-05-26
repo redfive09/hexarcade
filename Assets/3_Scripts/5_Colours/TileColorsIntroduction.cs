@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -134,7 +135,18 @@ public class TileColorsIntroduction : MonoBehaviour
     {
         yield return new WaitForSeconds(tileOptions.GetTimeBeforeFadingStarts()); // wait the specified seconds in time after entire path has lit up
         
-        for(int i = tiles.Keys.Max(); i >= 0 ; i--)
+        int highestKey = 0;
+        
+        try
+        {
+            highestKey = (int) tiles.Keys.Max();
+        }
+        catch
+        {
+            // find an idea how to deal with the problem of tiles.Keys.Max(), if there's no value at all
+        }
+
+        for(int i = highestKey; i >= 0 ; i--)
         {            
             if(tiles.TryGetValue(i, out List<Hexagon> hexagonList)) // if the key is available, then just procceed
             {            

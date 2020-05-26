@@ -166,6 +166,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &28331680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,7 +689,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1495752018}
+  - {fileID: 1520640098}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -920,6 +921,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &79273613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1334,6 +1336,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &124238324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,6 +1584,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &148514833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1736,6 +1740,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &160506273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1767,7 +1772,7 @@ MonoBehaviour:
   isCheckpointTile: -1
   isSpecialTile: -1
   isMovingTile: -1
-  isStartingTile: -1
+  isStartingTile: 1
   isWinningTile: -1
   color: {r: 0.6886792, g: 0.2991389, b: 0.04223035, a: 0}
 --- !u!23 &160506275
@@ -2219,6 +2224,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &302189484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2984,6 +2990,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &380482768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3324,6 +3331,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &397750254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3554,6 +3562,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &420416311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4330,6 +4339,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &525398324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4515,6 +4525,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &531510139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5212,6 +5223,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &633319907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5313,81 +5325,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!21 &647573746
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hexagon (Instance) (Instance)
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 0, g: 0.101538174, b: 0.9811321, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &655003850
 GameObject:
   m_ObjectHideFlags: 0
@@ -5534,6 +5471,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &657024301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5856,6 +5794,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &696354153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5986,7 +5925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8fcb5dc5c0a724baa576eb116de9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfPlayers: 1
 --- !u!4 &703430400
 Transform:
   m_ObjectHideFlags: 0
@@ -6272,6 +6210,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &768718662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6427,6 +6366,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &819479787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6657,6 +6597,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &823035025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6812,6 +6753,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &843438504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7117,6 +7059,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &936474290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7276,9 +7219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 7806642066602230678, guid: 7effc9b935780834aa6d9fdad5c365ee, type: 3}
-  playerCamera: {fileID: 0}
-  stateMachine: {fileID: 2689096160421605638, guid: 00e6235329021464c8bcb3de44b72e30,
-    type: 3}
+  numberOfPlayers: 2
+  numberOfCheckpoints: 0
 --- !u!1 &1043400494
 GameObject:
   m_ObjectHideFlags: 0
@@ -7517,6 +7459,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1059318189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7747,6 +7690,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1077544144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7776,7 +7720,7 @@ MonoBehaviour:
   isPath: -1
   isDistractionTile: -1
   isCheckpointTile: -1
-  isSpecialTile: -1
+  isSpecialTile: 5
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
@@ -8069,6 +8013,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1098233937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8483,6 +8428,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1157020499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8788,6 +8734,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1211449711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9127,6 +9074,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1249957685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9466,6 +9414,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1280259424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9621,6 +9570,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1290208933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9954,7 +9904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfadad24a58ff50479e37096a1b32865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTilesColor: {r: 0, g: 0.101538174, b: 0.9811321, a: 0}
+  crackedTilesColor: {r: 1, g: 1, b: 1, a: 0}
   pathTilesColor: {r: 0.8773585, g: 0.26072446, b: 0.26072446, a: 0}
   distractionTilesColor: {r: 0.12196548, g: 0.20754719, b: 0.038180854, a: 0}
   checkpointTilesColor: {r: 1, g: 0.99777603, b: 0, a: 0}
@@ -9985,7 +9935,7 @@ MonoBehaviour:
   arrivedStartingTile: {r: 0.5471698, g: 0.3432716, b: 0.3432716, a: 0}
   arrivedWinningTile: {r: 0.5203694, g: 0.28617838, b: 0.5566038, a: 0}
   arrivedStandardTile: {r: 0.6698113, g: 0.4496181, b: 0.40757385, a: 0}
-  leftCrackedTile: {r: 0, g: 0, b: 0, a: 0}
+  leftCrackedTile: {r: 0.9528302, g: 0.9033909, b: 0.9033909, a: 0}
   leftPathTile: {r: 0, g: 0, b: 0, a: 0}
   leftDistractionTile: {r: 0, g: 0, b: 0, a: 0}
   leftCheckpointTile: {r: 0, g: 0, b: 0, a: 0}
@@ -10351,6 +10301,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1487029762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10452,81 +10403,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!21 &1495752018
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hexagon (Instance) (Instance)
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 0, g: 0.101538174, b: 0.9811321, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!21 &1496455239
 Material:
   serializedVersion: 6
@@ -10601,6 +10477,81 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.6886792, g: 0.2991389, b: 0.04223035, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!21 &1520640098
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hexagon (Instance) (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1526717105
 GameObject:
@@ -10748,6 +10699,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1528669747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10903,6 +10855,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1564944298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11133,6 +11086,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1580259715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11288,6 +11242,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1591710235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11443,6 +11398,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1598359990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11840,6 +11796,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1688627958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11873,7 +11830,7 @@ MonoBehaviour:
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
-  color: {r: 0, g: 0.101538174, b: 0.9811321, a: 0}
+  color: {r: 1, g: 1, b: 1, a: 0}
 --- !u!23 &1688627960
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11995,6 +11952,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1692230018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12235,7 +12193,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 647573746}
+  - {fileID: 2112208130}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12559,6 +12517,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1801356711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12592,7 +12551,7 @@ MonoBehaviour:
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
-  color: {r: 0, g: 0.101538174, b: 0.9811321, a: 0}
+  color: {r: 1, g: 1, b: 1, a: 0}
 --- !u!23 &1801356713
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12864,6 +12823,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &1959787644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13186,6 +13146,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &2015672357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13341,6 +13302,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &2023506232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13571,6 +13533,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &2027323896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13818,6 +13781,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &2051480782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14048,6 +14012,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &2080189381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14370,6 +14335,7 @@ MonoBehaviour:
   speedOfMovingTiles: 2
   isLift: 0
   needsNumberOfPlayersForLifting: 0
+  liftStartingDelay: 0
 --- !u!114 &2100191468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14638,6 +14604,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110510608}
   m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
+--- !u!21 &2112208130
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hexagon (Instance) (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &2116369801
 GameObject:
   m_ObjectHideFlags: 0

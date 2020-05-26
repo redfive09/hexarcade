@@ -8,13 +8,20 @@ public class HexagonMovingTiles : MonoBehaviour
     [SerializeField] private Vector3 movingTilePosA;
     [SerializeField] private Vector3 movingTilePosB;
     [SerializeField] private float speedOfMovingTiles;
+
+    [SerializeField] private float startingDelay;
+    [SerializeField] private float waitBeforeTurningBack;
+
     // [SerializeField] private bool isRoundTrip;
+
     [SerializeField] private bool isLift;
     [SerializeField] private int needsNumberOfPlayersForLifting;
+
 
     // private
     private Hexagon thisHexagon;
     private int currentPlayersOnTile = 0;
+
 
     // Setup standard values for editor mode
     public void Setup()
@@ -81,8 +88,9 @@ public class HexagonMovingTiles : MonoBehaviour
     {
         while (ConditionsMet())
         {
+            yield return new WaitForSeconds(startingDelay);
             yield return StartCoroutine(MoveObject(this.transform, movingTilePosA, movingTilePosB, speedOfMovingTiles));
-            
+            yield return new WaitForSeconds(waitBeforeTurningBack);
             // if(isRoundTrip)
             // {
                 yield return StartCoroutine(MoveObject(this.transform, movingTilePosB, movingTilePosA, speedOfMovingTiles));
