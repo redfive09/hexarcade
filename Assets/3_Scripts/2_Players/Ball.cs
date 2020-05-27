@@ -70,9 +70,8 @@ public class Ball : MonoBehaviour
         }
 
         /* --------------- DISPLAYING NON-STANDARD TILES ---------------  */
-        GameObject tiles = GameObject.Find("Map/Tiles");
-        TileColorsIntroduction tileColorsIntroduction = tiles.GetComponent<TileColorsIntroduction>();
-        
+        GameObject tilesObject = GameObject.Find("Map/Tiles");
+        TileColorsIntroduction tileColorsIntroduction = tilesObject.GetComponent<TileColorsIntroduction>(); // Get the script for the colour introduction
 
         bool chooseCheckPoints = numberOfCheckpoints > 0;                           // are there any checkpoints to choose for this map
 
@@ -80,7 +79,8 @@ public class Ball : MonoBehaviour
 
         if(chooseCheckPoints)
         {
-            checkpointTiles = tiles.GetComponent<Tiles>().GetCheckpointTiles();     // prepare the place for adding the checkpoints
+            Tiles tiles = tilesObject.GetComponent<Tiles>();                        // get the script of tiles
+            checkpointTiles = tiles.GetCheckpointTiles();                           // prepare the place for adding the checkpoints
 
             while(!tileColorsIntroduction.IsReadyForCheckpoints())                  // once the colours have appeared, it will wait with the fading process
             {
@@ -89,7 +89,7 @@ public class Ball : MonoBehaviour
             
             ControlsCheckpoint checkpointController = GetComponent<ControlsCheckpoint>();   // get the controls for choosing the checkpoints
             checkpointController.enabled = true;                                            // enable it
-            checkpointController.GetStarted(numberOfCheckpoints, checkpointTiles);          // and get it started
+            checkpointController.GetStarted(numberOfCheckpoints, checkpointTiles, tiles);   // and get it started
 
             
             while(!playerMarkedCheckpoints)                                         // check, if the player has marked all available checkpoints

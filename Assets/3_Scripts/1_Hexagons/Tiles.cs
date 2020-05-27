@@ -134,7 +134,7 @@ public class Tiles : MonoBehaviour
         }
     }
 
-    private void SaveHexagonInList(Dictionary<int, List<Hexagon>> tiles, Hexagon hexagon, int index)
+    public void SaveHexagonInList(Dictionary<int, List<Hexagon>> tiles, Hexagon hexagon, int index)
     {
         if(tiles.TryGetValue(index, out List<Hexagon> hexagonList)) // if there is already a list at the specified index (key), then add the hexagon to it
         {
@@ -145,9 +145,25 @@ public class Tiles : MonoBehaviour
             List<Hexagon> newHexagonList = new List<Hexagon>();
             newHexagonList.Add(hexagon);
             tiles.Add(index, newHexagonList);
-        }
-        
+        }        
     }
+
+    public void DeleteHexagonInList(Dictionary<int, List<Hexagon>> tiles, Hexagon hexagon)
+    {
+        int sizeOfDictionary = tiles.Count;
+        for(int i = 0; i < sizeOfDictionary; i++)
+        {
+            if(tiles.TryGetValue(i, out List<Hexagon> hexagonList))
+            {
+                hexagonList.Remove(hexagon);
+            }
+            else
+            {
+                sizeOfDictionary++;
+            }
+        }      
+    }
+    
 
     /* ------------------------------ GETTER METHODS BEGIN ------------------------------  */
     /*

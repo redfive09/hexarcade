@@ -98,6 +98,11 @@ public class TileColorsPermanent : MonoBehaviour
         ChangeColor(tiles.GetMovingTiles(), movingTilesColor);
     }
 
+    public Color GetCheckpointTilesColor()
+    {
+        return checkpointTilesColor;
+    }
+
 
     private void ChangeColor(Dictionary<int, List<Hexagon>> tiles, Color color)
     {           

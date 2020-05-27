@@ -7,9 +7,6 @@ public class HexagonBehaviour : MonoBehaviour
 
     [SerializeField] private float crackedTileBreaksInSeconds;
 
-
-    
-    private Color standardColor; // Colour at start, 
     private Color[] colors; // all colours for the scenarios right below
     
     // colour codes for all different scenarios
@@ -31,7 +28,6 @@ public class HexagonBehaviour : MonoBehaviour
     void Start()
     {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
-        standardColor = thisHexagon.GetColor();
     }
     
 

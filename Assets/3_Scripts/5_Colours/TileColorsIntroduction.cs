@@ -64,7 +64,8 @@ public class TileColorsIntroduction : MonoBehaviour
 
 
     private Tiles tiles;
-    private IntroductionTilesManager[] colors;
+    private List<IntroductionTilesManager> colors = new List<IntroductionTilesManager>();
+    private IntroductionTilesManager checkpoints;
     private bool checkpointsHasBeenMarked = false;
 
     // Filling the array and setting up the tiles
@@ -72,27 +73,33 @@ public class TileColorsIntroduction : MonoBehaviour
     {
         tiles = GetComponent<Tiles>();
 
-        colors = new IntroductionTilesManager[] {
-        new IntroductionTilesManager(crackedTilesColorStartTime, crackedTilesColorTime, crackedTimeBeforeFading, crackedTilesColorFading, crackedTilesColor, tiles.GetCrackedTiles()),
-        new IntroductionTilesManager(pathTilesColorStartTime, pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading, pathTilesColor, tiles.GetPathTiles()),
-        new IntroductionTilesManager(distractionTilesColorStartTime, distractionTilesColorTime, distractionTimeBeforeFading, distractionTilesColorFading, distractionTilesColor, tiles.GetDistractionTiles()),
-        new IntroductionTilesManager(checkpointTilesColorStartTime, checkpointTilesColorTime, checkpointTimeBeforeFading, checkpointTilesColorFading, checkpointTilesColor, tiles.GetCheckpointTiles()),
-        new IntroductionTilesManager(specialTilesColorStartTime, specialTilesColorTime, specialTimeBeforeFading, specialTilesColorFading, specialTilesColor, tiles.GetSpecialTiles()),
-        new IntroductionTilesManager(movingTilesColorStartTime, movingTilesColorTime, movingTimeBeforeFading, movingTilesColorFading, movingTilesColor, tiles.GetMovingTiles()),
-        new IntroductionTilesManager(startingTilesColorStartTime, startingTilesColorTime, startingTimeBeforeFading, startingTilesColorFading, startingTilesColor, tiles.GetStartingTiles()),
-        new IntroductionTilesManager(winningTilesColorStartTime, winningTilesColorTime, winningTimeBeforeFading, winningTilesColorFading, winningTilesColor, tiles.GetWinningTiles())
-        };
+        colors.Add(new IntroductionTilesManager(crackedTilesColorStartTime, crackedTilesColorTime, crackedTimeBeforeFading, crackedTilesColorFading, crackedTilesColor, tiles.GetCrackedTiles()));
+        colors.Add(new IntroductionTilesManager(pathTilesColorStartTime, pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading, pathTilesColor, tiles.GetPathTiles()));
+        colors.Add(new IntroductionTilesManager(distractionTilesColorStartTime, distractionTilesColorTime, distractionTimeBeforeFading, distractionTilesColorFading, distractionTilesColor, tiles.GetDistractionTiles()));        
+        colors.Add(new IntroductionTilesManager(specialTilesColorStartTime, specialTilesColorTime, specialTimeBeforeFading, specialTilesColorFading, specialTilesColor, tiles.GetSpecialTiles()));
+        colors.Add(new IntroductionTilesManager(movingTilesColorStartTime, movingTilesColorTime, movingTimeBeforeFading, movingTilesColorFading, movingTilesColor, tiles.GetMovingTiles()));
+        colors.Add(new IntroductionTilesManager(startingTilesColorStartTime, startingTilesColorTime, startingTimeBeforeFading, startingTilesColorFading, startingTilesColor, tiles.GetStartingTiles()));
+        colors.Add(new IntroductionTilesManager(winningTilesColorStartTime, winningTilesColorTime, winningTimeBeforeFading, winningTilesColorFading, winningTilesColor, tiles.GetWinningTiles()));
+        
+        this.checkpoints = new IntroductionTilesManager(checkpointTilesColorStartTime, checkpointTilesColorTime, checkpointTimeBeforeFading, checkpointTilesColorFading, checkpointTilesColor, tiles.GetCheckpointTiles());
+        colors.Add(checkpoints);
     }
 
     public void DisplayTiles(bool chooseCheckPoints)
     {
-        for(int i = 0; i < colors.Length; i++)
+        if(chooseCheckPoints)
+        {
+            colors.Remove(checkpoints);
+        }
+
+        for(int i = 0; i < colors.Count; i++)
         {
             StartCoroutine(SetColor(colors[i], chooseCheckPoints));
         }
     }
 
-    /*  This method will colour all the incoming tiles
+    /*  Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
+     *  This method will colour all the incoming tiles
      *  Works : tiles are colored in with a delay
     **/
     IEnumerator SetColor(IntroductionTilesManager tileOptions, bool waitForChoosingCheckPoints)
@@ -115,8 +122,6 @@ public class TileColorsIntroduction : MonoBehaviour
                 {
                     rememberColors[i].Add(hexagons[k].GetColor());
                     hexagons[k].SetColor(tileOptions.GetColor());
-                    
-                    // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
                 }
                 yield return new WaitForSeconds(tileOptions.GetTimeToNextTile()); // wait seconds before continuing with the loop
             }
@@ -136,13 +141,13 @@ public class TileColorsIntroduction : MonoBehaviour
             }
         }
 
-        StartCoroutine(MakePathDisappear(rememberColors, tiles, tileOptions)); //start the disappering backwards
+        StartCoroutine(MakePathDisappear(rememberColors, tiles, tileOptions, waitForChoosingCheckPoints)); //start the disappering backwards
     }
 
-    /*
+    /* Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
     * Method goes trough the Dictionary in the opposite ordner and coulors them back to the old colour
     */
-    IEnumerator MakePathDisappear(Dictionary<int, List<Color>> rememberColors, Dictionary<int, List<Hexagon>> tiles, IntroductionTilesManager tileOptions)
+    IEnumerator MakePathDisappear(Dictionary<int, List<Color>> rememberColors, Dictionary<int, List<Hexagon>> tiles, IntroductionTilesManager tileOptions, bool checkpointsChosen)
     {
         yield return new WaitForSeconds(tileOptions.GetTimeBeforeFadingStarts()); // wait the specified seconds in time after entire path has lit up
         
@@ -163,11 +168,14 @@ public class TileColorsIntroduction : MonoBehaviour
             {            
                 for(int k = 0; k < hexagonList.Count; k++)
                 {
-                    Color formerColer = rememberColors[i][k];
-                    tiles[i][k].SetColor(formerColer);
+                    Hexagon hexagon = tiles[i][k];
+                    if(!checkpointsChosen || !hexagon.IsCheckpointTile())   // if there was no choosing of checkpoints or the hexagon is not a checkpoint anyway, then get it's colour back
+                    {
+                        Color formerColer = rememberColors[i][k];
+                        tiles[i][k].SetColor(formerColer);
+                    }
                 }
                 yield return new WaitForSeconds(tileOptions.GetTimeForEachTileFading()); //wait before continuing with the loop
-                // Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
             }
         }
         tileOptions.SetFinished(true);
@@ -178,7 +186,7 @@ public class TileColorsIntroduction : MonoBehaviour
      */
     public bool IsFinished()
     {
-        for(int i = 0; i < colors.Length; i++)
+        for(int i = 0; i < colors.Count; i++)
         {
             if(!colors[i].IsFinished())
             {
@@ -190,7 +198,7 @@ public class TileColorsIntroduction : MonoBehaviour
 
     public bool IsReadyForCheckpoints()
     {
-        for(int i = 0; i < colors.Length; i++)
+        for(int i = 0; i < colors.Count; i++)
         {
             if(!colors[i].IsReadyForCheckpoints())
             {
