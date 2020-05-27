@@ -10,6 +10,7 @@ public class Players : MonoBehaviour
 
     [SerializeField] private int numberOfPlayers = 1;
     [SerializeField] private int numberOfCheckpoints;
+    [SerializeField] private int stoptimeForCheckpoints; //  smaller/equal to zero means, no stopwatch for choosing the checkpoints
     [SerializeField] private Vector3 spawnPositionAtTile = new Vector3(0, 1, 0);
 
     private List<Ball> players = new List<Ball>();
@@ -39,7 +40,7 @@ public class Players : MonoBehaviour
             Ball player = playerBall.GetComponent<Ball>();
             players.Add(player);
             player.GoToSpawnPosition(GetSpawnPosition(i), spawnPositionAtTile);
-            player.GetStarted(i, numberOfCheckpoints, boolSettings);
+            player.GetStarted(i, numberOfCheckpoints, stoptimeForCheckpoints, boolSettings);
             
         }
     }

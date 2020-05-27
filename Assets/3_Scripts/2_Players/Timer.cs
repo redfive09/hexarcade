@@ -11,6 +11,8 @@ public class Timer : MonoBehaviour
     private float startTime;
     private float stopTime;
     private float timeCounter;
+    private float stopWatchTime;
+    private bool stopwatchMode = false;
 
     private float bestTime;  // of current level
     private float[] bestTimes;
@@ -25,21 +27,28 @@ public class Timer : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {   
-        // Set timer
-        timeCounter = Time.fixedTime - startTime;
+    {        
+        if(stopwatchMode)
+        {
+            timeCounter = stopWatchTime - Time.fixedTime;
+
+            if(timeCounter < 0)
+            {
+                timeCounter = 0;
+            }
+        }
+        else
+        {
+            timeCounter = Time.fixedTime - startTime;
+        }
         timerField.text = TimeToString(timeCounter);
-        
     }
 
-    public float GetCurrentTime()
-    {
-        return timeCounter;
-    }
 
     public void StartTiming() // = Reset timer
     {        
-        startTime = Time.fixedTime;        
+        startTime = Time.fixedTime;
+        stopwatchMode = false;
     }
 
     public void StopTiming()
@@ -55,6 +64,17 @@ public class Timer : MonoBehaviour
     public float GetBestTime()
     {
         return bestTime;
+    }
+
+    public void SetStopWatch(float seconds)
+    {
+        stopWatchTime = Time.fixedTime + seconds;
+        stopwatchMode = true;
+    }
+
+    public bool IsStopTimeOver()
+    {
+        return  stopWatchTime <= Time.fixedTime;
     }
 
     public bool IsNewBestTime()
@@ -87,12 +107,17 @@ public class Timer : MonoBehaviour
 
         return minutes.ToString() + ":" + (seconds.ToString("00")) + ":" + (miliseconds * 100).ToString("00");
     }
-
+    
     public void Show()
     {
         timerField.enabled = true;
-        timerField.gameObject.SetActive(true);
-        StartTiming();
+        timerField.gameObject.SetActive(true);        
+    }
+
+    public void Disappear()
+    {
+        timerField.enabled = false;
+        timerField.gameObject.SetActive(false);
     }
 
 } // END of class

@@ -34,7 +34,7 @@ public class Ball : MonoBehaviour
      *  Preparing the ball by saving some of it's components or getting values from the map
      */
 
-    public void GetStarted(int playerNumber, int numberOfCheckpoints, bool[] boolSettings)
+    public void GetStarted(int playerNumber, int numberOfCheckpoints, float stoptimeForCheckpoints, bool[] boolSettings)
     {
         rb = GetComponent<Rigidbody>();
         timer = this.GetComponentInChildren<Timer>();
@@ -46,7 +46,7 @@ public class Ball : MonoBehaviour
 
         standardTilesMeansLosing = boolSettings[1];
 
-        StartCoroutine(Introduction(boolSettings[0], numberOfCheckpoints));
+        StartCoroutine(Introduction(boolSettings[0], numberOfCheckpoints, stoptimeForCheckpoints));
     }
 
 
@@ -56,7 +56,7 @@ public class Ball : MonoBehaviour
      *  All the colours of the non-standard tiles will be shown
      *  When all colours have faded, then the game starts
      */
-    IEnumerator Introduction(bool introductionScreen, int numberOfCheckpoints)
+    IEnumerator Introduction(bool introductionScreen, int numberOfCheckpoints, float stoptimeForCheckpoints)
     {
 
         if(introductionScreen)                                                      // check if the level has a introduction screen to show
@@ -91,13 +91,21 @@ public class Ball : MonoBehaviour
             checkpointController.enabled = true;                                            // enable it
             checkpointController.GetStarted(numberOfCheckpoints, checkpointTiles, tiles);   // and get it started
 
-            
-            while(!playerMarkedCheckpoints)                                         // check, if the player has marked all available checkpoints
+            bool isStoptimeForCheckpoints = stoptimeForCheckpoints > 0;             // get the boolean, if a limited time for choosing checkpoints is set
+            if(isStoptimeForCheckpoints)                                            
             {
-                playerMarkedCheckpoints = checkpointController.IsFinished();
+                timer.Show();                                                       // show the timer
+                timer.SetStopWatch(stoptimeForCheckpoints);                         // and give it the stopwatchtime
+            }
+            
+            while(!playerMarkedCheckpoints &&                                       // check, if the player has marked all available checkpoints
+                  !(isStoptimeForCheckpoints && timer.IsStopTimeOver()))            // or if the time for choosing them is over
+            {
+                playerMarkedCheckpoints = checkpointController.IsFinished();        // update the boolean, if the player has confirmed its choices
                 yield return new WaitForSeconds(0.2f);                              // it will check regularly if the player has choosen the checkpoints
-            }            
-
+            }
+            
+            timer.Disappear();
             tileColorsIntroduction.Finish();                                        // as soon as the player has choosen the checkpoints, the colours should start fading
             checkpointController.enabled = false;                                   // disable the checkpointController, since we don't need it anymore
         }        
@@ -129,6 +137,7 @@ public class Ball : MonoBehaviour
     {
         ActivatePlayerControls();
         timer.Show();
+        timer.StartTiming();
         StartCoroutine(CheckLoseCondition());
     }
 
