@@ -316,7 +316,7 @@ using UnityEngine;
             platform.RemoveHexagon(this, inEditor); // first tell the platform to remove the tile from the list!
             
             // if it wasn't the last tile in the platform, then destroy it
-            if(numberOfHexagonsInPlatform > 1)
+            if(numberOfHexagonsInPlatform > 1 || this != null)
             {
                 if(inEditor)
                 {

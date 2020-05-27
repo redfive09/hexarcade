@@ -12,10 +12,7 @@ public class HexagonMovingTilesEditor : Editor {
         HexagonMovingTiles hexagonMovingTiles = (HexagonMovingTiles) target;
         base.OnInspectorGUI();
 
-        GUILayout.Label("");
-        GUILayout.Label("Any submited(!) change will take its value from above");
-        GUILayout.Label("and set it to all tiles of that platfrom.");
-
+ 
         if (GUILayout.Button("Copy Current Position To A"))
         {            
             hexagonMovingTiles.CopyCurrentPositionToA();
@@ -24,6 +21,16 @@ public class HexagonMovingTilesEditor : Editor {
         if (GUILayout.Button("Copy Current Position To B"))
         {            
             hexagonMovingTiles.CopyCurrentPositionToB();
+        }
+
+        if (GUILayout.Button("Go to A"))
+        {            
+            hexagonMovingTiles.GoToA();
+        }
+
+        if (GUILayout.Button("Go to B"))
+        {            
+            hexagonMovingTiles.GoToB();
         }
 
         if (GUILayout.Button("Save current position"))
@@ -35,6 +42,12 @@ public class HexagonMovingTilesEditor : Editor {
         {            
             hexagonMovingTiles.GoBackToSavedPosition();
         }
+
+        // Not working yet
+        // if (GUILayout.Button("Relocate transform to its parent"))
+        // {            
+        //     hexagonMovingTiles.ResetTransformToParent();
+        // }
 
 
     }

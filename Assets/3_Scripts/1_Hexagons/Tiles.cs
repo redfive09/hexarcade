@@ -264,7 +264,12 @@ public class Tiles : MonoBehaviour
     }
 
     public void RemoveHexagonFromAllLists(Hexagon hexagonToDelete)
-    {        
+    {
+        if(tileLists == null) 
+        {
+            CollectTiles();
+        }
+        
         for(int i = 0; i < tileLists.Length; i++)
         {
             int dictionaryEntries = tileLists[i].Count;

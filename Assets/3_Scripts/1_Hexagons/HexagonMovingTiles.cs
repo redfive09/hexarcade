@@ -35,8 +35,6 @@ public class HexagonMovingTiles : MonoBehaviour
     void Start()
     {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
-        movingTilePosA = SetValuesForMovingHexagons(movingTilePosA);
-        movingTilePosB = SetValuesForMovingHexagons(movingTilePosB);
         StartCoroutine(PrepareMoving());
     }
 
@@ -50,26 +48,6 @@ public class HexagonMovingTiles : MonoBehaviour
     public void MovingTileLeft()
     {
         currentPlayersOnTile--;
-    }
-
-
-    private Vector3 SetValuesForMovingHexagons(Vector3 vector)
-    {
-        // if(vector.x == 0)
-        // {
-        //     vector.x = this.transform.position.x;
-        // }
-
-        // if(vector.y == 0)
-        // {
-        //     vector.y = this.transform.position.y;
-        // }
-
-        // if(vector.z == 0)
-        // {
-        //     vector.z = this.transform.position.z;
-        // }
-        return vector;
     }
 
 
@@ -116,14 +94,10 @@ public class HexagonMovingTiles : MonoBehaviour
 
 
     /* ------------------------------ METHODS FOR EDITOR MODE ------------------------------  */
-    /* 
-     * That's not the right way to do it, but it would be helpful     
-     * Button therefore deactivated for right now
-    */
-    public void PrintCurrentWorldPosition()
-    {
-        Debug.Log(this.transform.parent.transform.position - this.transform.position);
-    }
+
+    // Field, which is just used in editor mode
+    private Vector3 savedCurrentPosition = new Vector3();
+    
 
     public void CopyCurrentPositionToA()
     {
@@ -134,8 +108,17 @@ public class HexagonMovingTiles : MonoBehaviour
     {
         movingTilePosB = transform.position;
     }
+    
+    public void GoToA()
+    {        
+        transform.parent.transform.position = movingTilePosA;
+    }
 
-    private Vector3 savedCurrentPosition = new Vector3();
+    public void GoToB()
+    {
+        transform.parent.transform.position = movingTilePosB;
+    }
+
     public void SaveCurrentPosition()
     {
         savedCurrentPosition = transform.position;
@@ -143,7 +126,13 @@ public class HexagonMovingTiles : MonoBehaviour
 
     public void GoBackToSavedPosition()
     {
-        transform.position = savedCurrentPosition;
+        transform.parent.transform.position = savedCurrentPosition;
     }
+
+    // Not working yet
+    // public void ResetTransformToParent()
+    // {
+    //     transform.position = transform.parent.transform.position;
+    // }
 
 }
