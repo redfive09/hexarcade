@@ -135,21 +135,27 @@ public class Ball : MonoBehaviour
      */
     private void GameStarts()
     {
-        ActivatePlayerControls();
-        timer.Show();
-        timer.StartTiming();
+        ActivatePlayerControls();        
         StartCoroutine(CheckLoseCondition());
     }
 
+    /*  
+     *  This method is called when the game starts
+     */
+    private void PlayerArrviedStartingTile()
+    {
+        timer.Disappear();        
+        Debug.Log("Record to beat: " + timer.GetBestTime());
+    }
     
     /*  
      *  This method is called when the game starts
      */
-    private void PlayerTouchedStartingTile()
+    private void PlayerLeftStartingTile()
     {
+        timer.Show();
         timer.StartTiming();
         Debug.Log("Timer started/reseted");
-        Debug.Log("Record to beat: " + timer.GetBestTime());
     }
 
 
@@ -204,42 +210,64 @@ public class Ball : MonoBehaviour
     **/
     void OnCollisionEnter(Collision collision)
     {        
-        GameObject tile = collision.gameObject;
+        GameObject hexagonObject = collision.gameObject;
 
-        if(tile.tag == "Tile")
+        if(hexagonObject.tag == "Tile")
         {
-            HexagonBehaviour currentTile = tile.GetComponent<HexagonBehaviour>();
+            HexagonBehaviour currentTile = hexagonObject.GetComponent<HexagonBehaviour>();
         
-            if(occupiedTile != currentTile)         // Check if the former occupiedTile has changed   
+            if(occupiedTile != currentTile)         // Check if the former occupiedTile has changed
             {
                 if(occupiedTile != null)            // Prevent a NullReferenceException
                 {
                     occupiedTile.GotUnoccupied(this);   // Tell the former occupiedTile, that this ball left
+                    AnalyseLeftHexagon(occupiedTile.GetComponent<Hexagon>());
                 }
 
                 if(currentTile != null)                 // in case it is a crackableTile, it could be gone already
                 {
                     currentTile.GotOccupied(this);      // Tell the currentTile, that this player stands on it
                     occupiedTile = currentTile;         // Save the current tile
+                    AnalyseArrivedHexagon(currentTile.GetComponent<Hexagon>());
                 }
-
-                AnalyseHexagon(occupiedTile.GetComponent<Hexagon>());
             }            
         }
     }
 
 
     /*  
-     *  The player has to check for some specific hexagon types in order to decide what to do next, e. g. starting or winning tiles have to change the state of the player
+     *  The player has to check for some specific hexagon types in order to decide what to do next, e. g. starting tiles will start the timer
     **/
-    private void AnalyseHexagon(Hexagon hexagon)
+    private void AnalyseLeftHexagon(Hexagon hexagon)
     {
 
         if(hexagon.IsStartingTile())
         {
-            PlayerTouchedStartingTile();
+            PlayerLeftStartingTile();            
         }
 
+        else if(hexagon.IsWinningTile())
+        {
+            PlayerWon();
+        }
+        
+        else if(hexagon.IsStandardTile() && standardTilesMeansLosing)
+        {
+            PlayerLost();
+        }
+    }
+
+
+
+    /*  
+     *  The player has to check for some specific hexagon types in order to decide what to do next, e. g. winning tiles have to change the state of the player
+    **/
+    private void AnalyseArrivedHexagon(Hexagon hexagon)
+    {
+        if(hexagon.IsStartingTile())
+        {
+            PlayerArrviedStartingTile();
+        }
         else if(hexagon.IsWinningTile())
         {
             PlayerWon();

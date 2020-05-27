@@ -104,8 +104,9 @@ public class Timer : MonoBehaviour
         int minutes = (int)(time / 60);
         int seconds = (int)time % 60;
         float miliseconds = time - (int)time;
+        int tenthsOfSecond = (int) (miliseconds * 10);
 
-        return minutes.ToString() + ":" + (seconds.ToString("00")) + ":" + (miliseconds * 100).ToString("00");
+        return minutes.ToString() + ":" + (seconds.ToString("00")) + ":" + (tenthsOfSecond).ToString("0");
     }
     
     public void Show()
