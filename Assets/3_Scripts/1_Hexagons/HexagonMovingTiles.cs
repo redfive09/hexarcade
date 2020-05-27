@@ -55,20 +55,20 @@ public class HexagonMovingTiles : MonoBehaviour
 
     private Vector3 SetValuesForMovingHexagons(Vector3 vector)
     {
-        if(vector.x == 0)
-        {
-            vector.x = this.transform.position.x;
-        }
+        // if(vector.x == 0)
+        // {
+        //     vector.x = this.transform.position.x;
+        // }
 
-        if(vector.y == 0)
-        {
-            vector.y = this.transform.position.y;
-        }
+        // if(vector.y == 0)
+        // {
+        //     vector.y = this.transform.position.y;
+        // }
 
-        if(vector.z == 0)
-        {
-            vector.z = this.transform.position.z;
-        }
+        // if(vector.z == 0)
+        // {
+        //     vector.z = this.transform.position.z;
+        // }
         return vector;
     }
 
@@ -124,4 +124,26 @@ public class HexagonMovingTiles : MonoBehaviour
     {
         Debug.Log(this.transform.parent.transform.position - this.transform.position);
     }
+
+    public void CopyCurrentPositionToA()
+    {
+        movingTilePosA = transform.position;
+    }
+
+    public void CopyCurrentPositionToB()
+    {
+        movingTilePosB = transform.position;
+    }
+
+    private Vector3 savedCurrentPosition = new Vector3();
+    public void SaveCurrentPosition()
+    {
+        savedCurrentPosition = transform.position;
+    }
+
+    public void GoBackToSavedPosition()
+    {
+        transform.position = savedCurrentPosition;
+    }
+
 }

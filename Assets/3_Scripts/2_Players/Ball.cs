@@ -40,7 +40,7 @@ public class Ball : MonoBehaviour
         timer = this.GetComponentInChildren<Timer>();
         this.playerNumber = playerNumber;
 
-        GameObject loseTile = GameObject.Find("Map/LoseHeight");
+        GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
         loseHeight = loseTile.transform.position.y;
 
 

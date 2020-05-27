@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 3965937262121057482}
   m_Father: {fileID: 8304183964364371795}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7819804448688216966
 MonoBehaviour:
@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 7806642066602230678, guid: 7effc9b935780834aa6d9fdad5c365ee, type: 3}
-  playerCamera: {fileID: 0}
-  stateMachine: {fileID: 2689096160421605638, guid: 00e6235329021464c8bcb3de44b72e30,
-    type: 3}
+  numberOfPlayers: 1
+  numberOfCheckpoints: 0
+  spawnPositionAtTile: {x: 0, y: 1, z: 0}
 --- !u!114 &4760833730494697969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,9 +89,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8232741008106995100}
   - {fileID: 1368131106140788763}
   - {fileID: 6847481425380462635}
+  - {fileID: 124285004969449405}
   - {fileID: 1625658202994110932}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,7 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8fcb5dc5c0a724baa576eb116de9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfPlayers: 1
+  introductionScreen: 0
+  standardTilesMeansLosing: 0
 --- !u!1 &1291507163197268973
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,16 +235,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ebc8fa1123e843931ac9fed5fd92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrivedStandardTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedCrackedTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedPathTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedDistractionTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedCheckpointTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedSpecialTile: {r: 0, g: 0, b: 0, a: 0}
-  leftStandardTile: {r: 0, g: 0, b: 0, a: 0}
-  leftPathTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedMovingTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedStartingTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedWinningTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedStandardTile: {r: 0, g: 0, b: 0, a: 0}
   leftCrackedTile: {r: 0, g: 0, b: 0, a: 0}
+  leftPathTile: {r: 0, g: 0, b: 0, a: 0}
   leftDistractionTile: {r: 0, g: 0, b: 0, a: 0}
+  leftCheckpointTile: {r: 0, g: 0, b: 0, a: 0}
   leftSpecialTile: {r: 0, g: 0, b: 0, a: 0}
+  leftMovingTile: {r: 0, g: 0, b: 0, a: 0}
+  leftStartingTile: {r: 0, g: 0, b: 0, a: 0}
+  leftWinningTile: {r: 0, g: 0, b: 0, a: 0}
+  leftStandardTile: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2139816508060507078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +275,37 @@ MonoBehaviour:
   winningTilesColor: {r: 0, g: 0, b: 0, a: 0}
   standardTilesColor: {r: 0, g: 0, b: 0, a: 0}
   changeColorOfAllTiles: {r: 0, g: 0, b: 0, a: 0}
+--- !u!1 &3470180098656806827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 124285004969449405}
+  m_Layer: 0
+  m_Name: UntaggedGameObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &124285004969449405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3470180098656806827}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19.92485, y: 3.9918365, z: 3.680128}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8232741008106995100}
+  m_Father: {fileID: 8304183964364371795}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6609492161829483270
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +334,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8304183964364371795}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5771458963520726794
 PrefabInstance:
@@ -376,27 +416,32 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8304183964364371795}
+    m_TransformParent: {fileID: 124285004969449405}
     m_Modifications:
     - target: {fileID: 1230934015052974935, guid: 9b19437d0a6bdfe4690258fef11a72b7,
         type: 3}
       propertyPath: m_Name
       value: LoseHeight
       objectReference: {fileID: 0}
+    - target: {fileID: 1230934015052974935, guid: 9b19437d0a6bdfe4690258fef11a72b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3216211466144050766, guid: 9b19437d0a6bdfe4690258fef11a72b7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 19.92485
       objectReference: {fileID: 0}
     - target: {fileID: 3216211466144050766, guid: 9b19437d0a6bdfe4690258fef11a72b7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: -13.991837
       objectReference: {fileID: 0}
     - target: {fileID: 3216211466144050766, guid: 9b19437d0a6bdfe4690258fef11a72b7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.680128
       objectReference: {fileID: 0}
     - target: {fileID: 3216211466144050766, guid: 9b19437d0a6bdfe4690258fef11a72b7,
         type: 3}

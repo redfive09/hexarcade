@@ -15,6 +15,7 @@ public class Platform : MonoBehaviour
     [SerializeField] private int specialTiles;
 
     List<Hexagon> platformTiles = new List<Hexagon>(); // all hexagons of this platform will be found here
+
     
 
     /* ------------------------------ ONLY EDITOR METHODS BEGINN ------------------------------  */
@@ -120,6 +121,20 @@ public class Platform : MonoBehaviour
         }
     }
 
+    public void UntagAllHexagons()
+    {
+        for(int i = 0; i < platformTiles.Count; i++)
+        {
+            platformTiles[i].tag = "Untagged";
+        }
+
+        Tiles tiles = GetComponentInParent<Tiles>();
+        tiles.GetPlatforms().Remove(this);
+
+        GameObject untaggedGameObjects = GameObject.Find("Map/UntaggedGameObjects");
+        transform.parent = untaggedGameObjects.transform;
+    }
+
     public void AddHexagon(Hexagon hexagon)
     {
         platformTiles.Add(hexagon);
@@ -165,11 +180,15 @@ public class Platform : MonoBehaviour
         // First, delete all its hexagons properly
         for(int i = 0; i < platformTiles.Count; i++)
         {          
-            platformTiles[i].DestroyHexagon(inEditor, 0);            
+            platformTiles[i].DestroyHexagon(inEditor, 0);
         }
 
         Tiles tiles = GetComponentInParent<Tiles>();  // first tell the list of all platforms to remove it!
-        tiles.RemovePlatform(this);
+        
+        if(tiles != null)
+        {
+            tiles.RemovePlatform(this);
+        }        
 
         if(inEditor)
         {

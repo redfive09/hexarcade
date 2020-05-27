@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6853890333556295109}
   m_Layer: 0
   m_Name: LoseHeight
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,14 +116,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794fd410ec1177f49a5164d340233fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCrackedTile: 0
   isPath: -1
+  isDistractionTile: -1
+  isCheckpointTile: -1
+  isSpecialTile: -1
+  isMovingTile: 0
   isStartingTile: -1
   isWinningTile: -1
-  isCheckpointTile: -1
-  isDistractionTile: -1
-  isSpecialTile: -1
-  isCrackedTile: 0
-  isMovingTile: 0
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
 --- !u!114 &2984603869498936048
 MonoBehaviour:
@@ -153,6 +153,10 @@ MonoBehaviour:
   movingTilePosA: {x: 0, y: 0, z: 0}
   movingTilePosB: {x: 0, y: 0, z: 0}
   speedOfMovingTiles: 2
+  startingDelay: 0
+  waitBeforeTurningBack: 0
+  isLift: 0
+  needsNumberOfPlayersForLifting: 0
 --- !u!1 &1696150928982475331
 GameObject:
   m_ObjectHideFlags: 0
