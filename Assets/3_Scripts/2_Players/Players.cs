@@ -39,7 +39,7 @@ public class Players : MonoBehaviour
 
                 if(editorMode)
                 {
-                    tiles.CollectTiles();
+                    tiles.ResetAllLists();
                 }
 
                 player.GoToSpawnPosition(tiles.GetSpawnPosition(i), settings.GetSpawnPositionOffset());

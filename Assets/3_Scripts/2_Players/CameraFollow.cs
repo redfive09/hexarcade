@@ -24,7 +24,7 @@ public class CameraFollow : MonoBehaviour
       // no Vector3, needs to be a Quaternion instead:
       // Vector3 standardRotation = new Vector3(90, 0, 0); 
       // this.transform.rotation.x = standardRotation;
-      this.transform.position = player.position; 
+      this.transform.position = player.position + offset; 
    }
 
    public void SetTraget(Transform player)
