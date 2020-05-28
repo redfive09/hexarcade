@@ -10,7 +10,7 @@ public class Ball : MonoBehaviour
     private Rigidbody rb;
     private HexagonBehaviour occupiedTile;
     private Hexagon lastSpawnPosition;
-    private Vector3 lastSpawnVector;
+    private Vector3 lastSpawnOffset;
     private Timer timer;
     private MapSettings settings;
     private GameObject tilesObject;
@@ -179,7 +179,7 @@ public class Ball : MonoBehaviour
                 /* --------------- STATUS: PLAYER LOST, PLAYER MET A LOSE CONDITION ---------------  */
     private void PlayerLost()
     {
-        GoToSpawnPosition(lastSpawnPosition, lastSpawnVector);
+        GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
     }
 
 
@@ -303,16 +303,16 @@ public class Ball : MonoBehaviour
     /*  
      *  Let the player spawn above the desired tile
     **/
-    public void GoToSpawnPosition(Hexagon spawnTile, Vector3 spawnVector)
+    public void GoToSpawnPosition(Hexagon spawnTile, Vector3 spawnOffset)
     {
         if(spawnTile == null)
         {
             spawnTile = tilesObject.GetComponent<Tiles>().GetSpawnPosition(playerNumber);
         }
 
-        transform.position = new Vector3(spawnTile.transform.position.x + spawnVector.x, spawnTile.transform.position.y + spawnVector.y, spawnTile.transform.position.z + spawnVector.z);
+        transform.position = new Vector3(spawnTile.transform.position.x + spawnOffset.x, spawnTile.transform.position.y + spawnOffset.y, spawnTile.transform.position.z + spawnOffset.z);
         lastSpawnPosition = spawnTile;
-        lastSpawnVector = spawnVector;
+        lastSpawnOffset = spawnOffset;
     }
 
 
@@ -321,8 +321,9 @@ public class Ball : MonoBehaviour
     **/
     void DeactivatePlayerControls()
     {
-        GetComponent<BallControls>().enabled = false;
-        GetComponent<AccelorometerMovement>().enabled = false;
+        if(GetComponent<BallControls>()) GetComponent<BallControls>().enabled = false;
+        if(GetComponent<ControlsBallFromBehind>()) GetComponent<ControlsBallFromBehind>().enabled = false;
+        if(GetComponent<AccelorometerMovement>()) GetComponent<AccelorometerMovement>().enabled = false;        
     }
 
 
@@ -331,8 +332,16 @@ public class Ball : MonoBehaviour
      **/
     void ActivatePlayerControls()
     {
-        GetComponent<BallControls>().enabled = true;
-        GetComponent<AccelorometerMovement>().enabled = true;
+        if(GetComponent<BallControls>()) GetComponent<BallControls>().enabled = true;
+        if(GetComponent<ControlsBallFromBehind>()) GetComponent<ControlsBallFromBehind>().enabled = true;
+        if(GetComponent<AccelorometerMovement>()) GetComponent<AccelorometerMovement>().enabled = true;
+    }
+
+
+    /* ------------------------------ GETTER METHODS ------------------------------  */
+    public int GetPlayerNumber()
+    {
+        return playerNumber;
     }
 
 

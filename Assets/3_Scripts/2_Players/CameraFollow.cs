@@ -15,8 +15,6 @@ public class CameraFollow : MonoBehaviour
    
    private Vector3 playerMoveDir, playerPrevPos;
    private float distance;
-
-
    private Transform target;
 
    public void SetPosition(Transform player)
