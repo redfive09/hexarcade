@@ -49,7 +49,7 @@ public class Platform : MonoBehaviour
     /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
 
     /*
-     * Changes all the colours of all hexagon tiles 
+     * Changes all the colours of all hexagon tiles
     */
     public void SetColor()
     {

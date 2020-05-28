@@ -50,7 +50,7 @@ public class Tiles : MonoBehaviour
         };
     }
 
-    void CollectPlatforms()
+    private void CollectPlatforms()
     {        
         for(int i = 0; i < this.transform.childCount; i++)
         {
@@ -293,6 +293,25 @@ public class Tiles : MonoBehaviour
         }
     }
 
+    private void ClearEverything()
+    {
+        for(int i = 0; i < this.transform.childCount; i++)
+        {
+            Platform platform = this.transform.GetChild(i).GetComponent<Platform>();
+            platform.GetTilesList().Clear();
+            Debug.Log(platform.GetTilesList().Count);
+        }
+
+        platforms.Clear();
+        
+
+        for(int i = 0; i < tileLists.Length; i++)
+        {
+            tileLists[i].Clear();
+        }        
+    }
+
+
     /* ------------------------------ EDITOR MODE METHODS ------------------------------  */
     /*
      *  Add a new platform
@@ -300,6 +319,14 @@ public class Tiles : MonoBehaviour
     public void AddPlatform(Platform platform)
     {
         platforms.Add(platform);
+    }
+
+    public void ResetAllLists()
+    {
+        PrepareLists();        
+        ClearEverything();
+        CollectPlatforms();
+        CollectTiles();
     }
 
 
