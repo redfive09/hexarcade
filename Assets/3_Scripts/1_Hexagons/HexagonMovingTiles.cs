@@ -111,12 +111,12 @@ public class HexagonMovingTiles : MonoBehaviour
     
     public void GoToA()
     {        
-        transform.parent.transform.position = movingTilePosA;
+        transform.position = movingTilePosA;
     }
 
     public void GoToB()
     {
-        transform.parent.transform.position = movingTilePosB;
+        transform.position = movingTilePosB;
     }
 
     public void SaveCurrentPosition()
@@ -126,7 +126,7 @@ public class HexagonMovingTiles : MonoBehaviour
 
     public void GoBackToSavedPosition()
     {
-        transform.parent.transform.position = savedCurrentPosition;
+        transform.position = savedCurrentPosition;
     }
 
     // Not working yet

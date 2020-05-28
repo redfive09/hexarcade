@@ -1213,7 +1213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32539724}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.29, z: -7.47}
+  m_LocalPosition: {x: -0.04, y: -0.29, z: -7.43}
   m_LocalScale: {x: 2.1836, y: 90.61381, z: 2.1836}
   m_Children:
   - {fileID: 137313652}
@@ -1237,9 +1237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 12, y: 0, z: 0}
-  speedOfMovingTiles: 8
+  movingTilePosA: {x: -0.04, y: -0.29, z: -7.43}
+  movingTilePosB: {x: 11.73, y: -0.29, z: -8.03}
+  speedOfMovingTiles: 6
   startingDelay: 1.5
   waitBeforeTurningBack: 1
   isLift: 1
@@ -4647,6 +4647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 275909331}
   - component: {fileID: 275909330}
+  - component: {fileID: 275909332}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -4666,8 +4667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8fcb5dc5c0a724baa576eb116de9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introductionScreen: 0
-  standardTilesMeansLosing: 0
 --- !u!4 &275909331
 Transform:
   m_ObjectHideFlags: 0
@@ -4684,8 +4683,25 @@ Transform:
   - {fileID: 1706351126}
   - {fileID: 6786328}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &275909332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275909329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20693a1ff814a042861e2b4651e0167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  introductionScreen: 0
+  numberOfCheckpoints: 0
+  stoptimeForCheckpoints: 0
+  standardTilesMeansLosing: 0
+  spawnPositionOffset: {x: 0, y: 1, z: 0}
 --- !u!1 &279801315
 GameObject:
   m_ObjectHideFlags: 0
@@ -7879,8 +7895,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1069403126}
+  m_Children: []
   m_Father: {fileID: 275909331}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7910,8 +7925,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 7806642066602230678, guid: 7effc9b935780834aa6d9fdad5c365ee, type: 3}
   numberOfPlayers: 1
-  numberOfCheckpoints: 0
-  spawnPositionAtTile: {x: 0, y: 10, z: 0}
 --- !u!1 &519165568
 GameObject:
   m_ObjectHideFlags: 0
@@ -16567,12 +16580,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069403125}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
   m_LocalPosition: {x: 15, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 510325123}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!114 &1069403127
 MonoBehaviour:
@@ -16586,6 +16599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1726d9565e37db4f9c498439a59c479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stickBehindPlayer: 0
   smoothSpeed: 0.125
   offset: {x: -5, y: 10, z: -10}
   velocity: {x: 0, y: 0, z: 0}
@@ -19407,7 +19421,7 @@ PrefabInstance:
     - target: {fileID: 1721394227197139237, guid: 65954c3ed4a21724ea93fd00b4363476,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1721394227197139237, guid: 65954c3ed4a21724ea93fd00b4363476,
         type: 3}

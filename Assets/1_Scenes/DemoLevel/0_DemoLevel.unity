@@ -2022,12 +2022,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86049890}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 2.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1040627605}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &86049892
 MonoBehaviour:
@@ -2041,6 +2041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1726d9565e37db4f9c498439a59c479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stickBehindPlayer: 0
   smoothSpeed: 0.125
   offset: {x: 0, y: 15, z: 0}
   velocity: {x: 0, y: 0, z: 0}
@@ -16482,8 +16483,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 86049891}
+  m_Children: []
   m_Father: {fileID: 1368633323}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16513,9 +16513,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 7806642066602230678, guid: 7effc9b935780834aa6d9fdad5c365ee, type: 3}
   numberOfPlayers: 1
-  numberOfCheckpoints: 3
-  stoptimeForCheckpoints: 10
-  spawnPositionAtTile: {x: 0, y: 0, z: 0}
 --- !u!1 &1060283382
 GameObject:
   m_ObjectHideFlags: 0
@@ -20139,7 +20136,7 @@ PrefabInstance:
     - target: {fileID: 1721394227197139237, guid: 65954c3ed4a21724ea93fd00b4363476,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1721394227197139237, guid: 65954c3ed4a21724ea93fd00b4363476,
         type: 3}
@@ -22683,6 +22680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1368633323}
   - component: {fileID: 1368633322}
+  - component: {fileID: 1368633324}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -22702,8 +22700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8fcb5dc5c0a724baa576eb116de9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introductionScreen: 0
-  standardTilesMeansLosing: 1
 --- !u!4 &1368633323
 Transform:
   m_ObjectHideFlags: 0
@@ -22720,8 +22716,25 @@ Transform:
   - {fileID: 1484936607}
   - {fileID: 1143293762}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1368633324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368633321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20693a1ff814a042861e2b4651e0167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  introductionScreen: 0
+  numberOfCheckpoints: 3
+  stoptimeForCheckpoints: 10
+  standardTilesMeansLosing: 1
+  spawnPositionOffset: {x: 0, y: 1, z: 0}
 --- !u!21 &1372345556
 Material:
   serializedVersion: 6
