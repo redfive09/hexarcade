@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         bestTimes = SaveLoadManager.LoadTimes();
-        bestTime = bestTimes[SceneManager.GetActiveScene().buildIndex];        
+        // bestTime = bestTimes[SceneManager.GetActiveScene().buildIndex];
     }
 
     // Update is called once per frame

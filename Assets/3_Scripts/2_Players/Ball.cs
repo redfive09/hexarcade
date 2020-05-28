@@ -12,6 +12,8 @@ public class Ball : MonoBehaviour
     private Hexagon lastSpawnPosition;
     private Vector3 lastSpawnVector;
     private Timer timer;
+    private MapSettings settings;
+    private GameObject tilesObject;
     private List<Vector3> positions = new List<Vector3>();
     Dictionary<int, List<Hexagon>> checkpointTiles;
     bool playerMarkedCheckpoints = false;
@@ -20,7 +22,6 @@ public class Ball : MonoBehaviour
     private int playerNumber;
     private float loseHeight = -10;
     private int replayPositionCounter = 0;
-    private bool standardTilesMeansLosing;
     
     
 
@@ -33,20 +34,18 @@ public class Ball : MonoBehaviour
     /*  
      *  Preparing the ball by saving some of it's components or getting values from the map
      */
-
-    public void GetStarted(int playerNumber, int numberOfCheckpoints, float stoptimeForCheckpoints, bool[] boolSettings)
+    public void GetStarted(int playerNumber)
     {
-        rb = GetComponent<Rigidbody>();
-        timer = this.GetComponentInChildren<Timer>();
         this.playerNumber = playerNumber;
-
+        rb = GetComponent<Rigidbody>();
+        timer = GetComponentInChildren<Timer>();
+        tilesObject = GameObject.Find("Map/Tiles");
+        settings = GameObject.Find("Map").GetComponent<MapSettings>();
+        
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
         loseHeight = loseTile.transform.position.y;
-
-
-        standardTilesMeansLosing = boolSettings[1];
-
-        StartCoroutine(Introduction(boolSettings[0], numberOfCheckpoints, stoptimeForCheckpoints));
+ 
+        StartCoroutine(Introduction());
     }
 
 
@@ -56,10 +55,10 @@ public class Ball : MonoBehaviour
      *  All the colours of the non-standard tiles will be shown
      *  When all colours have faded, then the game starts
      */
-    IEnumerator Introduction(bool introductionScreen, int numberOfCheckpoints, float stoptimeForCheckpoints)
+    IEnumerator Introduction()
     {
 
-        if(introductionScreen)                                                      // check if the level has a introduction screen to show
+        if(settings.IsIntroductionScreen())                                         // check if the level has a introduction screen to show
         {
             ShowIntroductionScreen();                                               // if so, show it
 
@@ -70,10 +69,10 @@ public class Ball : MonoBehaviour
         }
 
         /* --------------- DISPLAYING NON-STANDARD TILES ---------------  */
-        GameObject tilesObject = GameObject.Find("Map/Tiles");
+        
         TileColorsIntroduction tileColorsIntroduction = tilesObject.GetComponent<TileColorsIntroduction>(); // Get the script for the colour introduction
 
-        bool chooseCheckPoints = numberOfCheckpoints > 0;                           // are there any checkpoints to choose for this map
+        bool chooseCheckPoints = settings.GetNumberOfCheckpoints() > 0;             // are there any checkpoints to choose for this map
 
         tileColorsIntroduction.DisplayTiles(chooseCheckPoints);                     // display the non-standard tiles
 
@@ -89,13 +88,13 @@ public class Ball : MonoBehaviour
             
             ControlsCheckpoint checkpointController = GetComponent<ControlsCheckpoint>();   // get the controls for choosing the checkpoints
             checkpointController.enabled = true;                                            // enable it
-            checkpointController.GetStarted(numberOfCheckpoints, checkpointTiles, tiles);   // and get it started
+            checkpointController.GetStarted(settings.GetNumberOfCheckpoints(), checkpointTiles, tiles);   // and get it started
 
-            bool isStoptimeForCheckpoints = stoptimeForCheckpoints > 0;             // get the boolean, if a limited time for choosing checkpoints is set
+            bool isStoptimeForCheckpoints = settings.GetStoptimeForCheckpoints() > 0;             // get the boolean, if a limited time for choosing checkpoints is set
             if(isStoptimeForCheckpoints)                                            
             {
                 timer.Show();                                                       // show the timer
-                timer.SetStopWatch(stoptimeForCheckpoints);                         // and give it the stopwatchtime
+                timer.SetStopWatch(settings.GetStoptimeForCheckpoints());           // and give it the stopwatchtime
             }
             
             while(!playerMarkedCheckpoints &&                                       // check, if the player has marked all available checkpoints
@@ -251,7 +250,7 @@ public class Ball : MonoBehaviour
             PlayerWon();
         }
         
-        else if(hexagon.IsStandardTile() && standardTilesMeansLosing)
+        else if(hexagon.IsStandardTile() && settings.DoesStandardTilesMeansLosing())
         {
             PlayerLost();
         }
@@ -273,7 +272,7 @@ public class Ball : MonoBehaviour
             PlayerWon();
         }
         
-        else if(hexagon.IsStandardTile() && standardTilesMeansLosing)
+        else if(hexagon.IsStandardTile() && settings.DoesStandardTilesMeansLosing())
         {
             PlayerLost();
         }
@@ -306,6 +305,11 @@ public class Ball : MonoBehaviour
     **/
     public void GoToSpawnPosition(Hexagon spawnTile, Vector3 spawnVector)
     {
+        if(spawnTile == null)
+        {
+            spawnTile = tilesObject.GetComponent<Tiles>().GetSpawnPosition(playerNumber);
+        }
+
         transform.position = new Vector3(spawnTile.transform.position.x + spawnVector.x, spawnTile.transform.position.y + spawnVector.y, spawnTile.transform.position.z + spawnVector.z);
         lastSpawnPosition = spawnTile;
         lastSpawnVector = spawnVector;

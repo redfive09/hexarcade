@@ -46,7 +46,7 @@ public class Tiles : MonoBehaviour
         specialTiles,
         movingTiles,
         startingTiles,
-        winningTiles        
+        winningTiles
         };
     }
 
@@ -229,6 +229,12 @@ public class Tiles : MonoBehaviour
     {        
         return specialTiles;
     }
+
+    public Hexagon GetSpawnPosition(int player)
+    {
+        return startingTiles[player][0]; // Instead of 0, it can be more flexible later, for example with a random number, in case there are more startingTiles for that player
+    }
+
 
     public int GetNumberOfPlatforms()
     {
