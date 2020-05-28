@@ -50,6 +50,11 @@ public class PlatformEditor : Editor {
         {
             platform.SetSpecialPlatform();
         }
+
+        if (GUILayout.Button("Untag all tiles"))
+        {
+            platform.UntagAllHexagons();
+        }
         
         if (GUILayout.Button("Delete Platform"))
         {
