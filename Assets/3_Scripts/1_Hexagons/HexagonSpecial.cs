@@ -14,6 +14,7 @@ public class HexagonSpecial : MonoBehaviour
 
     /* ------------------------------ USEAGE OF SPECIAL-TILES ------------------------------  */  
     private const int TELEPORTER = 0;
+    private const int SPEEDTILE = 1;
 
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */    
@@ -49,12 +50,13 @@ public class HexagonSpecial : MonoBehaviour
                 
             }
 
-            else if(specialCase == 1) // what is it for
+            else if(specialCase == SPEEDTILE)
             {
-                // do something
+                Rigidbody rb = player.GetComponent<Rigidbody>();
+                Vector3 currentVelocity = rb.velocity;
+                currentVelocity *= 1.1f;
+                rb.velocity = currentVelocity;
             }
-
-
         }
     }
 

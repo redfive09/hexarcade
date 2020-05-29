@@ -299,7 +299,6 @@ public class Tiles : MonoBehaviour
         {
             Platform platform = this.transform.GetChild(i).GetComponent<Platform>();
             platform.GetTilesList().Clear();
-            Debug.Log(platform.GetTilesList().Count);
         }
 
         platforms.Clear();

@@ -179,6 +179,7 @@ public class Ball : MonoBehaviour
                 /* --------------- STATUS: PLAYER LOST, PLAYER MET A LOSE CONDITION ---------------  */
     private void PlayerLost()
     {
+        StopMovement();
         GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
     }
 
@@ -301,12 +302,18 @@ public class Ball : MonoBehaviour
     /* ------------------------------ BEHAVIOUR METHODS ------------------------------  */
 
     /*  
+     *  Let the player spawn at the last known spawn position
+    **/
+    public void GoToSpawnPosition()
+    {
+        GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
+    }
+
+    /*  
      *  Let the player spawn above the desired tile
     **/
     public void GoToSpawnPosition(Hexagon spawnTile, Vector3 spawnOffset)
-    {
-        StopMovement();
-        
+    {   
         if(spawnTile == null)
         {
             spawnTile = tilesObject.GetComponent<Tiles>().GetSpawnPosition(playerNumber);
@@ -317,12 +324,12 @@ public class Ball : MonoBehaviour
         lastSpawnOffset = spawnOffset;
     }
 
-    private void StopMovement()
+    public void StopMovement()
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
-    }       
+    }
 
 
     /*

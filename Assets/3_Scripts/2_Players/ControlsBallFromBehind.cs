@@ -8,6 +8,12 @@ public class ControlsBallFromBehind : MonoBehaviour
     [SerializeField] private float moveSpeedX = 10f;
     [SerializeField] private float moveSpeedZ = 1f;
     [SerializeField] private float rotationSpeed = 300f;
+    private Ball player;
+
+    void Start()
+    {
+        player = GetComponent<Ball>();
+    }
 
     private void FixedUpdate()
     {
@@ -20,10 +26,16 @@ public class ControlsBallFromBehind : MonoBehaviour
             transform.Translate(0, 0, z);
         }
         else
-        {
+        {            
             float x = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeedX;
             float z = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeedZ;
             transform.Translate(x, 0, z);
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            player.StopMovement();
+            player.GoToSpawnPosition();
         }
     }
 }
