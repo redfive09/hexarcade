@@ -305,6 +305,8 @@ public class Ball : MonoBehaviour
     **/
     public void GoToSpawnPosition(Hexagon spawnTile, Vector3 spawnOffset)
     {
+        StopMovement();
+        
         if(spawnTile == null)
         {
             spawnTile = tilesObject.GetComponent<Tiles>().GetSpawnPosition(playerNumber);
@@ -315,11 +317,18 @@ public class Ball : MonoBehaviour
         lastSpawnOffset = spawnOffset;
     }
 
+    private void StopMovement()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+    }       
+
 
     /*
      *  Deactivates the player attached scripts "Ball" and "AccelerometerMovement". Hence all the effects and manipulations caused by them will be absent.
     **/
-    void DeactivatePlayerControls()
+    private void DeactivatePlayerControls()
     {
         if(GetComponent<BallControls>()) GetComponent<BallControls>().enabled = false;
         if(GetComponent<ControlsBallFromBehind>()) GetComponent<ControlsBallFromBehind>().enabled = false;
@@ -330,7 +339,7 @@ public class Ball : MonoBehaviour
     /*
      * Activates the player attached scripts "Ball" and "AccelerometerMovement"
      **/
-    void ActivatePlayerControls()
+    private void ActivatePlayerControls()
     {
         if(GetComponent<BallControls>()) GetComponent<BallControls>().enabled = true;
         if(GetComponent<ControlsBallFromBehind>()) GetComponent<ControlsBallFromBehind>().enabled = true;
