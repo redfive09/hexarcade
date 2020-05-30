@@ -11,7 +11,8 @@ public class PlayersEditor : Editor {
         base.OnInspectorGUI();
 
         if (GUILayout.Button("Instantiate Players"))
-        {            
+        {
+            GameObject.Find("Map/Tiles").GetComponent<Tiles>().ResetAllLists();
             players.InstantiatePlayers(true);
         }
 

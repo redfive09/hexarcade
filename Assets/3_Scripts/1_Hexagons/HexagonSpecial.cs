@@ -28,7 +28,7 @@ public class HexagonSpecial : MonoBehaviour
     public void GetStarted(Dictionary<int, List<Hexagon>> specialTiles)
     {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
-        specialCase = thisHexagon.GetSpecialTileNumber();
+        specialCase = thisHexagon.GetSpecialNumber();
         this.specialTiles = specialTiles;
     }
 

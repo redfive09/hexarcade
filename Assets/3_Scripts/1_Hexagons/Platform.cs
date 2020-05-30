@@ -6,7 +6,7 @@ public class Platform : MonoBehaviour
 {
     [SerializeField] private Color color;
 
-    
+    [SerializeField] private int crackedTiles;
     [SerializeField] private int pathTiles;
     [SerializeField] private int startingTiles;
     [SerializeField] private int winningTiles;
@@ -98,6 +98,15 @@ public class Platform : MonoBehaviour
             platformTiles[i].SetIsWinningTile(winningTiles);
         }
     }
+
+    public void SetCrackedPlatform()
+    {
+        for(int i = 0; i < platformTiles.Count; i++)
+        {
+            platformTiles[i].SetIsCrackedTile(crackedTiles);
+        }
+    }
+
     public void SetDistractionPlatform()
     {
         for(int i = 0; i < platformTiles.Count; i++)

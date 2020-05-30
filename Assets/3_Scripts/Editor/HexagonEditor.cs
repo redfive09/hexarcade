@@ -17,6 +17,11 @@ public class HexagonEditor : Editor {
         //     hexagon.PrintCurrentWorldPosition();
         // }
 
+        if (GUILayout.Button("Save Name Change"))
+        {
+            hexagon.SetOriginalName(hexagon.name);
+        }
+
         if (GUILayout.Button("Change Color"))
         {            
             hexagon.SetColor();
@@ -27,9 +32,6 @@ public class HexagonEditor : Editor {
             // bool inEditor = !EditorApplication.isPlaying;
             hexagon.DestroyHexagon(true, 0);
         }
-
-        // Please don't delete the following link, need it for later:
-        // https://forum.unity.com/threads/in-editor-select-the-parent-instead-of-an-object-in-the-messy-hierarchy-it-creates.543479/
 
     }
 } // END OF CLASS
