@@ -4,23 +4,144 @@
     <e p="C:\Users\mcflu\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\mcflu\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_bouncentrate.55483440.00" t="ExcludeRecursive" />
     <e p="C:\Users\mcflu\git\bouncentrate" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="3_Scripts" t="Include">
-          <e p="AccelorometerMovement.cs" t="Include" />
-          <e p="Ball.cs" t="Include" />
-          <e p="GameLogic.cs" t="Include" />
-          <e p="Hexagon.cs" t="Include" />
-          <e p="MapGenerator.cs" t="Include" />
-          <e p="MenuController.cs" t="Include" />
-          <e p="PathGenerator.cs" t="Include" />
-          <e p="PauseMenu.cs" t="Include" />
-          <e p="PlaygroundManipulator.cs" t="Include" />
-          <e p="Reset.cs" t="Include" />
-          <e p="WriteRotationToText.cs" t="Include" />
+        <e p="1_Scenes" t="Include">
+          <e p="Tutorial_Levels" t="Include">
+            <e p="DialogManager.cs" t="Include" />
+            <e p="DialogTrigger.cs" t="Include" />
+            <e p="Dialogue.cs" t="Include" />
+            <e p="MoveOut.cs" t="Include" />
+            <e p="TutorialManager.cs" t="Include" />
+          </e>
         </e>
-        <e p="CameraFollow.cs" t="Include" />
-        <e p="Player.cs" t="Include" />
+        <e p="3_Scripts" t="Include">
+          <e p="1_Hexagons" t="Include">
+            <e p="Hexagon.cs" t="Include" />
+            <e p="HexagonBehaviour.cs" t="Include" />
+            <e p="HexagonMovingTiles.cs" t="Include" />
+            <e p="HexagonSpecial.cs" t="Include" />
+            <e p="MapGenerator.cs" t="Include" />
+            <e p="Platform.cs" t="Include" />
+            <e p="SingleTilesGenerator.cs" t="Include" />
+            <e p="Tiles.cs" t="Include" />
+            <e p="TilesAllCrackables.cs" t="Include" />
+          </e>
+          <e p="2_Players" t="Include">
+            <e p="AccelorometerMovement.cs" t="Include" />
+            <e p="Ball.cs" t="Include" />
+            <e p="BallControls.cs" t="Include" />
+            <e p="CameraFollow.cs" t="Include" />
+            <e p="ControlsBallFromBehind.cs" t="Include" />
+            <e p="ControlsCheckpoint.cs" t="Include" />
+            <e p="Players.cs" t="Include" />
+            <e p="SaveLoadManager.cs" t="Include" />
+            <e p="Timer.cs" t="Include" />
+          </e>
+          <e p="3_Distractions" t="Include">
+            <e p="AiNavigation.cs" t="Include" />
+          </e>
+          <e p="4_Map" t="Include">
+            <e p="Map.cs" t="Include" />
+            <e p="MapSettings.cs" t="Include" />
+          </e>
+          <e p="5_Colours" t="Include">
+            <e p="PlayerColors.cs" t="Include" />
+            <e p="TileColorsIntroduction.cs" t="Include" />
+            <e p="TileColorsPermanent.cs" t="Include" />
+            <e p="TileColorsTouching.cs" t="Include" />
+          </e>
+          <e p="6_Menus" t="Include">
+            <e p="MenuController.cs" t="Include" />
+            <e p="PauseMenu.cs" t="Include" />
+          </e>
+          <e p="7_TestScenes" t="Include">
+            <e p="PlaygroundManipulator.cs" t="Include" />
+            <e p="Reset.cs" t="Include" />
+            <e p="TouchManipulation.cs" t="Include" />
+            <e p="WriteRotationToText.cs" t="Include" />
+            <e p="WriteTouchCoords.cs" t="Include" />
+          </e>
+          <e p="8_StateMachine" t="Include">
+            <e p="LoseScenario.cs" t="Include" />
+            <e p="StateMachine.cs" t="Include" />
+            <e p="States" t="Include">
+              <e p="BeginState.cs" t="Include" />
+              <e p="IState.cs" t="Include" />
+              <e p="LoseState.cs" t="Include" />
+              <e p="PauseState.cs" t="Include" />
+              <e p="PlayState.cs" t="Include" />
+              <e p="WinState.cs" t="Include" />
+            </e>
+            <e p="States.cs" t="Include" />
+            <e p="Transitions" t="Include">
+              <e p="Transitions.cs" t="Include" />
+            </e>
+            <e p="WinScenario.cs" t="Include" />
+          </e>
+          <e p="AccelorometerInput.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="HexagonEditor.cs" t="Include" />
+            <e p="HexagonMovingTilesEditor.cs" t="Include" />
+            <e p="MapEditor.cs" t="Include" />
+            <e p="MapGeneratorEditor.cs" t="Include" />
+            <e p="PlatformEditor.cs" t="Include" />
+            <e p="PlayersEditor.cs" t="Include" />
+            <e p="SingleTilesGeneratorEditor.cs" t="Include" />
+            <e p="TileColorsPermanentEditor.cs" t="Include" />
+            <e p="TilesEditor.cs" t="Include" />
+          </e>
+        </e>
+        <e p="LeanTween" t="Include">
+          <e p="Editor" t="Include">
+            <e p="LeanTweenDocumentationEditor.cs" t="Include" />
+          </e>
+          <e p="Examples" t="Include">
+            <e p="Archived" t="Include">
+              <e p="2dUnlitWithFade.shader" t="Include" />
+              <e p="OldGUIExamplesCS.cs" t="Include" />
+              <e p="TestingPunch.cs" t="Include" />
+              <e p="TestingRigidbodyCS.cs" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Following.cs" t="Include" />
+              <e p="GeneralAdvancedTechniques.cs" t="Include" />
+              <e p="GeneralBasic.cs" t="Include" />
+              <e p="GeneralBasics2d.cs" t="Include" />
+              <e p="GeneralCameraShake.cs" t="Include" />
+              <e p="GeneralEasingTypes.cs" t="Include" />
+              <e p="GeneralEventsListeners.cs" t="Include" />
+              <e p="GeneralSequencer.cs" t="Include" />
+              <e p="GeneralSimpleUI.cs" t="Include" />
+              <e p="GeneralUISpace.cs" t="Include" />
+              <e p="LogoCinematic.cs" t="Include" />
+              <e p="PathBezier.cs" t="Include" />
+              <e p="PathBezier2d.cs" t="Include" />
+              <e p="PathSpline.cs" t="Include" />
+              <e p="PathSpline2d.cs" t="Include" />
+              <e p="PathSplineEndless.cs" t="Include" />
+              <e p="PathSplinePerformance.cs" t="Include" />
+              <e p="PathSplines.cs" t="Include" />
+              <e p="PathSplineTrack.cs" t="Include" />
+              <e p="TestingUnitTests.cs" t="Include" />
+              <e p="TestingZLegacy.cs" t="Include" />
+              <e p="TestingZLegacyExt.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Framework" t="Include">
+            <e p="LeanAudio.cs" t="Include" />
+            <e p="LeanSmooth.cs" t="Include" />
+            <e p="LeanTest.cs" t="Include" />
+            <e p="LeanTween.cs" t="Include" />
+            <e p="LeanTweenExt.cs" t="Include" />
+            <e p="LTDescr.cs" t="Include" />
+            <e p="LTDescrOptional.cs" t="Include" />
+            <e p="LTSeq.cs" t="Include" />
+          </e>
+          <e p="License.txt" t="Include" />
+          <e p="ReadMe.txt" t="Include" />
+        </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">
             <e p="Fonts" t="Include">
