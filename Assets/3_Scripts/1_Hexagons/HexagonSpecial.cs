@@ -11,10 +11,12 @@ public class HexagonSpecial : MonoBehaviour
     [SerializeField] private int teleporterNumber;
     [SerializeField] private int teleporterConnectedWith;
 
+    [SerializeField] private float velocity;
+
 
     /* ------------------------------ USEAGE OF SPECIAL-TILES ------------------------------  */  
     private const int TELEPORTER = 0;
-    private const int SPEEDTILE = 1;
+    private const int VELOCITY = 1;
 
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */    
@@ -50,11 +52,11 @@ public class HexagonSpecial : MonoBehaviour
                 
             }
 
-            else if(specialCase == SPEEDTILE)
+            else if(specialCase == VELOCITY)
             {
                 Rigidbody rb = player.GetComponent<Rigidbody>();
                 Vector3 currentVelocity = rb.velocity;
-                currentVelocity *= 1.1f;
+                currentVelocity *= velocity;
                 rb.velocity = currentVelocity;
             }
         }
@@ -106,5 +108,15 @@ public class HexagonSpecial : MonoBehaviour
     {
         return teleporterNumber;
     }
+
+    /* ------------------------------ EDITOR METHODS ------------------------------  */
+
+    public string GetSpecialFunction()
+    {
+            string testVariable = "value";
+            string nameOfTestVariable = nameof(testVariable);
+            return nameOfTestVariable;
+    }
+
 
 }
