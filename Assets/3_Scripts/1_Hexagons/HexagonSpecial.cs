@@ -125,14 +125,11 @@ public class HexagonSpecial : MonoBehaviour
 
     public string GetNameOfFunction()
     {
-        if(getIndexNumberInList >= 0) // catch potential errors with the special tile list
-        {
-            string prefix = " -> ";
-            if(specialCase == TELEPORTER) return prefix + nameof(TELEPORTER).ToLower();
-            if(specialCase == VELOCITY) return prefix + nameof(VELOCITY).ToLower();
+        string prefix = " -> ";
+        
+        if(specialCase == TELEPORTER) return prefix + nameof(TELEPORTER).ToLower();
+        if(specialCase == VELOCITY) return prefix + nameof(VELOCITY).ToLower();
 
-            
-        }
         return "";
     }
 }

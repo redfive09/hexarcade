@@ -57,7 +57,7 @@ public class Players : MonoBehaviour
             players.Add(player);
             player.GetStarted(i);            
 
-            GetCamera().SetTraget(player.transform);
+            GetCamera().SetTarget(player.transform);
         }
     }
 

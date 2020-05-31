@@ -27,7 +27,7 @@ public class CameraFollow : MonoBehaviour
       this.transform.position = player.position + offset;
    }
 
-   public void SetTraget(Transform player)
+   public void SetTarget(Transform player)
    {
      target = player;
 

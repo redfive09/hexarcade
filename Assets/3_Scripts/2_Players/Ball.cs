@@ -41,6 +41,7 @@ public class Ball : MonoBehaviour
         timer = GetComponentInChildren<Timer>();
         tilesObject = GameObject.Find("Map/Tiles");
         settings = GameObject.Find("Map").GetComponent<MapSettings>();
+        lastSpawnOffset = settings.GetSpawnPositionOffset();
         
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
         loseHeight = loseTile.transform.position.y;

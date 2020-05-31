@@ -15,8 +15,10 @@ public class ControlsBallFromBehind : MonoBehaviour
         player = GetComponent<Ball>();
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
+
+
         if(ballCanTurn)
         {
             float y = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
@@ -31,7 +33,9 @@ public class ControlsBallFromBehind : MonoBehaviour
             float z = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeedZ;
             transform.Translate(x, 0, z);
         }
-
+    }
+    void Update()
+    {
         if(Input.GetKeyDown(KeyCode.R))
         {
             player.StopMovement();

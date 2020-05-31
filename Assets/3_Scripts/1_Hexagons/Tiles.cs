@@ -379,7 +379,6 @@ public class Tiles : MonoBehaviour
                 if(hexagon.IsSpecialTile())
                 {
                     HexagonSpecial specialHexagon = hexagon.GetComponent<HexagonSpecial>();
-                    // int number = hexagon.GetSpecialNumber();
                     name += "Special " + specialHexagon.GetNameOfFunction() + nameSeparator;
                 }
 

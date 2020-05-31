@@ -11,18 +11,13 @@ public class CameraFollowEditor : Editor {
         base.OnInspectorGUI();
 
         CameraFollow cameraFollow = (CameraFollow) target;
-        
-        // if (GUILayout.Button("Print World Position"))
-        // {            
-        //     hexagon.PrintCurrentWorldPosition();
-        // }
 
-        if (GUILayout.Button(""))
+        if (GUILayout.Button("Go to current spawn position"))
         {
-            
+            Players players = GameObject.Find("Map/Players").GetComponent<Players>();
+            Ball ball = players.GetComponentInChildren<Ball>();
+            players.GetCamera().SetPosition(ball.transform);
         }
     }
 
 } // END OF CLASS
-
-
