@@ -27,12 +27,15 @@ public class HexagonSpecial : MonoBehaviour
     private Hexagon thisHexagon;
     
 
+
+    /* ------------------------------ MAIN METHODS FOR SPECIAL TILES ------------------------------  */
     public void GetStarted(Dictionary<int, List<Hexagon>> specialTiles)
     {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
         specialCase = thisHexagon.GetSpecialNumber();
         this.specialTiles = specialTiles;
     }
+
 
     public void SpecialTileTouched(Ball player)
     {
@@ -109,14 +112,27 @@ public class HexagonSpecial : MonoBehaviour
         return teleporterNumber;
     }
 
-    /* ------------------------------ EDITOR METHODS ------------------------------  */
+    /* ------------------------------ SETTERS FOR SPECIAL TILES ------------------------------  */
 
-    public string GetSpecialFunction()
+    public void SetVelocity(float velocity)
     {
-            string testVariable = "value";
-            string nameOfTestVariable = nameof(testVariable);
-            return nameOfTestVariable;
+        this.velocity = velocity;
     }
 
 
+
+    /* ------------------------------ EDITOR METHODS ------------------------------  */
+
+    public string GetNameOfFunction()
+    {
+        if(getIndexNumberInList >= 0) // catch potential errors with the special tile list
+        {
+            string prefix = " -> ";
+            if(specialCase == TELEPORTER) return prefix + nameof(TELEPORTER).ToLower();
+            if(specialCase == VELOCITY) return prefix + nameof(VELOCITY).ToLower();
+
+            
+        }
+        return "";
+    }
 }

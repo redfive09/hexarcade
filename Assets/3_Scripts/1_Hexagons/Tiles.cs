@@ -25,7 +25,15 @@ public class Tiles : MonoBehaviour
     {        
         CollectTiles();
         GetComponent<TileColorsIntroduction>().GetStarted();
-        GetComponent<TilesAllCrackables>().GetStarted(crackedTiles);        
+
+
+        // In order to make sure it works on old maps, too
+        
+        if(!GetComponent<TilesApplyForAll>())
+        {
+            gameObject.AddComponent<TilesApplyForAll>();
+        }
+        GetComponent<TilesApplyForAll>().GetStarted(tileLists);        
     }
 
     public void CollectTiles()
@@ -370,8 +378,9 @@ public class Tiles : MonoBehaviour
 
                 if(hexagon.IsSpecialTile())
                 {
-                    int number = hexagon.GetSpecialNumber();
-                    name += "Special " + number + nameSeparator;
+                    HexagonSpecial specialHexagon = hexagon.GetComponent<HexagonSpecial>();
+                    // int number = hexagon.GetSpecialNumber();
+                    name += "Special " + specialHexagon.GetNameOfFunction() + nameSeparator;
                 }
 
                 if(hexagon.IsMovingTile())

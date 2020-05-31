@@ -19,7 +19,7 @@ public class CameraFollowEditor : Editor {
 
         if (GUILayout.Button(""))
         {
-
+            
         }
     }
 
