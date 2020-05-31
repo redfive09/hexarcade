@@ -163,6 +163,7 @@ public class Ball : MonoBehaviour
     private void PlayerWon()
     {
         timer.StopTiming();
+        timer.ShowLastFinishTime();
 
         Debug.Log("Finish time: " + timer.GetLastFinishTime());
 
@@ -180,6 +181,7 @@ public class Ball : MonoBehaviour
                 /* --------------- STATUS: PLAYER LOST, PLAYER MET A LOSE CONDITION ---------------  */
     private void PlayerLost()
     {
+        timer.Disappear();
         StopMovement();
         GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
     }
@@ -200,7 +202,7 @@ public class Ball : MonoBehaviour
         {                     
             transform.position = positions[replayPositionCounter];
             replayPositionCounter++;
-        }     
+        }
     }
 
 
@@ -249,7 +251,7 @@ public class Ball : MonoBehaviour
 
         else if(hexagon.IsWinningTile())
         {
-            PlayerWon();
+            
         }
         
         else if(hexagon.IsStandardTile() && settings.DoesStandardTilesMeansLosing())

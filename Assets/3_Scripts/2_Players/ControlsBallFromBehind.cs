@@ -9,10 +9,12 @@ public class ControlsBallFromBehind : MonoBehaviour
     [SerializeField] private float moveSpeedZ = 1f;
     [SerializeField] private float rotationSpeed = 300f;
     private Ball player;
+    private Timer timer;
 
     void Start()
     {
         player = GetComponent<Ball>();
+        timer = GetComponentInChildren<Timer>();
     }
 
     void FixedUpdate()
@@ -38,6 +40,7 @@ public class ControlsBallFromBehind : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
+            timer.Disappear();
             player.StopMovement();
             player.GoToSpawnPosition();
         }
