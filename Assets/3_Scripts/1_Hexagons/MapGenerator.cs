@@ -175,7 +175,7 @@ public class MapGenerator : MonoBehaviour
         Hexagon hexagon = hexTile.GetComponent<Hexagon>();                      // Get the hexagon script
         hexagon.Setup();                                                        // Tell the hexagon to setup itself
         hexagon.transform.parent = platform.transform;                          // Putting hexagon into folder
-        // hexagon.transform.GetChild(0).gameObject.AddComponent<HexagonChild>();  // Add a script to the child in order to auto select its parent (the hexagon gameobject) when it's clicked on
+        hexagon.transform.GetChild(0).gameObject.AddComponent<HexagonChild>();  // Add a script to the child in order to auto select its parent (the hexagon gameobject) when it's clicked on
         platform.AddHexagon(hexagon);                                           // Adding tile to the list of all the created tiles of this map 
         return hexagon;
     }
