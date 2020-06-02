@@ -84,20 +84,20 @@ public class CameraFollow : MonoBehaviour
                 playerPrevPos = target.transform.position;
                 //experimental feature off
             }
+        }
+        else
+        {
+            if (!useLerp)
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref velocity, timeAlignment);
+            }
             else
             {
-                if (!useLerp)
-                {
-                    transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref velocity, timeAlignment);
-                }
-                else
-                {
-                    transform.position = Vector3.Lerp(transform.position, target.position + offset, timeAlignment);
-                }
-                if (focusTarget)
-                {
-                    transform.LookAt(target, Vector3.forward);
-                }
+                transform.position = Vector3.Lerp(transform.position, target.position + offset, timeAlignment);
+            }
+            if (focusTarget)
+            {
+                transform.LookAt(target, Vector3.forward);
             }
         }
     }
