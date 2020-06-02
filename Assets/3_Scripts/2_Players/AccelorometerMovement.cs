@@ -12,7 +12,7 @@ public class AccelorometerMovement : MonoBehaviour
     private Rigidbody rb;
     public bool isFlat = true;
     [SerializeField]
-    private float multiplier = 1.0f;
+    private float multiplier = 75.5f;
     [SerializeField]
     private ForceMode inputApplyment = ForceMode.Acceleration;
 
