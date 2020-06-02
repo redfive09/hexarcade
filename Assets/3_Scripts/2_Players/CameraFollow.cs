@@ -45,11 +45,6 @@ public class CameraFollow : MonoBehaviour
         //experimental feature off
     }
 
-    public void SetTraget(Transform player)
-    {
-        target = player;
-    }
-
     /*
     *  The camera hovers offseted over a given GameObject with a slight delay. The goal to center the targeted GameObject is always set.
     *  The "strictness" of the Camera to focus the GameObject can be determined by a conditional call of the LookAt function, if prefered over just a shorter value of the timeAlignment variable. 
