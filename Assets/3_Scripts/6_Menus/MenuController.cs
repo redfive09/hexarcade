@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+
+    public Scene nextScene;
     public void StartGame()
     {
         SceneManager.LoadScene(1);
@@ -16,7 +18,9 @@ public class MenuController : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MainMenu()

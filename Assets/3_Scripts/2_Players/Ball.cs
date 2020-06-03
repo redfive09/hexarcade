@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*  
  *  Class purpose: Giving each ball (respectively player) values and behaviour 
@@ -166,7 +167,7 @@ public class Ball : MonoBehaviour
         timer.ShowLastFinishTime();
 
         Debug.Log("Finish time: " + timer.GetLastFinishTime());
-
+        SceneManager.LoadScene("1_Scenes/Menus/Win");
         if(timer.IsNewBestTime())
         {
             Debug.Log("New record");
@@ -183,7 +184,9 @@ public class Ball : MonoBehaviour
     {
         timer.Disappear();
         StopMovement();
-        GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
+        //GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
+        SceneManager.LoadScene("1_Scenes/Menus/GameOverMenu");
+
     }
 
 
