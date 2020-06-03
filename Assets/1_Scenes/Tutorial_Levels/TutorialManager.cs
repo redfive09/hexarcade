@@ -6,7 +6,7 @@ public class TutorialManager : MonoBehaviour
 {
    public GameObject[] popUps;
    private int popUpIndex;
-   public float waitTime = 2f;
+   public float waitTime;
    void Update()
    {
       for (int i = 0; i < popUps.Length; i++)
@@ -27,7 +27,7 @@ public class TutorialManager : MonoBehaviour
 
    IEnumerator ShowInstructions()
    {
-      yield return new WaitForSeconds(3f);
+      yield return new WaitForSeconds(waitTime);
       if (popUpIndex == 0)
       {
          if (Input.deviceOrientation == DeviceOrientation.FaceUp ){         
