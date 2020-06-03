@@ -39,7 +39,7 @@ public class Players : MonoBehaviour
 
                 if(editorMode)
                 {
-                    tiles.CollectTiles();
+                    tiles.ResetAllLists();
                 }
 
                 player.GoToSpawnPosition(tiles.GetSpawnPosition(i), settings.GetSpawnPositionOffset());
@@ -57,11 +57,11 @@ public class Players : MonoBehaviour
             players.Add(player);
             player.GetStarted(i);            
 
-            GetCamera().SetTraget(player.transform);
+            GetCamera().SetTarget(player.transform);
         }
     }
 
-    private CameraFollow GetCamera()
+    public CameraFollow GetCamera()
     {
         return Camera.main.GetComponent<CameraFollow>(); // TO-DO for multiplayer: a prefab-camera has to be initiated
     }

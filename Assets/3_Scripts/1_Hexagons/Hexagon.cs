@@ -31,9 +31,10 @@ using UnityEngine;
 
         private bool isStandardTile = true; // = no special function at all
 
-        // Map coordinates, not world coordinates!
+        // Platform coordinates, not world coordinates!
         private float x;
         private float z;
+        private string originalName;
 
         // Prepares all the standard values of the [SerializeField] for the editor mode
         public void Setup()
@@ -48,7 +49,7 @@ using UnityEngine;
             isWinningTile = -1;
             color = this.transform.GetChild(0).GetComponent<Renderer>().material.color;
             this.GetComponent<HexagonBehaviour>().Setup();
-            this.GetComponent<HexagonMovingTiles>().Setup();
+            this.GetComponent<HexagonMovingTiles>().Setup();            
         }
 
 
@@ -140,6 +141,11 @@ using UnityEngine;
         public void SetStandardTile(bool status)
         {
             isStandardTile = status;
+        }
+
+        public void SetOriginalName(string newName)
+        {
+            originalName = newName;
         }
 
 
@@ -293,7 +299,7 @@ using UnityEngine;
             }
         }
 
-        public int GetSpecialTileNumber()
+        public int GetSpecialNumber()
         {
             return isSpecialTile;
         }
@@ -301,6 +307,11 @@ using UnityEngine;
         public bool IsStandardTile()
         {
             return isStandardTile;
+        }
+
+        public string GetOriginalName()
+        {
+            return originalName;
         }
 
 

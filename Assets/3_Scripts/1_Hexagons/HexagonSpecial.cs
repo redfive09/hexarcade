@@ -11,9 +11,12 @@ public class HexagonSpecial : MonoBehaviour
     [SerializeField] private int teleporterNumber;
     [SerializeField] private int teleporterConnectedWith;
 
+    [SerializeField] private float velocity;
+
 
     /* ------------------------------ USEAGE OF SPECIAL-TILES ------------------------------  */  
     private const int TELEPORTER = 0;
+    private const int VELOCITY = 1;
 
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */    
@@ -24,12 +27,15 @@ public class HexagonSpecial : MonoBehaviour
     private Hexagon thisHexagon;
     
 
+
+    /* ------------------------------ MAIN METHODS FOR SPECIAL TILES ------------------------------  */
     public void GetStarted(Dictionary<int, List<Hexagon>> specialTiles)
     {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
-        specialCase = thisHexagon.GetSpecialTileNumber();
+        specialCase = thisHexagon.GetSpecialNumber();
         this.specialTiles = specialTiles;
     }
+
 
     public void SpecialTileTouched(Ball player)
     {
@@ -49,12 +55,13 @@ public class HexagonSpecial : MonoBehaviour
                 
             }
 
-            else if(specialCase == 1) // what is it for
+            else if(specialCase == VELOCITY)
             {
-                // do something
+                Rigidbody rb = player.GetComponent<Rigidbody>();
+                Vector3 currentVelocity = rb.velocity;
+                currentVelocity *= velocity;
+                rb.velocity = currentVelocity;
             }
-
-
         }
     }
 
@@ -105,4 +112,24 @@ public class HexagonSpecial : MonoBehaviour
         return teleporterNumber;
     }
 
+    /* ------------------------------ SETTERS FOR SPECIAL TILES ------------------------------  */
+
+    public void SetVelocity(float velocity)
+    {
+        this.velocity = velocity;
+    }
+
+
+
+    /* ------------------------------ EDITOR METHODS ------------------------------  */
+
+    public string GetNameOfFunction()
+    {
+        string prefix = " -> ";
+        
+        if(specialCase == TELEPORTER) return prefix + nameof(TELEPORTER).ToLower();
+        if(specialCase == VELOCITY) return prefix + nameof(VELOCITY).ToLower();
+
+        return "";
+    }
 }

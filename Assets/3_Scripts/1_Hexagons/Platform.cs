@@ -6,7 +6,7 @@ public class Platform : MonoBehaviour
 {
     [SerializeField] private Color color;
 
-    
+    [SerializeField] private int crackedTiles;
     [SerializeField] private int pathTiles;
     [SerializeField] private int startingTiles;
     [SerializeField] private int winningTiles;
@@ -49,7 +49,7 @@ public class Platform : MonoBehaviour
     /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
 
     /*
-     * Changes all the colours of all hexagon tiles 
+     * Changes all the colours of all hexagon tiles
     */
     public void SetColor()
     {
@@ -98,6 +98,15 @@ public class Platform : MonoBehaviour
             platformTiles[i].SetIsWinningTile(winningTiles);
         }
     }
+
+    public void SetCrackedPlatform()
+    {
+        for(int i = 0; i < platformTiles.Count; i++)
+        {
+            platformTiles[i].SetIsCrackedTile(crackedTiles);
+        }
+    }
+
     public void SetDistractionPlatform()
     {
         for(int i = 0; i < platformTiles.Count; i++)

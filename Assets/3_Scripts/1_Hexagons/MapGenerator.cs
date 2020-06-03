@@ -169,13 +169,14 @@ public class MapGenerator : MonoBehaviour
             hexagonName = "Hexagon" + platform.GetNumberOfHexagons();
         }
 
-        GameObject hexTile = Instantiate(hexTilePrefab);                // Creating a new tile
-        hexTile.name = hexagonName;                                     // Give it a name
-        hexTile.transform.position = new Vector3(xWorld, 0, zWorld);    // Moving tile to it's calculated world coordinates
-        Hexagon hexagon = hexTile.GetComponent<Hexagon>();              // Get the hexagon script
-        hexagon.Setup();                                                // Tell the hexagon to setup itself
-        hexagon.transform.parent = platform.transform;                  // Putting hexagon into folder
-        platform.AddHexagon(hexagon);                                   // Adding tile to the list of all the created tiles of this map        
+        GameObject hexTile = Instantiate(hexTilePrefab);                        // Creating a new tile
+        hexTile.name = hexagonName;                                             // Give it a name
+        hexTile.transform.position = new Vector3(xWorld, 0, zWorld);            // Moving tile to it's calculated world coordinates
+        Hexagon hexagon = hexTile.GetComponent<Hexagon>();                      // Get the hexagon script
+        hexagon.Setup();                                                        // Tell the hexagon to setup itself
+        hexagon.transform.parent = platform.transform;                          // Putting hexagon into folder
+        hexagon.transform.GetChild(0).gameObject.AddComponent<HexagonChild>();  // Add a script to the child in order to auto select its parent (the hexagon gameobject) when it's clicked on
+        platform.AddHexagon(hexagon);                                           // Adding tile to the list of all the created tiles of this map 
         return hexagon;
     }
 } // END OF CLASS

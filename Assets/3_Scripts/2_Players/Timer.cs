@@ -13,6 +13,7 @@ public class Timer : MonoBehaviour
     private float timeCounter;
     private float stopWatchTime;
     private bool stopwatchMode = false;
+    private bool timerIsRunning = true;
 
     private float bestTime;  // of current level
     private float[] bestTimes;
@@ -27,21 +28,24 @@ public class Timer : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {        
-        if(stopwatchMode)
+    {
+        if(timerIsRunning)
         {
-            timeCounter = stopWatchTime - Time.fixedTime;
-
-            if(timeCounter < 0)
+            if(stopwatchMode)
             {
-                timeCounter = 0;
+                timeCounter = stopWatchTime - Time.fixedTime;
+
+                if(timeCounter < 0)
+                {
+                    timeCounter = 0;
+                }
             }
+            else
+            {
+                timeCounter = Time.fixedTime - startTime;
+            }
+            TimeToTimerField(timeCounter, false);
         }
-        else
-        {
-            timeCounter = Time.fixedTime - startTime;
-        }
-        timerField.text = TimeToString(timeCounter);
     }
 
 
@@ -49,16 +53,23 @@ public class Timer : MonoBehaviour
     {        
         startTime = Time.fixedTime;
         stopwatchMode = false;
+        timerIsRunning = true;
     }
 
     public void StopTiming()
     {
-        stopTime = timeCounter;        
+        stopTime = timeCounter;
+        timerIsRunning = false;
     }
 
     public float GetLastFinishTime()
     {
         return stopTime;
+    }
+
+    public void ShowLastFinishTime()
+    {
+        TimeToTimerField(stopTime, true);
     }
 
     public float GetBestTime()
@@ -70,6 +81,7 @@ public class Timer : MonoBehaviour
     {
         stopWatchTime = Time.fixedTime + seconds;
         stopwatchMode = true;
+        timerIsRunning = true;
     }
 
     public bool IsStopTimeOver()
@@ -99,14 +111,24 @@ public class Timer : MonoBehaviour
         return false;
     }
 
-    public string TimeToString(float time)
+    public void TimeToTimerField(float time, bool displayFullTime)
     {
         int minutes = (int)(time / 60);
         int seconds = (int)time % 60;
-        float miliseconds = time - (int)time;
-        int tenthsOfSecond = (int) (miliseconds * 10);
+        float miliseconds = time - (int)time;        
+        
+        timerField.text = minutes.ToString() + ":" + (seconds.ToString("00")) + ":";
 
-        return minutes.ToString() + ":" + (seconds.ToString("00")) + ":" + (tenthsOfSecond).ToString("0");
+        if(displayFullTime)
+        {
+            int hundredthsOfseconds = (int) (miliseconds * 100);            
+            timerField.text += (hundredthsOfseconds).ToString("00");
+        }
+        else
+        {
+            int tenthsOfSecond = (int) (miliseconds * 10);
+            timerField.text += (tenthsOfSecond).ToString("0");
+        }        
     }
     
     public void Show()

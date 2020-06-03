@@ -105,15 +105,22 @@ public class TileColorsPermanent : MonoBehaviour
 
 
     private void ChangeColor(Dictionary<int, List<Hexagon>> tiles, Color color)
-    {           
-        for(int i = 0; i < tiles.Count; i++)
+    {
+        int sizeOfDictionary = tiles.Count;
+
+        for(int i = 0; i < sizeOfDictionary; i++)
         {
-            List<Hexagon> tilesList = tiles[i];           
-            
-            for(int k = 0; k < tilesList.Count; k++)
+            if(tiles.TryGetValue(i, out List<Hexagon> hexagonList))
             {
-                tilesList[k].SetColor(color);
-            }            
+                for(int k = 0; k < hexagonList.Count; k++)
+                {
+                    hexagonList[k].SetColor(color);
+                }
+            }
+            else
+            {
+                sizeOfDictionary++;
+            }
         }
     }
 }

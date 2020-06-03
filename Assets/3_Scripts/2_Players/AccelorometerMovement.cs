@@ -2,28 +2,31 @@
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
-/*
- * Code from this tutorial: https://www.youtube.com/watch?v=fsEkZLBeTJ8
- * Check out the Glide Game Tutorial on his channel, it's a great game using the AccelorometerMovement Mechanic
- * here: https://www.youtube.com/watch?v=sZhhfOH0Q3Y
- */
 public class AccelorometerMovement : MonoBehaviour
 {
     private Rigidbody rb;
-    public bool isFlat = true;
-    void Start()
+    [SerializeField]
+    private float multiplier = 75.5f;
+    [SerializeField]
+    private ForceMode inputApplyment = ForceMode.Acceleration;
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+    /*
+     * 
+     * Takes in the gravity induced acceleration from sensors hopply build in in every handy this script will ever run on. Proper fuction is guaranteet only having the screen facing up.
+     * The read out values are offset to work as intuitive control on a game object viewed form above as it is the case with LookAt(<GameObject>, Verctor3.forward) and if then applied as force on it .
+     * To further have the option scale the magnitude of "force" applied a additional multiplier is added to the calculation.
+     */
     void Update()
     {
         Vector3 tilt = Input.acceleration;
-        if (isFlat)
-        {
-            tilt = Quaternion.Euler(90, 0, 0) * tilt;
-        }
-        rb.AddForce(tilt);
-        Debug.DrawRay(transform.position + Vector3.up, tilt, Color.cyan);
+        tilt.z = 0.0f;
+        tilt = Quaternion.Euler(90, 0, 0) * tilt;
+        tilt *= multiplier;
+        rb.AddForce(tilt, inputApplyment);
     }
 }
