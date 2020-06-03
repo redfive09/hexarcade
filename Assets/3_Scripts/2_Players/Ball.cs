@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*  
  *  Class purpose: Giving each ball (respectively player) values and behaviour 
@@ -164,7 +165,7 @@ public class Ball : MonoBehaviour
         timer.StopTiming();
 
         Debug.Log("Finish time: " + timer.GetLastFinishTime());
-
+        SceneManager.LoadScene("1_Scenes/Menus/GameOverMenu");
         if(timer.IsNewBestTime())
         {
             Debug.Log("New record");
