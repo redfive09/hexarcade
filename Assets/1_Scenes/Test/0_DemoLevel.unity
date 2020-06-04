@@ -996,7 +996,7 @@ GameObject:
   - component: {fileID: 34536436}
   - component: {fileID: 34536435}
   m_Layer: 0
-  m_Name: 4, -1
+  m_Name: '4, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1245,7 +1245,7 @@ GameObject:
   - component: {fileID: 39709155}
   - component: {fileID: 39709154}
   m_Layer: 0
-  m_Name: 3, 1
+  m_Name: '3, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2412,11 +2412,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1726d9565e37db4f9c498439a59c479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stickBehindPlayer: 0
-  smoothSpeed: 0.125
+  useLerp: 0
+  timeAlignment: 0.75
+  focusTarget: 0
   offset: {x: 0, y: 15, z: 0}
+  experimentCamera: 0
   changePositionOffset: {x: 0, y: 15, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
 --- !u!81 &86049893
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2484,7 +2485,7 @@ GameObject:
   - component: {fileID: 86422417}
   - component: {fileID: 86422416}
   m_Layer: 0
-  m_Name: 3, -2
+  m_Name: '3, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2733,7 +2734,7 @@ GameObject:
   - component: {fileID: 97498975}
   - component: {fileID: 97498974}
   m_Layer: 0
-  m_Name: -1, -1
+  m_Name: '-1, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3477,7 +3478,7 @@ GameObject:
   - component: {fileID: 149188786}
   - component: {fileID: 149188785}
   m_Layer: 0
-  m_Name: -1, 1
+  m_Name: '-1, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3801,7 +3802,7 @@ GameObject:
   - component: {fileID: 156143979}
   - component: {fileID: 156143978}
   m_Layer: 0
-  m_Name: 2, -2
+  m_Name: '2, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3975,7 +3976,7 @@ GameObject:
   - component: {fileID: 164176650}
   - component: {fileID: 164176649}
   m_Layer: 0
-  m_Name: 5, 1
+  m_Name: '5, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4149,7 +4150,7 @@ GameObject:
   - component: {fileID: 172425686}
   - component: {fileID: 172425685}
   m_Layer: 0
-  m_Name: -1, -2
+  m_Name: '-1, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5187,7 +5188,7 @@ GameObject:
   - component: {fileID: 267246218}
   - component: {fileID: 267246217}
   m_Layer: 0
-  m_Name: 5, -1
+  m_Name: '5, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5361,7 +5362,7 @@ GameObject:
   - component: {fileID: 272494112}
   - component: {fileID: 272494111}
   m_Layer: 0
-  m_Name: -4, -2
+  m_Name: '-4, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6014,7 +6015,7 @@ GameObject:
   - component: {fileID: 291754523}
   - component: {fileID: 291754522}
   m_Layer: 0
-  m_Name: 2, 0
+  m_Name: '2, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6578,7 +6579,7 @@ GameObject:
   - component: {fileID: 311340221}
   - component: {fileID: 311340220}
   m_Layer: 0
-  m_Name: -5, 0
+  m_Name: '-5, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7007,7 +7008,7 @@ GameObject:
   - component: {fileID: 331065632}
   - component: {fileID: 331065631}
   m_Layer: 0
-  m_Name: 0, 0
+  m_Name: '0, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7355,7 +7356,7 @@ GameObject:
   - component: {fileID: 342671898}
   - component: {fileID: 342671897}
   m_Layer: 0
-  m_Name: 6, 1
+  m_Name: '6, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7709,7 +7710,7 @@ GameObject:
   - component: {fileID: 376147047}
   - component: {fileID: 376147046}
   m_Layer: 0
-  m_Name: -5, -2
+  m_Name: '-5, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8138,7 +8139,7 @@ GameObject:
   - component: {fileID: 389910900}
   - component: {fileID: 389910899}
   m_Layer: 0
-  m_Name: 2, -1
+  m_Name: '2, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9031,7 +9032,7 @@ GameObject:
   - component: {fileID: 439335558}
   - component: {fileID: 439335557}
   m_Layer: 0
-  m_Name: 6, 0
+  m_Name: '6, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9565,7 +9566,7 @@ GameObject:
   - component: {fileID: 474594520}
   - component: {fileID: 474594519}
   m_Layer: 0
-  m_Name: -1, -2
+  m_Name: '-1, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10279,7 +10280,7 @@ GameObject:
   - component: {fileID: 522568637}
   - component: {fileID: 522568636}
   m_Layer: 0
-  m_Name: 0, 1
+  m_Name: '0, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11443,7 +11444,7 @@ GameObject:
   - component: {fileID: 561434017}
   - component: {fileID: 561434016}
   m_Layer: 0
-  m_Name: 4, 1
+  m_Name: '4, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12481,7 +12482,7 @@ GameObject:
   - component: {fileID: 654826980}
   - component: {fileID: 654826979}
   m_Layer: 0
-  m_Name: 2, 1
+  m_Name: '2, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12855,7 +12856,7 @@ GameObject:
   - component: {fileID: 663018732}
   - component: {fileID: 663018731}
   m_Layer: 0
-  m_Name: -4, 1
+  m_Name: '-4, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13626,7 +13627,7 @@ GameObject:
   - component: {fileID: 713459824}
   - component: {fileID: 713459823}
   m_Layer: 0
-  m_Name: -5, 1
+  m_Name: '-5, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13864,7 +13865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544578b96ee98db4e8f09755ddc107aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFlat: 1
+  multiplier: 75.5
+  inputApplyment: 5
 --- !u!114 &714056432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14560,7 +14562,7 @@ GameObject:
   - component: {fileID: 762088823}
   - component: {fileID: 762088822}
   m_Layer: 0
-  m_Name: 3, -1
+  m_Name: '3, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14809,7 +14811,7 @@ GameObject:
   - component: {fileID: 783515386}
   - component: {fileID: 783515385}
   m_Layer: 0
-  m_Name: 4, -2
+  m_Name: '4, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15373,7 +15375,7 @@ GameObject:
   - component: {fileID: 799371249}
   - component: {fileID: 799371248}
   m_Layer: 0
-  m_Name: 3, -2
+  m_Name: '3, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15876,7 +15878,7 @@ GameObject:
   - component: {fileID: 828244850}
   - component: {fileID: 828244849}
   m_Layer: 0
-  m_Name: -3, 0
+  m_Name: '-3, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16050,7 +16052,7 @@ GameObject:
   - component: {fileID: 830965492}
   - component: {fileID: 830965491}
   m_Layer: 0
-  m_Name: -2, -2
+  m_Name: '-2, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16922,7 +16924,7 @@ GameObject:
   - component: {fileID: 899286900}
   - component: {fileID: 899286899}
   m_Layer: 0
-  m_Name: -4, 0
+  m_Name: '-4, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18627,7 +18629,7 @@ GameObject:
   - component: {fileID: 1062876548}
   - component: {fileID: 1062876547}
   m_Layer: 0
-  m_Name: 1, -1
+  m_Name: '1, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19515,7 +19517,7 @@ GameObject:
   - component: {fileID: 1100604895}
   - component: {fileID: 1100604894}
   m_Layer: 0
-  m_Name: -6, -1
+  m_Name: '-6, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19764,7 +19766,7 @@ GameObject:
   - component: {fileID: 1110762144}
   - component: {fileID: 1110762143}
   m_Layer: 0
-  m_Name: -2, -1
+  m_Name: '-2, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20217,7 +20219,7 @@ GameObject:
   - component: {fileID: 1139730804}
   - component: {fileID: 1139730803}
   m_Layer: 0
-  m_Name: 3, -1
+  m_Name: '3, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20636,7 +20638,7 @@ GameObject:
   - component: {fileID: 1146344033}
   - component: {fileID: 1146344032}
   m_Layer: 0
-  m_Name: -1, 0
+  m_Name: '-1, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21350,7 +21352,7 @@ GameObject:
   - component: {fileID: 1185140946}
   - component: {fileID: 1185140945}
   m_Layer: 0
-  m_Name: 2, -1
+  m_Name: '2, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21599,7 +21601,7 @@ GameObject:
   - component: {fileID: 1200350975}
   - component: {fileID: 1200350974}
   m_Layer: 0
-  m_Name: 5, -2
+  m_Name: '5, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21878,7 +21880,7 @@ GameObject:
   - component: {fileID: 1203284248}
   - component: {fileID: 1203284247}
   m_Layer: 0
-  m_Name: -4, -1
+  m_Name: '-4, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22966,7 +22968,7 @@ GameObject:
   - component: {fileID: 1246562765}
   - component: {fileID: 1246562764}
   m_Layer: 0
-  m_Name: 1, 0
+  m_Name: '1, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23245,7 +23247,7 @@ GameObject:
   - component: {fileID: 1258284209}
   - component: {fileID: 1258284208}
   m_Layer: 0
-  m_Name: 6, 1
+  m_Name: '6, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23854,7 +23856,7 @@ GameObject:
   - component: {fileID: 1290875278}
   - component: {fileID: 1290875277}
   m_Layer: 0
-  m_Name: -2, -1
+  m_Name: '-2, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24028,7 +24030,7 @@ GameObject:
   - component: {fileID: 1293665586}
   - component: {fileID: 1293665585}
   m_Layer: 0
-  m_Name: -3, 1
+  m_Name: '-3, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24412,7 +24414,7 @@ GameObject:
   - component: {fileID: 1344225278}
   - component: {fileID: 1344225277}
   m_Layer: 0
-  m_Name: 5, 0
+  m_Name: '5, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24796,7 +24798,7 @@ GameObject:
   - component: {fileID: 1359952394}
   - component: {fileID: 1359952393}
   m_Layer: 0
-  m_Name: 0, -1
+  m_Name: '0, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25290,7 +25292,7 @@ GameObject:
   - component: {fileID: 1396543608}
   - component: {fileID: 1396543607}
   m_Layer: 0
-  m_Name: -7, 1
+  m_Name: '-7, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25539,7 +25541,7 @@ GameObject:
   - component: {fileID: 1425728309}
   - component: {fileID: 1425728308}
   m_Layer: 0
-  m_Name: 6, -1
+  m_Name: '6, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25713,7 +25715,7 @@ GameObject:
   - component: {fileID: 1426709346}
   - component: {fileID: 1426709345}
   m_Layer: 0
-  m_Name: '-5, -1 || Path 0 || '
+  m_Name: '-5, -1 || Path 0 || Special  -> velocity || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25749,7 +25751,7 @@ MonoBehaviour:
   teleporterEntrance: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
-  velocity: 0
+  velocity: 2
 --- !u!114 &1426709346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25798,7 +25800,7 @@ MonoBehaviour:
   isPath: 0
   isDistractionTile: -1
   isCheckpointTile: -1
-  isSpecialTile: -1
+  isSpecialTile: 1
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
@@ -27103,7 +27105,7 @@ GameObject:
   - component: {fileID: 1505408553}
   - component: {fileID: 1505408552}
   m_Layer: 0
-  m_Name: -3, -2
+  m_Name: '-3, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27277,7 +27279,7 @@ GameObject:
   - component: {fileID: 1509435046}
   - component: {fileID: 1509435045}
   m_Layer: 0
-  m_Name: 1, 0
+  m_Name: '1, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27649,7 +27651,7 @@ GameObject:
   - component: {fileID: 1524836129}
   - component: {fileID: 1524836128}
   m_Layer: 0
-  m_Name: 0, 1
+  m_Name: '0, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27823,7 +27825,7 @@ GameObject:
   - component: {fileID: 1524922739}
   - component: {fileID: 1524922738}
   m_Layer: 0
-  m_Name: -2, 0
+  m_Name: '-2, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28282,7 +28284,7 @@ GameObject:
   - component: {fileID: 1542491816}
   - component: {fileID: 1542491815}
   m_Layer: 0
-  m_Name: 2, -2
+  m_Name: '2, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28630,7 +28632,7 @@ GameObject:
   - component: {fileID: 1545512960}
   - component: {fileID: 1545512959}
   m_Layer: 0
-  m_Name: 0, -2
+  m_Name: '0, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28804,7 +28806,7 @@ GameObject:
   - component: {fileID: 1552082721}
   - component: {fileID: 1552082720}
   m_Layer: 0
-  m_Name: 5, -1
+  m_Name: '5, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29133,7 +29135,7 @@ GameObject:
   - component: {fileID: 1567854379}
   - component: {fileID: 1567854378}
   m_Layer: 0
-  m_Name: 6, 0
+  m_Name: '6, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29736,7 +29738,7 @@ GameObject:
   - component: {fileID: 1588775033}
   - component: {fileID: 1588775032}
   m_Layer: 0
-  m_Name: 0, -1
+  m_Name: '0, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30219,7 +30221,7 @@ GameObject:
   - component: {fileID: 1618782334}
   - component: {fileID: 1618782333}
   m_Layer: 0
-  m_Name: -3, -1
+  m_Name: '-3, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31010,7 +31012,7 @@ GameObject:
   - component: {fileID: 1681399415}
   - component: {fileID: 1681399414}
   m_Layer: 0
-  m_Name: -5, -1
+  m_Name: '-5, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31937,7 +31939,7 @@ GameObject:
   - component: {fileID: 1744054287}
   - component: {fileID: 1744054286}
   m_Layer: 0
-  m_Name: 5, 1
+  m_Name: '5, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32111,7 +32113,7 @@ GameObject:
   - component: {fileID: 1744717615}
   - component: {fileID: 1744717614}
   m_Layer: 0
-  m_Name: 1, 1
+  m_Name: '1, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32285,7 +32287,7 @@ GameObject:
   - component: {fileID: 1747774216}
   - component: {fileID: 1747774215}
   m_Layer: 0
-  m_Name: -6, 1
+  m_Name: '-6, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32534,7 +32536,7 @@ GameObject:
   - component: {fileID: 1758668910}
   - component: {fileID: 1758668909}
   m_Layer: 0
-  m_Name: -6, 1
+  m_Name: '-6, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33375,7 +33377,7 @@ GameObject:
   - component: {fileID: 1817940575}
   - component: {fileID: 1817940574}
   m_Layer: 0
-  m_Name: 4, 0
+  m_Name: '4, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33549,7 +33551,7 @@ GameObject:
   - component: {fileID: 1827500143}
   - component: {fileID: 1827500142}
   m_Layer: 0
-  m_Name: 6, -2
+  m_Name: '6, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34182,7 +34184,7 @@ GameObject:
   - component: {fileID: 1863879836}
   - component: {fileID: 1863879835}
   m_Layer: 0
-  m_Name: 3, 0
+  m_Name: '3, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34566,7 +34568,7 @@ GameObject:
   - component: {fileID: 1875059473}
   - component: {fileID: 1875059472}
   m_Layer: 0
-  m_Name: -2, 0
+  m_Name: '-2, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34740,7 +34742,7 @@ GameObject:
   - component: {fileID: 1877985307}
   - component: {fileID: 1877985306}
   m_Layer: 0
-  m_Name: 1, -2
+  m_Name: '1, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35019,7 +35021,7 @@ GameObject:
   - component: {fileID: 1887505486}
   - component: {fileID: 1887505485}
   m_Layer: 0
-  m_Name: 3, 1
+  m_Name: '3, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35574,7 +35576,7 @@ GameObject:
   - component: {fileID: 1914720967}
   - component: {fileID: 1914720966}
   m_Layer: 0
-  m_Name: 4, 0
+  m_Name: '4, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35748,7 +35750,7 @@ GameObject:
   - component: {fileID: 1922910775}
   - component: {fileID: 1922910774}
   m_Layer: 0
-  m_Name: 1, 1
+  m_Name: '1, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36027,7 +36029,7 @@ GameObject:
   - component: {fileID: 1934533624}
   - component: {fileID: 1934533623}
   m_Layer: 0
-  m_Name: -2, -2
+  m_Name: '-2, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36636,7 +36638,7 @@ GameObject:
   - component: {fileID: 1966916845}
   - component: {fileID: 1966916844}
   m_Layer: 0
-  m_Name: -1, 1
+  m_Name: '-1, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37093,7 +37095,7 @@ GameObject:
   - component: {fileID: 1996460343}
   - component: {fileID: 1996460342}
   m_Layer: 0
-  m_Name: 0, 0
+  m_Name: '0, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37477,7 +37479,7 @@ GameObject:
   - component: {fileID: 2013423735}
   - component: {fileID: 2013423734}
   m_Layer: 0
-  m_Name: -3, -1
+  m_Name: '-3, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37651,7 +37653,7 @@ GameObject:
   - component: {fileID: 2025756143}
   - component: {fileID: 2025756142}
   m_Layer: 0
-  m_Name: 3, 0
+  m_Name: '3, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37900,7 +37902,7 @@ GameObject:
   - component: {fileID: 2038132737}
   - component: {fileID: 2038132736}
   m_Layer: 0
-  m_Name: 4, -1
+  m_Name: '4, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38149,7 +38151,7 @@ GameObject:
   - component: {fileID: 2044381981}
   - component: {fileID: 2044381980}
   m_Layer: 0
-  m_Name: 6, -1
+  m_Name: '6, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38323,7 +38325,7 @@ GameObject:
   - component: {fileID: 2058695646}
   - component: {fileID: 2058695645}
   m_Layer: 0
-  m_Name: 5, -2
+  m_Name: '5, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38497,7 +38499,7 @@ GameObject:
   - component: {fileID: 2063930337}
   - component: {fileID: 2063930336}
   m_Layer: 0
-  m_Name: 4, -2
+  m_Name: '4, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38671,7 +38673,7 @@ GameObject:
   - component: {fileID: 2071064839}
   - component: {fileID: 2071064838}
   m_Layer: 0
-  m_Name: 4, 1
+  m_Name: '4, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38845,7 +38847,7 @@ GameObject:
   - component: {fileID: 2071124112}
   - component: {fileID: 2071124111}
   m_Layer: 0
-  m_Name: 6, -2
+  m_Name: '6, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39168,7 +39170,7 @@ GameObject:
   - component: {fileID: 2078177352}
   - component: {fileID: 2078177351}
   m_Layer: 0
-  m_Name: -2, 1
+  m_Name: '-2, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39837,7 +39839,7 @@ GameObject:
   - component: {fileID: 2120043810}
   - component: {fileID: 2120043809}
   m_Layer: 0
-  m_Name: 5, 0
+  m_Name: '5, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40116,7 +40118,7 @@ GameObject:
   - component: {fileID: 2133640013}
   - component: {fileID: 2133640012}
   m_Layer: 0
-  m_Name: -5, 1
+  m_Name: '-5, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40365,7 +40367,7 @@ GameObject:
   - component: {fileID: 2134643868}
   - component: {fileID: 2134643867}
   m_Layer: 0
-  m_Name: -6, -2
+  m_Name: '-6, -2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

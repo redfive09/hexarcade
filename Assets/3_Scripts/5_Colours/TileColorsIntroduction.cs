@@ -106,22 +106,20 @@ public class TileColorsIntroduction : MonoBehaviour
     {
         yield return new WaitForSeconds(tileOptions.GetStartingTime()); // wait seconds before continuing with the loop
 
-        Dictionary<int, List<Hexagon>> tiles = tileOptions.GetTiles();
-        Dictionary<int, List<Color>> rememberColors = new Dictionary<int, List<Color>>();
-        int numberOfLists = tiles.Count;
+        Dictionary<int, List<Hexagon>> colorList = tileOptions.GetTiles();
+        Dictionary<Hexagon, Color> rememberColors = new Dictionary<Hexagon, Color>();
+        int numberOfLists = colorList.Count;
 
         for(int i = 0; i < numberOfLists; i++)
-        {               
-            rememberColors[i] = new List<Color>();
-
-            if(tiles.TryGetValue(i, out List<Hexagon> hexagonList)) // if the key is available, then just procceed
+        {
+            if(colorList.TryGetValue(i, out List<Hexagon> hexagonList)) // if the key is available, then just procceed
             {
-                List<Hexagon> hexagons = tiles[i];
+                List<Hexagon> hexagons = colorList[i];
             
                 for(int k = 0; k < hexagons.Count; k++)
                 {
-                    rememberColors[i].Add(hexagons[k].GetColor());
-                    hexagons[k].SetColor(tileOptions.GetColor());
+                    rememberColors[hexagons[k]] = hexagons[k].GetColor();
+                    hexagons[k].SetColor(tileOptions.GetColor());                    
                 }
                 yield return new WaitForSeconds(tileOptions.GetTimeToNextTile()); // wait seconds before continuing with the loop
             }
@@ -141,45 +139,49 @@ public class TileColorsIntroduction : MonoBehaviour
             }
         }
 
-        StartCoroutine(MakePathDisappear(rememberColors, tiles, tileOptions, waitForChoosingCheckPoints)); //start the disappering backwards
+        StartCoroutine(MakePathDisappear(tileOptions, rememberColors)); //start the disappering backwards
     }
 
     /* Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
     * Method goes trough the Dictionary in the opposite ordner and coulors them back to the old colour
     */
-    IEnumerator MakePathDisappear(Dictionary<int, List<Color>> rememberColors, Dictionary<int, List<Hexagon>> tiles, IntroductionTilesManager tileOptions, bool checkpointsChosen)
+    IEnumerator MakePathDisappear(IntroductionTilesManager tileOptions, Dictionary<Hexagon, Color> rememberColors)
     {
+        Dictionary<int, List<Hexagon>> colorList = tileOptions.GetTiles();
         yield return new WaitForSeconds(tileOptions.GetTimeBeforeFadingStarts()); // wait the specified seconds in time after entire path has lit up
         
         int highestKey = 0;
         
         try
         {
-            highestKey = (int) tiles.Keys.Max();
+            highestKey = (int) colorList.Keys.Max();
         }
         catch
         {
             // find an idea how to deal with the problem of tiles.Keys.Max(), if there's no value at all
-        }
+        }        
 
         for(int i = highestKey; i >= 0 ; i--)
-        {            
-            if(tiles.TryGetValue(i, out List<Hexagon> hexagonList)) // if the key is available, then just procceed
-            {            
+        {
+            if(colorList.TryGetValue(i, out List<Hexagon> hexagonList)) // if the key is available, then procceed
+            {
                 for(int k = 0; k < hexagonList.Count; k++)
                 {
-                    Hexagon hexagon = tiles[i][k];
-                    if(!checkpointsChosen || !hexagon.IsCheckpointTile())   // if there was no choosing of checkpoints or the hexagon is not a checkpoint anyway, then get it's colour back
+                    Hexagon hexagon = hexagonList[k];                    
+                    if(!hexagon.IsCheckpointTile())  // if there was no choosing of checkpoints or the hexagon is not a checkpoint anyway, then get it's colour back
                     {
-                        Color formerColer = rememberColors[i][k];
-                        tiles[i][k].SetColor(formerColer);
-                    }
+                        if(rememberColors.TryGetValue(hexagon, out Color hexagonColor))
+                        {
+                            hexagon.SetColor(hexagonColor);
+                        }
+                    }                    
                 }
                 yield return new WaitForSeconds(tileOptions.GetTimeForEachTileFading()); //wait before continuing with the loop
             }
         }
         tileOptions.SetFinished(true);
     }
+
 
     /**
       * Method is checking, if all the coroutines have finished

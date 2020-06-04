@@ -47,7 +47,7 @@ public class Players : MonoBehaviour
                 GetCamera().SetPosition(player.transform);
             }
         }
-    }    
+    }
 
     private void CollectPlayersAndGetThemStarted()
     {

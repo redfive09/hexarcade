@@ -17,11 +17,6 @@ public class HexagonEditor : Editor {
         //     hexagon.PrintCurrentWorldPosition();
         // }
 
-        if (GUILayout.Button("Save Name Change"))
-        {
-            hexagon.SetOriginalName(hexagon.name);
-        }
-
         if (GUILayout.Button("Change Color"))
         {            
             hexagon.SetColor();

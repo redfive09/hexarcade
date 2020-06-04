@@ -34,7 +34,7 @@ using UnityEngine;
         // Platform coordinates, not world coordinates!
         private float x;
         private float z;
-        private string originalName;
+
 
         // Prepares all the standard values of the [SerializeField] for the editor mode
         public void Setup()
@@ -111,7 +111,7 @@ using UnityEngine;
             isMovingTile = status; 
         }        
 
-        // Setting map coordinates, not world coordinates
+        // Setting platform coordinates, not world coordinates
         public void SetMapPosition(float x, float z)
         {
             this.x = x;
@@ -141,11 +141,6 @@ using UnityEngine;
         public void SetStandardTile(bool status)
         {
             isStandardTile = status;
-        }
-
-        public void SetOriginalName(string newName)
-        {
-            originalName = newName;
         }
 
 
@@ -307,11 +302,6 @@ using UnityEngine;
         public bool IsStandardTile()
         {
             return isStandardTile;
-        }
-
-        public string GetOriginalName()
-        {
-            return originalName;
         }
 
 
