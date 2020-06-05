@@ -145,7 +145,7 @@ public class Ball : MonoBehaviour
      */
     private void PlayerArrviedStartingTile()
     {
-        timer.Disappear();        
+        timer.Disappear();
         Debug.Log("Record to beat: " + timer.GetBestTime());
     }
     

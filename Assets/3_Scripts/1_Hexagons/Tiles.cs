@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Tiles : MonoBehaviour
@@ -302,6 +301,10 @@ public class Tiles : MonoBehaviour
         }
     }
 
+    /*
+     *  Empty/prepare all lists
+     *  Useful especially in editor mode, where the lists otherwise are not prepared in any way
+     */
     private void ClearEverything()
     {
         for(int i = 0; i < this.transform.childCount; i++)
@@ -327,106 +330,6 @@ public class Tiles : MonoBehaviour
     public void AddPlatform(Platform platform)
     {
         platforms.Add(platform);
-    }
-
-
-    /*
-     *  Rename all non-standard tiles, so it's easier to navigate in the hierarchy
-     */
-    public void AddNameSuffixToNonStandardHexagons()
-    {
-        for(int i = 0; i < platforms.Count; i++)
-        {
-            List<Hexagon> platformTiles = platforms[i].GetTilesList();
-            for(int k = 0; k < platformTiles.Count; k++)
-            {                
-                Hexagon hexagon = platformTiles[k];
-                string name = hexagon.name;
-
-                if(hexagon.GetOriginalName() == null || hexagon.GetOriginalName() == "")
-                {
-                    hexagon.SetOriginalName(name);
-                }
-                
-                string nameSeparator = " || ";
-                name = hexagon.GetOriginalName() + nameSeparator;
-
-                
-                if(hexagon.IsCrackedTile())
-                {
-                    int number = hexagon.GetCrackedNumber();
-                    name += "Cracked " + number + nameSeparator;
-                }
-
-                if(hexagon.IsPathTile())
-                {
-                    int number = hexagon.GetPathNumber();
-                    name += "Path " + number + nameSeparator;
-                }
-
-                if(hexagon.IsDistractionTile())
-                {
-                    int number = hexagon.GetDistractionNumber();
-                    name += "Distraction " + number + nameSeparator;
-                }
-
-                if(hexagon.IsCheckpointTile())
-                {
-                    int number = hexagon.GetCheckpointNumber();
-                    name += "Checkpoint " + number + nameSeparator;
-                }
-
-                if(hexagon.IsSpecialTile())
-                {
-                    HexagonSpecial specialHexagon = hexagon.GetComponent<HexagonSpecial>();
-                    name += "Special " + specialHexagon.GetNameOfFunction() + nameSeparator;
-                }
-
-                if(hexagon.IsMovingTile())
-                {
-                    int number = hexagon.GetMovingNumber();
-                    name += "Moving " + number + nameSeparator;
-                }
-
-                if(hexagon.IsStartingTile())
-                {
-                    int number = hexagon.GetStartingNumber();
-                    name += "Starting " + number + nameSeparator;
-                }
-
-                if(hexagon.IsWinningTile())
-                {
-                    int number = hexagon.GetWinningNumber();
-                    name += "Winning " + number + nameSeparator;
-                }
-                if(hexagon.IsStandardTile())
-                {
-                    name = hexagon.GetOriginalName();
-                }
-
-                hexagon.name = name;
-            }
-        }
-    }
-
-
-    /*
-     *  Add a script to the each hexagon child in order to auto select its parent (the hexagon gameobject) when it's clicked on at the scene view
-     */    
-    public void AddScriptToAllHexagonChildren()
-    {
-        for(int i = 0; i < platforms.Count; i++)
-        {
-            List<Hexagon> platformTiles = platforms[i].GetTilesList();
-            for(int k = 0; k < platformTiles.Count; k++)
-            {                
-                Hexagon hexagon = platformTiles[k];
-                if(!hexagon.transform.GetChild(0).gameObject.GetComponent<HexagonChild>())
-                {
-                    hexagon.transform.GetChild(0).gameObject.AddComponent<HexagonChild>();
-                }
-            }
-        }
     }
 
 
