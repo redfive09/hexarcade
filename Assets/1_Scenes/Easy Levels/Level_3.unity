@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3951,11 +3951,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1726d9565e37db4f9c498439a59c479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stickBehindPlayer: 0
-  smoothSpeed: 0.125
-  offset: {x: 0, y: 15, z: 0}
+  useLerp: 0
+  timeAlignment: 0.75
+  focusTarget: 0
+  offset: {x: 4, y: 16, z: -8}
+  experimentCamera: 0
   changePositionOffset: {x: 0, y: 15, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &374474461
 GameObject:
   m_ObjectHideFlags: 0
