@@ -11,7 +11,8 @@ public class Timer : MonoBehaviour
     private float startTime;
     private float stopTime;
     private float timeCounter;
-    private float stopWatchTime;
+    private float stopwatchCounter;
+    private float stopwatchTime;
     private bool stopwatchMode = false;
     private bool timerIsRunning = true;
 
@@ -33,18 +34,19 @@ public class Timer : MonoBehaviour
         {
             if(stopwatchMode)
             {
-                timeCounter = stopWatchTime - Time.fixedTime;
+                stopwatchCounter = stopwatchTime - Time.fixedTime;
 
-                if(timeCounter < 0)
+                if(stopwatchCounter < 0)
                 {
-                    timeCounter = 0;
+                    stopwatchCounter = 0;
                 }
+                TimeToTimerField(stopwatchCounter, 1);
             }
             else
             {
                 timeCounter = Time.fixedTime - startTime;
+                TimeToTimerField(timeCounter, 2);
             }
-            TimeToTimerField(timeCounter, false);
         }
     }
 
@@ -69,7 +71,7 @@ public class Timer : MonoBehaviour
 
     public void ShowLastFinishTime()
     {
-        TimeToTimerField(stopTime, true);
+        TimeToTimerField(stopTime, 3);
     }
 
     public float GetBestTime()
@@ -79,16 +81,28 @@ public class Timer : MonoBehaviour
 
     public void SetStopWatch(float seconds)
     {
-        stopWatchTime = Time.fixedTime + seconds;
+        stopwatchTime = Time.fixedTime + seconds;
         stopwatchMode = true;
         timerIsRunning = true;
     }
 
     public bool IsStopTimeOver()
     {
-        return  stopWatchTime <= Time.fixedTime;
+        return  stopwatchTime <= Time.fixedTime;
     }
 
+    public void Pause()
+    {
+        timerIsRunning = false;
+    }
+    
+    public void Unpause()
+    {
+        startTime = Time.fixedTime - timeCounter; 
+        timerIsRunning = true;
+        stopwatchMode = false;
+    }
+    
     public bool IsNewBestTime()
     {
         if (CompareWithBestTime(stopTime))
@@ -111,26 +125,53 @@ public class Timer : MonoBehaviour
         return false;
     }
 
-    public void TimeToTimerField(float time, bool displayFullTime)
+    public void TimeToTimerField(float time, int timerFormat)
     {
-        int minutes = (int)(time / 60);
-        int seconds = (int)time % 60;
-        float miliseconds = time - (int)time;        
-        
-        timerField.text = minutes.ToString() + ":" + (seconds.ToString("00")) + ":";
+        int seconds = (int) time % 60;
+        timerField.text = "";
 
-        if(displayFullTime)
+        if (timerFormat == 1)
         {
-            int hundredthsOfseconds = (int) (miliseconds * 100);            
-            timerField.text += (hundredthsOfseconds).ToString("00");
+            timerField.text += seconds.ToString();
         }
         else
         {
-            int tenthsOfSecond = (int) (miliseconds * 10);
-            timerField.text += (tenthsOfSecond).ToString("0");
-        }        
+            int minutes = (int) (time / 60);
+            float milliseconds = time - (int) time;
+            
+            if(timerFormat == 2)
+            {
+                int tenthsOfSecond = (int) (milliseconds * 10);
+                timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (tenthsOfSecond).ToString("0");            
+            }
+            else
+            {
+                int hundredthsOfseconds = (int) (milliseconds * 100);
+                timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (hundredthsOfseconds).ToString("00");     
+            }
+        }
+
+
+  
+        
+        /*switch (timerFormat)
+        {
+            case 1:
+                timerField.text += seconds.ToString();
+                break;
+            
+            case 2:
+                int tenthsOfSecond = (int) (milliseconds * 10);
+                timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (tenthsOfSecond).ToString("0");
+                break;
+
+            case 3:
+                int hundredthsOfseconds = (int) (milliseconds * 100);
+                timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (hundredthsOfseconds).ToString("00");
+                break;
+        }*/
     }
-    
+
     public void Show()
     {
         timerField.enabled = true;

@@ -15,6 +15,7 @@ public class Ball : MonoBehaviour
     private Timer timer;
     private MapSettings settings;
     private GameObject tilesObject;
+    private PauseMenu pauseMenu;
     private List<Vector3> positions = new List<Vector3>();
     Dictionary<int, List<Hexagon>> checkpointTiles;
     bool playerMarkedCheckpoints = false;
@@ -43,11 +44,13 @@ public class Ball : MonoBehaviour
         tilesObject = GameObject.Find("Map/Tiles");
         settings = GameObject.Find("Map").GetComponent<MapSettings>();
         lastSpawnOffset = settings.GetSpawnPositionOffset();
+        pauseMenu = GetComponentInChildren<PauseMenu>();
+        CameraFollow cameraFollow = GetComponentInParent<Players>().GetCamera();
         
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
         loseHeight = loseTile.transform.position.y;
  
-        StartCoroutine(Introduction());
+        StartCoroutine(Introduction(cameraFollow));
     }
 
 
@@ -57,8 +60,13 @@ public class Ball : MonoBehaviour
      *  All the colours of the non-standard tiles will be shown
      *  When all colours have faded, then the game starts
      */
-    IEnumerator Introduction()
+    IEnumerator Introduction(CameraFollow cameraFollow)
     {
+        while(!cameraFollow.GetCameraReachedFinalPosition())                                    // wait for the user to finish watching the introduction screen
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+
 
         if(settings.IsIntroductionScreen())                                         // check if the level has a introduction screen to show
         {
@@ -115,6 +123,16 @@ public class Ball : MonoBehaviour
         {
             yield return new WaitForSeconds(0.2f);
         }
+        
+        timer.Show();
+        timer.SetStopWatch(3.9f);
+
+        while (!timer.IsStopTimeOver())
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+        
+        timer.Disappear();
 
         GameStarts();
 
@@ -188,7 +206,37 @@ public class Ball : MonoBehaviour
         SceneManager.LoadScene("1_Scenes/Menus/GameOverMenu");
 
     }
+    
+            /* --------------- STATUS: GAME PAUSED ---------------  */
 
+    public void GamePaused()
+    { 
+       rb.constraints = RigidbodyConstraints.FreezeAll;
+       DeactivatePlayerControls();
+       timer.Pause();
+       timer.Disappear();
+    }
+            
+    public void GameUnpaused()
+    {
+        StartCoroutine(UnpauseStopwatch(3.9f));
+    }
+
+    private IEnumerator UnpauseStopwatch(float seconds)
+    {
+        timer.SetStopWatch(seconds);
+        timer.Show();
+        
+        while (!timer.IsStopTimeOver())
+        {
+            yield return new WaitForSeconds(0.00001f);
+        }
+
+        timer.Unpause();
+        rb.constraints = RigidbodyConstraints.None;
+        ActivatePlayerControls();
+    }
+    
 
     /* ------------------------------ UPDATING AND WAITING FOR INPUT METHODS ------------------------------  */
 
@@ -336,6 +384,7 @@ public class Ball : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
     }
+
 
 
     /*

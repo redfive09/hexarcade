@@ -15,6 +15,7 @@ public class CameraFollow : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     private Transform target;
 
+    private bool cameraReachedFinalPosition;
     // experimental feature on
     [SerializeField]
     private bool experimentCamera = false;
@@ -45,11 +46,11 @@ public class CameraFollow : MonoBehaviour
         //experimental feature off
     }
 
-    public void SetTraget(Transform player)
+    public bool GetCameraReachedFinalPosition()
     {
-        target = player;
+        return cameraReachedFinalPosition;
     }
-
+    
     /*
     *  The camera hovers offseted over a given GameObject with a slight delay. The goal to center the targeted GameObject is always set.
     *  The "strictness" of the Camera to focus the GameObject can be determined by a conditional call of the LookAt function, if prefered over just a shorter value of the timeAlignment variable. 
@@ -99,7 +100,15 @@ public class CameraFollow : MonoBehaviour
             {
                 transform.LookAt(target, Vector3.forward);
             }
+
+            //Debug.Log(Vector3.Distance(transform.position, (target.position + offset) - new Vector3(0,1,0)));
+            if (Vector3.Distance(transform.position, (target.position + offset) - new Vector3(0,1,0)) < 1.0f)
+            {
+                cameraReachedFinalPosition = true;
+            }
         }
     }
+    
+    
 }
 

@@ -7,36 +7,51 @@ public class TutorialManager : MonoBehaviour
    public GameObject[] popUps;
    private int popUpIndex;
    public float waitTime;
+   
+   void Start()
+   {
+      Time.timeScale = 1.0f;
+   }
    void Update()
    {
-      for (int i = 0; i < popUps.Length; i++)
+      //Debug.Log(Time.timeScale);
+      if (Time.timeScale == 1.0f)
       {
-         if (i == popUpIndex)
+         for (int i = 0; i < popUps.Length; i++)
          {
-            popUps[i].SetActive(true);
+            if (i == popUpIndex)
+            {
+               popUps[i].SetActive(true);
+            }
+            else
+            {
+               popUps[i].SetActive(false);
+            }
          }
-         else
-         {
-            popUps[i].SetActive(false);
-         }
+         
+         StartCoroutine(ShowInstructions());
       }
-
-      StartCoroutine(ShowInstructions());
 
    }
 
    IEnumerator ShowInstructions()
    {
-      yield return new WaitForSeconds(waitTime);
-      if (popUpIndex == 0)
+      if (Time.timeScale == 1.0f)
       {
-         if (Input.deviceOrientation == DeviceOrientation.FaceUp ){         
-            popUpIndex++;
-         }
-      } else if (popUpIndex == 1) {
-         if (Input.acceleration.x > 0)
+         yield return new WaitForSeconds(waitTime);
+         if (popUpIndex == 0)
          {
-            popUpIndex++;
+            if (Input.deviceOrientation == DeviceOrientation.FaceUp)
+            {
+               popUpIndex++;
+            }
+         }
+         else if (popUpIndex == 1)
+         {
+            if (Input.acceleration.x > 0)
+            {
+               popUpIndex++;
+            }
          }
       }
    }
