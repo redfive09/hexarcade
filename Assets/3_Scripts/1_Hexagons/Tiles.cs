@@ -40,8 +40,7 @@ public class Tiles : MonoBehaviour
         PrepareLists();
         ClearEverything();        
         CollectPlatforms();
-        CollectTilesForListsAndColorThem();
-        
+        CollectTilesForListsAndColorThem();        
     }
 
     private void PrepareLists()
@@ -338,15 +337,6 @@ public class Tiles : MonoBehaviour
     public void AddPlatform(Platform platform)
     {
         platforms.Add(platform);
-    }
-
-
-    /*
-     *  All lists are empty after leaving the game mode, so in order to work with them in the editor mode, we have to fill them up again
-     */
-    public void ResetAllLists()
-    {
-        CollectTiles();
     }
 
 

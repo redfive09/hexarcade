@@ -15,13 +15,13 @@ public class TilesEditor : Editor {
         
         if (GUILayout.Button("Clearify Names for Non-Standard Tiles"))
         {
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             AddNameSuffixToNonStandardHexagons(tiles.GetPlatforms());
         }
 
         if (GUILayout.Button("Enhance hexagon clicking experience (for old scenes)"))
         {
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             AddScriptToAllHexagonChildren(tiles.GetPlatforms());
         }
 
@@ -71,7 +71,7 @@ public class TilesEditor : Editor {
                 int sizeOfNameSeparator =  nameSeparator.Length;
 
 
-                for(int k = 0; k + sizeOfNameSeparator < hexagon.name.Length; k++)
+                for(int k = 0; k + sizeOfNameSeparator - 1 < hexagon.name.Length; k++)
                 {
                     string namePart = hexagon.name.Substring(k, sizeOfNameSeparator);
                     if(namePart == nameSeparator)

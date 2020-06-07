@@ -20,55 +20,55 @@ public class PlatformEditor : Editor {
 
         if (GUILayout.Button("Change Color"))
         {
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             platform.SetColor();
         }
 
         if (GUILayout.Button("Set to cracked tiles"))
         {
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             platform.SetCrackedPlatform();
         }
 
         if (GUILayout.Button("Set to path tiles"))
         {
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             platform.SetPathPlatform();
         }
         
         if (GUILayout.Button("Set to starting tiles"))
         {
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             platform.SetStartingPlatform();
         }
 
         if (GUILayout.Button("Set to winning tiles"))
         {
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             platform.SetWinningPlatform();
         }
         
         if (GUILayout.Button("Set to checkpoint tiles"))
         {
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             platform.SetCheckpointPlatform();
         }
 
         if (GUILayout.Button("Set to distraction tiles"))
         {
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             platform.SetDistractionPlatform();
         }
 
         if (GUILayout.Button("Set to special tiles"))
         {
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             platform.SetSpecialPlatform();
         }
 
         if (GUILayout.Button("Untag all tiles"))
         {
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             platform.UntagAllHexagons();
         }
         

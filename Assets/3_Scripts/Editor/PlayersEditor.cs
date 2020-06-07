@@ -12,7 +12,7 @@ public class PlayersEditor : Editor {
 
         if (GUILayout.Button("Instantiate Players/Players go to spawn position"))
         {
-            GameObject.Find("Map/Tiles").GetComponent<Tiles>().ResetAllLists();
+            GameObject.Find("Map/Tiles").GetComponent<Tiles>().CollectTiles();
             players.InstantiatePlayers(true);
         }
 

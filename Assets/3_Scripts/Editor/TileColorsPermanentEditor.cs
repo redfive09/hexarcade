@@ -16,61 +16,61 @@ public class TileColorsPermanentEditor : Editor {
 
         if (GUILayout.Button("Change Color of CrackedTiles"))
         {
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             tileColors.ChangeCrackedTilesColor();
         }
 
         if (GUILayout.Button("Change Color of PathTiles"))
         {           
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             tileColors.ChangePathTilesColor();
         }
 
         if (GUILayout.Button("Change Color of DistractionTiles"))
         {            
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             tileColors.ChangeDistractionTilesColor();
         }
 
         if (GUILayout.Button("Change Color of CheckpointTiles"))
         {            
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             tileColors.ChangeCheckpointTilesColor();
         }
 
         if (GUILayout.Button("Change Color of SpecialTiles"))
         {            
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             tileColors.ChangeSpecialTilesColor();
         }
 
         if (GUILayout.Button("Change Color of MovingTiles"))
         {            
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             tileColors.ChangeMovingTilesColor();
         }
         
         if (GUILayout.Button("Change Color of StartingTiles"))
         {            
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             tileColors.ChangeStartingTilesColor();
         }
 
         if (GUILayout.Button("Change Color of WinningTiles"))
         {            
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             tileColors.ChangeWinningTilesColor();
         }
 
         if (GUILayout.Button("Change Color of standardTiles"))
         {            
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             tileColors.ChangeColorOfStandardTiles();
         }        
         
         if (GUILayout.Button("Change Color of every Tile"))
         {            
-            tiles.ResetAllLists();
+            tiles.CollectTiles();
             tileColors.ChangeColorOfAllTiles();
         }
 

@@ -16,7 +16,7 @@ public class BallEditor : Editor {
         // {
         //     MapSettings map = GameObject.Find("Map").GetComponent<MapSettings>();
         //     Tiles tiles = GameObject.Find("Map/Tiles").GetComponent<Tiles>();
-        //     tiles.ResetAllLists();
+        //     tiles.CollectTiles();
         //     Hexagon startTile = tiles.GetSpawnPosition(ball.GetPlayerNumber());
         //     ball.GoToSpawnPosition(startTile, map.GetSpawnPositionOffset());
         //     ball.GetComponentInParent<Players>().GetCamera().SetPosition(ball.transform);
