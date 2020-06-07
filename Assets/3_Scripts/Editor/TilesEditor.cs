@@ -68,7 +68,7 @@ public class TilesEditor : Editor {
                 Hexagon hexagon = platformTiles[j];                
                 
                 string nameSeparator = " || ";
-                int sizeOfNameSeparator =  nameSeparator.Length; 
+                int sizeOfNameSeparator =  nameSeparator.Length;
 
 
                 for(int k = 0; k + sizeOfNameSeparator < hexagon.name.Length; k++)
@@ -76,12 +76,12 @@ public class TilesEditor : Editor {
                     string namePart = hexagon.name.Substring(k, sizeOfNameSeparator);
                     if(namePart == nameSeparator)
                     {
-                        string standardName = hexagon.name.Substring(0, k) + nameSeparator;
+                        string standardName = hexagon.name.Substring(0, k);
                         hexagon.name = standardName;
                     }
                 }
 
-                string name = hexagon.name;
+                string name = hexagon.name + nameSeparator;
                 
                 if(hexagon.IsCrackedTile())
                 {

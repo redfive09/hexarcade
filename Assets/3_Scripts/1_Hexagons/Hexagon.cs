@@ -135,7 +135,6 @@ using UnityEngine;
             this.color = color;
             // this.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial.color = color;
             this.transform.GetChild(0).GetComponent<Renderer>().material.color = color;
-            
         }
 
         public void SetStandardTile(bool status)

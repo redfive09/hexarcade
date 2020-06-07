@@ -3,28 +3,22 @@
 public class CameraFollow : MonoBehaviour
 {
 
-    [SerializeField]
-    private bool useLerp = false;
-    [SerializeField]
-    private float timeAlignment = 0.75f;
-    [SerializeField]
-    private bool focusTarget = false;
-    [SerializeField]
-    private Vector3 offset = new Vector3(0, 15, 0);
-
+    [SerializeField] private bool useLerp = false;
+    [SerializeField] private float timeAlignment = 0.75f;
+    [SerializeField] private bool focusTarget = false;
+    [SerializeField] private Vector3 offset = new Vector3(0, 15, 0);
+    [SerializeField] private bool experimentCamera = false;
+    [SerializeField] private Vector3 changePositionOffset = new Vector3(0, 15, 0);
+    
     private Vector3 velocity = Vector3.zero;
     private Transform target;
-
     private bool cameraReachedFinalPosition;
-    // experimental feature on
-    [SerializeField]
-    private bool experimentCamera = false;
-    [SerializeField]
-    private Vector3 changePositionOffset = new Vector3(0, 15, 0);
+
+
+    // experimental feature on    
     private Rigidbody playerRB;
-    private float changePosition;
-    private Vector3 playerMoveDir, playerPrevPos;
-    private float distance;
+    private float changePosition, distance;
+    private Vector3 playerMoveDir, playerPrevPos;    
     //experimental feature off
 
     public void SetPosition(Transform player)
@@ -44,6 +38,11 @@ public class CameraFollow : MonoBehaviour
             changePosition = cameraChanger.transform.position.z;
         }
         //experimental feature off
+    }
+
+    public void SetFocusOnTarget(bool status)
+    {
+        focusTarget = status;
     }
 
     public bool GetCameraReachedFinalPosition()
@@ -108,7 +107,4 @@ public class CameraFollow : MonoBehaviour
             }
         }
     }
-    
-    
 }
-

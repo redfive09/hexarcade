@@ -21,7 +21,7 @@ public class Map : MonoBehaviour
         tiles.GetStarted();
 
         GameObject mapGenerator = GameObject.Find("/MapGenerator");
-        mapGenerator.SetActive(false);
+        if(mapGenerator) mapGenerator.SetActive(false);
     }
 
     private void CreatePlayers()

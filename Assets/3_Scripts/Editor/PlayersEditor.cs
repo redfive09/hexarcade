@@ -10,7 +10,7 @@ public class PlayersEditor : Editor {
         Players players = (Players) target;
         base.OnInspectorGUI();
 
-        if (GUILayout.Button("Instantiate Players"))
+        if (GUILayout.Button("Instantiate Players/Players go to spawn position"))
         {
             GameObject.Find("Map/Tiles").GetComponent<Tiles>().ResetAllLists();
             players.InstantiatePlayers(true);

@@ -238,9 +238,16 @@ public class Tiles : MonoBehaviour
         return specialTiles;
     }
 
-    public Hexagon GetSpawnPosition(int player)
+    public Hexagon GetSpawnPosition(int startingTileNumber)
     {
-        return startingTiles[player][0]; // Instead of 0, it can be more flexible later, for example with a random number, in case there are more startingTiles for that player
+        if(startingTiles.TryGetValue(startingTileNumber, out List<Hexagon> startingTilesList))
+        {
+            return startingTilesList[0]; // Instead of 0, it can be more flexible later, for example with a random number, in case there are more startingTiles for that player
+        }
+        else
+        {
+            return null;
+        }        
     }
 
 

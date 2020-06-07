@@ -11,6 +11,7 @@ public class Ball : MonoBehaviour
     private Rigidbody rb;
     private HexagonBehaviour occupiedTile;
     private Hexagon lastSpawnPosition;
+    private Vector3 firstSpawnPosition;
     private Vector3 lastSpawnOffset;
     private Timer timer;
     private MapSettings settings;
@@ -38,7 +39,8 @@ public class Ball : MonoBehaviour
      */
     public void GetStarted(int playerNumber)
     {
-        this.playerNumber = playerNumber;
+        firstSpawnPosition = transform.position;
+        this.playerNumber = playerNumber;        
         rb = GetComponent<Rigidbody>();
         timer = GetComponentInChildren<Timer>();
         tilesObject = GameObject.Find("Map/Tiles");
@@ -322,6 +324,7 @@ public class Ball : MonoBehaviour
         {
             PlayerArrviedStartingTile();
         }
+
         else if(hexagon.IsWinningTile())
         {
             PlayerWon();
@@ -367,15 +370,24 @@ public class Ball : MonoBehaviour
      *  Let the player spawn above the desired tile
     **/
     public void GoToSpawnPosition(Hexagon spawnTile, Vector3 spawnOffset)
-    {   
-        if(spawnTile == null)
+    {        
+        if(spawnTile != null)
         {
-            spawnTile = tilesObject.GetComponent<Tiles>().GetSpawnPosition(playerNumber);
+            transform.position = spawnTile.transform.position + spawnOffset;
+            lastSpawnPosition = spawnTile;
+            lastSpawnOffset = spawnOffset;
         }
+        else
+        {
+            transform.position = firstSpawnPosition;
+        }
+        
+        
+    }
 
-        transform.position = new Vector3(spawnTile.transform.position.x + spawnOffset.x, spawnTile.transform.position.y + spawnOffset.y, spawnTile.transform.position.z + spawnOffset.z);
-        lastSpawnPosition = spawnTile;
-        lastSpawnOffset = spawnOffset;
+    public Hexagon GetLastSpawnPosition()
+    {
+        return lastSpawnPosition;
     }
 
     public void StopMovement()
@@ -384,8 +396,6 @@ public class Ball : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
     }
-
-
 
     /*
      *  Deactivates the player attached scripts "Ball" and "AccelerometerMovement". Hence all the effects and manipulations caused by them will be absent.

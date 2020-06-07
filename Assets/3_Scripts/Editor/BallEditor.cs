@@ -12,14 +12,14 @@ public class BallEditor : Editor {
 
         Ball ball = (Ball) target;
 
-        if (GUILayout.Button("Go to spawn position"))
-        {
-            MapSettings map = GameObject.Find("Map").GetComponent<MapSettings>();
-            Tiles tiles = GameObject.Find("Map/Tiles").GetComponent<Tiles>();
-            tiles.ResetAllLists();
-            Hexagon startTile = tiles.GetSpawnPosition(ball.GetPlayerNumber());
-            ball.GoToSpawnPosition(startTile, map.GetSpawnPositionOffset());
-            ball.GetComponentInParent<Players>().GetCamera().SetPosition(ball.transform);
-        }
+        // if (GUILayout.Button("Go to spawn position"))
+        // {
+        //     MapSettings map = GameObject.Find("Map").GetComponent<MapSettings>();
+        //     Tiles tiles = GameObject.Find("Map/Tiles").GetComponent<Tiles>();
+        //     tiles.ResetAllLists();
+        //     Hexagon startTile = tiles.GetSpawnPosition(ball.GetPlayerNumber());
+        //     ball.GoToSpawnPosition(startTile, map.GetSpawnPositionOffset());
+        //     ball.GetComponentInParent<Players>().GetCamera().SetPosition(ball.transform);
+        // }
     }
 } // END OF CLASS
