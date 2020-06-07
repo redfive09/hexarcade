@@ -129,7 +129,7 @@ public class TilesEditor : Editor {
                 {
                     int number = hexagon.GetWinningNumber();
                     name += "Winning " + number + nameSeparator;
-                }
+                }  
 
                 hexagon.name = name;
             }

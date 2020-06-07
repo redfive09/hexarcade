@@ -38,6 +38,7 @@ public class Tiles : MonoBehaviour
     public void CollectTiles()
     {
         PrepareLists();
+        ClearEverything();        
         CollectPlatforms();
         CollectTilesForListsAndColorThem();
         
@@ -64,7 +65,7 @@ public class Tiles : MonoBehaviour
             Platform platform = this.transform.GetChild(i).GetComponent<Platform>();
             platform.CollectHexagons();
             platforms.Add(platform);
-        }
+        }        
     }
 
     /*
@@ -345,9 +346,6 @@ public class Tiles : MonoBehaviour
      */
     public void ResetAllLists()
     {
-        PrepareLists();        
-        ClearEverything();
-        CollectPlatforms();
         CollectTiles();
     }
 
