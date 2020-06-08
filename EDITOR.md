@@ -2,7 +2,6 @@
 --> Go to your maps and remove the "PlayerCanvas" (if you instantiated one before). Reason is: There are changes in the PlayerCanvas-prefab and they don't apply to existing ones.
 <br />
 <br />
-<br />
 
 <h3>What to do in a new scene for creating a simple map?</h3>
 1. Add the prefab "MapGenerator" (Folder "4_Map")
@@ -11,7 +10,6 @@
 4. For a winning condition, you need to make another tile to a winning Tile. 
 
 That's already enough for having a simple game with the minimum requirements met.
-<br />
 <br />
 <br />
 
@@ -24,4 +22,5 @@ That's already enough for having a simple game with the minimum requirements met
 * Standard Tiles Means Losing (bool) - Standard Tiles are all hexagons, which doesn't have any function. If you checkmark the boolean, then touching the tile will lead to a loosing condition.
 * Spawn Position Offset (Vector3, floats) - Make sure player touches the startTile at the begin, otherwise the timer won't appear. Standard is (0,1,0).
 <br /><br />
-<b>GameObject "Map", Script "MapSettings":</b>
+<b>GameObject "Players", Script "Players":</b>
+* Instantiate Players/Players go to spawn position (button) - Only necessary, if you want to make changes to the player (e. g. scale of the ball or changes in the PlayerCanvas)
