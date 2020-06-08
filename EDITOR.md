@@ -1,5 +1,5 @@
 <h3>Current task for all who instantiated players on their maps</h3>
-=> Go to your maps and remove the "PlayerCanvas" (if you instantiated one before). Reason is: There are changes in the PlayerCanvas-prefab and they don't apply to existing ones.
+--> Go to your maps and remove the "PlayerCanvas" (if you instantiated one before). Reason is: There are changes in the PlayerCanvas-prefab and they don't apply to existing ones.
 <br />
 <br />
 <br />
