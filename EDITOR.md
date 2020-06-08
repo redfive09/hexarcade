@@ -8,7 +8,7 @@
 2. Click on it and choose one of the buttons "Generate Platform" (or "Generate Tile")<br />
 3. Choose one of the tiles and make it to a starting tile (by entering a positive number)<br />
 4. For a winning condition, you need to make another tile to a winning Tile. <br />
-
+<br />
 That's already enough for having a simple game with the minimum requirements met.
 <br />
 <br />
