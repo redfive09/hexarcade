@@ -26,8 +26,9 @@ using UnityEngine;
         [SerializeField] private int isStartingTile;
         [SerializeField] private int isWinningTile;
         [SerializeField] private Color color;
-                
-        private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here        
+        [SerializeField] private Color markedColor; // in effect when touched by user
+
+    private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here        
 
         private bool isStandardTile = true; // = no special function at all
 
@@ -128,6 +129,11 @@ using UnityEngine;
         public void SetColor()
         {
             SetColor(this.color);
+        }
+
+        public void SetMarkedColor()
+        {
+            SetColor(this.markedColor);
         }
 
         public void SetColor(Color color)
