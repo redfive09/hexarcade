@@ -1,17 +1,19 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+ * This class serves its purpose for the editor in order to change several tiles to a type at once
+ */
+
 public class TilesApplyForAll : MonoBehaviour
 {
-    [SerializeField] private bool applyForAllCrackableTiles = false;
     [SerializeField] private float crackedTileBreaksInSeconds;
-
-    [SerializeField] private bool applyForAllVelocityTiles = false;
     [SerializeField] private float velocity;
 
 
-   public void GetStarted(Dictionary<int, List<Hexagon>>[] tiles)
-    {        
+    public void SetTiles(bool setCrackables, bool setSpecialVelocity)
+    {
+        Dictionary<int, List<Hexagon>>[] tiles = GetComponent<Tiles>().GetAllTiles();
         for(int h = 0; h < tiles.Length; h++)
         {            
             int sizeOfDictionary = tiles[h].Count;
@@ -22,13 +24,13 @@ public class TilesApplyForAll : MonoBehaviour
                 {
                     for(int k = 0; k < hexagonList.Count; k++)
                     {
-                        if(applyForAllCrackableTiles)
+                        if(setCrackables)
                         {
                             HexagonBehaviour hexagon = hexagonList[k].GetComponent<HexagonBehaviour>();
                             hexagon.SetCrackedTileBreaksInTime(crackedTileBreaksInSeconds);
                         }
 
-                        if(applyForAllVelocityTiles)
+                        if(setSpecialVelocity)
                         {
                             HexagonSpecial hexagon = hexagonList[k].GetComponent<HexagonSpecial>();
                             hexagon.SetVelocity(velocity);

@@ -24,15 +24,6 @@ public class Tiles : MonoBehaviour
     {        
         CollectTiles();
         GetComponent<TileColorsIntroduction>().GetStarted();
-
-
-        // In order to make sure it works on old maps, too
-        
-        if(!GetComponent<TilesApplyForAll>())
-        {
-            gameObject.AddComponent<TilesApplyForAll>();
-        }
-        GetComponent<TilesApplyForAll>().GetStarted(tileLists);        
     }
 
     public void CollectTiles()
@@ -237,6 +228,11 @@ public class Tiles : MonoBehaviour
     {        
         return specialTiles;
     }
+    public Dictionary<int, List<Hexagon>>[] GetAllTiles()
+    {
+        return tileLists;
+    } 
+
 
     public Hexagon GetSpawnPosition(int startingTileNumber)
     {

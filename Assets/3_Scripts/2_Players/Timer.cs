@@ -79,6 +79,11 @@ public class Timer : MonoBehaviour
         return bestTime;
     }
 
+    public float GetCurrentTime()
+    {
+        return timeCounter;
+    }
+
     public void SetStopWatch(float seconds)
     {
         stopwatchTime = Time.fixedTime + seconds;

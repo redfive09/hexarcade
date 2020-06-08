@@ -125,10 +125,10 @@ public class HexagonSpecial : MonoBehaviour
 
     public string GetNameOfFunction()
     {
-        string prefix = " -> ";
+        string prefix = "-> ";
         
         if(specialCase == TELEPORTER) return prefix + nameof(TELEPORTER).ToLower();
-        if(specialCase == VELOCITY) return prefix + nameof(VELOCITY).ToLower();
+        if(specialCase == VELOCITY) return prefix + nameof(VELOCITY).ToLower() + " " + velocity;
 
         return "";
     }

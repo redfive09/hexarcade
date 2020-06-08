@@ -202,6 +202,7 @@ public class Ball : MonoBehaviour
                 /* --------------- STATUS: PLAYER LOST, PLAYER MET A LOSE CONDITION ---------------  */
     private void PlayerLost()
     {
+        Debug.Log("Time at loosing: " + timer.GetCurrentTime());
         timer.Disappear();
         StopMovement();
         //GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
@@ -301,16 +302,7 @@ public class Ball : MonoBehaviour
         {
             PlayerLeftStartingTile();            
         }
-
-        else if(hexagon.IsWinningTile())
-        {
-            
-        }
         
-        else if(hexagon.IsStandardTile() && settings.DoesStandardTilesMeansLosing())
-        {
-            PlayerLost();
-        }
     }
 
 

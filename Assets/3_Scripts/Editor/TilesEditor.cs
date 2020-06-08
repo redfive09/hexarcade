@@ -12,6 +12,8 @@ public class TilesEditor : Editor {
         base.OnInspectorGUI();
 
         Tiles tiles = (Tiles) target;
+
+        // GUILayout.
         
         if (GUILayout.Button("Clearify Names for Non-Standard Tiles"))
         {
@@ -24,7 +26,6 @@ public class TilesEditor : Editor {
             tiles.CollectTiles();
             AddScriptToAllHexagonChildren(tiles.GetPlatforms());
         }
-
 
 
         // if (GUILayout.Button("Print pathTiles"))
@@ -86,7 +87,7 @@ public class TilesEditor : Editor {
                 if(hexagon.IsCrackedTile())
                 {
                     int number = hexagon.GetCrackedNumber();
-                    name += "Cracked " + number + nameSeparator;
+                    name += "Cracked " + number + " -> Time: " + hexagon.GetComponent<HexagonBehaviour>().GetCrackedTileBreaksInTime() + nameSeparator;
                 }
 
                 if(hexagon.IsPathTile())

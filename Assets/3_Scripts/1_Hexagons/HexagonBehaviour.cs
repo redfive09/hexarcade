@@ -166,4 +166,12 @@ public class HexagonBehaviour : MonoBehaviour
     {
         crackedTileBreaksInSeconds = seconds;
     }
+
+
+    /* ------------------------------ GETTER METHODS BEGINN ------------------------------  */
+    public float GetCrackedTileBreaksInTime()
+    {
+        return crackedTileBreaksInSeconds;
+    }
+
 }
