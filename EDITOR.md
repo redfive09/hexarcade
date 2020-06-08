@@ -4,10 +4,10 @@
 <br />
 
 <h3>What to do in a new scene for creating a simple map?</h3>
-1. Add the prefab "MapGenerator" (Folder "4_Map")
-2. Click on it and choose one of the buttons "Generate Platform" (or "Generate Tile")
-3. Choose one of the tiles and make it to a starting tile (by entering a positive number)
-4. For a winning condition, you need to make another tile to a winning Tile. 
+1. Add the prefab "MapGenerator" (Folder "4_Map")<br />
+2. Click on it and choose one of the buttons "Generate Platform" (or "Generate Tile")<br />
+3. Choose one of the tiles and make it to a starting tile (by entering a positive number)<br />
+4. For a winning condition, you need to make another tile to a winning Tile. <br />
 
 That's already enough for having a simple game with the minimum requirements met.
 <br />
