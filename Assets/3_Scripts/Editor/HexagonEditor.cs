@@ -22,11 +22,16 @@ public class HexagonEditor : Editor {
             hexagon.SetColor();
         }
 
-        if (GUILayout.Button("Delete Hexagon"))
+        if (GUILayout.Button("Add Distraction Script"))
         {
-            // bool inEditor = !EditorApplication.isPlaying;
-            hexagon.DestroyHexagon(true, 0);
+            hexagon.gameObject.AddComponent<HexagonDistraction>();
         }
+
+        // if (GUILayout.Button("Delete Hexagon"))
+        // {
+        //     // bool inEditor = !EditorApplication.isPlaying;
+        //     hexagon.DestroyHexagon(true, 0);
+        // }
 
     }
 } // END OF CLASS

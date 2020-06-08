@@ -13,34 +13,20 @@ public class TilesApplyForAll : MonoBehaviour
 
     public void SetTiles(bool setCrackables, bool setSpecialVelocity)
     {
-        Dictionary<int, List<Hexagon>>[] tiles = GetComponent<Tiles>().GetAllTiles();
-        for(int h = 0; h < tiles.Length; h++)
-        {            
-            int sizeOfDictionary = tiles[h].Count;
+        Hexagon[] tiles = GetComponent<Tiles>().GetAllTiles();
 
-            for(int i = 0; i < sizeOfDictionary; i++)
+        for(int i = 0; i < tiles.Length; i++)
+        {
+            if(setCrackables)
             {
-                if(tiles[h].TryGetValue(i, out List<Hexagon> hexagonList))
-                {
-                    for(int k = 0; k < hexagonList.Count; k++)
-                    {
-                        if(setCrackables)
-                        {
-                            HexagonBehaviour hexagon = hexagonList[k].GetComponent<HexagonBehaviour>();
-                            hexagon.SetCrackedTileBreaksInTime(crackedTileBreaksInSeconds);
-                        }
+                HexagonBehaviour hexagon = tiles[i].GetComponent<HexagonBehaviour>();
+                hexagon.SetCrackedTileBreaksInTime(crackedTileBreaksInSeconds);
+            }
 
-                        if(setSpecialVelocity)
-                        {
-                            HexagonSpecial hexagon = hexagonList[k].GetComponent<HexagonSpecial>();
-                            hexagon.SetVelocity(velocity);
-                        }                        
-                    }
-                }
-                else
-                {
-                    sizeOfDictionary++;
-                }
+            if(setSpecialVelocity)
+            {
+                HexagonSpecial hexagon = tiles[i].GetComponent<HexagonSpecial>();
+                hexagon.SetVelocity(velocity);
             }
         }
     }

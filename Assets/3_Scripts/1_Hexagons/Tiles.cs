@@ -15,6 +15,11 @@ public class Tiles : MonoBehaviour
     private Dictionary<int, List<Hexagon>> startingTiles = new Dictionary<int, List<Hexagon>>();        // 6
     private Dictionary<int, List<Hexagon>> winningTiles = new Dictionary<int, List<Hexagon>>();         // 7
     private Dictionary<int, List<Hexagon>>[] tileLists;         // all Dictionaries will be added into this area
+    
+
+    // all tiles in beginning get added to this array, but be careful using it, since deletion of a Hexagon can occur during game and array does not get updated about that
+    private Hexagon[] allTiles;
+
     private List<Hexagon> standardTiles = new List<Hexagon>();  // list of all tiles without any special purpose
 
 
@@ -31,7 +36,7 @@ public class Tiles : MonoBehaviour
         PrepareLists();
         ClearEverything();        
         CollectPlatforms();
-        CollectTilesForListsAndColorThem();        
+        CollectTilesForListsAndColorThem();
     }
 
     private void PrepareLists()
@@ -49,13 +54,16 @@ public class Tiles : MonoBehaviour
     }
 
     private void CollectPlatforms()
-    {        
+    {
+        int numberOfTiles = 0;        
         for(int i = 0; i < this.transform.childCount; i++)
         {
             Platform platform = this.transform.GetChild(i).GetComponent<Platform>();
             platform.CollectHexagons();
             platforms.Add(platform);
-        }        
+            numberOfTiles += platform.GetNumberOfHexagons();            
+        }
+        allTiles = new Hexagon[numberOfTiles];
     }
 
     /*
@@ -63,13 +71,15 @@ public class Tiles : MonoBehaviour
      *  At the end, give it its individual colour settings
      */
     private void CollectTilesForListsAndColorThem()
-    {   
+    {
+        int tilesCounter = 0;
         for(int i = 0; i < platforms.Count; i++)
         {
             List<Hexagon> platformTiles = platforms[i].GetTilesList();
             for(int k = 0; k < platformTiles.Count; k++)
-            {                
+            {
                 Hexagon hexagon = platformTiles[k];
+                allTiles[tilesCounter] = hexagon;
                 hexagon.SetStandardTile(true);
 
                 if(hexagon.IsCrackedTile())
@@ -88,6 +98,10 @@ public class Tiles : MonoBehaviour
                 {
                     SaveHexagonInList(distractionTiles, hexagon, hexagon.GetDistractionNumber());
                     hexagon.SetStandardTile(false);
+
+                    if(!hexagon.GetComponent<HexagonDistraction>()) hexagon.gameObject.AddComponent<HexagonDistraction>();
+
+                    hexagon.GetComponent<HexagonDistraction>().GetStarted(hexagon.GetDistractionNumber(), platforms[i].GetAllPlatformTiles(), allTiles);
                 }
 
                 if(hexagon.IsCheckpointTile())
@@ -129,8 +143,9 @@ public class Tiles : MonoBehaviour
 
                 Color[] getAllTouchingColors = this.GetComponent<TileColorsTouching>().GiveColorSet(); // get all Colors when the ball for touching and leaving a hexagon
                 hexagon.GetComponent<HexagonBehaviour>().SetColors(getAllTouchingColors); // give current hexagon the set, in order to get its individual color settings
+                tilesCounter++;
             }
-        }
+        }        
     }
 
     public void SaveHexagonInList(Dictionary<int, List<Hexagon>> tiles, Hexagon hexagon, int index)
@@ -228,9 +243,9 @@ public class Tiles : MonoBehaviour
     {        
         return specialTiles;
     }
-    public Dictionary<int, List<Hexagon>>[] GetAllTiles()
+    public Hexagon[] GetAllTiles()
     {
-        return tileLists;
+        return allTiles;
     } 
 
 
