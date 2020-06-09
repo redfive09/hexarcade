@@ -50,7 +50,7 @@ public class Ball : MonoBehaviour
         CameraFollow cameraFollow = GetComponentInParent<Players>().GetCamera();
         
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
-        loseHeight = loseTile.transform.position.y;
+        loseHeight = loseTile.transform.position.y;        
  
         StartCoroutine(Introduction(cameraFollow));
     }
@@ -87,7 +87,7 @@ public class Ball : MonoBehaviour
         bool chooseCheckPoints = settings.GetNumberOfCheckpoints() > 0;             // are there any checkpoints to choose for this map
 
         tileColorsIntroduction.DisplayTiles(chooseCheckPoints);                     // display the non-standard tiles
-
+        
         if(chooseCheckPoints)
         {
             Tiles tiles = tilesObject.GetComponent<Tiles>();                        // get the script of tiles
@@ -133,11 +133,9 @@ public class Ball : MonoBehaviour
         {
             yield return new WaitForSeconds(0.2f);
         }
-        
-        timer.Disappear();
-
+                
+        timer.Disappear();        
         GameStarts();
-
     }
 
 
@@ -155,8 +153,8 @@ public class Ball : MonoBehaviour
      *  The player gets its controls and the timer will show up
      */
     private void GameStarts()
-    {
-        ActivatePlayerControls();        
+    {        
+        ActivatePlayerControls();
         StartCoroutine(CheckLoseCondition());
     }
 
@@ -187,7 +185,17 @@ public class Ball : MonoBehaviour
         timer.ShowLastFinishTime();
 
         Debug.Log("Finish time: " + timer.GetLastFinishTime());
-        SceneManager.LoadScene("1_Scenes/Menus/Win");
+
+        if(settings.IsRestartingInsteadOfMenu())
+        {
+            StopMovement();
+            GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
+        }
+        else
+        {
+            SceneManager.LoadScene("1_Scenes/Menus/Win");
+        }
+        
         if(timer.IsNewBestTime())
         {
             Debug.Log("New record");
@@ -205,9 +213,16 @@ public class Ball : MonoBehaviour
         Debug.Log("Time at loosing: " + timer.GetCurrentTime());
         timer.Disappear();
         StopMovement();
-        //GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
-        SceneManager.LoadScene("1_Scenes/Menus/GameOverMenu");
-
+        
+        if(settings.IsRestartingInsteadOfMenu())
+        {
+            StopMovement();
+            GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
+        }
+        else
+        {
+            SceneManager.LoadScene("1_Scenes/Menus/GameOverMenu");
+        }
     }
     
             /* --------------- STATUS: GAME PAUSED ---------------  */
@@ -333,13 +348,14 @@ public class Ball : MonoBehaviour
      *  This is constantly checking if a lose condition (ball fell to deep) has met
      *  It's packed in a coroutine, so it is not called every single frame -> saves performance
      */
-    IEnumerator CheckLoseCondition()
-    {
+    private IEnumerator CheckLoseCondition()
+    {        
         // Lose condition through falling
         for(;;)
         {
             if(loseHeight > transform.position.y)
             {
+                Debug.Log("lost");
                 PlayerLost();
             }
             yield return new WaitForSeconds(0.2f);

@@ -10,6 +10,7 @@ public class MapSettings : MonoBehaviour
     [SerializeField] private float stoptimeForCheckpoints; //  smaller/equal to zero means, no stopwatch for choosing the checkpoints
     [SerializeField] private bool standardTilesMeansLosing;
     [SerializeField] private Vector3 spawnPositionOffset = new Vector3(0, 1, 0);
+    [SerializeField] private bool restartingInsteadOfMenu;
 
 
     public bool IsIntroductionScreen()
@@ -35,6 +36,11 @@ public class MapSettings : MonoBehaviour
     public Vector3 GetSpawnPositionOffset()
     {
         return spawnPositionOffset;
+    }
+
+    public bool IsRestartingInsteadOfMenu()
+    {
+        return restartingInsteadOfMenu;
     }
     
 
