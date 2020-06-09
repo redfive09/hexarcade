@@ -114,7 +114,7 @@ public class TileColorsIntroduction : MonoBehaviour
         {
             if(colorList.TryGetValue(i, out List<Hexagon> hexagonList)) // if the key is available, then just procceed
             {
-                List<Hexagon> hexagons = colorList[i];
+                List<Hexagon> hexagons = hexagonList;
             
                 for(int k = 0; k < hexagons.Count; k++)
                 {
