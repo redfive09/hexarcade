@@ -121,7 +121,10 @@ public class HexagonDistraction : MonoBehaviour
                 if(hexagon != null)
                 {
                     hexagon.SetColor(GetRandomColor());
-                    StartCoroutine(SetColorBack(hexagon));
+                    if(timeUntilChangingColourBack > 0)
+                    {
+                        StartCoroutine(SetColorBack(hexagon));
+                    }                    
                 }
             }            
 
