@@ -72,9 +72,9 @@ public class PlatformEditor : Editor {
             platform.UntagAllHexagons();
         }
         
-        if (GUILayout.Button("Delete Platform"))
-        {
-            platform.DestroyPlatform(true);
-        }
+        // if (GUILayout.Button("Delete Platform"))
+        // {
+        //     platform.DestroyPlatform(true);
+        // }
     }
 } // END OF CLASS
