@@ -111,8 +111,8 @@ public class TilesEditor : Editor {
 
                 if(hexagon.IsDistractionTile())
                 {
-                    int number = hexagon.GetDistractionNumber();
-                    name += "Distraction " + number + nameSeparator;
+                    HexagonDistraction distractionHexagon = hexagon.GetComponent<HexagonDistraction>();
+                    name += "Distraction " + distractionHexagon.GetNameOfFunction() + nameSeparator;
                 }
 
                 if(hexagon.IsCheckpointTile())

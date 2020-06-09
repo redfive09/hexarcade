@@ -24,7 +24,7 @@ public class HexagonEditor : Editor {
 
         if (GUILayout.Button("Add Distraction Script"))
         {
-            hexagon.gameObject.AddComponent<HexagonDistraction>();
+            if(!hexagon.GetComponent<HexagonDistraction>()) hexagon.gameObject.AddComponent<HexagonDistraction>();
         }
 
         // if (GUILayout.Button("Delete Hexagon"))

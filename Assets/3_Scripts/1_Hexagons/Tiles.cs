@@ -15,6 +15,7 @@ public class Tiles : MonoBehaviour
     private Dictionary<int, List<Hexagon>> startingTiles = new Dictionary<int, List<Hexagon>>();        // 6
     private Dictionary<int, List<Hexagon>> winningTiles = new Dictionary<int, List<Hexagon>>();         // 7
     private Dictionary<int, List<Hexagon>>[] tileLists;         // all Dictionaries will be added into this area
+    private Dictionary<Hexagon, Color> tileColors = new Dictionary<Hexagon, Color>();
     
 
     // all tiles in beginning get added to this array, but be careful using it, since deletion of a Hexagon can occur during game and array does not get updated about that
@@ -80,6 +81,7 @@ public class Tiles : MonoBehaviour
             {
                 Hexagon hexagon = platformTiles[k];
                 allTiles[tilesCounter] = hexagon;
+                tileColors[hexagon] = hexagon.GetColor();
                 hexagon.SetStandardTile(true);
 
                 if(hexagon.IsCrackedTile())
@@ -101,7 +103,8 @@ public class Tiles : MonoBehaviour
 
                     if(!hexagon.GetComponent<HexagonDistraction>()) hexagon.gameObject.AddComponent<HexagonDistraction>();
 
-                    hexagon.GetComponent<HexagonDistraction>().GetStarted(hexagon.GetDistractionNumber(), platforms[i].GetAllPlatformTiles(), allTiles);
+                    hexagon.GetComponent<HexagonDistraction>().GetStarted(hexagon.GetDistractionNumber(), platforms[i].GetAllPlatformTiles(), 
+                                                                            allTiles, tileColors, distractionTiles);
                 }
 
                 if(hexagon.IsCheckpointTile())

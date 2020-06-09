@@ -5,7 +5,7 @@ using UnityEngine;
 public class HexagonSpecial : MonoBehaviour
 {    
 
-    /* ------------------------------ SerializeFields ------------------------------  */
+    /* ------------------------------ [SerializeFields] ------------------------------  */
     // Teleporter values
     [SerializeField] private bool teleporterEntrance;
     [SerializeField] private int teleporterNumber;
@@ -14,15 +14,15 @@ public class HexagonSpecial : MonoBehaviour
     [SerializeField] private float velocity;
 
 
-    /* ------------------------------ USEAGE OF SPECIAL-TILES ------------------------------  */  
+    /* ------------------------------ SPECIAL-TILE NUMBERS ------------------------------  */
+    private int specialCase;
     private const int TELEPORTER = 0;
     private const int VELOCITY = 1;
 
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */    
-    private List<Ball> players = new List<Ball>();
-    private int specialCase;
     private Dictionary<int, List<Hexagon>> specialTiles;
+    private List<Ball> players = new List<Ball>();
     private int getIndexNumberInList;
     private Hexagon thisHexagon;
     
