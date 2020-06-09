@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
 
-    public Scene nextScene;
+    public string nextScene;
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+       // SceneManager.LoadScene(1);
+        SceneManager.LoadScene("1_Scenes/Tutorial_Levels/Scene1");
+
     }
 
     public void QuitGame()
