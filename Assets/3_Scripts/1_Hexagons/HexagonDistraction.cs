@@ -17,10 +17,15 @@ public class HexagonDistraction : MonoBehaviour
     private Dictionary<Hexagon, Color> tileColors;
     private bool blinking;
     
+    /* ------------------------------ FIELDS FOR SCOLLING TEXT ------------------------------  */
+    [SerializeField] private GameObject _scrollingText;
+
     /* ------------------------------ DISTRACTION-TILES NUMBERS ------------------------------  */
     private int distractionCase;
     private const int BLINKING_START = 0;
-    private const int BLINKING_STOPP = 1;
+    private const int BLINKING_STOP = 1;
+    private const int SCROLLING_TEXT = 2;
+    private const int SCROLLING_TEXT_STOP = 3;
 
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */    
@@ -65,10 +70,29 @@ public class HexagonDistraction : MonoBehaviour
                 }
                 break;
 
-            case BLINKING_STOPP:
+            case BLINKING_STOP:
                 StopBlinking();
                 if(setColorBackImmediately) SetColorBackImmediately();
                 break;
+            
+            case SCROLLING_TEXT:
+                if (!wasTouchedBefore)
+                {
+                    GameObject ScrollingText = Instantiate(_scrollingText);
+                    var Distraction = new GameObject();
+                    Distraction.name = "Player" + (player.GetPlayerNumber() + 1);
+                    Distraction.transform.parent = GameObject.Find("/Map/Distractions").transform;
+                    ScrollingText.transform.parent = Distraction.transform;
+                }
+                break;
+
+            case SCROLLING_TEXT_STOP:
+            {
+                string distractionFolder = "/Map/Distractions/Player" + (player.GetPlayerNumber() + 1);
+                GameObject distraction = GameObject.Find(distractionFolder);
+                Destroy	(distraction);
+                break;
+            }
         }
 
         wasTouchedBefore = true;
@@ -241,7 +265,7 @@ public class HexagonDistraction : MonoBehaviour
         string prefix = "-> ";
         
         if(distractionCase == BLINKING_START) return prefix + nameof(BLINKING_START).ToLower() + " length: " + lengthOfBlinkingDistraction;
-        if(distractionCase == BLINKING_STOPP) return prefix + nameof(BLINKING_STOPP).ToLower();
+        if(distractionCase == BLINKING_STOP) return prefix + nameof(BLINKING_STOP).ToLower();
 
         return "";
     }
