@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 12240683}
   - component: {fileID: 12240682}
   m_Layer: 0
-  m_Name: '3, -1 || '
+  m_Name: '3, -1 || Special -> teleporter, 0 to 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,10 +342,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleporterEntrance: 0
+  teleporterEntrance: 1
+  keepSpeedThroughTeleporter: 1
+  reverseSpeed: 0
   teleporterNumber: 0
-  teleporterConnectedWith: 0
+  teleporterConnectedWith: 1
+  teleporterOffset: {x: 0, y: 1, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &12240683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,11 +398,11 @@ MonoBehaviour:
   isPath: -1
   isDistractionTile: -1
   isCheckpointTile: -1
-  isSpecialTile: -1
+  isSpecialTile: 0
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
-  color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  color: {r: 0.8584906, g: 0.49567452, b: 0.16602883, a: 0}
 --- !u!23 &12240686
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -483,7 +487,7 @@ GameObject:
   - component: {fileID: 26786261}
   - component: {fileID: 26786260}
   m_Layer: 0
-  m_Name: '3, 0 || '
+  m_Name: '3, 0 || Special -> jumpad (0.0, 100.0, 0.0) || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -517,9 +521,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 100, z: 0}
 --- !u!114 &26786261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,11 +576,11 @@ MonoBehaviour:
   isPath: -1
   isDistractionTile: -1
   isCheckpointTile: -1
-  isSpecialTile: -1
+  isSpecialTile: 2
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
-  color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  color: {r: 0.3490566, g: 0.04774832, b: 0.056784038, a: 0}
 --- !u!23 &26786264
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1030,6 +1038,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42865007}
   m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
+--- !u!21 &44384306
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hexagon (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.85882354, g: 0.49411765, b: 0.16470589, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &44460875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,9 +1164,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &44460878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1255,9 +1342,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &57911683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1504,9 +1595,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &64409814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1652,7 +1747,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73342928}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.92485, y: -10, z: -3.680128}
+  m_LocalPosition: {x: 19.92485, y: -17.96, z: -3.680128}
   m_LocalScale: {x: 1, y: 41.49744, z: 1}
   m_Children:
   - {fileID: 1674811563}
@@ -2853,9 +2948,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &170284631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3027,9 +3126,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &176730657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3150,14 +3253,14 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!21 &185271600
+--- !u!21 &180265834
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hexagon (Instance)
+  m_Name: Hexagon (Instance) (Instance)
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -3223,82 +3326,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
---- !u!21 &191208075
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hexagon (Instance)
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+    - _Color: {r: 0.85882354, g: 0.49411765, b: 0.16470589, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &194381108
 GameObject:
@@ -3351,9 +3379,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &194381111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3849,9 +3881,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &265131470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4023,9 +4059,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &279778273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4557,9 +4597,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &326260672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4836,9 +4880,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &341569479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4959,6 +5007,81 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!21 &343015951
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hexagon (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.85882354, g: 0.49411765, b: 0.16470589, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!21 &349771396
 Material:
   serializedVersion: 6
@@ -5160,9 +5283,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &357370984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5334,9 +5461,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &358184427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5579,7 +5710,7 @@ GameObject:
   - component: {fileID: 371647378}
   - component: {fileID: 371647377}
   m_Layer: 0
-  m_Name: '2, -3 || '
+  m_Name: '2, -3 || Special -> teleporter, 2 to 3 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5593,8 +5724,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371647375}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 0, z: -4.695}
-  m_LocalScale: {x: 1, y: 41.49744, z: 1}
+  m_LocalPosition: {x: 6.02, y: -13.92, z: -2.48}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 434852218}
   m_Father: {fileID: 99255202}
@@ -5612,10 +5743,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
+  teleporterEntrance: 1
+  keepSpeedThroughTeleporter: 1
+  reverseSpeed: 0
+  teleporterNumber: 2
+  teleporterConnectedWith: 3
+  teleporterOffset: {x: 0, y: -0.5, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &371647378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5664,11 +5799,11 @@ MonoBehaviour:
   isPath: -1
   isDistractionTile: -1
   isCheckpointTile: -1
-  isSpecialTile: -1
+  isSpecialTile: 0
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
-  color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  color: {r: 0.85882354, g: 0.49411765, b: 0.16470589, a: 0}
 --- !u!23 &371647381
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5862,9 +5997,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &375199088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6111,9 +6250,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &403583358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6234,81 +6377,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!21 &404213645
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hexagon (Instance)
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!21 &404612271
 Material:
   serializedVersion: 6
@@ -6746,7 +6814,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1937556599}
+  - {fileID: 180265834}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7035,9 +7103,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &475541027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7209,9 +7281,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &482958544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7383,9 +7459,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &491272983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7557,9 +7637,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &496681980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7757,7 +7841,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1219685131}
+  - {fileID: 1680539325}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7785,6 +7869,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515148821}
   m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
+--- !u!21 &516196480
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hexagon (Instance) (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.14509805, g: 0.5254902, b: 0.74509805, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &530275708
 GameObject:
   m_ObjectHideFlags: 0
@@ -7890,6 +8049,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530275708}
   m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
+--- !u!21 &532066041
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hexagon (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.3490566, g: 0.04774832, b: 0.056784038, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &535169911
 GameObject:
   m_ObjectHideFlags: 0
@@ -7941,9 +8175,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &535169914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8372,7 +8610,7 @@ GameObject:
   - component: {fileID: 577908836}
   - component: {fileID: 577908835}
   m_Layer: 0
-  m_Name: '3, 2 || '
+  m_Name: '3, 2 || Special -> teleporter-exit || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8385,8 +8623,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577908833}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.3999996, y: 0, z: 3.13}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3, y: 20.8, z: -0.4}
   m_LocalScale: {x: 1, y: 41.49744, z: 1}
   m_Children:
   - {fileID: 515148822}
@@ -8406,9 +8644,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
-  teleporterNumber: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
+  teleporterNumber: 3
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &577908836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8457,11 +8699,11 @@ MonoBehaviour:
   isPath: -1
   isDistractionTile: -1
   isCheckpointTile: -1
-  isSpecialTile: -1
+  isSpecialTile: 0
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
-  color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  color: {r: 0.85882354, g: 0.3647059, b: 0.16470589, a: 0}
 --- !u!23 &577908839
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9154,8 +9396,9 @@ GameObject:
   - component: {fileID: 606105066}
   - component: {fileID: 606105065}
   - component: {fileID: 606105064}
+  - component: {fileID: 606105071}
   m_Layer: 0
-  m_Name: '2, -2 || '
+  m_Name: '2, -2 || Distraction -> blinking_start, length: 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9189,9 +9432,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &606105065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9238,7 +9485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCrackedTile: -1
   isPath: -1
-  isDistractionTile: -1
+  isDistractionTile: 0
   isCheckpointTile: -1
   isSpecialTile: -1
   isMovingTile: -1
@@ -9312,6 +9559,25 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &606105071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606105062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b349a7d5859fbf044ab1ccb4320c8a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onlyThisPlatformIsBlinking: 0
+  multipleActivationsPossible: 0
+  numberOfBlinkingTilesPerCycle: 0
+  lengthOfBlinkingDistraction: 0
+  timeToNextBlinkingCycle: 0
+  timeUntilChangingColourBack: 0
+  setColorBackImmediately: 0
 --- !u!1 &616912491
 GameObject:
   m_ObjectHideFlags: 0
@@ -9363,9 +9629,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &616912494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10031,10 +10301,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
+  teleporterEntrance: 1
+  keepSpeedThroughTeleporter: 1
+  reverseSpeed: 1
+  teleporterNumber: 4
+  teleporterConnectedWith: 5
+  teleporterOffset: {x: 0, y: 3, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &661634440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10083,11 +10357,11 @@ MonoBehaviour:
   isPath: -1
   isDistractionTile: -1
   isCheckpointTile: -1
-  isSpecialTile: -1
+  isSpecialTile: 0
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
-  color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  color: {r: 0.85882354, g: 0.49411765, b: 0.16470589, a: 0}
 --- !u!23 &661634443
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10431,9 +10705,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &714479634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10710,9 +10988,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &753299143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11289,9 +11571,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &782539030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11793,9 +12079,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &798519849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11916,81 +12206,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!21 &802349691
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hexagon (Instance)
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &807679591
 GameObject:
   m_ObjectHideFlags: 0
@@ -12042,9 +12257,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &807679594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12216,9 +12435,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &817190285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12390,9 +12613,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &824809569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12564,9 +12791,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &829683288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13023,9 +13254,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &863540163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13164,7 +13399,7 @@ GameObject:
   - component: {fileID: 877172103}
   - component: {fileID: 877172110}
   m_Layer: 0
-  m_Name: '-3, -1 || Path 1 || Distraction -> blinking_start length: 5 || '
+  m_Name: '-3, -1 || Path 1 || Distraction -> blinking_start, length: 5 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13198,9 +13433,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &877172104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13664,9 +13903,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &896565189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13864,7 +14107,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 404213645}
+  - {fileID: 1134135206}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14089,7 +14332,7 @@ GameObject:
   - component: {fileID: 920050963}
   - component: {fileID: 920050962}
   m_Layer: 0
-  m_Name: '1, 0 || '
+  m_Name: '1, 0 || Special -> velocity 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14122,10 +14365,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleporterEntrance: 0
+  teleporterEntrance: 1
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &920050963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14792,7 +15039,7 @@ MonoBehaviour:
   pathTilesColor: {r: 0, g: 0, b: 0, a: 0}
   distractionTilesColor: {r: 0.17294808, g: 0.8396226, b: 0.14653791, a: 0}
   checkpointTilesColor: {r: 0.8396226, g: 0.8097252, b: 0.10693307, a: 0}
-  specialTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  specialTilesColor: {r: 0.8584906, g: 0.49567452, b: 0.16602883, a: 0}
   movingTilesColor: {r: 0, g: 0, b: 0, a: 0}
   startingTilesColor: {r: 0.5882353, g: 0.06666667, b: 0.94509804, a: 0}
   winningTilesColor: {r: 0, g: 0, b: 0, a: 0}
@@ -14983,7 +15230,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 185271600}
+  - {fileID: 44384306}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15062,9 +15309,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &978585557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15547,9 +15798,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1001086597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15747,7 +16002,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2011837947}
+  - {fileID: 2087361970}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15901,9 +16156,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1015862582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16024,81 +16283,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!21 &1025756292
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hexagon (Instance) (Instance)
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 0.17294808, g: 0.8396226, b: 0.14653791, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1035549090
 GameObject:
   m_ObjectHideFlags: 0
@@ -16330,9 +16514,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1042169934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16505,9 +16693,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1051906123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16560,7 +16752,7 @@ MonoBehaviour:
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
-  color: {r: 0.17294808, g: 0.8396226, b: 0.14653791, a: 0}
+  color: {r: 0.7475375, g: 0.8392157, b: 0.14509802, a: 0}
 --- !u!23 &1051906126
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16724,7 +16916,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1619159784}
+  - {fileID: 343015951}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17088,9 +17280,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1087347492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17262,9 +17458,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1097828134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17462,7 +17662,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 191208075}
+  - {fileID: 516196480}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17880,6 +18080,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132701394}
   m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
+--- !u!21 &1134135206
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hexagon (Instance) (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.85882354, g: 0.3647059, b: 0.16470587, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1138651488
 GameObject:
   m_ObjectHideFlags: 0
@@ -18471,9 +18746,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1200120190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18699,81 +18978,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218647129}
   m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
---- !u!21 &1219685131
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hexagon (Instance)
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1227877623
 GameObject:
   m_ObjectHideFlags: 0
@@ -18851,7 +19055,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1025756292}
+  - {fileID: 1768517697}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18930,9 +19134,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1229028684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19179,9 +19387,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1236760385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19533,9 +19745,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1280854695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19887,9 +20103,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1301517433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20316,9 +20536,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1337886809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20595,9 +20819,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1349993038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20844,9 +21072,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1371804994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21303,9 +21535,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1396734942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21837,9 +22073,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1441361293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22221,9 +22461,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1447122658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22395,9 +22639,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1459490317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22674,9 +22922,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1505709560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22848,9 +23100,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1506932288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23048,7 +23304,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 802349691}
+  - {fileID: 532066041}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23127,9 +23383,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1584278075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23640,81 +23900,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609247141}
   m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
---- !u!21 &1619159784
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hexagon (Instance)
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1626857057
 GameObject:
   m_ObjectHideFlags: 0
@@ -23766,9 +23951,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1626857060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23940,9 +24129,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1626874250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24114,9 +24307,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1628379707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24540,6 +24737,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674811562}
   m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
+--- !u!21 &1680539325
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hexagon (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.85882354, g: 0.3647059, b: 0.16470589, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1689128892
 GameObject:
   m_ObjectHideFlags: 0
@@ -24591,9 +24863,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1689128895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24764,10 +25040,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
+  teleporterEntrance: 1
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
+  teleporterNumber: 5
+  teleporterConnectedWith: 4
+  teleporterOffset: {x: 3, y: 3, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1696710615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24820,7 +25100,7 @@ MonoBehaviour:
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
-  color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  color: {r: 0.14509805, g: 0.5254902, b: 0.74509805, a: 0}
 --- !u!23 &1696710618
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24939,9 +25219,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1716108020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25188,9 +25472,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1756228515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25512,9 +25800,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1761381279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25686,9 +25978,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1766916673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25809,6 +26105,81 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!21 &1768517697
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hexagon (Instance) (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.7475375, g: 0.8392157, b: 0.14509802, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1774382002
 GameObject:
   m_ObjectHideFlags: 0
@@ -26145,9 +26516,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1810410591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26424,9 +26799,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1815429593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26598,9 +26977,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1821507320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26847,9 +27230,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1846499952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27096,9 +27483,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1873260709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27312,7 +27703,7 @@ GameObject:
   - component: {fileID: 1883127931}
   - component: {fileID: 1883127938}
   m_Layer: 0
-  m_Name: '-1, -1 || Path 5 || Distraction -> blinking_start length: 15 || '
+  m_Name: '-1, -1 || Path 5 || Distraction -> blinking_start, length: 15 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27346,9 +27737,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1883127932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27878,81 +28273,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932441602}
   m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
---- !u!21 &1937556599
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hexagon (Instance)
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!21 &1940102899
 Material:
   serializedVersion: 6
@@ -28154,9 +28474,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1942463321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28327,10 +28651,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
+  teleporterEntrance: 1
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
+  teleporterNumber: 5
+  teleporterConnectedWith: 4
+  teleporterOffset: {x: 3, y: 3, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1944504842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28379,11 +28707,11 @@ MonoBehaviour:
   isPath: 3
   isDistractionTile: -1
   isCheckpointTile: -1
-  isSpecialTile: -1
+  isSpecialTile: 0
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
-  color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  color: {r: 0.85882354, g: 0.49411765, b: 0.16470589, a: 0}
 --- !u!23 &1944504845
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28862,9 +29190,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1972477293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29426,9 +29758,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2001876375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29654,81 +29990,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006449171}
   m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
---- !u!21 &2011837947
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hexagon (Instance)
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &2046057111
 GameObject:
   m_ObjectHideFlags: 0
@@ -29780,9 +30041,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2046057114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30134,9 +30399,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2080634462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30257,6 +30526,81 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!21 &2087361970
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hexagon (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.8584906, g: 0.49567452, b: 0.16602883, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!21 &2104031318
 Material:
   serializedVersion: 6
@@ -30348,8 +30692,9 @@ GameObject:
   - component: {fileID: 2107706056}
   - component: {fileID: 2107706055}
   - component: {fileID: 2107706054}
+  - component: {fileID: 2107706061}
   m_Layer: 0
-  m_Name: '3, 0 || '
+  m_Name: '3, 0 || Distraction -> blinking_start, length: 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30383,9 +30728,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2107706055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30432,7 +30781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCrackedTile: -1
   isPath: -1
-  isDistractionTile: -1
+  isDistractionTile: 0
   isCheckpointTile: -1
   isSpecialTile: -1
   isMovingTile: -1
@@ -30506,6 +30855,25 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2107706061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107706052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b349a7d5859fbf044ab1ccb4320c8a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onlyThisPlatformIsBlinking: 0
+  multipleActivationsPossible: 0
+  numberOfBlinkingTilesPerCycle: 0
+  lengthOfBlinkingDistraction: 0
+  timeToNextBlinkingCycle: 0
+  timeUntilChangingColourBack: 0
+  setColorBackImmediately: 0
 --- !u!1 &2107800488
 GameObject:
   m_ObjectHideFlags: 0
@@ -30523,7 +30891,7 @@ GameObject:
   - component: {fileID: 2107800491}
   - component: {fileID: 2107800490}
   m_Layer: 0
-  m_Name: '0, 0 || '
+  m_Name: '0, 0 || Checkpoint 0 || Special -> teleporter-exit || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30557,9 +30925,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
-  teleporterNumber: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
+  teleporterNumber: 1
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2107800491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30607,12 +30979,12 @@ MonoBehaviour:
   isCrackedTile: -1
   isPath: -1
   isDistractionTile: -1
-  isCheckpointTile: -1
-  isSpecialTile: -1
+  isCheckpointTile: 0
+  isSpecialTile: 0
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
-  color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  color: {r: 0.85882354, g: 0.3647059, b: 0.16470587, a: 0}
 --- !u!23 &2107800494
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30731,9 +31103,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2114962244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30980,9 +31356,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2130954534
 MonoBehaviour:
   m_ObjectHideFlags: 0

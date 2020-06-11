@@ -5,7 +5,7 @@ using UnityEngine;
 public class HexagonDistraction : MonoBehaviour
 {
     /* ------------------------------ FIELDS FOR BLINKING TILES ------------------------------  */
-    [SerializeField] private bool onlyThisPlatformIsBlinking;    
+    [SerializeField] private bool onlyThisPlatformIsBlinking;
     [SerializeField] private bool multipleActivationsPossible;
     // [SerializeField] private bool randomBlinkingColour;
     [SerializeField] private int numberOfBlinkingTilesPerCycle;
@@ -16,7 +16,7 @@ public class HexagonDistraction : MonoBehaviour
 
     private Dictionary<Hexagon, Color> tileColors;
     private bool blinking;
-    
+
     /* ------------------------------ FIELDS FOR SCOLLING TEXT ------------------------------  */
     [SerializeField] private GameObject _scrollingText;
 
@@ -28,7 +28,7 @@ public class HexagonDistraction : MonoBehaviour
     private const int SCROLLING_TEXT_STOP = 3;
 
 
-    /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */    
+    /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */
     private Dictionary<int, List<Hexagon>> distractionTiles;
     private List<Ball> players = new List<Ball>();
     private Hexagon[] platformTiles;
@@ -38,7 +38,7 @@ public class HexagonDistraction : MonoBehaviour
 
     /* ------------------------------ MAIN METHODS FOR DISTRACTION-TILES ------------------------------  */
 
-    public void GetStarted(int distractionNumber, Hexagon[] platformTiles, Hexagon[] allTiles, 
+    public void GetStarted(int distractionNumber, Hexagon[] platformTiles, Hexagon[] allTiles,
                             Dictionary<Hexagon, Color> tileColors, Dictionary<int, List<Hexagon>> distractionTiles)
     {
         distractionCase = distractionNumber;
@@ -51,7 +51,7 @@ public class HexagonDistraction : MonoBehaviour
     public void DistractionTileTouched(Ball player)
     {
         players.Add(player);
-        
+
 
         switch(distractionCase)
         {
@@ -68,13 +68,13 @@ public class HexagonDistraction : MonoBehaviour
                         StartCoroutine(StartBlinking(allTiles));
                     }
                 }
-                break;
+            break;
 
             case BLINKING_STOP:
                 StopBlinking();
                 if(setColorBackImmediately) SetColorBackImmediately();
                 break;
-            
+
             case SCROLLING_TEXT:
                 if (!wasTouchedBefore)
                 {
@@ -84,14 +84,14 @@ public class HexagonDistraction : MonoBehaviour
                     Distraction.transform.parent = GameObject.Find("/Map/Distractions").transform;
                     ScrollingText.transform.parent = Distraction.transform;
                 }
-                break;
+            break;
 
             case SCROLLING_TEXT_STOP:
             {
                 string distractionFolder = "/Map/Distractions/Player" + (player.GetPlayerNumber() + 1);
                 GameObject distraction = GameObject.Find(distractionFolder);
                 Destroy	(distraction);
-                break;
+            break;
             }
         }
 
@@ -107,10 +107,10 @@ public class HexagonDistraction : MonoBehaviour
 
     /* ------------------------------ SPECIFIC METHODS FOR BLINKING TILES ------------------------------  */
 
-    /* 
+    /*
 
     lengthOfBlinkingDistraction     // after how much seconds does the whole distraction process stop
-    timeToNextBlinkingCycle         // after how many seconds does the next 
+    timeToNextBlinkingCycle         // after how many seconds does the next
     timeUntilChangingColourBack     // when does the hexagon get its original colour back
         numberOfBlinkingTilesPerCycle   // how many tiles get changed per cycle -> maximum is length of array
     */
@@ -128,7 +128,7 @@ public class HexagonDistraction : MonoBehaviour
         {
             stopBlinkingTime = float.MaxValue;
         }
-        
+
         // check if the specified time is over, otherwise start another cycle
         while(stopBlinkingTime > Time.fixedTime && blinking)
         {
@@ -140,7 +140,7 @@ public class HexagonDistraction : MonoBehaviour
                 // get the hexagon from the randomly choosen position
                 int randomlyChosen = blinkingHexagons[i];
                 Hexagon hexagon = hexagons[randomlyChosen];
-                
+
                 // make sure not to do any operations on deleted hexagons
                 if(hexagon != null)
                 {
@@ -148,9 +148,9 @@ public class HexagonDistraction : MonoBehaviour
                     if(timeUntilChangingColourBack > 0)
                     {
                         StartCoroutine(SetColorBack(hexagon));
-                    }                    
+                    }
                 }
-            }            
+            }
 
             yield return new WaitForSeconds(timeToNextBlinkingCycle);
         }
@@ -162,7 +162,7 @@ public class HexagonDistraction : MonoBehaviour
         // initialise an array for the blinking tiles of this cycle
         int[] blinkingHexagons = new int[numberOfBlinkingTilesPerCycle];
 
-        // set all values to a negative one, in order be able to check, 
+        // set all values to a negative one, in order be able to check,
         // if the random number we get later is unique
         for(int i = 0; i < numberOfBlinkingTilesPerCycle; i++)
         {
@@ -178,11 +178,11 @@ public class HexagonDistraction : MonoBehaviour
 
             // since it's unclear yet, set it to false
             bool numberIsUnique = false;
-            
+
             // as long as haven't found a unique number, we look for one
             while(!numberIsUnique)
             {
-                
+
                 // we have to check, if the number is already in the array
                 bool containsRandomNumber = false;
 
@@ -200,11 +200,11 @@ public class HexagonDistraction : MonoBehaviour
                 }
 
                 // in case the randomNumber was not already in the array, we can stop the while-loop
-                if(!containsRandomNumber) numberIsUnique = true;                    
+                if(!containsRandomNumber) numberIsUnique = true;
             }
 
             // Now we can add the random number, which is unique for sure
-            blinkingHexagons[i] = randomNumber;               
+            blinkingHexagons[i] = randomNumber;
         }
         return blinkingHexagons;
     }
@@ -263,9 +263,9 @@ public class HexagonDistraction : MonoBehaviour
     public string GetNameOfFunction()
     {
         string prefix = "-> ";
-        
-        if(distractionCase == BLINKING_START) return prefix + nameof(BLINKING_START).ToLower() + " length: " + lengthOfBlinkingDistraction;
-        if(distractionCase == BLINKING_STOP) return prefix + nameof(BLINKING_STOP).ToLower();
+
+        if(distractionCase == BLINKING_START) return prefix + nameof(BLINKING_START).ToLower() + ", length: " + lengthOfBlinkingDistraction;
+        if(distractionCase == BLINKING_STOPP) return prefix + nameof(BLINKING_STOPP).ToLower();
 
         return "";
     }

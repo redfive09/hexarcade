@@ -189,7 +189,7 @@ public class Ball : MonoBehaviour
         if(settings.IsRestartingInsteadOfMenu())
         {
             StopMovement();
-            GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
+            GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset, false);
         }
         else
         {
@@ -217,7 +217,7 @@ public class Ball : MonoBehaviour
         if(settings.IsRestartingInsteadOfMenu())
         {
             StopMovement();
-            GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
+            GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset, false);
         }
         else
         {
@@ -371,19 +371,23 @@ public class Ball : MonoBehaviour
     **/
     public void GoToSpawnPosition()
     {
-        GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
+        GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset, true);
     }
 
     /*  
      *  Let the player spawn above the desired tile
     **/
-    public void GoToSpawnPosition(Hexagon spawnTile, Vector3 spawnOffset)
+    public void GoToSpawnPosition(Hexagon spawnTile, Vector3 spawnOffset, bool saveSpawn)
     {        
         if(spawnTile != null)
         {
             transform.position = spawnTile.transform.position + spawnOffset;
-            lastSpawnPosition = spawnTile;
-            lastSpawnOffset = spawnOffset;
+
+            if(saveSpawn)
+            {
+                lastSpawnPosition = spawnTile;
+                lastSpawnOffset = spawnOffset;
+            }            
         }
         else
         {
@@ -396,13 +400,19 @@ public class Ball : MonoBehaviour
     public Hexagon GetLastSpawnPosition()
     {
         return lastSpawnPosition;
-    }
+    }    
 
     public void StopMovement()
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
+    }
+
+    public void ReverseMovement()
+    {
+        rb.velocity =  -rb.velocity;
+        rb.angularVelocity = -rb.angularVelocity;
     }
 
     /*

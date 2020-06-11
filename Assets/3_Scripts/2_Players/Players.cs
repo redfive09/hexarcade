@@ -40,7 +40,7 @@ public class Players : MonoBehaviour
             
             Ball player = transform.GetChild(i).GetComponent<Ball>();
             players.Add(player);
-            player.GoToSpawnPosition(getSpawnPositions[i], settings.GetSpawnPositionOffset());
+            player.GoToSpawnPosition(getSpawnPositions[i], settings.GetSpawnPositionOffset(), true);
 
             CameraFollow camera = GetCamera(); 
             camera.SetTarget(player.transform);
