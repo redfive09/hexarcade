@@ -36,11 +36,14 @@ public class Timer : MonoBehaviour
             {
                 stopwatchCounter = stopwatchTime - Time.fixedTime;
 
-                if(stopwatchCounter < 0)
+                if(stopwatchCounter < 1)
                 {
-                    stopwatchCounter = 0;
+                    timerField.text = "GO!";               
                 }
-                TimeToTimerField(stopwatchCounter, 1);
+                else
+                {
+                    TimeToTimerField(stopwatchCounter, 1);                    
+                }                
             }
             else
             {

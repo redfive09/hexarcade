@@ -36,6 +36,7 @@ public class CameraFollow : MonoBehaviour
         {
             GameObject cameraChanger = GameObject.Find("Map/UntaggedGameObjects/CameraChangePosition");
             changePosition = cameraChanger.transform.position.z;
+            cameraReachedFinalPosition = true;
         }
         //experimental feature off
     }
