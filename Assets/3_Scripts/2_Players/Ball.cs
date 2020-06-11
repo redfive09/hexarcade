@@ -187,7 +187,7 @@ public class Ball : MonoBehaviour
         timer.ShowLastFinishTime();
 
         Debug.Log("Finish time: " + timer.GetLastFinishTime());
-        SceneManager.LoadScene("1_Scenes/Menus/Win");
+        SceneManager.LoadScene("1_Scenes/Menus/WinScreen");
         if(timer.IsNewBestTime())
         {
             Debug.Log("New record");
@@ -206,7 +206,7 @@ public class Ball : MonoBehaviour
         timer.Disappear();
         StopMovement();
         //GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
-        SceneManager.LoadScene("1_Scenes/Menus/GameOverMenu");
+        SceneManager.LoadScene("1_Scenes/Menus/LoseScreen");
 
     }
     
