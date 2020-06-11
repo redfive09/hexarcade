@@ -63,12 +63,12 @@ public class HexagonDistraction : MonoBehaviour
                         StartCoroutine(StartBlinking(allTiles));
                     }
                 }
-                break;
+            break;
 
             case BLINKING_STOPP:
                 StopBlinking();
                 if(setColorBackImmediately) SetColorBackImmediately();
-                break;
+            break;
         }
 
         wasTouchedBefore = true;
@@ -240,7 +240,7 @@ public class HexagonDistraction : MonoBehaviour
     {
         string prefix = "-> ";
         
-        if(distractionCase == BLINKING_START) return prefix + nameof(BLINKING_START).ToLower() + " length: " + lengthOfBlinkingDistraction;
+        if(distractionCase == BLINKING_START) return prefix + nameof(BLINKING_START).ToLower() + ", length: " + lengthOfBlinkingDistraction;
         if(distractionCase == BLINKING_STOPP) return prefix + nameof(BLINKING_STOPP).ToLower();
 
         return "";
