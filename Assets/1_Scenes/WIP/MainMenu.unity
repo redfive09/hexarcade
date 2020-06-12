@@ -323,7 +323,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: ea18a6dcb491f504c8c216126d8fc62c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ea18a6dcb491f504c8c216126d8fc62c, type: 3}
       propertyPath: m_Name
@@ -331,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ea18a6dcb491f504c8c216126d8fc62c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ea18a6dcb491f504c8c216126d8fc62c, type: 3}
       propertyPath: m_IsActive
@@ -542,11 +542,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d7a8dec94da76b245b102da82aa3f056, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: d7a8dec94da76b245b102da82aa3f056, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d7a8dec94da76b245b102da82aa3f056, type: 3}
       propertyPath: m_LocalPosition.x
@@ -878,12 +878,13 @@ GameObject:
   - component: {fileID: 902190369}
   - component: {fileID: 902190368}
   - component: {fileID: 902190371}
+  - component: {fileID: 902190372}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!81 &902190368
 AudioListener:
@@ -943,7 +944,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902190367}
   m_LocalRotation: {x: -0.13052319, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: -0.06, y: 1, z: -0.12}
+  m_LocalPosition: {x: -0.06, y: 1, z: -4.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1073233448}
@@ -1014,6 +1015,42 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &902190372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902190367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4680d16cf9777064fb47d0a8a3a2a614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.317274
+      outSlope: 0.317274
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.5
+      value: 0.475911
+      inSlope: 0.317274
+      outSlope: 0.317274
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
 --- !u!1 &1059343895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,7 +1099,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1073233448
 Transform:
@@ -1328,7 +1365,7 @@ PrefabInstance:
     - target: {fileID: 3009448751663168682, guid: 76a12df69bcd26c45a3857fdb9eeac4d,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7008913589794664807, guid: 76a12df69bcd26c45a3857fdb9eeac4d,
         type: 3}
@@ -1588,7 +1625,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: ea18a6dcb491f504c8c216126d8fc62c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ea18a6dcb491f504c8c216126d8fc62c, type: 3}
       propertyPath: m_Name
@@ -1596,7 +1633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ea18a6dcb491f504c8c216126d8fc62c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ea18a6dcb491f504c8c216126d8fc62c, type: 3}
       propertyPath: m_IsActive
@@ -1790,7 +1827,7 @@ PrefabInstance:
     - target: {fileID: 3009448751663168682, guid: 76a12df69bcd26c45a3857fdb9eeac4d,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7008913589794664807, guid: 76a12df69bcd26c45a3857fdb9eeac4d,
         type: 3}
