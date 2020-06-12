@@ -13,7 +13,7 @@ public class ControlsCheckpoint : MonoBehaviour
     private Tiles tiles;
     
 
-   public void GetStarted(int numberOfCheckpoints, Dictionary<int, List<Hexagon>> checkpointTiles, Tiles tiles)
+   public void GetStarted(int numberOfCheckpoints, Dictionary<int, List<Hexagon>> checkpointTiles, Tiles tiles, CameraFollow cameraFollow)
    {
        this.tiles = tiles;
        this.checkpointTiles = checkpointTiles;

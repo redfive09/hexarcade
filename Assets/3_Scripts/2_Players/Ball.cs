@@ -64,7 +64,7 @@ public class Ball : MonoBehaviour
      */
     IEnumerator Introduction(CameraFollow cameraFollow)
     {
-        while(!cameraFollow.GetCameraReachedFinalPosition())                                    // wait for the user to finish watching the introduction screen
+        while(!cameraFollow.GetCameraReachedFinalPosition())                        // wait for the user to finish watching the introduction screen
         {
             yield return new WaitForSeconds(0.2f);
         }
@@ -100,7 +100,7 @@ public class Ball : MonoBehaviour
             
             ControlsCheckpoint checkpointController = GetComponent<ControlsCheckpoint>();   // get the controls for choosing the checkpoints
             checkpointController.enabled = true;                                            // enable it
-            checkpointController.GetStarted(settings.GetNumberOfCheckpoints(), checkpointTiles, tiles);   // and get it started
+            checkpointController.GetStarted(settings.GetNumberOfCheckpoints(), checkpointTiles, tiles, cameraFollow);   // and get it started
 
             bool isStoptimeForCheckpoints = settings.GetStoptimeForCheckpoints() > 0;             // get the boolean, if a limited time for choosing checkpoints is set
             if(isStoptimeForCheckpoints)                                            

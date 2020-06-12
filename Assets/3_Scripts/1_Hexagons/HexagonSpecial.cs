@@ -145,8 +145,7 @@ public class HexagonSpecial : MonoBehaviour
         
         switch(specialCase)
         {
-            case TELEPORTER:
-    
+            case TELEPORTER:    
                 prefix += nameof(TELEPORTER).ToLower(); 
                 if(teleporterEntrance)
                 {
