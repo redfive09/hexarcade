@@ -5,24 +5,33 @@ using UnityEngine;
 public class HexagonSpecial : MonoBehaviour
 {    
 
-    /* ------------------------------ SerializeFields ------------------------------  */
-    // Teleporter values
+    /* ------------------------------ FIELDS FOR TELEPORTERS ------------------------------  */
     [SerializeField] private bool teleporterEntrance;
+    [SerializeField] private bool keepSpeedThroughTeleporter;
+    [SerializeField] private bool reverseSpeed;
     [SerializeField] private int teleporterNumber;
     [SerializeField] private int teleporterConnectedWith;
+    [SerializeField] private Vector3 teleporterOffset;
 
+
+    /* ------------------------------ FIELDS FOR VELOCITY TILES ------------------------------  */
     [SerializeField] private float velocity;
 
 
-    /* ------------------------------ USEAGE OF SPECIAL-TILES ------------------------------  */  
+    /* ------------------------------ FIELDS FOR JUMPAD ------------------------------  */
+    [SerializeField] private Vector3 jumpDirection;
+
+
+    /* ------------------------------ SPECIAL-TILE NUMBERS ------------------------------  */
+    private int specialCase;
     private const int TELEPORTER = 0;
     private const int VELOCITY = 1;
+    private const int JUMPAD = 2;
 
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */    
-    private List<Ball> players = new List<Ball>();
-    private int specialCase;
     private Dictionary<int, List<Hexagon>> specialTiles;
+    private List<Ball> players = new List<Ball>();
     private int getIndexNumberInList;
     private Hexagon thisHexagon;
     
@@ -31,11 +40,10 @@ public class HexagonSpecial : MonoBehaviour
     /* ------------------------------ MAIN METHODS FOR SPECIAL TILES ------------------------------  */
     public void GetStarted(Dictionary<int, List<Hexagon>> specialTiles)
     {
-        thisHexagon = this.transform.GetComponentInParent<Hexagon>();
+        thisHexagon = this.transform.GetComponent<Hexagon>();
         specialCase = thisHexagon.GetSpecialNumber();
         this.specialTiles = specialTiles;
     }
-
 
     public void SpecialTileTouched(Ball player)
     {
@@ -43,24 +51,31 @@ public class HexagonSpecial : MonoBehaviour
         getIndexNumberInList = GetIndexNumberInList();
 
         if(getIndexNumberInList >= 0) // catch potential errors with the special tile list
-        {        
-            if(specialCase == TELEPORTER)
+        {
+            switch(specialCase)
             {
-                
+                case TELEPORTER:
+                    if(teleporterEntrance)
+                    {
+                        if(!keepSpeedThroughTeleporter) player.StopMovement();
+                        if(reverseSpeed) player.ReverseMovement();
 
-                // 1. make it possible to go through (disable some stuff from the hexagon for that)
-                // 2. when player is more than half in it, then beam it to the hexagon of specialCase 1 at the same index
-                // 3. if "teleporterGoingBack", then switch the specialCase for both tiles
+                        Hexagon teleporterExit = FindTeleporterExit();
+                        if(teleporterExit) player.GoToSpawnPosition(teleporterExit, teleporterOffset, false);                        
+                    }
+                break;
 
-                
-            }
+                case VELOCITY:
+                    
+                    Rigidbody rb = player.GetRigidbody();
+                    Vector3 currentVelocity = rb.velocity;
+                    currentVelocity *= velocity;
+                    rb.velocity = currentVelocity;
+                break;
 
-            else if(specialCase == VELOCITY)
-            {
-                Rigidbody rb = player.GetComponent<Rigidbody>();
-                Vector3 currentVelocity = rb.velocity;
-                currentVelocity *= velocity;
-                rb.velocity = currentVelocity;
+                case JUMPAD:       
+                    player.GetRigidbody().AddForce(jumpDirection);
+                break;
             }
         }
     }
@@ -91,7 +106,7 @@ public class HexagonSpecial : MonoBehaviour
     
     /* ------------------------------ SPECIFIC METHODS FOR TELEPORTERS ------------------------------  */
 
-    private HexagonSpecial FindTeleporterExit(int teleporterConnectedWith)
+    private Hexagon FindTeleporterExit()
     {
         List<Hexagon> teleporterList = specialTiles[TELEPORTER];
 
@@ -101,9 +116,10 @@ public class HexagonSpecial : MonoBehaviour
 
             if(teleporter.GetTeleporterNumber() == teleporterConnectedWith)
             {
-                return teleporter;
+                return teleporter.GetComponent<Hexagon>();
             }
         }
+        Debug.Log("This teleporter has not exit");
         return null;
     }
 
@@ -125,11 +141,28 @@ public class HexagonSpecial : MonoBehaviour
 
     public string GetNameOfFunction()
     {
-        string prefix = " -> ";
+        string prefix = "-> ";
         
-        if(specialCase == TELEPORTER) return prefix + nameof(TELEPORTER).ToLower();
-        if(specialCase == VELOCITY) return prefix + nameof(VELOCITY).ToLower();
-
+        switch(specialCase)
+        {
+            case TELEPORTER:    
+                prefix += nameof(TELEPORTER).ToLower(); 
+                if(teleporterEntrance)
+                {
+                    prefix += ", " + teleporterNumber + " to " + teleporterConnectedWith;
+                }
+                else
+                {
+                    prefix += "_exit " + teleporterNumber;
+                }
+                return prefix;
+    
+            case VELOCITY:
+                return prefix + nameof(VELOCITY).ToLower() + " " + velocity;
+    
+            case JUMPAD:
+                return prefix + nameof(JUMPAD).ToLower() + " " + jumpDirection;
+        }
         return "";
     }
 }

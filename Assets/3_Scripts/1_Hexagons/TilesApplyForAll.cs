@@ -1,44 +1,32 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+ * This class serves its purpose for the editor in order to change several tiles to a type at once
+ */
+
 public class TilesApplyForAll : MonoBehaviour
 {
-    [SerializeField] private bool applyForAllCrackableTiles = false;
     [SerializeField] private float crackedTileBreaksInSeconds;
-
-    [SerializeField] private bool applyForAllVelocityTiles = false;
     [SerializeField] private float velocity;
 
 
-   public void GetStarted(Dictionary<int, List<Hexagon>>[] tiles)
-    {        
-        for(int h = 0; h < tiles.Length; h++)
-        {            
-            int sizeOfDictionary = tiles[h].Count;
+    public void SetTiles(bool setCrackables, bool setSpecialVelocity)
+    {
+        Hexagon[] tiles = GetComponent<Tiles>().GetAllTiles();
 
-            for(int i = 0; i < sizeOfDictionary; i++)
+        for(int i = 0; i < tiles.Length; i++)
+        {
+            if(setCrackables)
             {
-                if(tiles[h].TryGetValue(i, out List<Hexagon> hexagonList))
-                {
-                    for(int k = 0; k < hexagonList.Count; k++)
-                    {
-                        if(applyForAllCrackableTiles)
-                        {
-                            HexagonBehaviour hexagon = hexagonList[k].GetComponent<HexagonBehaviour>();
-                            hexagon.SetCrackedTileBreaksInTime(crackedTileBreaksInSeconds);
-                        }
+                HexagonBehaviour hexagon = tiles[i].GetComponent<HexagonBehaviour>();
+                hexagon.SetCrackedTileBreaksInTime(crackedTileBreaksInSeconds);
+            }
 
-                        if(applyForAllVelocityTiles)
-                        {
-                            HexagonSpecial hexagon = hexagonList[k].GetComponent<HexagonSpecial>();
-                            hexagon.SetVelocity(velocity);
-                        }                        
-                    }
-                }
-                else
-                {
-                    sizeOfDictionary++;
-                }
+            if(setSpecialVelocity)
+            {
+                HexagonSpecial hexagon = tiles[i].GetComponent<HexagonSpecial>();
+                hexagon.SetVelocity(velocity);
             }
         }
     }

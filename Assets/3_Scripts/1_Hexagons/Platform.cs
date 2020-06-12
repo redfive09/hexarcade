@@ -14,7 +14,8 @@ public class Platform : MonoBehaviour
     [SerializeField] private int distractionTiles;
     [SerializeField] private int specialTiles;
 
-    List<Hexagon> platformTiles = new List<Hexagon>(); // all hexagons of this platform will be found here
+    private List<Hexagon> platformTiles = new List<Hexagon>(); // all hexagons of this platform will be found here
+    private Hexagon[] allPlatformTiles;
 
     
 
@@ -37,11 +38,13 @@ public class Platform : MonoBehaviour
      * Each platform goes through each hexagon it's connected to and adds it to the list
     */
     public void CollectHexagons()
-    {        
-        for(int i = 0; i < this.transform.childCount; i++)
+    {       
+        allPlatformTiles = new Hexagon[this.transform.childCount];
+        for(int i = 0; i < allPlatformTiles.Length; i++)
         {
             Hexagon hexagon = this.transform.GetChild(i).GetComponent<Hexagon>();
             platformTiles.Add(hexagon);
+            allPlatformTiles[i] = hexagon;
         }
     }
 
@@ -147,7 +150,7 @@ public class Platform : MonoBehaviour
     public void AddHexagon(Hexagon hexagon)
     {
         platformTiles.Add(hexagon);
-    }
+    }   
 
 
     /* ------------------------------ GETTER METHODS BEGINN ------------------------------  */
@@ -158,9 +161,14 @@ public class Platform : MonoBehaviour
         return platformTiles;
     }
 
+       public Hexagon[] GetAllPlatformTiles()
+    {
+        return allPlatformTiles;
+    }
+
     public int GetNumberOfHexagons()
     {
-        return platformTiles.Count;
+        return allPlatformTiles.Length;
     }
 
 

@@ -50,7 +50,7 @@ public class Ball : MonoBehaviour
         CameraFollow cameraFollow = GetComponentInParent<Players>().GetCamera();
         
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
-        loseHeight = loseTile.transform.position.y;
+        loseHeight = loseTile.transform.position.y;        
  
         StartCoroutine(Introduction(cameraFollow));
     }
@@ -64,7 +64,7 @@ public class Ball : MonoBehaviour
      */
     IEnumerator Introduction(CameraFollow cameraFollow)
     {
-        while(!cameraFollow.GetCameraReachedFinalPosition())                                    // wait for the user to finish watching the introduction screen
+        while(!cameraFollow.GetCameraReachedFinalPosition())                        // wait for the user to finish watching the introduction screen
         {
             yield return new WaitForSeconds(0.2f);
         }
@@ -87,7 +87,7 @@ public class Ball : MonoBehaviour
         bool chooseCheckPoints = settings.GetNumberOfCheckpoints() > 0;             // are there any checkpoints to choose for this map
 
         tileColorsIntroduction.DisplayTiles(chooseCheckPoints);                     // display the non-standard tiles
-
+        
         if(chooseCheckPoints)
         {
             Tiles tiles = tilesObject.GetComponent<Tiles>();                        // get the script of tiles
@@ -100,7 +100,7 @@ public class Ball : MonoBehaviour
             
             ControlsCheckpoint checkpointController = GetComponent<ControlsCheckpoint>();   // get the controls for choosing the checkpoints
             checkpointController.enabled = true;                                            // enable it
-            checkpointController.GetStarted(settings.GetNumberOfCheckpoints(), checkpointTiles, tiles);   // and get it started
+            checkpointController.GetStarted(settings.GetNumberOfCheckpoints(), checkpointTiles, tiles, cameraFollow);   // and get it started
 
             bool isStoptimeForCheckpoints = settings.GetStoptimeForCheckpoints() > 0;             // get the boolean, if a limited time for choosing checkpoints is set
             if(isStoptimeForCheckpoints)                                            
@@ -133,11 +133,9 @@ public class Ball : MonoBehaviour
         {
             yield return new WaitForSeconds(0.2f);
         }
-        
-        timer.Disappear();
-
+                
+        timer.Disappear();        
         GameStarts();
-
     }
 
 
@@ -155,8 +153,8 @@ public class Ball : MonoBehaviour
      *  The player gets its controls and the timer will show up
      */
     private void GameStarts()
-    {
-        ActivatePlayerControls();        
+    {        
+        ActivatePlayerControls();
         StartCoroutine(CheckLoseCondition());
     }
 
@@ -187,7 +185,17 @@ public class Ball : MonoBehaviour
         timer.ShowLastFinishTime();
 
         Debug.Log("Finish time: " + timer.GetLastFinishTime());
-        SceneManager.LoadScene("1_Scenes/Menus/Win");
+
+        if(settings.IsRestartingInsteadOfMenu())
+        {
+            StopMovement();
+            GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset, false);
+        }
+        else
+        {
+            SceneManager.LoadScene("1_Scenes/Menus/WinScreen");
+        }
+        
         if(timer.IsNewBestTime())
         {
             Debug.Log("New record");
@@ -202,11 +210,19 @@ public class Ball : MonoBehaviour
                 /* --------------- STATUS: PLAYER LOST, PLAYER MET A LOSE CONDITION ---------------  */
     private void PlayerLost()
     {
+        Debug.Log("Time at loosing: " + timer.GetCurrentTime());
         timer.Disappear();
         StopMovement();
-        //GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
-        SceneManager.LoadScene("1_Scenes/Menus/GameOverMenu");
-
+        
+        if(settings.IsRestartingInsteadOfMenu())
+        {
+            StopMovement();
+            GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset, false);
+        }
+        else
+        {
+            SceneManager.LoadScene("1_Scenes/Menus/LoseScreen");
+        }
     }
     
             /* --------------- STATUS: GAME PAUSED ---------------  */
@@ -229,14 +245,19 @@ public class Ball : MonoBehaviour
         timer.SetStopWatch(seconds);
         timer.Show();
         
+           
         while (!timer.IsStopTimeOver())
         {
             yield return new WaitForSeconds(0.00001f);
-        }
+        }        
 
-        timer.Unpause();
         rb.constraints = RigidbodyConstraints.None;
         ActivatePlayerControls();
+
+        if(!occupiedTile.GetHexagon().IsStartingTile())
+        { 
+            timer.Unpause();
+        }
     }
     
 
@@ -286,7 +307,7 @@ public class Ball : MonoBehaviour
                     occupiedTile = currentTile;         // Save the current tile
                     AnalyseArrivedHexagon(currentTile.GetComponent<Hexagon>());
                 }
-            }            
+            }
         }
     }
 
@@ -301,16 +322,7 @@ public class Ball : MonoBehaviour
         {
             PlayerLeftStartingTile();            
         }
-
-        else if(hexagon.IsWinningTile())
-        {
-            
-        }
         
-        else if(hexagon.IsStandardTile() && settings.DoesStandardTilesMeansLosing())
-        {
-            PlayerLost();
-        }
     }
 
 
@@ -341,13 +353,14 @@ public class Ball : MonoBehaviour
      *  This is constantly checking if a lose condition (ball fell to deep) has met
      *  It's packed in a coroutine, so it is not called every single frame -> saves performance
      */
-    IEnumerator CheckLoseCondition()
-    {
+    private IEnumerator CheckLoseCondition()
+    {        
         // Lose condition through falling
         for(;;)
         {
             if(loseHeight > transform.position.y)
             {
+                Debug.Log("lost");
                 PlayerLost();
             }
             yield return new WaitForSeconds(0.2f);
@@ -363,19 +376,23 @@ public class Ball : MonoBehaviour
     **/
     public void GoToSpawnPosition()
     {
-        GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset);
+        GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset, true);
     }
 
     /*  
      *  Let the player spawn above the desired tile
     **/
-    public void GoToSpawnPosition(Hexagon spawnTile, Vector3 spawnOffset)
+    public void GoToSpawnPosition(Hexagon spawnTile, Vector3 spawnOffset, bool saveSpawn)
     {        
         if(spawnTile != null)
         {
             transform.position = spawnTile.transform.position + spawnOffset;
-            lastSpawnPosition = spawnTile;
-            lastSpawnOffset = spawnOffset;
+
+            if(saveSpawn)
+            {
+                lastSpawnPosition = spawnTile;
+                lastSpawnOffset = spawnOffset;
+            }            
         }
         else
         {
@@ -388,13 +405,19 @@ public class Ball : MonoBehaviour
     public Hexagon GetLastSpawnPosition()
     {
         return lastSpawnPosition;
-    }
+    }    
 
     public void StopMovement()
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
+    }
+
+    public void ReverseMovement()
+    {
+        rb.velocity =  -rb.velocity;
+        rb.angularVelocity = -rb.angularVelocity;
     }
 
     /*
@@ -423,6 +446,11 @@ public class Ball : MonoBehaviour
     public int GetPlayerNumber()
     {
         return playerNumber;
+    }
+
+    public Rigidbody GetRigidbody()
+    {
+        return rb;
     }
 
 

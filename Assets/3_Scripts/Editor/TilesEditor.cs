@@ -12,6 +12,8 @@ public class TilesEditor : Editor {
         base.OnInspectorGUI();
 
         Tiles tiles = (Tiles) target;
+
+        // GUILayout.
         
         if (GUILayout.Button("Clearify Names for Non-Standard Tiles"))
         {
@@ -24,7 +26,6 @@ public class TilesEditor : Editor {
             tiles.CollectTiles();
             AddScriptToAllHexagonChildren(tiles.GetPlatforms());
         }
-
 
 
         // if (GUILayout.Button("Print pathTiles"))
@@ -60,17 +61,30 @@ public class TilesEditor : Editor {
      */
     private void AddNameSuffixToNonStandardHexagons(List<Platform> platforms)
     {
+        string nameSeparator = " || ";
+        int sizeOfNameSeparator =  nameSeparator.Length;
+
         for(int i = 0; i < platforms.Count; i++)
-        {
+        {            
             List<Hexagon> platformTiles = platforms[i].GetTilesList();
+            // int numberOfCrackedTiles = 0;
+            // int numberOfPathTiles = 0;
+            // ...
+            for(int h = 0; h + sizeOfNameSeparator - 1 < platforms[i].name.Length; h++)
+            {
+                string namePart = platforms[i].name.Substring(h, sizeOfNameSeparator);
+                if(namePart == nameSeparator)
+                {
+                    string standardName = platforms[i].name.Substring(0, h);
+                    platforms[i].name = standardName;
+                }
+            }          
+
+
             for(int j = 0; j < platformTiles.Count; j++)
             {
-                Hexagon hexagon = platformTiles[j];                
+                Hexagon hexagon = platformTiles[j];
                 
-                string nameSeparator = " || ";
-                int sizeOfNameSeparator =  nameSeparator.Length;
-
-
                 for(int k = 0; k + sizeOfNameSeparator - 1 < hexagon.name.Length; k++)
                 {
                     string namePart = hexagon.name.Substring(k, sizeOfNameSeparator);
@@ -86,7 +100,7 @@ public class TilesEditor : Editor {
                 if(hexagon.IsCrackedTile())
                 {
                     int number = hexagon.GetCrackedNumber();
-                    name += "Cracked " + number + nameSeparator;
+                    name += "Cracked " + number + " -> Time: " + hexagon.GetComponent<HexagonBehaviour>().GetCrackedTileBreaksInTime() + nameSeparator;
                 }
 
                 if(hexagon.IsPathTile())
@@ -97,8 +111,8 @@ public class TilesEditor : Editor {
 
                 if(hexagon.IsDistractionTile())
                 {
-                    int number = hexagon.GetDistractionNumber();
-                    name += "Distraction " + number + nameSeparator;
+                    HexagonDistraction distractionHexagon = hexagon.GetComponent<HexagonDistraction>();
+                    name += "Distraction " + distractionHexagon.GetNameOfFunction() + nameSeparator;
                 }
 
                 if(hexagon.IsCheckpointTile())
@@ -131,8 +145,13 @@ public class TilesEditor : Editor {
                     name += "Winning " + number + nameSeparator;
                 }  
 
-                hexagon.name = name;
+                hexagon.name = name;                
             }
+
+        name = platforms[i].name + nameSeparator + "Count: " + platformTiles.Count + nameSeparator;
+        platforms[i].name = name;
+
+        // same here for platforms
         }
     }
 

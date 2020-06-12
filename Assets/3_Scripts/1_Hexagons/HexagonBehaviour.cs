@@ -44,44 +44,45 @@ public class HexagonBehaviour : MonoBehaviour
             ActivateCrackedTile();
         }
 
-        else if(thisHexagon.IsPathTile())
+        if(thisHexagon.IsPathTile())
         {
             thisHexagon.SetColor(colors[arrivedPathTile]);
         }
 
-        else if(thisHexagon.IsDistractionTile())
+        if(thisHexagon.IsDistractionTile())
         {
             thisHexagon.SetColor(colors[arrivedDistractionTile]);
+            this.transform.GetComponent<HexagonDistraction>().DistractionTileTouched(player);
         }
 
-        else if(thisHexagon.IsCheckpointTile())
+        if(thisHexagon.IsCheckpointTile())
         {
             thisHexagon.SetColor(colors[arrivedCheckpointTile]);
         }
 
-        else if(thisHexagon.IsSpecialTile())
+        if(thisHexagon.IsSpecialTile())
         {
             thisHexagon.SetColor(colors[arrivedSpecialTile]);
             this.transform.GetComponent<HexagonSpecial>().SpecialTileTouched(player);
         }
 
-        else if(thisHexagon.IsMovingTile())
+        if(thisHexagon.IsMovingTile())
         {
             thisHexagon.SetColor(colors[arrivedMovingTile]);
             this.transform.GetComponent<HexagonMovingTiles>().MovingTileTouched();
         }
         
-        else if(thisHexagon.IsStartingTile())
+        if(thisHexagon.IsStartingTile())
         {
             thisHexagon.SetColor(colors[arrivedStartingTile]);            
         }
 
-        else if(thisHexagon.IsWinningTile())
+        if(thisHexagon.IsWinningTile())
         {
             thisHexagon.SetColor(colors[arrivedWinningTile]);
         }
 
-        else if(thisHexagon.IsStandardTile())
+        if(thisHexagon.IsStandardTile())
         {
             thisHexagon.SetColor(colors[arrivedStandardTile]);
         }
@@ -100,44 +101,45 @@ public class HexagonBehaviour : MonoBehaviour
             thisHexagon.SetColor(colors[leftCrackedTile]);            
         }
 
-        else if(thisHexagon.IsPathTile())
+        if(thisHexagon.IsPathTile())
         {
             thisHexagon.SetColor(colors[leftPathTile]);
         }
 
-        else if(thisHexagon.IsDistractionTile())
+        if(thisHexagon.IsDistractionTile())
         {
             thisHexagon.SetColor(colors[leftDistractionTile]);
+            this.transform.GetComponent<HexagonDistraction>().DistractionTileLeft(player);
         }
 
-        else if(thisHexagon.IsCheckpointTile())
+        if(thisHexagon.IsCheckpointTile())
         {
             thisHexagon.SetColor(colors[leftCheckpointTile]);
         }
 
-        else if(thisHexagon.IsSpecialTile())
+        if(thisHexagon.IsSpecialTile())
         {
             thisHexagon.SetColor(colors[leftSpecialTile]);
             this.transform.GetComponent<HexagonSpecial>().SpecialTileLeft(player);
         }
 
-        else if(thisHexagon.IsMovingTile())
+        if(thisHexagon.IsMovingTile())
         {
             thisHexagon.SetColor(colors[leftMovingTile]);
             this.transform.GetComponent<HexagonMovingTiles>().MovingTileLeft();
         }
         
-        else if(thisHexagon.IsStartingTile())
+        if(thisHexagon.IsStartingTile())
         {
             thisHexagon.SetColor(colors[leftStartingTile]);            
         }
 
-        else if(thisHexagon.IsWinningTile())
+        if(thisHexagon.IsWinningTile())
         {
             thisHexagon.SetColor(colors[leftWinningTile]);
         }
 
-        else if(thisHexagon.IsStandardTile())
+        if(thisHexagon.IsStandardTile())
         {
             thisHexagon.SetColor(colors[leftStandardTile]);
         }
@@ -166,4 +168,17 @@ public class HexagonBehaviour : MonoBehaviour
     {
         crackedTileBreaksInSeconds = seconds;
     }
+
+
+    /* ------------------------------ GETTER METHODS BEGINN ------------------------------  */
+    public float GetCrackedTileBreaksInTime()
+    {
+        return crackedTileBreaksInSeconds;
+    }
+
+    public Hexagon GetHexagon()
+    {
+        return thisHexagon;
+    }
+
 }
