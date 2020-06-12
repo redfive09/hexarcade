@@ -176,4 +176,9 @@ public class HexagonBehaviour : MonoBehaviour
         return crackedTileBreaksInSeconds;
     }
 
+    public Hexagon GetHexagon()
+    {
+        return thisHexagon;
+    }
+
 }

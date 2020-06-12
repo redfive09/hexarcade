@@ -40,7 +40,7 @@ public class HexagonSpecial : MonoBehaviour
     /* ------------------------------ MAIN METHODS FOR SPECIAL TILES ------------------------------  */
     public void GetStarted(Dictionary<int, List<Hexagon>> specialTiles)
     {
-        thisHexagon = this.transform.GetComponentInParent<Hexagon>();
+        thisHexagon = this.transform.GetComponent<Hexagon>();
         specialCase = thisHexagon.GetSpecialNumber();
         this.specialTiles = specialTiles;
     }
@@ -63,21 +63,18 @@ public class HexagonSpecial : MonoBehaviour
                         Hexagon teleporterExit = FindTeleporterExit();
                         if(teleporterExit) player.GoToSpawnPosition(teleporterExit, teleporterOffset, false);                        
                     }
-                    
-
                 break;
 
                 case VELOCITY:
                     
-                    Rigidbody rb = player.GetComponent<Rigidbody>();
+                    Rigidbody rb = player.GetRigidbody();
                     Vector3 currentVelocity = rb.velocity;
                     currentVelocity *= velocity;
                     rb.velocity = currentVelocity;
                 break;
 
-                case JUMPAD:
-                    player.GetComponent<Rigidbody>().AddForce(jumpDirection * Time.deltaTime);
-                
+                case JUMPAD:       
+                    player.GetRigidbody().AddForce(jumpDirection);
                 break;
             }
         }
@@ -146,30 +143,27 @@ public class HexagonSpecial : MonoBehaviour
     {
         string prefix = "-> ";
         
-        if(specialCase == TELEPORTER) 
+        switch(specialCase)
         {
-            prefix += nameof(TELEPORTER).ToLower(); 
-            if(teleporterEntrance)
-            {
-                prefix += ", " + teleporterNumber + " to " + teleporterConnectedWith;
-            }
-            else
-            {
-                prefix += "-exit";
-            }
-            return prefix;
+            case TELEPORTER:
+    
+                prefix += nameof(TELEPORTER).ToLower(); 
+                if(teleporterEntrance)
+                {
+                    prefix += ", " + teleporterNumber + " to " + teleporterConnectedWith;
+                }
+                else
+                {
+                    prefix += "_exit " + teleporterNumber;
+                }
+                return prefix;
+    
+            case VELOCITY:
+                return prefix + nameof(VELOCITY).ToLower() + " " + velocity;
+    
+            case JUMPAD:
+                return prefix + nameof(JUMPAD).ToLower() + " " + jumpDirection;
         }
-        
-        else if (specialCase == VELOCITY)
-        {
-            return prefix + nameof(VELOCITY).ToLower() + " " + velocity;
-        }
-
-        else if (specialCase == JUMPAD)
-        {
-            return prefix + nameof(JUMPAD).ToLower() + " " + jumpDirection;
-        }
-
         return "";
     }
 }

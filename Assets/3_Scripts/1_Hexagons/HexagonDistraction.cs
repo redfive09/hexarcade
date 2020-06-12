@@ -19,6 +19,7 @@ public class HexagonDistraction : MonoBehaviour
 
     /* ------------------------------ FIELDS FOR SCOLLING TEXT ------------------------------  */
     [SerializeField] private GameObject _scrollingText;
+    
 
     /* ------------------------------ DISTRACTION-TILES NUMBERS ------------------------------  */
     private int distractionCase;
@@ -258,14 +259,27 @@ public class HexagonDistraction : MonoBehaviour
         }
     }
 
+
     /* ------------------------------ EDITOR METHODS ------------------------------  */
 
     public string GetNameOfFunction()
     {
         string prefix = "-> ";
 
-        if(distractionCase == BLINKING_START) return prefix + nameof(BLINKING_START).ToLower() + ", length: " + lengthOfBlinkingDistraction;
-        if(distractionCase == BLINKING_STOPP) return prefix + nameof(BLINKING_STOPP).ToLower();
+        switch(distractionCase)
+        {
+            case BLINKING_START:
+                return prefix + nameof(BLINKING_START).ToLower() + ", length: " + lengthOfBlinkingDistraction;
+
+            case BLINKING_STOP:
+                return prefix + nameof(BLINKING_STOP).ToLower();
+
+            case SCROLLING_TEXT:
+                return prefix + nameof(SCROLLING_TEXT).ToLower();
+
+            case SCROLLING_TEXT_STOP:
+                return prefix + nameof(SCROLLING_TEXT_STOP).ToLower();
+        }
 
         return "";
     }

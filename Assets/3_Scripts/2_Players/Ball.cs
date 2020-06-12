@@ -193,7 +193,7 @@ public class Ball : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("1_Scenes/Menus/Win");
+            SceneManager.LoadScene("1_Scenes/Menus/WinScreen");
         }
         
         if(timer.IsNewBestTime())
@@ -221,7 +221,7 @@ public class Ball : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("1_Scenes/Menus/GameOverMenu");
+            SceneManager.LoadScene("1_Scenes/Menus/LoseScreen");
         }
     }
     
@@ -245,14 +245,19 @@ public class Ball : MonoBehaviour
         timer.SetStopWatch(seconds);
         timer.Show();
         
+           
         while (!timer.IsStopTimeOver())
         {
             yield return new WaitForSeconds(0.00001f);
-        }
+        }        
 
-        timer.Unpause();
         rb.constraints = RigidbodyConstraints.None;
         ActivatePlayerControls();
+
+        if(!occupiedTile.GetHexagon().IsStartingTile())
+        { 
+            timer.Unpause();
+        }
     }
     
 
@@ -302,7 +307,7 @@ public class Ball : MonoBehaviour
                     occupiedTile = currentTile;         // Save the current tile
                     AnalyseArrivedHexagon(currentTile.GetComponent<Hexagon>());
                 }
-            }            
+            }
         }
     }
 
@@ -441,6 +446,11 @@ public class Ball : MonoBehaviour
     public int GetPlayerNumber()
     {
         return playerNumber;
+    }
+
+    public Rigidbody GetRigidbody()
+    {
+        return rb;
     }
 
 

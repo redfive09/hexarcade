@@ -23,21 +23,20 @@ public class MenuController : MonoBehaviour
         Debug.Log("Quit Game!");
         Application.Quit();
     }
-
     
     
     public void Restart()
     {
-        /*Scene scene = SceneManager.GetActiveScene(); 
-        SceneManager.LoadScene(scene.name);*/
-        SceneManager.LoadScene(sceneIndex-1 );
+        // Scene scene = SceneManager.GetActiveScene(); 
+        // SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(sceneIndex - 1);
     }
 
     public void Next()
     {
-        /*Scene scene = SceneManager.GetActiveScene(); 
-        SceneManager.LoadScene(scene.name);*/
-        SceneManager.LoadScene(sceneIndex+1 );
+        // Scene scene = SceneManager.GetActiveScene(); 
+        // SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(sceneIndex + 1);
     }
 
     public void MainMenu()

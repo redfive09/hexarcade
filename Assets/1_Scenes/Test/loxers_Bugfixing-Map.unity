@@ -323,7 +323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12240680}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.2999997, y: 0, z: -1.565}
+  m_LocalPosition: {x: 0, y: 0, z: -6.25}
   m_LocalScale: {x: 1, y: 41.49744, z: 1}
   m_Children:
   - {fileID: 1012870323}
@@ -403,6 +403,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.8584906, g: 0.49567452, b: 0.16602883, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &12240686
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -487,7 +488,7 @@ GameObject:
   - component: {fileID: 26786261}
   - component: {fileID: 26786260}
   m_Layer: 0
-  m_Name: '3, 0 || Special -> jumpad (0.0, 100.0, 0.0) || '
+  m_Name: '3, 0 || Special -> jumpad (0.0, 50000.0, 0.0) || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,7 +528,7 @@ MonoBehaviour:
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
-  jumpDirection: {x: 0, y: 100, z: 0}
+  jumpDirection: {x: 5000, y: 50000, z: 0}
 --- !u!114 &26786261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,6 +582,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.3490566, g: 0.04774832, b: 0.056784038, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &26786264
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1224,6 +1226,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &44460881
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1402,6 +1405,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &57911686
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1655,6 +1659,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &64409817
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3008,6 +3013,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &170284634
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3186,6 +3192,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &176730660
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3439,6 +3446,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &194381114
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3941,6 +3949,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &265131473
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4119,6 +4128,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &279778276
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4657,6 +4667,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &326260675
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4940,6 +4951,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &341569482
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5343,6 +5355,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &357370987
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5521,6 +5534,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &358184430
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5748,7 +5762,7 @@ MonoBehaviour:
   reverseSpeed: 0
   teleporterNumber: 2
   teleporterConnectedWith: 3
-  teleporterOffset: {x: 0, y: -0.5, z: 0}
+  teleporterOffset: {x: 0, y: -1, z: 0}
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &371647378
@@ -5804,6 +5818,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.85882354, g: 0.49411765, b: 0.16470589, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &371647381
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6057,6 +6072,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &375199091
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6310,6 +6326,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &403583361
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7163,6 +7180,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &475541030
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7341,6 +7359,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &482958547
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7519,6 +7538,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &491272986
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7697,6 +7717,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &496681983
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8235,6 +8256,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &535169917
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8337,7 +8359,7 @@ MonoBehaviour:
   stoptimeForCheckpoints: 0
   standardTilesMeansLosing: 0
   spawnPositionOffset: {x: 0, y: 1, z: 0}
-  restartingInsteadOfMenu: 1
+  restartingInsteadOfMenu: 0
 --- !u!114 &544394714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8610,7 +8632,7 @@ GameObject:
   - component: {fileID: 577908836}
   - component: {fileID: 577908835}
   m_Layer: 0
-  m_Name: '3, 2 || Special -> teleporter-exit || '
+  m_Name: '3, 2 || Special -> teleporter_exit 3 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8644,11 +8666,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
+  keepSpeedThroughTeleporter: 1
   reverseSpeed: 0
   teleporterNumber: 3
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
+  teleporterConnectedWith: 2
+  teleporterOffset: {x: 0, y: 10, z: 0}
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &577908836
@@ -8704,6 +8726,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.85882354, g: 0.3647059, b: 0.16470589, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &577908839
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9492,6 +9515,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &606105068
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9578,6 +9602,7 @@ MonoBehaviour:
   timeToNextBlinkingCycle: 0
   timeUntilChangingColourBack: 0
   setColorBackImmediately: 0
+  _scrollingText: {fileID: 0}
 --- !u!1 &616912491
 GameObject:
   m_ObjectHideFlags: 0
@@ -9689,6 +9714,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &616912497
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10268,7 +10294,7 @@ GameObject:
   - component: {fileID: 661634440}
   - component: {fileID: 661634439}
   m_Layer: 0
-  m_Name: '-3, 0 || '
+  m_Name: '-3, 0 || Special -> teleporter, 4 to 5 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10362,6 +10388,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.85882354, g: 0.49411765, b: 0.16470589, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &661634443
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10765,6 +10792,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &714479637
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11048,6 +11076,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &753299146
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11631,6 +11660,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &782539033
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12139,6 +12169,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &798519852
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12317,6 +12348,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &807679597
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12495,6 +12527,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &817190288
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12673,6 +12706,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &824809572
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12851,6 +12885,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &829683291
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13314,6 +13349,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &863540166
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13493,6 +13529,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.17294808, g: 0.8396226, b: 0.14653791, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &877172107
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13572,13 +13609,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b349a7d5859fbf044ab1ccb4320c8a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onlyThisPlatformIsBlinking: 1
+  onlyThisPlatformIsBlinking: 0
   multipleActivationsPossible: 1
-  numberOfBlinkingTilesPerCycle: 3
+  numberOfBlinkingTilesPerCycle: 9999
   lengthOfBlinkingDistraction: 5
   timeToNextBlinkingCycle: 0.33
   timeUntilChangingColourBack: 3
   setColorBackImmediately: 0
+  _scrollingText: {fileID: 0}
 --- !u!1 &880364241
 GameObject:
   m_ObjectHideFlags: 0
@@ -13963,6 +14001,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &896565192
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14332,7 +14371,7 @@ GameObject:
   - component: {fileID: 920050963}
   - component: {fileID: 920050962}
   m_Layer: 0
-  m_Name: '1, 0 || Special -> velocity 0 || '
+  m_Name: '1, 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14426,6 +14465,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &920050966
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15058,16 +15098,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrivedCrackedTile: {r: 0, g: 0, b: 0, a: 0}
-  arrivedPathTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedPathTile: {r: 0.47058824, g: 0.83137256, b: 0.05882353, a: 0}
   arrivedDistractionTile: {r: 0.17254902, g: 0.8392157, b: 0.14509805, a: 0}
   arrivedCheckpointTile: {r: 0, g: 0, b: 0, a: 0}
-  arrivedSpecialTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedSpecialTile: {r: 0.85882354, g: 0.49411765, b: 0.16470589, a: 0}
   arrivedMovingTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedStartingTile: {r: 0.5893909, g: 0.06674972, b: 0.9433962, a: 0}
   arrivedWinningTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedStandardTile: {r: 0, g: 0, b: 0, a: 0}
   leftCrackedTile: {r: 0, g: 0, b: 0, a: 0}
-  leftPathTile: {r: 0, g: 0, b: 0, a: 0}
+  leftPathTile: {r: 0.47058824, g: 0.83137256, b: 0.05882353, a: 0}
   leftDistractionTile: {r: 0.17254902, g: 0.8392157, b: 0.14509805, a: 0}
   leftCheckpointTile: {r: 0, g: 0, b: 0, a: 0}
   leftSpecialTile: {r: 0, g: 0, b: 0, a: 0}
@@ -15101,7 +15141,7 @@ MonoBehaviour:
   distractionTilesColorTime: 0
   distractionTimeBeforeFading: 0
   distractionTilesColorFading: 0
-  distractionTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  distractionTilesColor: {r: 0.20143741, g: 0.85882354, b: 0.16470587, a: 0}
   checkpointTilesColorStartTime: 0
   checkpointTilesColorTime: 0
   checkpointTimeBeforeFading: 0
@@ -15111,7 +15151,7 @@ MonoBehaviour:
   specialTilesColorTime: 0
   specialTimeBeforeFading: 0
   specialTilesColorFading: 0
-  specialTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  specialTilesColor: {r: 0.85882354, g: 0.49411765, b: 0.16470589, a: 0}
   movingTilesColorStartTime: 0
   movingTilesColorTime: 0
   movingTimeBeforeFading: 0
@@ -15369,6 +15409,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &978585560
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15858,6 +15899,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1001086600
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16216,6 +16258,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1015862585
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16574,6 +16617,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1042169937
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16659,7 +16703,7 @@ GameObject:
   - component: {fileID: 1051906122}
   - component: {fileID: 1051906129}
   m_Layer: 0
-  m_Name: '-2, -2 || Distraction -> blinking_stopp || '
+  m_Name: '-2, -2 || Distraction -> blinking_stop || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16753,6 +16797,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.7475375, g: 0.8392157, b: 0.14509802, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1051906126
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16839,6 +16884,7 @@ MonoBehaviour:
   timeToNextBlinkingCycle: 0
   timeUntilChangingColourBack: 0
   setColorBackImmediately: 1
+  _scrollingText: {fileID: 0}
 --- !u!1 &1054777182
 GameObject:
   m_ObjectHideFlags: 0
@@ -17340,6 +17386,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1087347495
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17518,6 +17565,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1097828137
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18806,6 +18854,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1200120193
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19194,6 +19243,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: 7
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1229028687
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19447,6 +19497,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1236760388
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19805,6 +19856,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1280854698
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20163,6 +20215,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1301517436
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20596,6 +20649,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1337886812
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20879,6 +20933,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1349993041
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21132,6 +21187,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1371804997
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21595,6 +21651,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1396734945
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22133,6 +22190,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1441361296
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22521,6 +22579,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1447122661
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22699,6 +22758,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1459490320
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22982,6 +23042,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1505709563
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23160,6 +23221,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1506932291
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23443,6 +23505,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1584278078
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24011,6 +24074,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1626857063
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24189,6 +24253,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1626874253
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24367,6 +24432,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1628379710
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24923,6 +24989,7 @@ MonoBehaviour:
   isStartingTile: 0
   isWinningTile: -1
   color: {r: 0.5882353, g: 0.06666667, b: 0.94509804, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1689128898
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25101,6 +25168,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5254902, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1696710618
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25279,6 +25347,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1716108023
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25532,6 +25601,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1756228518
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25860,6 +25930,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1761381282
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26038,6 +26109,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1766916676
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26576,6 +26648,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1810410594
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26859,6 +26932,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1815429596
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27037,6 +27111,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1821507323
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27290,6 +27365,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1846499955
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27543,6 +27619,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1873260712
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27797,6 +27874,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.17294808, g: 0.8396226, b: 0.14653791, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1883127935
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27883,6 +27961,7 @@ MonoBehaviour:
   timeToNextBlinkingCycle: 2
   timeUntilChangingColourBack: 3
   setColorBackImmediately: 0
+  _scrollingText: {fileID: 0}
 --- !u!1 &1897662135
 GameObject:
   m_ObjectHideFlags: 0
@@ -28534,6 +28613,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1942463324
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28618,7 +28698,7 @@ GameObject:
   - component: {fileID: 1944504842}
   - component: {fileID: 1944504841}
   m_Layer: 0
-  m_Name: '-2, -1 || Path 3 || '
+  m_Name: '-2, -1 || Path 3 || Special -> teleporter_exit 5 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28651,7 +28731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleporterEntrance: 1
+  teleporterEntrance: 0
   keepSpeedThroughTeleporter: 0
   reverseSpeed: 0
   teleporterNumber: 5
@@ -28712,6 +28792,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.85882354, g: 0.49411765, b: 0.16470589, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1944504845
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29250,6 +29331,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1972477296
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29818,6 +29900,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2001876378
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30101,6 +30184,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2046057117
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30459,6 +30543,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2080634465
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30788,6 +30873,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2107706058
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30874,6 +30960,7 @@ MonoBehaviour:
   timeToNextBlinkingCycle: 0
   timeUntilChangingColourBack: 0
   setColorBackImmediately: 0
+  _scrollingText: {fileID: 0}
 --- !u!1 &2107800488
 GameObject:
   m_ObjectHideFlags: 0
@@ -30891,7 +30978,7 @@ GameObject:
   - component: {fileID: 2107800491}
   - component: {fileID: 2107800490}
   m_Layer: 0
-  m_Name: '0, 0 || Checkpoint 0 || Special -> teleporter-exit || '
+  m_Name: '0, 0 || Checkpoint 0 || Special -> teleporter_exit 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30985,6 +31072,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.85882354, g: 0.3647059, b: 0.16470587, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2107800494
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31163,6 +31251,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2114962247
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31416,6 +31505,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2130954537
 MeshRenderer:
   m_ObjectHideFlags: 0
