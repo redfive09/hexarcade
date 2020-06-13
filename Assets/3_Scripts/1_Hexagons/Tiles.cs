@@ -26,18 +26,18 @@ public class Tiles : MonoBehaviour
 
 
     /* ------------------------------ STARTING METHODS BEGINN ------------------------------  */
-    public void GetStarted()
+    public void GetStarted(bool inEditor)
     {        
-        CollectTiles();
+        CollectTiles(inEditor);
         GetComponent<TileColorsIntroduction>().GetStarted();
     }
 
-    public void CollectTiles()
+    public void CollectTiles(bool inEditor)
     {
         PrepareLists();
         ClearEverything();        
         CollectPlatforms();
-        CollectTilesForListsAndColorThem();
+        CollectTilesForListsAndColorThem(inEditor);
     }
 
     private void PrepareLists()
@@ -71,7 +71,7 @@ public class Tiles : MonoBehaviour
      *  Goes through all the hexagons of every platform (which means going through EVERY single hexagon) and add it to the different lists
      *  At the end, give it its individual colour settings
      */
-    private void CollectTilesForListsAndColorThem()
+    private void CollectTilesForListsAndColorThem(bool inEditor)
     {
         int tilesCounter = 0;
         for(int i = 0; i < platforms.Count; i++)
@@ -114,11 +114,23 @@ public class Tiles : MonoBehaviour
                 }
 
                 if(hexagon.IsSpecialTile())
-                {
-                    
+                {                    
                     SaveHexagonInList(specialTiles, hexagon, hexagon.GetSpecialNumber());                    
                     hexagon.SetStandardTile(false);
+                    if(!hexagon.GetComponent<HexagonSpecial>()) hexagon.gameObject.AddComponent<HexagonSpecial>();                    
                     hexagon.GetComponent<HexagonSpecial>().GetStarted(specialTiles);
+                }
+                else
+                {
+                    if(inEditor)
+                    {
+                        HexagonSpecial specialScript = hexagon.GetComponent<HexagonSpecial>();
+                        if(specialScript)
+                        {
+                           
+                            DestroyImmediate(specialScript);
+                        }                            
+                    }
                 }
 
                 if(hexagon.IsMovingTile())
@@ -302,7 +314,7 @@ public class Tiles : MonoBehaviour
     {
         if(tileLists == null) 
         {
-            CollectTiles();
+            CollectTiles(false);
         }
         
         for(int i = 0; i < tileLists.Length; i++)

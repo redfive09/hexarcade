@@ -28,6 +28,6 @@ public class TilesApplyForAllEditor : Editor {
     
     private void CollectTiles()
     {
-        GameObject.Find("Map/Tiles").GetComponent<Tiles>().CollectTiles();
+        GameObject.Find("Map/Tiles").GetComponent<Tiles>().CollectTiles(true);
     }
 }

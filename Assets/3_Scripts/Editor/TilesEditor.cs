@@ -17,13 +17,13 @@ public class TilesEditor : Editor {
         
         if (GUILayout.Button("Clearify Names for Non-Standard Tiles"))
         {
-            tiles.CollectTiles();
+            tiles.CollectTiles(true);
             AddNameSuffixToNonStandardHexagons(tiles.GetPlatforms());
         }
 
         if (GUILayout.Button("Enhance hexagon clicking experience (for old scenes)"))
         {
-            tiles.CollectTiles();
+            tiles.CollectTiles(true);
             AddScriptToAllHexagonChildren(tiles.GetPlatforms());
         }
 

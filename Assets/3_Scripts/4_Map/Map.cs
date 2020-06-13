@@ -18,7 +18,7 @@ public class Map : MonoBehaviour
     private void CreateTiles()
     {
         tiles = this.transform.GetComponentInChildren<Tiles>();
-        tiles.GetStarted();
+        tiles.GetStarted(false);
 
         GameObject mapGenerator = GameObject.Find("/MapGenerator");
         if(mapGenerator) mapGenerator.SetActive(false);
