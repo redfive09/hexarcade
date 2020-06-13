@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 1d622d3ee78781d49a01e726f01d4c09, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_Sun: {fileID: 761652295}
+  m_IndirectSpecularColor: {r: 0.19147289, g: 0.7420802, b: 0.7702794, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -856,6 +856,7 @@ MonoBehaviour:
   stoptimeForCheckpoints: 3
   standardTilesMeansLosing: 0
   spawnPositionOffset: {x: 0, y: 1, z: 0}
+  restartingInsteadOfMenu: 0
 --- !u!114 &229980442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,7 +885,7 @@ Transform:
   - {fileID: 2029498932}
   - {fileID: 1369475145}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &244366275
 GameObject:
@@ -1515,9 +1516,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &299055977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1639,6 +1644,85 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &314203275
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 677
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118094795690078078, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 677
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256838815837531904, guid: e4959040e9980774483039abb186e657,
+        type: 3}
+      propertyPath: m_Name
+      value: disco-neon-ground
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e4959040e9980774483039abb186e657, type: 3}
 --- !u!1 &314737233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,9 +1774,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &314737236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2362,9 +2450,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &367346144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3291,9 +3383,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &520414723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3826,9 +3922,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &615207402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4233,9 +4333,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &650317139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4901,9 +5005,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &724977046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5239,7 +5347,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &766760114
 GameObject:
@@ -5809,9 +5917,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &901083148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6756,9 +6868,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1050109517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7581,9 +7697,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1271751304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7831,9 +7951,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1307123500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8262,9 +8386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e46712b9065b943b6f6f1bed225df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applyForAllCrackableTiles: 0
   crackedTileBreaksInSeconds: 0
-  applyForAllVelocityTiles: 0
   velocity: 0
 --- !u!114 &1369475150
 MonoBehaviour:
@@ -8329,9 +8451,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1387375445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8810,9 +8936,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1416151436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9375,9 +9505,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1583661676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9623,9 +9757,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1602483709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9972,9 +10110,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1622844747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10407,7 +10549,7 @@ PrefabInstance:
     - target: {fileID: 1721394227197139237, guid: 65954c3ed4a21724ea93fd00b4363476,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1721394227197139237, guid: 65954c3ed4a21724ea93fd00b4363476,
         type: 3}
@@ -10972,9 +11114,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1802285849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11147,9 +11293,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1817787915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11554,9 +11704,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1899121830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11729,9 +11883,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1903229584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12009,9 +12167,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1909793125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12537,9 +12699,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2011682771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13036,9 +13202,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2101508674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13211,9 +13381,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2108515375
 MonoBehaviour:
   m_ObjectHideFlags: 0
