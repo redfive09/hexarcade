@@ -15,8 +15,7 @@ public class Ball : MonoBehaviour
     private Vector3 lastSpawnOffset;
     private Timer timer;
     private MapSettings settings;
-    private GameObject tilesObject;
-    private PauseMenu pauseMenu;
+    private Tiles tiles;    
     private List<Vector3> positions = new List<Vector3>();
     Dictionary<int, List<Hexagon>> checkpointTiles;
     bool playerMarkedCheckpoints = false;
@@ -42,17 +41,17 @@ public class Ball : MonoBehaviour
         firstSpawnPosition = transform.position;
         this.playerNumber = playerNumber;        
         rb = GetComponent<Rigidbody>();
-        timer = GetComponentInChildren<Timer>();
-        tilesObject = GameObject.Find("Map/Tiles");
+        timer = GetComponentInChildren<Timer>();        
+        tiles = GameObject.Find("Map/Tiles").GetComponent<Tiles>();
         settings = GameObject.Find("Map").GetComponent<MapSettings>();
-        lastSpawnOffset = settings.GetSpawnPositionOffset();
-        pauseMenu = GetComponentInChildren<PauseMenu>();
+        lastSpawnOffset = settings.GetSpawnPositionOffset();        
         CameraFollow cameraFollow = GetComponentInParent<Players>().GetCamera();
+        SkipButton skipButton = GetComponentInChildren<SkipButton>();
         
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
-        loseHeight = loseTile.transform.position.y;        
+        loseHeight = loseTile.transform.position.y;
  
-        StartCoroutine(Introduction(cameraFollow));
+        StartCoroutine(Introduction(cameraFollow, skipButton));
     }
 
 
@@ -62,7 +61,7 @@ public class Ball : MonoBehaviour
      *  All the colours of the non-standard tiles will be shown
      *  When all colours have faded, then the game starts
      */
-    IEnumerator Introduction(CameraFollow cameraFollow)
+    IEnumerator Introduction(CameraFollow cameraFollow, SkipButton skipButton)
     {
         while(!cameraFollow.GetCameraReachedFinalPosition())                        // wait for the user to finish watching the introduction screen
         {
@@ -82,15 +81,15 @@ public class Ball : MonoBehaviour
 
         /* --------------- DISPLAYING NON-STANDARD TILES ---------------  */
         
-        TileColorsIntroduction tileColorsIntroduction = tilesObject.GetComponent<TileColorsIntroduction>(); // Get the script for the colour introduction
+        TileColorsIntroduction tileColorsIntroduction = tiles.GetComponent<TileColorsIntroduction>(); // Get the script for the colour introduction
 
         bool chooseCheckPoints = settings.GetNumberOfCheckpoints() > 0;             // are there any checkpoints to choose for this map
 
-        tileColorsIntroduction.DisplayTiles(chooseCheckPoints);                     // display the non-standard tiles
+        tileColorsIntroduction.DisplayTiles(chooseCheckPoints, skipButton);         // display the non-standard tiles
         
         if(chooseCheckPoints)
         {
-            Tiles tiles = tilesObject.GetComponent<Tiles>();                        // get the script of tiles
+
             checkpointTiles = tiles.GetCheckpointTiles();                           // prepare the place for adding the checkpoints
 
             while(!tileColorsIntroduction.IsReadyForCheckpoints())                  // once the colours have appeared, it will wait with the fading process
@@ -98,6 +97,7 @@ public class Ball : MonoBehaviour
                 yield return new WaitForSeconds(0.2f);                              // check regularly if all the colours have appeared
             }
             
+            skipButton.ResetForCheckpoints();
             ControlsCheckpoint checkpointController = GetComponent<ControlsCheckpoint>();   // get the controls for choosing the checkpoints
             checkpointController.enabled = true;                                            // enable it
             checkpointController.GetStarted(settings.GetNumberOfCheckpoints(), checkpointTiles, tiles, cameraFollow);   // and get it started
@@ -110,7 +110,8 @@ public class Ball : MonoBehaviour
             }
             
             while(!playerMarkedCheckpoints &&                                       // check, if the player has marked all available checkpoints
-                  !(isStoptimeForCheckpoints && timer.IsStopTimeOver()))            // or if the time for choosing them is over
+                  !(isStoptimeForCheckpoints && timer.IsStopTimeOver()) &&          // or if the time for choosing them is over
+                  !skipButton.IsButtonPressed())                                    // when skipButton gets pressed, it confirms the choices of the player
             {
                 playerMarkedCheckpoints = checkpointController.IsFinished();        // update the boolean, if the player has confirmed its choices
                 yield return new WaitForSeconds(0.2f);                              // it will check regularly if the player has choosen the checkpoints
@@ -128,13 +129,15 @@ public class Ball : MonoBehaviour
         
         timer.Show();
         timer.SetStopWatch(3.9f);
+        skipButton.Reset();
 
-        while (!timer.IsStopTimeOver())
+        while (!timer.IsStopTimeOver() && !skipButton.IsButtonPressed())
         {
             yield return new WaitForSeconds(0.2f);
         }
-                
-        timer.Disappear();        
+
+        timer.Disappear();
+        skipButton.gameObject.SetActive(false);
         GameStarts();
     }
 
@@ -266,18 +269,18 @@ public class Ball : MonoBehaviour
     /*       
      *  So far just testing stuff
     **/
-    void FixedUpdate()
-    {
-        // Save current position, not used yet
-        positions.Add(transform.position);
+    // void FixedUpdate()
+    // {
+    //     // Save current position, not used yet
+    //     positions.Add(transform.position);
 
-        // Start ghost/replay --- JUST A TEST SO FAR ---
-        if(Input.GetKeyDown(KeyCode.R))
-        {                     
-            transform.position = positions[replayPositionCounter];
-            replayPositionCounter++;
-        }
-    }
+    //     // Start ghost/replay --- JUST A TEST SO FAR ---
+    //     if(Input.GetKeyDown(KeyCode.R))
+    //     {                     
+    //         transform.position = positions[replayPositionCounter];
+    //         replayPositionCounter++;
+    //     }
+    // }
 
 
     /* ------------------------------ CHECKING AND ANALYSING ENVIRONMENT ------------------------------  */
@@ -321,10 +324,8 @@ public class Ball : MonoBehaviour
         if(hexagon.IsStartingTile())
         {
             PlayerLeftStartingTile();            
-        }
-        
+        }        
     }
-
 
 
     /*  

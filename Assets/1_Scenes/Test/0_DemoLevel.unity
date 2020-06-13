@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -763,9 +763,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &34474315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,6 +823,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: 0
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &34474318
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -937,9 +942,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &34536436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,6 +1002,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &34536439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1186,9 +1196,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &39709155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,6 +1256,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &39709158
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1831,9 +1846,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: -300, y: 700, z: 150}
 --- !u!114 &76077774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1882,11 +1901,12 @@ MonoBehaviour:
   isPath: 4
   isDistractionTile: -1
   isCheckpointTile: -1
-  isSpecialTile: -1
+  isSpecialTile: 2
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &76077777
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2256,9 +2276,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &86422417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2312,6 +2336,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &86422420
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2505,9 +2530,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &97498975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,6 +2590,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &97498978
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3249,9 +3279,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &149188786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3305,6 +3339,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &149188789
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3573,9 +3608,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &156143979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3629,6 +3668,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &156143982
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3747,9 +3787,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &164176650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3803,6 +3847,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &164176653
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3921,9 +3966,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &172425686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3977,6 +4026,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &172425689
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4785,9 +4835,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &264642066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4841,6 +4895,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &264642069
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4959,9 +5014,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &267246218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5015,6 +5074,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &267246221
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5133,9 +5193,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &272494112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5189,6 +5253,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &272494115
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5307,9 +5372,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &279815468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5363,6 +5432,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &279815471
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5661,9 +5731,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &291754523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5717,6 +5791,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &291754526
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6225,9 +6300,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &311340221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6281,6 +6360,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &311340224
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6654,9 +6734,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &331065632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6710,6 +6794,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &331065635
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6828,9 +6913,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &331629614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6884,6 +6973,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &331629617
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7002,9 +7092,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &342671898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7058,6 +7152,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &342671901
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7356,9 +7451,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &376147047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7412,6 +7511,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &376147050
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7785,9 +7885,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &389910900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7841,6 +7945,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &389910903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8678,9 +8783,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &439335558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8734,6 +8843,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &439335561
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9212,9 +9322,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &474594520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9268,6 +9382,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &474594523
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9926,9 +10041,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &522568637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9982,6 +10101,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &522568640
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11090,9 +11210,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &561434017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11146,6 +11270,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &561434020
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11264,9 +11389,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &586782517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11320,6 +11449,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &586782520
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12128,9 +12258,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &654826980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12184,6 +12318,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &654826983
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12377,9 +12512,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &663018732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12433,6 +12572,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &663018735
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12551,9 +12691,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &673755426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12607,6 +12751,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &673755429
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12800,9 +12945,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &678969280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12856,6 +13005,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &678969283
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12974,9 +13124,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &687860369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13030,6 +13184,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: 0
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &687860372
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13148,9 +13303,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &713459824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13204,6 +13363,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &713459827
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13397,9 +13557,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &720973093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13453,6 +13617,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &720973096
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13901,9 +14066,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &762088823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13957,6 +14126,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &762088826
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14150,9 +14320,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &783515386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14206,6 +14380,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &783515389
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14714,9 +14889,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &799371249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14770,6 +14949,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &799371252
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14888,9 +15068,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &804781494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14944,6 +15128,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &804781497
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15062,9 +15247,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &828244850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15118,6 +15307,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &828244853
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15236,9 +15426,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &830965492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15292,6 +15486,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &830965495
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15890,9 +16085,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &899286900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15946,6 +16145,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &899286903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16319,9 +16519,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &932855489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16375,6 +16579,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &932855492
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17376,9 +17581,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1062876548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17432,6 +17641,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1062876551
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18090,9 +18300,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1099028065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18146,6 +18360,7 @@ MonoBehaviour:
   isStartingTile: 0
   isWinningTile: -1
   color: {r: 1, g: 0.61960787, b: 0, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1099028068
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18264,9 +18479,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1100604895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18320,6 +18539,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1100604898
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18513,9 +18733,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1110762144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18569,6 +18793,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1110762147
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18792,9 +19017,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1120179151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18848,6 +19077,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1120179154
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18966,9 +19196,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1139730804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19022,6 +19256,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1139730807
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19243,9 +19478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e46712b9065b943b6f6f1bed225df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applyForAllCrackableTiles: 1
   crackedTileBreaksInSeconds: 2
-  applyForAllVelocityTiles: 0
   velocity: 0
 --- !u!114 &1143293767
 MonoBehaviour:
@@ -19385,9 +19618,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1146344033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19441,6 +19678,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1146344036
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20099,9 +20337,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1185140946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20155,6 +20397,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1185140949
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20348,9 +20591,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1200350975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20404,6 +20651,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1200350978
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20627,9 +20875,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1203284248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20683,6 +20935,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1203284251
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21715,9 +21968,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1246562765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21771,6 +22028,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1246562768
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21994,9 +22252,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1258284209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22050,6 +22312,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1258284212
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22603,9 +22866,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1290875278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22659,6 +22926,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1290875281
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22777,9 +23045,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1293665586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22833,6 +23105,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1293665589
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23161,9 +23434,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1344225278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23217,6 +23494,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1344225281
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23545,9 +23823,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1359952394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23601,6 +23883,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1359952397
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23733,6 +24016,7 @@ MonoBehaviour:
   stoptimeForCheckpoints: 10
   standardTilesMeansLosing: 1
   spawnPositionOffset: {x: 0, y: 1, z: 0}
+  restartingInsteadOfMenu: 1
 --- !u!21 &1372345556
 Material:
   serializedVersion: 6
@@ -24039,9 +24323,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1396543608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24095,6 +24383,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1396543611
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24288,9 +24577,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1425728309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24344,6 +24637,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1425728312
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24462,9 +24756,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 2
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1426709346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24518,6 +24816,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1426709349
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24816,9 +25115,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1441125433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24872,6 +25175,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1441125436
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25561,9 +25865,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1502825527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25617,6 +25925,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1502825530
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25735,9 +26044,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1505408553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25791,6 +26104,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1505408556
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25909,9 +26223,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1509435046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25965,6 +26283,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1509435049
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26188,9 +26507,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1524836129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26244,6 +26567,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1524836132
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26362,9 +26686,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1524922739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26418,6 +26746,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1524922742
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26821,9 +27150,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1542491816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26877,6 +27210,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1542491819
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26995,9 +27329,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: -250, y: 500, z: 0}
 --- !u!114 &1542783432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27051,6 +27389,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1542783435
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27169,9 +27508,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1545512960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27225,6 +27568,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1545512963
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27343,9 +27687,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1552082721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27399,6 +27747,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1552082724
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27517,9 +27866,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1567854379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27573,6 +27926,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1567854382
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27946,9 +28300,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1582375262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28002,6 +28360,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1582375265
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28120,9 +28479,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1588775033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28176,6 +28539,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1588775036
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28294,9 +28658,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1597632212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28350,6 +28718,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1597632215
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28603,9 +28972,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1618782334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28659,6 +29032,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1618782337
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28957,9 +29331,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1653815036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29013,6 +29391,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1653815039
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29206,9 +29585,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1681399415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29262,6 +29645,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1681399418
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29530,9 +29914,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1716699327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29586,6 +29974,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1716699330
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29854,9 +30243,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1728185130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29910,6 +30303,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.13080311, b: 1, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1728185133
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30133,9 +30527,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1744054287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30189,6 +30587,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1744054290
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30307,9 +30706,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1744717615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30363,6 +30766,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1744717618
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30481,9 +30885,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1747774216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30537,6 +30945,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1747774219
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30730,9 +31139,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1758668910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30786,6 +31199,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1758668913
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31571,9 +31985,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1817940575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31627,6 +32045,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1817940578
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31745,9 +32164,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1827500143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31801,6 +32224,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1827500146
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32378,9 +32802,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1863879836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32434,6 +32862,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1863879839
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32762,9 +33191,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1875059473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32818,6 +33251,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1875059476
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32936,9 +33370,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1877985307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32992,6 +33430,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1877985310
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33215,9 +33654,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1887505486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33271,6 +33714,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1887505489
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33674,9 +34118,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1914720967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33730,6 +34178,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1914720970
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33848,9 +34297,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1922910775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33904,6 +34357,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1922910778
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34127,9 +34581,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1934533624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34183,6 +34641,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1934533627
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34736,9 +35195,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1966916845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34792,6 +35255,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1966916848
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35193,9 +35657,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1996460343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35249,6 +35717,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1996460346
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35577,9 +36046,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2013423735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35633,6 +36106,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2013423738
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35751,9 +36225,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2025756143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35807,6 +36285,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2025756146
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36000,9 +36479,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2038132737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36056,6 +36539,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2038132740
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36249,9 +36733,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2044381981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36305,6 +36793,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2044381984
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36423,9 +36912,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2058695646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36479,6 +36972,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2058695649
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36597,9 +37091,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2063930337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36653,6 +37151,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2063930340
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36771,9 +37270,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2071064839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36827,6 +37330,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2071064842
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36945,9 +37449,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2071124112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37001,6 +37509,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2071124115
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37268,9 +37777,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2078177352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37324,6 +37837,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2078177355
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37937,9 +38451,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2120043810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37993,6 +38511,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2120043813
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38216,9 +38735,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2133640013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38272,6 +38795,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2133640016
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38465,9 +38989,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
   teleporterNumber: 0
   teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2134643868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38521,6 +39049,7 @@ MonoBehaviour:
   isStartingTile: -1
   isWinningTile: -1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
+  markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &2134643871
 MeshRenderer:
   m_ObjectHideFlags: 0

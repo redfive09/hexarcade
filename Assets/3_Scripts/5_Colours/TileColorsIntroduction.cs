@@ -62,8 +62,9 @@ public class TileColorsIntroduction : MonoBehaviour
     [SerializeField] private float winningTilesColorFading;
     [SerializeField] private Color winningTilesColor;
 
-
+    private const float TIME_TO_CHECK_AGAIN = 0.2f;
     private Tiles tiles;
+    private SkipButton skipButton;
     private List<IntroductionTilesManager> colors = new List<IntroductionTilesManager>();
     private IntroductionTilesManager checkpoints;
     private bool checkpointsHasBeenMarked = false;
@@ -85,8 +86,9 @@ public class TileColorsIntroduction : MonoBehaviour
         colors.Add(checkpoints);
     }
 
-    public void DisplayTiles(bool chooseCheckPoints)
+    public void DisplayTiles(bool chooseCheckPoints, SkipButton skipButton)
     {
+        this.skipButton = skipButton;
         if(chooseCheckPoints)
         {
             colors.Remove(checkpoints);
@@ -102,10 +104,14 @@ public class TileColorsIntroduction : MonoBehaviour
      *  This method will colour all the incoming tiles
      *  Works : tiles are colored in with a delay
     **/
-    IEnumerator SetColor(IntroductionTilesManager tileOptions, bool waitForChoosingCheckPoints)
-    {
-        yield return new WaitForSeconds(tileOptions.GetStartingTime()); // wait seconds before continuing with the loop
-
+    private IEnumerator SetColor(IntroductionTilesManager tileOptions, bool waitForChoosingCheckPoints)
+    {        
+        float stopTime = Time.fixedTime + tileOptions.GetStartingTime(); // wait for the specified seconds
+        while(stopTime > Time.fixedTime && !skipButton.IsButtonPressed()) // if button was pressed, then continue instantly
+        {
+            yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
+        }
+        
         Dictionary<int, List<Hexagon>> colorList = tileOptions.GetTiles();
         Dictionary<Hexagon, Color> rememberColors = new Dictionary<Hexagon, Color>();
         int numberOfLists = colorList.Count;
@@ -121,7 +127,12 @@ public class TileColorsIntroduction : MonoBehaviour
                     rememberColors[hexagons[k]] = hexagons[k].GetColor();
                     hexagons[k].SetColor(tileOptions.GetColor());                    
                 }
-                yield return new WaitForSeconds(tileOptions.GetTimeToNextTile()); // wait seconds before continuing with the loop
+
+                stopTime = Time.fixedTime + tileOptions.GetTimeToNextTile(); // wait for the specified seconds
+                while(stopTime > Time.fixedTime && !skipButton.IsButtonPressed()) // if button was pressed, then continue instantly
+                {
+                    yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
+                }
             }
             else
             {
@@ -130,12 +141,12 @@ public class TileColorsIntroduction : MonoBehaviour
         }
 
         if(waitForChoosingCheckPoints)
-        {
-            tileOptions.SetReadyForCheckpoints(true);
+        {            
+            tileOptions.SetReadyForCheckpoints(true);            
 
             while(!checkpointsHasBeenMarked)
-            {
-                yield return new WaitForSeconds(0.2f);
+            {                
+                yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
             }
         }
 
@@ -145,11 +156,18 @@ public class TileColorsIntroduction : MonoBehaviour
     /* Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
     * Method goes trough the Dictionary in the opposite ordner and coulors them back to the old colour
     */
-    IEnumerator MakePathDisappear(IntroductionTilesManager tileOptions, Dictionary<Hexagon, Color> rememberColors)
+    private IEnumerator MakePathDisappear(IntroductionTilesManager tileOptions, Dictionary<Hexagon, Color> rememberColors)
     {
+        skipButton.Reset();
         Dictionary<int, List<Hexagon>> colorList = tileOptions.GetTiles();
-        yield return new WaitForSeconds(tileOptions.GetTimeBeforeFadingStarts()); // wait the specified seconds in time after entire path has lit up
-        
+
+        float stopTime = Time.fixedTime + tileOptions.GetTimeBeforeFadingStarts(); // wait for the specified seconds
+        while(stopTime > Time.fixedTime && !skipButton.IsButtonPressed()) // if button was pressed, then continue instantly
+        {
+            yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
+        }
+      
+      
         int highestKey = 0;
         
         try
@@ -176,7 +194,12 @@ public class TileColorsIntroduction : MonoBehaviour
                         }
                     }                    
                 }
-                yield return new WaitForSeconds(tileOptions.GetTimeForEachTileFading()); //wait before continuing with the loop
+
+                stopTime = Time.fixedTime + tileOptions.GetTimeForEachTileFading(); // wait for the specified seconds
+                while(stopTime > Time.fixedTime && !skipButton.IsButtonPressed()) // if button was pressed, then continue instantly
+                {
+                    yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
+                }                
             }
         }
         tileOptions.SetFinished(true);
