@@ -88,7 +88,7 @@ public class Tiles : MonoBehaviour
                 {
                     SaveHexagonInList(crackedTiles, hexagon, hexagon.GetCrackedNumber());
                     hexagon.SetStandardTile(false);
-                }
+                }                
 
                 if(hexagon.IsPathTile())
                 {
@@ -105,6 +105,17 @@ public class Tiles : MonoBehaviour
 
                     hexagon.GetComponent<HexagonDistraction>().GetStarted(hexagon.GetDistractionNumber(), platforms[i].GetAllPlatformTiles(), 
                                                                             allTiles, tileColors, distractionTiles);
+                }
+                else
+                {
+                    if(inEditor)
+                    {
+                        HexagonDistraction distractionScript = hexagon.GetComponent<HexagonDistraction>();
+                        if(distractionScript)
+                        {                           
+                            DestroyImmediate(distractionScript);
+                        }                            
+                    }
                 }
 
                 if(hexagon.IsCheckpointTile())
@@ -137,6 +148,18 @@ public class Tiles : MonoBehaviour
                 {
                     SaveHexagonInList(movingTiles, hexagon, hexagon.GetMovingNumber());
                     hexagon.SetStandardTile(false);
+                    if(!hexagon.GetComponent<HexagonMovingTiles>()) hexagon.gameObject.AddComponent<HexagonMovingTiles>();                    
+                }
+                else
+                {
+                    if(inEditor)
+                    {
+                        HexagonMovingTiles movingTilesScript = hexagon.GetComponent<HexagonMovingTiles>();
+                        if(movingTilesScript)
+                        {
+                            DestroyImmediate(movingTilesScript);
+                        }                            
+                    }
                 }
 
                 if(hexagon.IsStartingTile())

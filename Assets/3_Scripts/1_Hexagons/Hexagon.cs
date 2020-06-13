@@ -50,7 +50,6 @@ using UnityEngine;
             isWinningTile = -1;
             color = this.transform.GetChild(0).GetComponent<Renderer>().material.color;
             this.GetComponent<HexagonBehaviour>().Setup();
-            this.GetComponent<HexagonMovingTiles>().Setup();            
         }
 
 

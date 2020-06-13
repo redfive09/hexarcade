@@ -7,7 +7,7 @@ public class HexagonMovingTiles : MonoBehaviour
 
     [SerializeField] private Vector3 movingTilePosA;
     [SerializeField] private Vector3 movingTilePosB;
-    [SerializeField] private float speedOfMovingTiles;
+    [SerializeField] private float speedOfMovingTiles = 2f;
 
     [SerializeField] private float startingDelay;
     [SerializeField] private float waitBeforeTurningBack;
@@ -15,22 +15,13 @@ public class HexagonMovingTiles : MonoBehaviour
     // [SerializeField] private bool isRoundTrip;
 
     [SerializeField] private bool isLift;
-    [SerializeField] private int needsNumberOfPlayersForLifting;
+    [SerializeField] private int needsNumberOfPlayersForLifting = 1;
 
 
     // private
     private Hexagon thisHexagon;
     private int currentPlayersOnTile = 0;
 
-
-    // Setup standard values for editor mode
-    public void Setup()
-    {
-        speedOfMovingTiles = 2f;
-        // isRoundTrip = true;
-        needsNumberOfPlayersForLifting = 1;
-        isLift = false;
-    }
 
     void Start()
     {

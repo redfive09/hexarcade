@@ -22,9 +22,16 @@ public class HexagonEditor : Editor {
             hexagon.SetColor();
         }
 
-        if (GUILayout.Button("Add Distraction Script"))
+        if (GUILayout.Button("Update Additional Scripts"))
         {
-            if(!hexagon.GetComponent<HexagonDistraction>()) hexagon.gameObject.AddComponent<HexagonDistraction>();
+            if(hexagon.IsMovingTile() && !hexagon.GetComponent<HexagonMovingTiles>()) hexagon.gameObject.AddComponent<HexagonMovingTiles>();
+            if(!hexagon.IsMovingTile() && hexagon.GetComponent<HexagonMovingTiles>()) DestroyImmediate(hexagon.GetComponent<HexagonMovingTiles>());
+
+            if(hexagon.IsDistractionTile() && !hexagon.GetComponent<HexagonDistraction>()) hexagon.gameObject.AddComponent<HexagonDistraction>();
+            if(!hexagon.IsDistractionTile() && hexagon.GetComponent<HexagonDistraction>()) DestroyImmediate(hexagon.GetComponent<HexagonDistraction>());
+
+            if(hexagon.IsSpecialTile() && !hexagon.GetComponent<HexagonSpecial>()) hexagon.gameObject.AddComponent<HexagonSpecial>();
+            if(!hexagon.IsSpecialTile() && hexagon.GetComponent<HexagonSpecial>()) DestroyImmediate(hexagon.GetComponent<HexagonSpecial>());
         }
 
         // if (GUILayout.Button("Delete Hexagon"))
