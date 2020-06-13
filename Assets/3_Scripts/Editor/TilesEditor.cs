@@ -13,9 +13,8 @@ public class TilesEditor : Editor {
 
         Tiles tiles = (Tiles) target;
 
-        // GUILayout.
-        
-        if (GUILayout.Button("Clearify Names for Non-Standard Tiles"))
+                
+        if (GUILayout.Button("Update all hexagons"))
         {
             tiles.CollectTiles(true);
             AddNameSuffixToNonStandardHexagons(tiles.GetPlatforms());
