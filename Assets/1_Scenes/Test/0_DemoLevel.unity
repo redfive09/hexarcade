@@ -726,8 +726,6 @@ GameObject:
   - component: {fileID: 34474318}
   - component: {fileID: 34474317}
   - component: {fileID: 34474316}
-  - component: {fileID: 34474315}
-  - component: {fileID: 34474314}
   m_Layer: 0
   m_Name: '-6, 0 || Winning 0 || '
   m_TagString: Tile
@@ -750,45 +748,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &34474314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34474312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &34474315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34474312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &34474316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,8 +864,6 @@ GameObject:
   - component: {fileID: 34536439}
   - component: {fileID: 34536438}
   - component: {fileID: 34536437}
-  - component: {fileID: 34536436}
-  - component: {fileID: 34536435}
   m_Layer: 0
   m_Name: '4, -1 || '
   m_TagString: Tile
@@ -929,45 +886,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &34536435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34536433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &34536436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34536433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &34536437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,8 +1077,6 @@ GameObject:
   - component: {fileID: 39709158}
   - component: {fileID: 39709157}
   - component: {fileID: 39709156}
-  - component: {fileID: 39709155}
-  - component: {fileID: 39709154}
   m_Layer: 0
   m_Name: '3, 1 || '
   m_TagString: Tile
@@ -1183,45 +1099,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &39709154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39709152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &39709155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39709152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &39709156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1809,8 +1686,6 @@ GameObject:
   - component: {fileID: 76077777}
   - component: {fileID: 76077776}
   - component: {fileID: 76077775}
-  - component: {fileID: 76077774}
-  - component: {fileID: 76077773}
   m_Layer: 0
   m_Name: '-2, 1 || Path 4 || '
   m_TagString: Tile
@@ -1833,45 +1708,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &76077773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 76077771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: -300, y: 700, z: 150}
---- !u!114 &76077774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 76077771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 1
-  waitBeforeTurningBack: 0
-  isLift: 1
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &76077775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2239,8 +2075,6 @@ GameObject:
   - component: {fileID: 86422420}
   - component: {fileID: 86422419}
   - component: {fileID: 86422418}
-  - component: {fileID: 86422417}
-  - component: {fileID: 86422416}
   m_Layer: 0
   m_Name: '3, -2 || '
   m_TagString: Tile
@@ -2263,45 +2097,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &86422416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86422414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &86422417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86422414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &86422418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2493,8 +2288,6 @@ GameObject:
   - component: {fileID: 97498978}
   - component: {fileID: 97498977}
   - component: {fileID: 97498976}
-  - component: {fileID: 97498975}
-  - component: {fileID: 97498974}
   m_Layer: 0
   m_Name: '-1, -1 || '
   m_TagString: Tile
@@ -2517,45 +2310,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &97498974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97498972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &97498975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97498972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &97498976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3242,8 +2996,6 @@ GameObject:
   - component: {fileID: 149188789}
   - component: {fileID: 149188788}
   - component: {fileID: 149188787}
-  - component: {fileID: 149188786}
-  - component: {fileID: 149188785}
   m_Layer: 0
   m_Name: '-1, 1 || '
   m_TagString: Tile
@@ -3266,45 +3018,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &149188785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149188783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &149188786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149188783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &149188787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3571,8 +3284,6 @@ GameObject:
   - component: {fileID: 156143982}
   - component: {fileID: 156143981}
   - component: {fileID: 156143980}
-  - component: {fileID: 156143979}
-  - component: {fileID: 156143978}
   m_Layer: 0
   m_Name: '2, -2 || '
   m_TagString: Tile
@@ -3595,45 +3306,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &156143978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156143976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &156143979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156143976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &156143980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3750,8 +3422,6 @@ GameObject:
   - component: {fileID: 164176653}
   - component: {fileID: 164176652}
   - component: {fileID: 164176651}
-  - component: {fileID: 164176650}
-  - component: {fileID: 164176649}
   m_Layer: 0
   m_Name: '5, 1 || '
   m_TagString: Tile
@@ -3774,45 +3444,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &164176649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164176647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &164176650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164176647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &164176651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3929,8 +3560,6 @@ GameObject:
   - component: {fileID: 172425689}
   - component: {fileID: 172425688}
   - component: {fileID: 172425687}
-  - component: {fileID: 172425686}
-  - component: {fileID: 172425685}
   m_Layer: 0
   m_Name: '-1, -2 || '
   m_TagString: Tile
@@ -3953,45 +3582,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &172425685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172425683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &172425686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172425683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &172425687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4798,8 +4388,6 @@ GameObject:
   - component: {fileID: 264642069}
   - component: {fileID: 264642068}
   - component: {fileID: 264642067}
-  - component: {fileID: 264642066}
-  - component: {fileID: 264642065}
   m_Layer: 0
   m_Name: '-1, 0 || Path 5 || '
   m_TagString: Tile
@@ -4822,45 +4410,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &264642065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264642063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &264642066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264642063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &264642067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4977,8 +4526,6 @@ GameObject:
   - component: {fileID: 267246221}
   - component: {fileID: 267246220}
   - component: {fileID: 267246219}
-  - component: {fileID: 267246218}
-  - component: {fileID: 267246217}
   m_Layer: 0
   m_Name: '5, -1 || '
   m_TagString: Tile
@@ -5001,45 +4548,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &267246217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267246215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &267246218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267246215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &267246219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5156,8 +4664,6 @@ GameObject:
   - component: {fileID: 272494115}
   - component: {fileID: 272494114}
   - component: {fileID: 272494113}
-  - component: {fileID: 272494112}
-  - component: {fileID: 272494111}
   m_Layer: 0
   m_Name: '-4, -2 || '
   m_TagString: Tile
@@ -5180,45 +4686,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &272494111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 272494109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &272494112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 272494109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &272494113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5335,10 +4802,8 @@ GameObject:
   - component: {fileID: 279815471}
   - component: {fileID: 279815470}
   - component: {fileID: 279815469}
-  - component: {fileID: 279815468}
-  - component: {fileID: 279815467}
   m_Layer: 0
-  m_Name: '-6, 0 || Cracked 0 || '
+  m_Name: '-6, 0 || Cracked 0 -> Time: 2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5359,45 +4824,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &279815467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279815465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &279815468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279815465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &279815469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5694,8 +5120,6 @@ GameObject:
   - component: {fileID: 291754526}
   - component: {fileID: 291754525}
   - component: {fileID: 291754524}
-  - component: {fileID: 291754523}
-  - component: {fileID: 291754522}
   m_Layer: 0
   m_Name: '2, 0 || '
   m_TagString: Tile
@@ -5718,45 +5142,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &291754522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291754520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &291754523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291754520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &291754524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6263,8 +5648,6 @@ GameObject:
   - component: {fileID: 311340224}
   - component: {fileID: 311340223}
   - component: {fileID: 311340222}
-  - component: {fileID: 311340221}
-  - component: {fileID: 311340220}
   m_Layer: 0
   m_Name: '-5, 0 || '
   m_TagString: Tile
@@ -6287,45 +5670,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &311340220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311340218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &311340221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311340218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &311340222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6697,8 +6041,6 @@ GameObject:
   - component: {fileID: 331065635}
   - component: {fileID: 331065634}
   - component: {fileID: 331065633}
-  - component: {fileID: 331065632}
-  - component: {fileID: 331065631}
   m_Layer: 0
   m_Name: '0, 0 || '
   m_TagString: Tile
@@ -6721,45 +6063,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &331065631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331065629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &331065632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331065629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &331065633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6876,8 +6179,6 @@ GameObject:
   - component: {fileID: 331629617}
   - component: {fileID: 331629616}
   - component: {fileID: 331629615}
-  - component: {fileID: 331629614}
-  - component: {fileID: 331629613}
   m_Layer: 0
   m_Name: '2, 0 || Path 10 || '
   m_TagString: Tile
@@ -6900,45 +6201,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &331629613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331629611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &331629614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331629611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &331629615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7055,8 +6317,6 @@ GameObject:
   - component: {fileID: 342671901}
   - component: {fileID: 342671900}
   - component: {fileID: 342671899}
-  - component: {fileID: 342671898}
-  - component: {fileID: 342671897}
   m_Layer: 0
   m_Name: '6, 1 || '
   m_TagString: Tile
@@ -7079,45 +6339,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &342671897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342671895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &342671898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342671895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &342671899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7414,8 +6635,6 @@ GameObject:
   - component: {fileID: 376147050}
   - component: {fileID: 376147049}
   - component: {fileID: 376147048}
-  - component: {fileID: 376147047}
-  - component: {fileID: 376147046}
   m_Layer: 0
   m_Name: '-5, -2 || '
   m_TagString: Tile
@@ -7438,45 +6657,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &376147046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376147044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &376147047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376147044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &376147048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7848,8 +7028,6 @@ GameObject:
   - component: {fileID: 389910903}
   - component: {fileID: 389910902}
   - component: {fileID: 389910901}
-  - component: {fileID: 389910900}
-  - component: {fileID: 389910899}
   m_Layer: 0
   m_Name: '2, -1 || '
   m_TagString: Tile
@@ -7872,45 +7050,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &389910899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389910897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &389910900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389910897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &389910901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8489,7 +7628,7 @@ GameObject:
   - component: {fileID: 412004885}
   - component: {fileID: 412004886}
   m_Layer: 0
-  m_Name: Platform1
+  m_Name: 'Platform1 || Count: 53 || '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8746,8 +7885,6 @@ GameObject:
   - component: {fileID: 439335561}
   - component: {fileID: 439335560}
   - component: {fileID: 439335559}
-  - component: {fileID: 439335558}
-  - component: {fileID: 439335557}
   m_Layer: 0
   m_Name: '6, 0 || '
   m_TagString: Tile
@@ -8770,45 +7907,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &439335557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439335555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &439335558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439335555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &439335559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9285,8 +8383,6 @@ GameObject:
   - component: {fileID: 474594523}
   - component: {fileID: 474594522}
   - component: {fileID: 474594521}
-  - component: {fileID: 474594520}
-  - component: {fileID: 474594519}
   m_Layer: 0
   m_Name: '-1, -2 || '
   m_TagString: Tile
@@ -9309,45 +8405,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &474594519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474594517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &474594520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474594517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &474594521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10004,8 +9061,6 @@ GameObject:
   - component: {fileID: 522568640}
   - component: {fileID: 522568639}
   - component: {fileID: 522568638}
-  - component: {fileID: 522568637}
-  - component: {fileID: 522568636}
   m_Layer: 0
   m_Name: '0, 1 || '
   m_TagString: Tile
@@ -10028,45 +9083,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &522568636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 522568634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &522568637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 522568634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &522568638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11173,8 +10189,6 @@ GameObject:
   - component: {fileID: 561434020}
   - component: {fileID: 561434019}
   - component: {fileID: 561434018}
-  - component: {fileID: 561434017}
-  - component: {fileID: 561434016}
   m_Layer: 0
   m_Name: '4, 1 || '
   m_TagString: Tile
@@ -11197,45 +10211,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &561434016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561434014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &561434017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561434014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &561434018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11352,10 +10327,8 @@ GameObject:
   - component: {fileID: 586782520}
   - component: {fileID: 586782519}
   - component: {fileID: 586782518}
-  - component: {fileID: 586782517}
-  - component: {fileID: 586782516}
   m_Layer: 0
-  m_Name: '-4, 0 || Cracked 0 || '
+  m_Name: '-4, 0 || Cracked 0 -> Time: 2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11376,45 +10349,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &586782516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586782514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &586782517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586782514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &586782518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12221,8 +11155,6 @@ GameObject:
   - component: {fileID: 654826983}
   - component: {fileID: 654826982}
   - component: {fileID: 654826981}
-  - component: {fileID: 654826980}
-  - component: {fileID: 654826979}
   m_Layer: 0
   m_Name: '2, 1 || '
   m_TagString: Tile
@@ -12245,45 +11177,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &654826979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654826977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &654826980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654826977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &654826981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12475,8 +11368,6 @@ GameObject:
   - component: {fileID: 663018735}
   - component: {fileID: 663018734}
   - component: {fileID: 663018733}
-  - component: {fileID: 663018732}
-  - component: {fileID: 663018731}
   m_Layer: 0
   m_Name: '-4, 1 || '
   m_TagString: Tile
@@ -12499,45 +11390,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &663018731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 663018729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &663018732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 663018729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &663018733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12654,10 +11506,8 @@ GameObject:
   - component: {fileID: 673755429}
   - component: {fileID: 673755428}
   - component: {fileID: 673755427}
-  - component: {fileID: 673755426}
-  - component: {fileID: 673755425}
   m_Layer: 0
-  m_Name: '-4, 1 || Cracked 0 || '
+  m_Name: '-4, 1 || Cracked 0 -> Time: 2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12678,45 +11528,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &673755425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673755423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &673755426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673755423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &673755427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12908,8 +11719,6 @@ GameObject:
   - component: {fileID: 678969283}
   - component: {fileID: 678969282}
   - component: {fileID: 678969281}
-  - component: {fileID: 678969280}
-  - component: {fileID: 678969279}
   m_Layer: 0
   m_Name: '-3, 0 || Path 2 || '
   m_TagString: Tile
@@ -12932,45 +11741,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &678969279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678969277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &678969280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678969277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &678969281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13087,8 +11857,6 @@ GameObject:
   - component: {fileID: 687860372}
   - component: {fileID: 687860371}
   - component: {fileID: 687860370}
-  - component: {fileID: 687860369}
-  - component: {fileID: 687860368}
   m_Layer: 0
   m_Name: '2, 1 || Winning 0 || '
   m_TagString: Tile
@@ -13111,45 +11879,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &687860368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687860366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &687860369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687860366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &687860370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13266,8 +11995,6 @@ GameObject:
   - component: {fileID: 713459827}
   - component: {fileID: 713459826}
   - component: {fileID: 713459825}
-  - component: {fileID: 713459824}
-  - component: {fileID: 713459823}
   m_Layer: 0
   m_Name: '-5, 1 || '
   m_TagString: Tile
@@ -13290,45 +12017,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &713459823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 713459821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &713459824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 713459821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &713459825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13520,10 +12208,8 @@ GameObject:
   - component: {fileID: 720973096}
   - component: {fileID: 720973095}
   - component: {fileID: 720973094}
-  - component: {fileID: 720973093}
-  - component: {fileID: 720973092}
   m_Layer: 0
-  m_Name: '-3, -2 || Cracked 0 || '
+  m_Name: '-3, -2 || Cracked 0 -> Time: 2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13544,45 +12230,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &720973092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720973090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &720973093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720973090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &720973094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14029,8 +12676,6 @@ GameObject:
   - component: {fileID: 762088826}
   - component: {fileID: 762088825}
   - component: {fileID: 762088824}
-  - component: {fileID: 762088823}
-  - component: {fileID: 762088822}
   m_Layer: 0
   m_Name: '3, -1 || '
   m_TagString: Tile
@@ -14053,45 +12698,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &762088822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762088820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &762088823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762088820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &762088824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14283,8 +12889,6 @@ GameObject:
   - component: {fileID: 783515389}
   - component: {fileID: 783515388}
   - component: {fileID: 783515387}
-  - component: {fileID: 783515386}
-  - component: {fileID: 783515385}
   m_Layer: 0
   m_Name: '4, -2 || '
   m_TagString: Tile
@@ -14307,45 +12911,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &783515385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783515383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &783515386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783515383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &783515387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14852,8 +13417,6 @@ GameObject:
   - component: {fileID: 799371252}
   - component: {fileID: 799371251}
   - component: {fileID: 799371250}
-  - component: {fileID: 799371249}
-  - component: {fileID: 799371248}
   m_Layer: 0
   m_Name: '3, -2 || '
   m_TagString: Tile
@@ -14876,45 +13439,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &799371248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799371246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &799371249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799371246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &799371250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15031,10 +13555,8 @@ GameObject:
   - component: {fileID: 804781497}
   - component: {fileID: 804781496}
   - component: {fileID: 804781495}
-  - component: {fileID: 804781494}
-  - component: {fileID: 804781493}
   m_Layer: 0
-  m_Name: '-5, -2 || Cracked 0 || '
+  m_Name: '-5, -2 || Cracked 0 -> Time: 2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15055,45 +13577,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &804781493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804781491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &804781494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804781491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &804781495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15210,8 +13693,6 @@ GameObject:
   - component: {fileID: 828244853}
   - component: {fileID: 828244852}
   - component: {fileID: 828244851}
-  - component: {fileID: 828244850}
-  - component: {fileID: 828244849}
   m_Layer: 0
   m_Name: '-3, 0 || '
   m_TagString: Tile
@@ -15234,45 +13715,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &828244849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828244847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &828244850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828244847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &828244851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15389,8 +13831,6 @@ GameObject:
   - component: {fileID: 830965495}
   - component: {fileID: 830965494}
   - component: {fileID: 830965493}
-  - component: {fileID: 830965492}
-  - component: {fileID: 830965491}
   m_Layer: 0
   m_Name: '-2, -2 || '
   m_TagString: Tile
@@ -15413,45 +13853,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &830965491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830965489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &830965492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830965489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &830965493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16048,8 +14449,6 @@ GameObject:
   - component: {fileID: 899286903}
   - component: {fileID: 899286902}
   - component: {fileID: 899286901}
-  - component: {fileID: 899286900}
-  - component: {fileID: 899286899}
   m_Layer: 0
   m_Name: '-4, 0 || '
   m_TagString: Tile
@@ -16072,45 +14471,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &899286899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899286897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &899286900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899286897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &899286901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16482,8 +14842,6 @@ GameObject:
   - component: {fileID: 932855492}
   - component: {fileID: 932855491}
   - component: {fileID: 932855490}
-  - component: {fileID: 932855489}
-  - component: {fileID: 932855488}
   m_Layer: 0
   m_Name: '1, -1 || Path 9 || '
   m_TagString: Tile
@@ -16506,45 +14864,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &932855488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 932855486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &932855489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 932855486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &932855490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17544,8 +15863,6 @@ GameObject:
   - component: {fileID: 1062876551}
   - component: {fileID: 1062876550}
   - component: {fileID: 1062876549}
-  - component: {fileID: 1062876548}
-  - component: {fileID: 1062876547}
   m_Layer: 0
   m_Name: '1, -1 || '
   m_TagString: Tile
@@ -17568,45 +15885,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1062876547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062876545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1062876548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062876545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1062876549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18263,8 +16541,6 @@ GameObject:
   - component: {fileID: 1099028068}
   - component: {fileID: 1099028067}
   - component: {fileID: 1099028066}
-  - component: {fileID: 1099028065}
-  - component: {fileID: 1099028064}
   m_Layer: 0
   m_Name: '-6, -1 || Starting 0 || '
   m_TagString: Tile
@@ -18287,45 +16563,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1099028064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099028062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1099028065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099028062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1099028066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18442,8 +16679,6 @@ GameObject:
   - component: {fileID: 1100604898}
   - component: {fileID: 1100604897}
   - component: {fileID: 1100604896}
-  - component: {fileID: 1100604895}
-  - component: {fileID: 1100604894}
   m_Layer: 0
   m_Name: '-6, -1 || '
   m_TagString: Tile
@@ -18466,45 +16701,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1100604894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100604892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1100604895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100604892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1100604896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18696,8 +16892,6 @@ GameObject:
   - component: {fileID: 1110762147}
   - component: {fileID: 1110762146}
   - component: {fileID: 1110762145}
-  - component: {fileID: 1110762144}
-  - component: {fileID: 1110762143}
   m_Layer: 0
   m_Name: '-2, -1 || '
   m_TagString: Tile
@@ -18720,45 +16914,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1110762143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110762141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1110762144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110762141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1110762145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18980,10 +17135,8 @@ GameObject:
   - component: {fileID: 1120179154}
   - component: {fileID: 1120179153}
   - component: {fileID: 1120179152}
-  - component: {fileID: 1120179151}
-  - component: {fileID: 1120179150}
   m_Layer: 0
-  m_Name: '-4, -2 || Cracked 0 || '
+  m_Name: '-4, -2 || Cracked 0 -> Time: 2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19004,45 +17157,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1120179150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120179148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1120179151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120179148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1120179152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19159,8 +17273,6 @@ GameObject:
   - component: {fileID: 1139730807}
   - component: {fileID: 1139730806}
   - component: {fileID: 1139730805}
-  - component: {fileID: 1139730804}
-  - component: {fileID: 1139730803}
   m_Layer: 0
   m_Name: '3, -1 || '
   m_TagString: Tile
@@ -19183,45 +17295,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1139730803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139730801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1139730804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139730801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1139730805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19581,8 +17654,6 @@ GameObject:
   - component: {fileID: 1146344036}
   - component: {fileID: 1146344035}
   - component: {fileID: 1146344034}
-  - component: {fileID: 1146344033}
-  - component: {fileID: 1146344032}
   m_Layer: 0
   m_Name: '-1, 0 || '
   m_TagString: Tile
@@ -19605,45 +17676,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1146344032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1146344030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1146344033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1146344030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1146344034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20300,8 +18332,6 @@ GameObject:
   - component: {fileID: 1185140949}
   - component: {fileID: 1185140948}
   - component: {fileID: 1185140947}
-  - component: {fileID: 1185140946}
-  - component: {fileID: 1185140945}
   m_Layer: 0
   m_Name: '2, -1 || '
   m_TagString: Tile
@@ -20324,45 +18354,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1185140945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185140943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1185140946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185140943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1185140947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20554,8 +18545,6 @@ GameObject:
   - component: {fileID: 1200350978}
   - component: {fileID: 1200350977}
   - component: {fileID: 1200350976}
-  - component: {fileID: 1200350975}
-  - component: {fileID: 1200350974}
   m_Layer: 0
   m_Name: '5, -2 || '
   m_TagString: Tile
@@ -20578,45 +18567,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1200350974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200350972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1200350975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200350972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1200350976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20838,8 +18788,6 @@ GameObject:
   - component: {fileID: 1203284251}
   - component: {fileID: 1203284250}
   - component: {fileID: 1203284249}
-  - component: {fileID: 1203284248}
-  - component: {fileID: 1203284247}
   m_Layer: 0
   m_Name: '-4, -1 || '
   m_TagString: Tile
@@ -20862,45 +18810,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1203284247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203284245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1203284248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203284245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1203284249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21931,8 +19840,6 @@ GameObject:
   - component: {fileID: 1246562768}
   - component: {fileID: 1246562767}
   - component: {fileID: 1246562766}
-  - component: {fileID: 1246562765}
-  - component: {fileID: 1246562764}
   m_Layer: 0
   m_Name: '1, 0 || '
   m_TagString: Tile
@@ -21955,45 +19862,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1246562764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246562762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1246562765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246562762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1246562766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22215,8 +20083,6 @@ GameObject:
   - component: {fileID: 1258284212}
   - component: {fileID: 1258284211}
   - component: {fileID: 1258284210}
-  - component: {fileID: 1258284209}
-  - component: {fileID: 1258284208}
   m_Layer: 0
   m_Name: '6, 1 || '
   m_TagString: Tile
@@ -22239,45 +20105,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1258284208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1258284206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1258284209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1258284206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1258284210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22829,8 +20656,6 @@ GameObject:
   - component: {fileID: 1290875281}
   - component: {fileID: 1290875280}
   - component: {fileID: 1290875279}
-  - component: {fileID: 1290875278}
-  - component: {fileID: 1290875277}
   m_Layer: 0
   m_Name: '-2, -1 || '
   m_TagString: Tile
@@ -22853,45 +20678,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1290875277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1290875275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1290875278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1290875275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1290875279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23008,8 +20794,6 @@ GameObject:
   - component: {fileID: 1293665589}
   - component: {fileID: 1293665588}
   - component: {fileID: 1293665587}
-  - component: {fileID: 1293665586}
-  - component: {fileID: 1293665585}
   m_Layer: 0
   m_Name: '-3, 1 || '
   m_TagString: Tile
@@ -23032,45 +20816,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1293665585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1293665583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1293665586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1293665583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1293665587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23397,8 +21142,6 @@ GameObject:
   - component: {fileID: 1344225281}
   - component: {fileID: 1344225280}
   - component: {fileID: 1344225279}
-  - component: {fileID: 1344225278}
-  - component: {fileID: 1344225277}
   m_Layer: 0
   m_Name: '5, 0 || '
   m_TagString: Tile
@@ -23421,45 +21164,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1344225277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344225275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1344225278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344225275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1344225279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23786,8 +21490,6 @@ GameObject:
   - component: {fileID: 1359952397}
   - component: {fileID: 1359952396}
   - component: {fileID: 1359952395}
-  - component: {fileID: 1359952394}
-  - component: {fileID: 1359952393}
   m_Layer: 0
   m_Name: '0, -1 || '
   m_TagString: Tile
@@ -23810,45 +21512,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1359952393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359952391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1359952394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359952391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1359952395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24286,10 +21949,9 @@ GameObject:
   - component: {fileID: 1396543611}
   - component: {fileID: 1396543610}
   - component: {fileID: 1396543609}
-  - component: {fileID: 1396543608}
   - component: {fileID: 1396543607}
   m_Layer: 0
-  m_Name: '-7, 1 || '
+  m_Name: '-7, 1 || Special -> jumpad (0,0, 750,0, 150,0) || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24330,25 +21992,6 @@ MonoBehaviour:
   teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
   jumpDirection: {x: 0, y: 750, z: 150}
---- !u!114 &1396543608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396543605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1396543609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24540,8 +22183,6 @@ GameObject:
   - component: {fileID: 1425728312}
   - component: {fileID: 1425728311}
   - component: {fileID: 1425728310}
-  - component: {fileID: 1425728309}
-  - component: {fileID: 1425728308}
   m_Layer: 0
   m_Name: '6, -1 || '
   m_TagString: Tile
@@ -24564,45 +22205,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1425728308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425728306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1425728309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425728306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1425728310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24719,10 +22321,9 @@ GameObject:
   - component: {fileID: 1426709349}
   - component: {fileID: 1426709348}
   - component: {fileID: 1426709347}
-  - component: {fileID: 1426709346}
   - component: {fileID: 1426709345}
   m_Layer: 0
-  m_Name: '-5, -1 || Path 0 || Special  -> velocity || '
+  m_Name: '-5, -1 || Path 0 || Special -> velocity 2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24761,27 +22362,8 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 2
+  velocity: 5
   jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1426709346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426709343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1426709347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25078,8 +22660,6 @@ GameObject:
   - component: {fileID: 1441125436}
   - component: {fileID: 1441125435}
   - component: {fileID: 1441125434}
-  - component: {fileID: 1441125433}
-  - component: {fileID: 1441125432}
   m_Layer: 0
   m_Name: '-1, -1 || Path 6 || '
   m_TagString: Tile
@@ -25102,45 +22682,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1441125432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441125430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1441125433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441125430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1441125434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25828,10 +23369,8 @@ GameObject:
   - component: {fileID: 1502825530}
   - component: {fileID: 1502825529}
   - component: {fileID: 1502825528}
-  - component: {fileID: 1502825527}
-  - component: {fileID: 1502825526}
   m_Layer: 0
-  m_Name: '-6, -2 || Cracked 0 || '
+  m_Name: '-6, -2 || Cracked 0 -> Time: 2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25852,45 +23391,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1502825526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502825524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1502825527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502825524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1502825528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26007,8 +23507,6 @@ GameObject:
   - component: {fileID: 1505408556}
   - component: {fileID: 1505408555}
   - component: {fileID: 1505408554}
-  - component: {fileID: 1505408553}
-  - component: {fileID: 1505408552}
   m_Layer: 0
   m_Name: '-3, -2 || '
   m_TagString: Tile
@@ -26031,45 +23529,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1505408552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505408550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1505408553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505408550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1505408554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26186,8 +23645,6 @@ GameObject:
   - component: {fileID: 1509435049}
   - component: {fileID: 1509435048}
   - component: {fileID: 1509435047}
-  - component: {fileID: 1509435046}
-  - component: {fileID: 1509435045}
   m_Layer: 0
   m_Name: '1, 0 || '
   m_TagString: Tile
@@ -26210,45 +23667,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1509435045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509435043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1509435046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509435043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1509435047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26470,8 +23888,6 @@ GameObject:
   - component: {fileID: 1524836132}
   - component: {fileID: 1524836131}
   - component: {fileID: 1524836130}
-  - component: {fileID: 1524836129}
-  - component: {fileID: 1524836128}
   m_Layer: 0
   m_Name: '0, 1 || '
   m_TagString: Tile
@@ -26494,45 +23910,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1524836128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524836126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1524836129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524836126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1524836130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26649,8 +24026,6 @@ GameObject:
   - component: {fileID: 1524922742}
   - component: {fileID: 1524922741}
   - component: {fileID: 1524922740}
-  - component: {fileID: 1524922739}
-  - component: {fileID: 1524922738}
   m_Layer: 0
   m_Name: '-2, 0 || '
   m_TagString: Tile
@@ -26673,45 +24048,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1524922738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524922736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1524922739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524922736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1524922740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27113,8 +24449,6 @@ GameObject:
   - component: {fileID: 1542491819}
   - component: {fileID: 1542491818}
   - component: {fileID: 1542491817}
-  - component: {fileID: 1542491816}
-  - component: {fileID: 1542491815}
   m_Layer: 0
   m_Name: '2, -2 || '
   m_TagString: Tile
@@ -27137,45 +24471,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1542491815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542491813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1542491816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542491813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1542491817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27292,8 +24587,6 @@ GameObject:
   - component: {fileID: 1542783435}
   - component: {fileID: 1542783434}
   - component: {fileID: 1542783433}
-  - component: {fileID: 1542783432}
-  - component: {fileID: 1542783431}
   m_Layer: 0
   m_Name: '-3, 1 || Path 3 || '
   m_TagString: Tile
@@ -27316,45 +24609,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1542783431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542783429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: -250, y: 500, z: 0}
---- !u!114 &1542783432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542783429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1542783433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27471,8 +24725,6 @@ GameObject:
   - component: {fileID: 1545512963}
   - component: {fileID: 1545512962}
   - component: {fileID: 1545512961}
-  - component: {fileID: 1545512960}
-  - component: {fileID: 1545512959}
   m_Layer: 0
   m_Name: '0, -2 || '
   m_TagString: Tile
@@ -27495,45 +24747,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1545512959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545512957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1545512960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545512957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1545512961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27650,8 +24863,6 @@ GameObject:
   - component: {fileID: 1552082724}
   - component: {fileID: 1552082723}
   - component: {fileID: 1552082722}
-  - component: {fileID: 1552082721}
-  - component: {fileID: 1552082720}
   m_Layer: 0
   m_Name: '5, -1 || '
   m_TagString: Tile
@@ -27674,45 +24885,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1552082720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552082718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1552082721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552082718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1552082722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27829,8 +25001,6 @@ GameObject:
   - component: {fileID: 1567854382}
   - component: {fileID: 1567854381}
   - component: {fileID: 1567854380}
-  - component: {fileID: 1567854379}
-  - component: {fileID: 1567854378}
   m_Layer: 0
   m_Name: '6, 0 || '
   m_TagString: Tile
@@ -27853,45 +25023,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1567854378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567854376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1567854379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567854376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1567854380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28263,8 +25394,6 @@ GameObject:
   - component: {fileID: 1582375265}
   - component: {fileID: 1582375264}
   - component: {fileID: 1582375263}
-  - component: {fileID: 1582375262}
-  - component: {fileID: 1582375261}
   m_Layer: 0
   m_Name: '-4, -1 || Path 1 || '
   m_TagString: Tile
@@ -28287,45 +25416,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1582375261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582375259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1582375262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582375259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1582375263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28442,8 +25532,6 @@ GameObject:
   - component: {fileID: 1588775036}
   - component: {fileID: 1588775035}
   - component: {fileID: 1588775034}
-  - component: {fileID: 1588775033}
-  - component: {fileID: 1588775032}
   m_Layer: 0
   m_Name: '0, -1 || '
   m_TagString: Tile
@@ -28466,45 +25554,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1588775032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588775030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1588775033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588775030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1588775034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28621,8 +25670,6 @@ GameObject:
   - component: {fileID: 1597632215}
   - component: {fileID: 1597632214}
   - component: {fileID: 1597632213}
-  - component: {fileID: 1597632212}
-  - component: {fileID: 1597632211}
   m_Layer: 0
   m_Name: '0, -2 || Path 7 || '
   m_TagString: Tile
@@ -28645,45 +25692,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1597632211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597632209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1597632212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597632209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1597632213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28935,8 +25943,6 @@ GameObject:
   - component: {fileID: 1618782337}
   - component: {fileID: 1618782336}
   - component: {fileID: 1618782335}
-  - component: {fileID: 1618782334}
-  - component: {fileID: 1618782333}
   m_Layer: 0
   m_Name: '-3, -1 || '
   m_TagString: Tile
@@ -28959,45 +25965,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1618782333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618782331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1618782334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618782331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1618782335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29294,10 +26261,8 @@ GameObject:
   - component: {fileID: 1653815039}
   - component: {fileID: 1653815038}
   - component: {fileID: 1653815037}
-  - component: {fileID: 1653815036}
-  - component: {fileID: 1653815035}
   m_Layer: 0
-  m_Name: '-5, 0 || Cracked 0 || '
+  m_Name: '-5, 0 || Cracked 0 -> Time: 2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29318,45 +26283,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1653815035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653815033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1653815036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653815033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1653815037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29548,8 +26474,6 @@ GameObject:
   - component: {fileID: 1681399418}
   - component: {fileID: 1681399417}
   - component: {fileID: 1681399416}
-  - component: {fileID: 1681399415}
-  - component: {fileID: 1681399414}
   m_Layer: 0
   m_Name: '-5, -1 || '
   m_TagString: Tile
@@ -29572,45 +26496,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1681399414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681399412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1681399415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681399412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1681399416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29877,8 +26762,6 @@ GameObject:
   - component: {fileID: 1716699330}
   - component: {fileID: 1716699329}
   - component: {fileID: 1716699328}
-  - component: {fileID: 1716699327}
-  - component: {fileID: 1716699326}
   m_Layer: 0
   m_Name: '1, -2 || Path 8 || '
   m_TagString: Tile
@@ -29901,45 +26784,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1716699326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716699324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1716699327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716699324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1716699328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30207,7 +27051,6 @@ GameObject:
   - component: {fileID: 1728185132}
   - component: {fileID: 1728185131}
   - component: {fileID: 1728185130}
-  - component: {fileID: 1728185129}
   m_Layer: 0
   m_Name: 'Lift || Moving 0 || '
   m_TagString: Tile
@@ -30230,26 +27073,6 @@ Transform:
   m_Father: {fileID: 1781146978}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1728185129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728185127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1728185130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30490,8 +27313,6 @@ GameObject:
   - component: {fileID: 1744054290}
   - component: {fileID: 1744054289}
   - component: {fileID: 1744054288}
-  - component: {fileID: 1744054287}
-  - component: {fileID: 1744054286}
   m_Layer: 0
   m_Name: '5, 1 || '
   m_TagString: Tile
@@ -30514,45 +27335,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1744054286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744054284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1744054287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744054284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1744054288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30669,8 +27451,6 @@ GameObject:
   - component: {fileID: 1744717618}
   - component: {fileID: 1744717617}
   - component: {fileID: 1744717616}
-  - component: {fileID: 1744717615}
-  - component: {fileID: 1744717614}
   m_Layer: 0
   m_Name: '1, 1 || '
   m_TagString: Tile
@@ -30693,45 +27473,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1744717614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744717612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1744717615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744717612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1744717616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30848,8 +27589,6 @@ GameObject:
   - component: {fileID: 1747774219}
   - component: {fileID: 1747774218}
   - component: {fileID: 1747774217}
-  - component: {fileID: 1747774216}
-  - component: {fileID: 1747774215}
   m_Layer: 0
   m_Name: '-6, 1 || '
   m_TagString: Tile
@@ -30872,45 +27611,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1747774215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747774213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1747774216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747774213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1747774217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31102,8 +27802,6 @@ GameObject:
   - component: {fileID: 1758668913}
   - component: {fileID: 1758668912}
   - component: {fileID: 1758668911}
-  - component: {fileID: 1758668910}
-  - component: {fileID: 1758668909}
   m_Layer: 0
   m_Name: '-6, 1 || '
   m_TagString: Tile
@@ -31126,45 +27824,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1758668909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758668907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1758668910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758668907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1758668911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31458,7 +28117,7 @@ GameObject:
   - component: {fileID: 1781146978}
   - component: {fileID: 1781146979}
   m_Layer: 0
-  m_Name: IndividualTiles
+  m_Name: 'IndividualTiles || Count: 1 || '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31948,8 +28607,6 @@ GameObject:
   - component: {fileID: 1817940578}
   - component: {fileID: 1817940577}
   - component: {fileID: 1817940576}
-  - component: {fileID: 1817940575}
-  - component: {fileID: 1817940574}
   m_Layer: 0
   m_Name: '4, 0 || '
   m_TagString: Tile
@@ -31972,45 +28629,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1817940574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817940572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1817940575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817940572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1817940576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32127,8 +28745,6 @@ GameObject:
   - component: {fileID: 1827500146}
   - component: {fileID: 1827500145}
   - component: {fileID: 1827500144}
-  - component: {fileID: 1827500143}
-  - component: {fileID: 1827500142}
   m_Layer: 0
   m_Name: '6, -2 || '
   m_TagString: Tile
@@ -32151,45 +28767,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1827500142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827500140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1827500143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827500140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1827500144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32765,8 +29342,6 @@ GameObject:
   - component: {fileID: 1863879839}
   - component: {fileID: 1863879838}
   - component: {fileID: 1863879837}
-  - component: {fileID: 1863879836}
-  - component: {fileID: 1863879835}
   m_Layer: 0
   m_Name: '3, 0 || '
   m_TagString: Tile
@@ -32789,45 +29364,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1863879835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863879833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1863879836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863879833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1863879837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33154,8 +29690,6 @@ GameObject:
   - component: {fileID: 1875059476}
   - component: {fileID: 1875059475}
   - component: {fileID: 1875059474}
-  - component: {fileID: 1875059473}
-  - component: {fileID: 1875059472}
   m_Layer: 0
   m_Name: '-2, 0 || '
   m_TagString: Tile
@@ -33178,45 +29712,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1875059472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875059470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1875059473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875059470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1875059474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33333,8 +29828,6 @@ GameObject:
   - component: {fileID: 1877985310}
   - component: {fileID: 1877985309}
   - component: {fileID: 1877985308}
-  - component: {fileID: 1877985307}
-  - component: {fileID: 1877985306}
   m_Layer: 0
   m_Name: '1, -2 || '
   m_TagString: Tile
@@ -33357,45 +29850,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1877985306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877985304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1877985307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877985304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1877985308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33617,8 +30071,6 @@ GameObject:
   - component: {fileID: 1887505489}
   - component: {fileID: 1887505488}
   - component: {fileID: 1887505487}
-  - component: {fileID: 1887505486}
-  - component: {fileID: 1887505485}
   m_Layer: 0
   m_Name: '3, 1 || '
   m_TagString: Tile
@@ -33641,45 +30093,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1887505485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887505483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1887505486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887505483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1887505487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34081,8 +30494,6 @@ GameObject:
   - component: {fileID: 1914720970}
   - component: {fileID: 1914720969}
   - component: {fileID: 1914720968}
-  - component: {fileID: 1914720967}
-  - component: {fileID: 1914720966}
   m_Layer: 0
   m_Name: '4, 0 || '
   m_TagString: Tile
@@ -34105,45 +30516,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1914720966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914720964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1914720967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914720964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1914720968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34260,8 +30632,6 @@ GameObject:
   - component: {fileID: 1922910778}
   - component: {fileID: 1922910777}
   - component: {fileID: 1922910776}
-  - component: {fileID: 1922910775}
-  - component: {fileID: 1922910774}
   m_Layer: 0
   m_Name: '1, 1 || '
   m_TagString: Tile
@@ -34284,45 +30654,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1922910774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922910772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1922910775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922910772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1922910776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34544,8 +30875,6 @@ GameObject:
   - component: {fileID: 1934533627}
   - component: {fileID: 1934533626}
   - component: {fileID: 1934533625}
-  - component: {fileID: 1934533624}
-  - component: {fileID: 1934533623}
   m_Layer: 0
   m_Name: '-2, -2 || '
   m_TagString: Tile
@@ -34568,45 +30897,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1934533623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934533621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1934533624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934533621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1934533625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35158,8 +31448,6 @@ GameObject:
   - component: {fileID: 1966916848}
   - component: {fileID: 1966916847}
   - component: {fileID: 1966916846}
-  - component: {fileID: 1966916845}
-  - component: {fileID: 1966916844}
   m_Layer: 0
   m_Name: '-1, 1 || '
   m_TagString: Tile
@@ -35182,45 +31470,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1966916844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966916842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1966916845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966916842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1966916846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35334,7 +31583,7 @@ GameObject:
   - component: {fileID: 1972822138}
   - component: {fileID: 1972822139}
   m_Layer: 0
-  m_Name: Platform0
+  m_Name: 'Platform0 || Count: 52 || '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35620,8 +31869,6 @@ GameObject:
   - component: {fileID: 1996460346}
   - component: {fileID: 1996460345}
   - component: {fileID: 1996460344}
-  - component: {fileID: 1996460343}
-  - component: {fileID: 1996460342}
   m_Layer: 0
   m_Name: '0, 0 || '
   m_TagString: Tile
@@ -35644,45 +31891,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1996460342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996460340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1996460343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996460340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1996460344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36009,8 +32217,6 @@ GameObject:
   - component: {fileID: 2013423738}
   - component: {fileID: 2013423737}
   - component: {fileID: 2013423736}
-  - component: {fileID: 2013423735}
-  - component: {fileID: 2013423734}
   m_Layer: 0
   m_Name: '-3, -1 || '
   m_TagString: Tile
@@ -36033,45 +32239,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2013423734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013423732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2013423735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013423732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2013423736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36188,8 +32355,6 @@ GameObject:
   - component: {fileID: 2025756146}
   - component: {fileID: 2025756145}
   - component: {fileID: 2025756144}
-  - component: {fileID: 2025756143}
-  - component: {fileID: 2025756142}
   m_Layer: 0
   m_Name: '3, 0 || '
   m_TagString: Tile
@@ -36212,45 +32377,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2025756142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025756140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2025756143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025756140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2025756144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36442,8 +32568,6 @@ GameObject:
   - component: {fileID: 2038132740}
   - component: {fileID: 2038132739}
   - component: {fileID: 2038132738}
-  - component: {fileID: 2038132737}
-  - component: {fileID: 2038132736}
   m_Layer: 0
   m_Name: '4, -1 || '
   m_TagString: Tile
@@ -36466,45 +32590,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2038132736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038132734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2038132737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038132734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2038132738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36696,8 +32781,6 @@ GameObject:
   - component: {fileID: 2044381984}
   - component: {fileID: 2044381983}
   - component: {fileID: 2044381982}
-  - component: {fileID: 2044381981}
-  - component: {fileID: 2044381980}
   m_Layer: 0
   m_Name: '6, -1 || '
   m_TagString: Tile
@@ -36720,45 +32803,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2044381980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2044381978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2044381981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2044381978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2044381982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36875,8 +32919,6 @@ GameObject:
   - component: {fileID: 2058695649}
   - component: {fileID: 2058695648}
   - component: {fileID: 2058695647}
-  - component: {fileID: 2058695646}
-  - component: {fileID: 2058695645}
   m_Layer: 0
   m_Name: '5, -2 || '
   m_TagString: Tile
@@ -36899,45 +32941,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2058695645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058695643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2058695646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058695643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2058695647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37054,8 +33057,6 @@ GameObject:
   - component: {fileID: 2063930340}
   - component: {fileID: 2063930339}
   - component: {fileID: 2063930338}
-  - component: {fileID: 2063930337}
-  - component: {fileID: 2063930336}
   m_Layer: 0
   m_Name: '4, -2 || '
   m_TagString: Tile
@@ -37078,45 +33079,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2063930336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063930334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2063930337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063930334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2063930338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37233,8 +33195,6 @@ GameObject:
   - component: {fileID: 2071064842}
   - component: {fileID: 2071064841}
   - component: {fileID: 2071064840}
-  - component: {fileID: 2071064839}
-  - component: {fileID: 2071064838}
   m_Layer: 0
   m_Name: '4, 1 || '
   m_TagString: Tile
@@ -37257,45 +33217,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2071064838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071064836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2071064839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071064836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2071064840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37412,8 +33333,6 @@ GameObject:
   - component: {fileID: 2071124115}
   - component: {fileID: 2071124114}
   - component: {fileID: 2071124113}
-  - component: {fileID: 2071124112}
-  - component: {fileID: 2071124111}
   m_Layer: 0
   m_Name: '6, -2 || '
   m_TagString: Tile
@@ -37436,45 +33355,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2071124111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071124109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2071124112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071124109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2071124113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37740,8 +33620,6 @@ GameObject:
   - component: {fileID: 2078177355}
   - component: {fileID: 2078177354}
   - component: {fileID: 2078177353}
-  - component: {fileID: 2078177352}
-  - component: {fileID: 2078177351}
   m_Layer: 0
   m_Name: '-2, 1 || '
   m_TagString: Tile
@@ -37764,45 +33642,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2078177351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078177349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2078177352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078177349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2078177353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38414,8 +34253,6 @@ GameObject:
   - component: {fileID: 2120043813}
   - component: {fileID: 2120043812}
   - component: {fileID: 2120043811}
-  - component: {fileID: 2120043810}
-  - component: {fileID: 2120043809}
   m_Layer: 0
   m_Name: '5, 0 || '
   m_TagString: Tile
@@ -38438,45 +34275,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2120043809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2120043807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2120043810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2120043807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2120043811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38698,8 +34496,6 @@ GameObject:
   - component: {fileID: 2133640016}
   - component: {fileID: 2133640015}
   - component: {fileID: 2133640014}
-  - component: {fileID: 2133640013}
-  - component: {fileID: 2133640012}
   m_Layer: 0
   m_Name: '-5, 1 || '
   m_TagString: Tile
@@ -38722,45 +34518,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2133640012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2133640010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2133640013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2133640010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2133640014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38952,8 +34709,6 @@ GameObject:
   - component: {fileID: 2134643871}
   - component: {fileID: 2134643870}
   - component: {fileID: 2134643869}
-  - component: {fileID: 2134643868}
-  - component: {fileID: 2134643867}
   m_Layer: 0
   m_Name: '-6, -2 || '
   m_TagString: Tile
@@ -38976,45 +34731,6 @@ Transform:
   m_Father: {fileID: 1972822138}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2134643867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134643865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2134643868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134643865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2134643869
 MonoBehaviour:
   m_ObjectHideFlags: 0

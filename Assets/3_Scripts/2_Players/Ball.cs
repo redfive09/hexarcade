@@ -211,7 +211,7 @@ public class Ball : MonoBehaviour
 
 
                 /* --------------- STATUS: PLAYER LOST, PLAYER MET A LOSE CONDITION ---------------  */
-    private void PlayerLost()
+    public void PlayerLost()
     {
         Debug.Log("Time at loosing: " + timer.GetCurrentTime());
         timer.Disappear();

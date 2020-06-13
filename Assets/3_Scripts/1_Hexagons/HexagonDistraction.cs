@@ -27,6 +27,7 @@ public class HexagonDistraction : MonoBehaviour
     private const int BLINKING_STOP = 1;
     private const int SCROLLING_TEXT = 2;
     private const int SCROLLING_TEXT_STOP = 3;
+    private const int LOSING_TILE = 4;
 
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */
@@ -87,13 +88,15 @@ public class HexagonDistraction : MonoBehaviour
                 }
             break;
 
-            case SCROLLING_TEXT_STOP:
-            {
+            case SCROLLING_TEXT_STOP:            
                 string distractionFolder = "/Map/Distractions/Player" + (player.GetPlayerNumber() + 1);
                 GameObject distraction = GameObject.Find(distractionFolder);
                 Destroy	(distraction);
+            break;            
+            
+            case LOSING_TILE:
+                player.PlayerLost();
             break;
-            }
         }
 
         wasTouchedBefore = true;
@@ -279,6 +282,9 @@ public class HexagonDistraction : MonoBehaviour
 
             case SCROLLING_TEXT_STOP:
                 return prefix + nameof(SCROLLING_TEXT_STOP).ToLower();
+
+            case LOSING_TILE:
+                return prefix + nameof(LOSING_TILE).ToLower();
         }
 
         return "";

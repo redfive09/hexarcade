@@ -74,12 +74,12 @@ public class TileColorsIntroduction : MonoBehaviour
     {
         tiles = GetComponent<Tiles>();
 
-        colors.Add(new IntroductionTilesManager(crackedTilesColorStartTime, crackedTilesColorTime, crackedTimeBeforeFading, crackedTilesColorFading, crackedTilesColor, tiles.GetCrackedTiles()));
-        colors.Add(new IntroductionTilesManager(pathTilesColorStartTime, pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading, pathTilesColor, tiles.GetPathTiles()));
+        colors.Add(new IntroductionTilesManager(crackedTilesColorStartTime, crackedTilesColorTime, crackedTimeBeforeFading, crackedTilesColorFading, crackedTilesColor, tiles.GetCrackedTiles()));        
         colors.Add(new IntroductionTilesManager(distractionTilesColorStartTime, distractionTilesColorTime, distractionTimeBeforeFading, distractionTilesColorFading, distractionTilesColor, tiles.GetDistractionTiles()));        
         colors.Add(new IntroductionTilesManager(specialTilesColorStartTime, specialTilesColorTime, specialTimeBeforeFading, specialTilesColorFading, specialTilesColor, tiles.GetSpecialTiles()));
         colors.Add(new IntroductionTilesManager(movingTilesColorStartTime, movingTilesColorTime, movingTimeBeforeFading, movingTilesColorFading, movingTilesColor, tiles.GetMovingTiles()));
         colors.Add(new IntroductionTilesManager(startingTilesColorStartTime, startingTilesColorTime, startingTimeBeforeFading, startingTilesColorFading, startingTilesColor, tiles.GetStartingTiles()));
+        colors.Add(new IntroductionTilesManager(pathTilesColorStartTime, pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading, pathTilesColor, tiles.GetPathTiles()));
         colors.Add(new IntroductionTilesManager(winningTilesColorStartTime, winningTilesColorTime, winningTimeBeforeFading, winningTilesColorFading, winningTilesColor, tiles.GetWinningTiles()));
         
         this.checkpoints = new IntroductionTilesManager(checkpointTilesColorStartTime, checkpointTilesColorTime, checkpointTimeBeforeFading, checkpointTilesColorFading, checkpointTilesColor, tiles.GetCheckpointTiles());
@@ -138,12 +138,16 @@ public class TileColorsIntroduction : MonoBehaviour
             {
                 numberOfLists++;    // if this key doesn't exist, increase the number to keep looking for every available list
             }
+        }        
+        tileOptions.SetReadyForCheckpoints(true);
+
+        while(!IsReadyForCheckpoints())
+        {
+            yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
         }
 
         if(waitForChoosingCheckPoints)
-        {            
-            tileOptions.SetReadyForCheckpoints(true);            
-
+        {
             while(!checkpointsHasBeenMarked)
             {                
                 yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
@@ -177,7 +181,7 @@ public class TileColorsIntroduction : MonoBehaviour
         catch
         {
             // find an idea how to deal with the problem of tiles.Keys.Max(), if there's no value at all
-        }        
+        }
 
         for(int i = highestKey; i >= 0 ; i--)
         {
