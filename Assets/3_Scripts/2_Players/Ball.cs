@@ -45,7 +45,7 @@ public class Ball : MonoBehaviour
         tiles = GameObject.Find("Map/Tiles").GetComponent<Tiles>();
         settings = GameObject.Find("Map").GetComponent<MapSettings>();
         lastSpawnOffset = settings.GetSpawnPositionOffset();        
-        CameraFollow cameraFollow = GetComponentInParent<Players>().GetCamera();
+        CameraFollow cameraFollow = GetPlayerCamera().GetComponent<CameraFollow>();
         SkipButton skipButton = GetComponentInChildren<SkipButton>();
         
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
@@ -89,18 +89,18 @@ public class Ball : MonoBehaviour
         
         if(chooseCheckPoints)
         {
-
-            checkpointTiles = tiles.GetCheckpointTiles();                           // prepare the place for adding the checkpoints
-
             while(!tileColorsIntroduction.IsReadyForCheckpoints())                  // once the colours have appeared, it will wait with the fading process
             {
                 yield return new WaitForSeconds(0.2f);                              // check regularly if all the colours have appeared
             }
-            
-            skipButton.ResetForCheckpoints();
+
+            checkpointTiles = tiles.GetCheckpointTiles();                           // prepare the place for adding the checkpoints
+            skipButton.ResetForCheckpoints();                                       // The button will reset its booleans and change its text
             ControlsCheckpoint checkpointController = GetComponent<ControlsCheckpoint>();   // get the controls for choosing the checkpoints
-            checkpointController.enabled = true;                                            // enable it
-            checkpointController.GetStarted(settings.GetNumberOfCheckpoints(), checkpointTiles, tiles, cameraFollow);   // and get it started
+            cameraFollow.enabled = false;                                           // deactivate the camera script            
+            GetPlayerCamera().orthographic = true;                                  // change the projection of the camera
+            checkpointController.enabled = true;                                    // enable the checkpointController
+            checkpointController.GetStarted(settings.GetNumberOfCheckpoints(), checkpointTiles, tiles, GetPlayerCamera());   // and get it started            
 
             bool isStoptimeForCheckpoints = settings.GetStoptimeForCheckpoints() > 0;             // get the boolean, if a limited time for choosing checkpoints is set
             if(isStoptimeForCheckpoints)                                            
@@ -117,28 +117,41 @@ public class Ball : MonoBehaviour
                 yield return new WaitForSeconds(0.2f);                              // it will check regularly if the player has choosen the checkpoints
             }
             
-            timer.Disappear();
-            tileColorsIntroduction.Finish();                                        // as soon as the player has choosen the checkpoints, the colours should start fading
+            timer.Disappear();                                                      // let the timer disappear
+            skipButton.Reset();                                                     // reset the skipButton
             checkpointController.enabled = false;                                   // disable the checkpointController, since we don't need it anymore
-        }        
-        
+            GetPlayerCamera().orthographic = false;                                 // change the projection of the camera
+            cameraFollow.enabled = true;                                            // enable the player camera again            
+            cameraFollow.ResetPosition();                                           // go back to the player
+            while(!cameraFollow.GetCameraReachedFinalPosition())                    // wait for the camera to be back in position
+            {
+                if(skipButton.IsButtonPressed())
+                {
+                    cameraFollow.GoToTargetInstantly();
+                }
+                yield return new WaitForSeconds(0.2f);
+            }
+            skipButton.Reset();
+            tileColorsIntroduction.Finish();                                        // as soon as the player has choosen the checkpoints and the camera is back, the colours start fading
+        }
+                
         while(!tileColorsIntroduction.IsFinished())                                 // waiting for the tiles to finish fading
         {
             yield return new WaitForSeconds(0.2f);
         }
         
-        timer.Show();
-        timer.SetStopWatch(3.9f);
-        skipButton.Reset();
+        timer.Show();                                                               // the timer appears now
+        timer.SetStopWatch(3.9f);                                                   // it counts down before the game starts
+        skipButton.Reset();                                                         // skipbutton can be used to skip the countdown
 
-        while (!timer.IsStopTimeOver() && !skipButton.IsButtonPressed())
+        while (!timer.IsStopTimeOver() && !skipButton.IsButtonPressed())            // as soon as the stoptime is over or the skipbutton pressed, the game will start
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.05f);
         }
 
-        timer.Disappear();
-        skipButton.gameObject.SetActive(false);
-        GameStarts();
+        timer.Disappear();                                                          // disappear the stoptime
+        skipButton.gameObject.SetActive(false);                                     // disappear the skipbutton
+        GameStarts();                                                               // start the game
     }
 
 
@@ -147,7 +160,12 @@ public class Ball : MonoBehaviour
         // do something here
 
         hasWatchedIntroductionScreen = true;       // once the introductionScreen has gone, mark the boolean
-    }   
+    }
+    
+    private void PrepareChoosingCheckpoints()
+    {
+        
+    }
 
 
                 /* --------------- STATUS: GAME STARTED, PLAYER CAN DO SOMETHING ---------------  */
@@ -360,8 +378,7 @@ public class Ball : MonoBehaviour
         for(;;)
         {
             if(loseHeight > transform.position.y)
-            {
-                Debug.Log("lost");
+            {                
                 PlayerLost();
             }
             yield return new WaitForSeconds(0.2f);
@@ -454,5 +471,9 @@ public class Ball : MonoBehaviour
         return rb;
     }
 
+    public Camera GetPlayerCamera()
+    {
+        return Camera.main; // TO-DO for multiplayer: it couldn't be the main camera
+    }
 
 } // CLASS END

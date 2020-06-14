@@ -42,7 +42,7 @@ public class Players : MonoBehaviour
             players.Add(player);
             player.GoToSpawnPosition(getSpawnPositions[i], settings.GetSpawnPositionOffset(), true);
 
-            CameraFollow camera = GetCamera(); 
+            CameraFollow camera = GetCameraScript(); 
             camera.SetTarget(player.transform);
             camera.SetPosition(player.transform);
 
@@ -100,7 +100,7 @@ public class Players : MonoBehaviour
         return spawnPositions; 
     }
     
-    public CameraFollow GetCamera()
+    public CameraFollow GetCameraScript()
     {
         CameraFollow camera = Camera.main.GetComponent<CameraFollow>(); // TO-DO for multiplayer: a prefab-camera has to be initiated
         if(camera == null) 

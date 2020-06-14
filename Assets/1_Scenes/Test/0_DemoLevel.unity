@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1987,7 +1987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86049890}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -9.9, y: 16, z: -10.245001}
+  m_LocalPosition: {x: -9.9, y: 1, z: -10.245001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2005,7 +2005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1726d9565e37db4f9c498439a59c479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useLerp: 0
+  useLerp: 1
   timeAlignment: 0.75
   focusTarget: 0
   offset: {x: 0, y: 15, z: 0}
@@ -21676,7 +21676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introductionScreen: 0
   numberOfCheckpoints: 3
-  stoptimeForCheckpoints: 10
+  stoptimeForCheckpoints: 0
   standardTilesMeansLosing: 1
   spawnPositionOffset: {x: 0, y: 1, z: 0}
   restartingInsteadOfMenu: 1
@@ -21951,7 +21951,7 @@ GameObject:
   - component: {fileID: 1396543609}
   - component: {fileID: 1396543607}
   m_Layer: 0
-  m_Name: '-7, 1 || Special -> jumpad (0,0, 750,0, 150,0) || '
+  m_Name: '-7, 1 || Special -> jumpad || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22362,7 +22362,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 5
+  velocity: 2
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1426709347
 MonoBehaviour:
@@ -22393,7 +22393,7 @@ MonoBehaviour:
   isPath: 0
   isDistractionTile: -1
   isCheckpointTile: -1
-  isSpecialTile: 1
+  isSpecialTile: -1
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1

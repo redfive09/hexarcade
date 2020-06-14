@@ -161,8 +161,7 @@ public class TileColorsIntroduction : MonoBehaviour
     * Method goes trough the Dictionary in the opposite ordner and coulors them back to the old colour
     */
     private IEnumerator MakePathDisappear(IntroductionTilesManager tileOptions, Dictionary<Hexagon, Color> rememberColors)
-    {
-        skipButton.Reset();
+    {        
         Dictionary<int, List<Hexagon>> colorList = tileOptions.GetTiles();
 
         float stopTime = Time.fixedTime + tileOptions.GetTimeBeforeFadingStarts(); // wait for the specified seconds

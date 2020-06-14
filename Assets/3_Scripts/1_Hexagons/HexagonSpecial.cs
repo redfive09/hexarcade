@@ -161,7 +161,7 @@ public class HexagonSpecial : MonoBehaviour
                 return prefix + nameof(VELOCITY).ToLower() + " " + velocity;
     
             case JUMPAD:
-                return prefix + nameof(JUMPAD).ToLower() + " " + jumpDirection;
+                return prefix + nameof(JUMPAD).ToLower();
         }
         return "";
     }

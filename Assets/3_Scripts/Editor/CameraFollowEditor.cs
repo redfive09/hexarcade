@@ -16,7 +16,7 @@ public class CameraFollowEditor : Editor {
         {
             Players players = GameObject.Find("Map/Players").GetComponent<Players>();
             Ball ball = players.GetComponentInChildren<Ball>();
-            players.GetCamera().SetPosition(ball.transform);
+            players.GetCameraScript().SetPosition(ball.transform);
         }
     }
 

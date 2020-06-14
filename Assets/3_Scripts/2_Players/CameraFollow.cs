@@ -50,6 +50,26 @@ public class CameraFollow : MonoBehaviour
     {
         return cameraReachedFinalPosition;
     }
+
+    public Vector3 GetOffset()
+    {
+        return offset;
+    }
+
+    public void ResetPosition()
+    {
+        cameraReachedFinalPosition = false;
+    }
+
+    public void GoToTargetInstantly()
+    {        
+        Vector3 position = target.position + offset;
+        // if(!useLerp)
+        // {
+
+        // }
+        transform.position = position;
+    }
     
     /*
     *  The camera hovers offseted over a given GameObject with a slight delay. The goal to center the targeted GameObject is always set.
@@ -101,11 +121,11 @@ public class CameraFollow : MonoBehaviour
                 transform.LookAt(target, Vector3.forward);
             }
 
-            //Debug.Log(Vector3.Distance(transform.position, (target.position + offset) - new Vector3(0,1,0)));
-            if (Vector3.Distance(transform.position, (target.position + offset) - new Vector3(0,1,0)) < 1.0f)
+            // Debug.Log(Vector3.Distance(transform.position, (target.position + offset) - new Vector3(0,1,0)));
+            if (Vector3.Distance(transform.position, (target.position + offset) - new Vector3(0,1,0)) < 1.5f)
             {
                 cameraReachedFinalPosition = true;
             }
         }
-    }
+    }   
 }
