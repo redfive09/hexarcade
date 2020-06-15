@@ -109,11 +109,9 @@ public class Ball : MonoBehaviour
                 timer.SetStopWatch(settings.GetStoptimeForCheckpoints());           // and give it the stopwatchtime
             }
             
-            while(!playerMarkedCheckpoints &&                                       // check, if the player has marked all available checkpoints
-                  !(isStoptimeForCheckpoints && timer.IsStopTimeOver()) &&          // or if the time for choosing them is over
-                  !skipButton.IsButtonPressed())                                    // when skipButton gets pressed, it confirms the choices of the player
-            {
-                playerMarkedCheckpoints = checkpointController.IsFinished();        // update the boolean, if the player has confirmed its choices
+            while(!(isStoptimeForCheckpoints && timer.IsStopTimeOver()) &&          // there is a stopwatch for choosing checkpoints and it's not over yet and
+                  !skipButton.IsButtonPressed())                                    // the skipButton, for confirming the player's selections, has not been pressed yet
+            {                
                 yield return new WaitForSeconds(0.2f);                              // it will check regularly if the player has choosen the checkpoints
             }
             
