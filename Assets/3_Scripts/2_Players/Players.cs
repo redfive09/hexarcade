@@ -47,8 +47,7 @@ public class Players : MonoBehaviour
             player.GoToSpawnPosition(getSpawnPositions[i], settings.GetSpawnPositionOffset(), true);
 
             CameraFollow camera = GetCameraScript(); 
-            camera.SetTarget(player.transform);
-            camera.SetPosition(player.transform);
+            camera.GetReady(player.transform);
 
             player.GetStarted(i);
         }

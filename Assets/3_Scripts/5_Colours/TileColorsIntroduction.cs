@@ -7,6 +7,7 @@ using UnityEngine;
 public class TileColorsIntroduction : MonoBehaviour
 {
     /* ------------------------------ COLOUR INDICATIONS OF LIST TILES AT MAP START ------------------------------  */
+    [SerializeField] private bool cameraFollowCrackedTiles;
     [SerializeField] private float crackedTilesColorStartTime;
     [SerializeField] private float crackedTilesColorTime;
     [SerializeField] private float crackedTimeBeforeFading;
@@ -14,20 +15,23 @@ public class TileColorsIntroduction : MonoBehaviour
     [SerializeField] private Color crackedTilesColor;
 
 
+    [SerializeField] private bool cameraFollowPathTiles = true;
     [SerializeField] private float pathTilesColorStartTime;
     [SerializeField] private float pathTilesColorTime;
     [SerializeField] private float pathTimeBeforeFading;
     [SerializeField] private float pathTilesColorFading;
-    [SerializeField] private Color pathTilesColor;
+    [SerializeField] private Color pathTilesColor;    
     
-
+    
+    [SerializeField] private bool cameraFollowDistractionTiles;
     [SerializeField] private float distractionTilesColorStartTime;
     [SerializeField] private float distractionTilesColorTime;
     [SerializeField] private float distractionTimeBeforeFading;
     [SerializeField] private float distractionTilesColorFading;
-    [SerializeField] private Color distractionTilesColor;
+    [SerializeField] private Color distractionTilesColor;    
 
 
+    [SerializeField] private bool cameraFollowCheckpointTiles;
     [SerializeField] private float checkpointTilesColorStartTime;
     [SerializeField] private float checkpointTilesColorTime;
     [SerializeField] private float checkpointTimeBeforeFading;
@@ -35,6 +39,7 @@ public class TileColorsIntroduction : MonoBehaviour
     [SerializeField] private Color checkpointTilesColor;
 
 
+    [SerializeField] private bool cameraFollowSpecialTiles;
     [SerializeField] private float specialTilesColorStartTime;
     [SerializeField] private float specialTilesColorTime;
     [SerializeField] private float specialTimeBeforeFading;
@@ -42,6 +47,7 @@ public class TileColorsIntroduction : MonoBehaviour
     [SerializeField] private Color specialTilesColor;
 
 
+    [SerializeField] private bool cameraFollowMovingTiles;
     [SerializeField] private float movingTilesColorStartTime;
     [SerializeField] private float movingTilesColorTime;
     [SerializeField] private float movingTimeBeforeFading;
@@ -49,6 +55,7 @@ public class TileColorsIntroduction : MonoBehaviour
     [SerializeField] private Color movingTilesColor;
 
 
+    [SerializeField] private bool cameraFollowStartingTiles;
     [SerializeField] private float startingTilesColorStartTime;
     [SerializeField] private float startingTilesColorTime;
     [SerializeField] private float startingTimeBeforeFading;
@@ -56,11 +63,13 @@ public class TileColorsIntroduction : MonoBehaviour
     [SerializeField] private Color startingTilesColor;
 
 
+    [SerializeField] private bool cameraFollowWinningTiles = true;
     [SerializeField] private float winningTilesColorStartTime;
     [SerializeField] private float winningTilesColorTime;
     [SerializeField] private float winningTimeBeforeFading;
     [SerializeField] private float winningTilesColorFading;
     [SerializeField] private Color winningTilesColor;
+
 
     private const float TIME_TO_CHECK_AGAIN = 0.2f;
     private Tiles tiles;
@@ -74,19 +83,19 @@ public class TileColorsIntroduction : MonoBehaviour
     {
         tiles = GetComponent<Tiles>();
 
-        colors.Add(new IntroductionTilesManager(crackedTilesColorStartTime, crackedTilesColorTime, crackedTimeBeforeFading, crackedTilesColorFading, crackedTilesColor, tiles.GetCrackedTiles()));        
-        colors.Add(new IntroductionTilesManager(distractionTilesColorStartTime, distractionTilesColorTime, distractionTimeBeforeFading, distractionTilesColorFading, distractionTilesColor, tiles.GetDistractionTiles()));        
-        colors.Add(new IntroductionTilesManager(specialTilesColorStartTime, specialTilesColorTime, specialTimeBeforeFading, specialTilesColorFading, specialTilesColor, tiles.GetSpecialTiles()));
-        colors.Add(new IntroductionTilesManager(movingTilesColorStartTime, movingTilesColorTime, movingTimeBeforeFading, movingTilesColorFading, movingTilesColor, tiles.GetMovingTiles()));
-        colors.Add(new IntroductionTilesManager(startingTilesColorStartTime, startingTilesColorTime, startingTimeBeforeFading, startingTilesColorFading, startingTilesColor, tiles.GetStartingTiles()));
-        colors.Add(new IntroductionTilesManager(pathTilesColorStartTime, pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading, pathTilesColor, tiles.GetPathTiles()));
-        colors.Add(new IntroductionTilesManager(winningTilesColorStartTime, winningTilesColorTime, winningTimeBeforeFading, winningTilesColorFading, winningTilesColor, tiles.GetWinningTiles()));
+        colors.Add(new IntroductionTilesManager(crackedTilesColorStartTime, crackedTilesColorTime, crackedTimeBeforeFading, crackedTilesColorFading, crackedTilesColor, tiles.GetCrackedTiles(), cameraFollowCrackedTiles));
+        colors.Add(new IntroductionTilesManager(distractionTilesColorStartTime, distractionTilesColorTime, distractionTimeBeforeFading, distractionTilesColorFading, distractionTilesColor, tiles.GetDistractionTiles(), cameraFollowDistractionTiles));
+        colors.Add(new IntroductionTilesManager(specialTilesColorStartTime, specialTilesColorTime, specialTimeBeforeFading, specialTilesColorFading, specialTilesColor, tiles.GetSpecialTiles(), cameraFollowSpecialTiles));
+        colors.Add(new IntroductionTilesManager(movingTilesColorStartTime, movingTilesColorTime, movingTimeBeforeFading, movingTilesColorFading, movingTilesColor, tiles.GetMovingTiles(), cameraFollowMovingTiles));
+        colors.Add(new IntroductionTilesManager(startingTilesColorStartTime, startingTilesColorTime, startingTimeBeforeFading, startingTilesColorFading, startingTilesColor, tiles.GetStartingTiles(), cameraFollowStartingTiles));
+        colors.Add(new IntroductionTilesManager(pathTilesColorStartTime, pathTilesColorTime, pathTimeBeforeFading, pathTilesColorFading, pathTilesColor, tiles.GetPathTiles(), cameraFollowPathTiles));
+        colors.Add(new IntroductionTilesManager(winningTilesColorStartTime, winningTilesColorTime, winningTimeBeforeFading, winningTilesColorFading, winningTilesColor, tiles.GetWinningTiles(), cameraFollowWinningTiles));
         
-        this.checkpoints = new IntroductionTilesManager(checkpointTilesColorStartTime, checkpointTilesColorTime, checkpointTimeBeforeFading, checkpointTilesColorFading, checkpointTilesColor, tiles.GetCheckpointTiles());
+        this.checkpoints = new IntroductionTilesManager(checkpointTilesColorStartTime, checkpointTilesColorTime, checkpointTimeBeforeFading, checkpointTilesColorFading, checkpointTilesColor, tiles.GetCheckpointTiles(), cameraFollowCheckpointTiles);
         colors.Add(checkpoints);
     }
 
-    public void DisplayTiles(bool chooseCheckPoints, SkipButton skipButton)
+    public void DisplayTiles(bool chooseCheckPoints, SkipButton skipButton, CameraFollow cam)
     {
         this.skipButton = skipButton;
         if(chooseCheckPoints)
@@ -96,7 +105,7 @@ public class TileColorsIntroduction : MonoBehaviour
 
         for(int i = 0; i < colors.Count; i++)
         {
-            StartCoroutine(SetColor(colors[i], chooseCheckPoints));
+            StartCoroutine(SetColor(colors[i], chooseCheckPoints, cam));
         }
     }
 
@@ -104,11 +113,11 @@ public class TileColorsIntroduction : MonoBehaviour
      *  This method will colour all the incoming tiles
      *  Works : tiles are colored in with a delay
     **/
-    private IEnumerator SetColor(IntroductionTilesManager tileOptions, bool waitForChoosingCheckPoints)
+    private IEnumerator SetColor(IntroductionTilesManager tileOptions, bool waitForChoosingCheckPoints, CameraFollow cam)
     {        
         float stopTime = Time.fixedTime + tileOptions.GetStartingTime(); // wait for the specified seconds
         while(stopTime > Time.fixedTime && !skipButton.IsButtonPressed()) // if button was pressed, then continue instantly
-        {
+        {            
             yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
         }
         
@@ -125,7 +134,11 @@ public class TileColorsIntroduction : MonoBehaviour
                 for(int k = 0; k < hexagons.Count; k++)
                 {
                     rememberColors[hexagons[k]] = hexagons[k].GetColor();
-                    hexagons[k].SetColor(tileOptions.GetColor());                    
+                    hexagons[k].SetColor(tileOptions.GetColor());
+                    if(tileOptions.CameraShouldFollow())
+                    {
+                        cam.SetTarget(hexagons[k].transform);
+                    }                    
                 }
 
                 stopTime = Time.fixedTime + tileOptions.GetTimeToNextTile(); // wait for the specified seconds
@@ -154,13 +167,13 @@ public class TileColorsIntroduction : MonoBehaviour
             }
         }
 
-        StartCoroutine(MakePathDisappear(tileOptions, rememberColors)); //start the disappering backwards
+        StartCoroutine(MakePathDisappear(tileOptions, rememberColors, cam)); //start the disappering backwards
     }
 
     /* Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
     * Method goes trough the Dictionary in the opposite ordner and coulors them back to the old colour
     */
-    private IEnumerator MakePathDisappear(IntroductionTilesManager tileOptions, Dictionary<Hexagon, Color> rememberColors)
+    private IEnumerator MakePathDisappear(IntroductionTilesManager tileOptions, Dictionary<Hexagon, Color> rememberColors, CameraFollow cam)
     {        
         Dictionary<int, List<Hexagon>> colorList = tileOptions.GetTiles();
 
@@ -188,12 +201,18 @@ public class TileColorsIntroduction : MonoBehaviour
             {
                 for(int k = 0; k < hexagonList.Count; k++)
                 {
-                    Hexagon hexagon = hexagonList[k];                    
+                    Hexagon hexagon = hexagonList[k];
+                    
+                    if(tileOptions.CameraShouldFollow())
+                    {
+                        cam.SetTarget(hexagon.transform);
+                    } 
+
                     if(!hexagon.IsCheckpointTile())  // if there was no choosing of checkpoints or the hexagon is not a checkpoint anyway, then get it's colour back
                     {
                         if(rememberColors.TryGetValue(hexagon, out Color hexagonColor))
                         {
-                            hexagon.SetColor(hexagonColor);
+                            hexagon.SetColor(hexagonColor);                             
                         }
                     }                    
                 }
@@ -253,18 +272,20 @@ public class TileColorsIntroduction : MonoBehaviour
         private float timeBeforeFadingStarts;
         private float timeForEachTileFading;
         private Color color;
+        private bool letCameraFollow;
         private Dictionary<int, List<Hexagon>> tiles;
         private bool finished = false;
         private bool readyForCheckpoints = false;
 
 
         public IntroductionTilesManager (float startingTime, float timeToNextTile, float timeBeforeFadingStarts, 
-                                float timeForEachTileFading, Color color, Dictionary<int, List<Hexagon>> tiles)
+                                float timeForEachTileFading, Color color, Dictionary<int, List<Hexagon>> tiles, bool letCameraFollow)
         {
             this.startingTime = startingTime;
             this.timeToNextTile = timeToNextTile;
             this.timeBeforeFadingStarts = timeBeforeFadingStarts;
             this.timeForEachTileFading = timeForEachTileFading;
+            this.letCameraFollow = letCameraFollow;
             this.color = color; 
             this.tiles = tiles;
         }
@@ -304,10 +325,15 @@ public class TileColorsIntroduction : MonoBehaviour
             return finished;
         }
 
+        public bool CameraShouldFollow()
+        {
+            return letCameraFollow;
+        }
+
         public void SetFinished(bool status)
         {
             finished = status;
-        }
+        }        
 
         public void SetReadyForCheckpoints(bool status)
         {
@@ -317,6 +343,6 @@ public class TileColorsIntroduction : MonoBehaviour
         public bool IsReadyForCheckpoints()
         {
             return readyForCheckpoints;
-        }        
+        }
     }
 }

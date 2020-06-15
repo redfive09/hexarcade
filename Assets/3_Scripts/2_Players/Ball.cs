@@ -85,7 +85,8 @@ public class Ball : MonoBehaviour
 
         bool chooseCheckPoints = settings.GetNumberOfCheckpoints() > 0;             // are there any checkpoints to choose for this map
 
-        tileColorsIntroduction.DisplayTiles(chooseCheckPoints, skipButton);         // display the non-standard tiles
+        cameraFollow.ChangeCameraSettings(false, false);                            // change settings for colour introductions
+        tileColorsIntroduction.DisplayTiles(chooseCheckPoints, skipButton, cameraFollow);  // display the non-standard tiles
         
         if(chooseCheckPoints)
         {
@@ -119,7 +120,8 @@ public class Ball : MonoBehaviour
             skipButton.Reset();                                                     // reset the skipButton
             checkpointController.enabled = false;                                   // disable the checkpointController, since we don't need it anymore
             GetPlayerCamera().orthographic = false;                                 // change the projection of the camera
-            cameraFollow.enabled = true;                                            // enable the player camera again            
+            cameraFollow.enabled = true;                                            // enable the player camera again
+            cameraFollow.ChangeCameraSettings(false, true);                         // change settings for a nice effect, while going back to the last target
             cameraFollow.ResetPosition();                                           // go back to the player
             while(!cameraFollow.GetCameraReachedFinalPosition())                    // wait for the camera to be back in position
             {
@@ -130,6 +132,7 @@ public class Ball : MonoBehaviour
                 yield return new WaitForSeconds(0.2f);
             }
             skipButton.Reset();
+            cameraFollow.ChangeCameraSettings(false, false);                        // change settings for colour introductions
             tileColorsIntroduction.Finish();                                        // as soon as the player has choosen the checkpoints and the camera is back, the colours start fading
         }
                 
@@ -137,7 +140,9 @@ public class Ball : MonoBehaviour
         {
             yield return new WaitForSeconds(0.2f);
         }
-        
+                
+        cameraFollow.SetTarget(transform);                                          // focus the camera back to the player
+        cameraFollow.ResetCameraSettings();                                         // set the original camera settings
         timer.Show();                                                               // the timer appears now
         timer.SetStopWatch(3.9f);                                                   // it counts down before the game starts
         skipButton.Reset();                                                         // skipbutton can be used to skip the countdown

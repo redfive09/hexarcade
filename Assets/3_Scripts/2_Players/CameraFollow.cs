@@ -13,7 +13,8 @@ public class CameraFollow : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     private Transform target;
     private bool cameraReachedFinalPosition;
-
+    private bool rememberLerp;
+    private bool rememberFocus;
 
     // experimental feature on    
     private Rigidbody playerRB;
@@ -21,17 +22,16 @@ public class CameraFollow : MonoBehaviour
     private Vector3 playerMoveDir, playerPrevPos;    
     //experimental feature off
 
-    public void SetPosition(Transform player)
+    public void GetReady(Transform player)
     {
-        this.transform.position = player.position;
-    }
-
-    public void SetTarget(Transform player)
-    {
-        target = player;
-
-        //experimental feature on
+        SetTarget(player);
+        SetPosition(player);
         playerRB = player.GetComponent<Rigidbody>();
+
+        rememberLerp = useLerp;
+        rememberFocus = focusTarget;
+
+        //experimental feature on 
         if (GameObject.Find("Map/UntaggedGameObjects/CameraChangePosition"))
         {
             GameObject cameraChanger = GameObject.Find("Map/UntaggedGameObjects/CameraChangePosition");
@@ -39,6 +39,16 @@ public class CameraFollow : MonoBehaviour
             cameraReachedFinalPosition = true;
         }
         //experimental feature off
+    }
+
+    public void SetPosition(Transform player)
+    {
+        this.transform.position = player.position;
+    }
+
+    public void SetTarget(Transform objectTransform)
+    {
+        target = objectTransform;               
     }
 
     public void SetFocusOnTarget(bool status)
@@ -60,6 +70,18 @@ public class CameraFollow : MonoBehaviour
     {
         cameraReachedFinalPosition = false;
     }
+
+    public void ChangeCameraSettings(bool lerp, bool focus)
+    {
+        useLerp = lerp;
+        focusTarget = focus;
+    }
+
+    public void ResetCameraSettings()
+    {
+        useLerp = rememberLerp;
+        focusTarget = rememberFocus;
+    }    
 
     public void GoToTargetInstantly()
     {        
