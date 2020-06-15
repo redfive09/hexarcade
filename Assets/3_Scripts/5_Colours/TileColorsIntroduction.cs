@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class TileColorsIntroduction : MonoBehaviour
 {
+    
+    private const float TIME_TO_CHECK_AGAIN = 0.06f; // Waiting time for Coroutines
+
+
     /* ------------------------------ COLOUR INDICATIONS OF LIST TILES AT MAP START ------------------------------  */
     [SerializeField] private bool cameraFollowCrackedTiles;
     [SerializeField] private float crackedTilesColorStartTime;
@@ -15,7 +19,7 @@ public class TileColorsIntroduction : MonoBehaviour
     [SerializeField] private Color crackedTilesColor;
 
 
-    [SerializeField] private bool cameraFollowPathTiles = true;
+    [SerializeField] private bool cameraFollowPathTiles;
     [SerializeField] private float pathTilesColorStartTime;
     [SerializeField] private float pathTilesColorTime;
     [SerializeField] private float pathTimeBeforeFading;
@@ -63,25 +67,26 @@ public class TileColorsIntroduction : MonoBehaviour
     [SerializeField] private Color startingTilesColor;
 
 
-    [SerializeField] private bool cameraFollowWinningTiles = true;
+    [SerializeField] private bool cameraFollowWinningTiles;
     [SerializeField] private float winningTilesColorStartTime;
     [SerializeField] private float winningTilesColorTime;
     [SerializeField] private float winningTimeBeforeFading;
     [SerializeField] private float winningTilesColorFading;
     [SerializeField] private Color winningTilesColor;
 
-
-    private const float TIME_TO_CHECK_AGAIN = 0.2f;
+    
     private Tiles tiles;
     private SkipButton skipButton;
     private List<IntroductionTilesManager> colors = new List<IntroductionTilesManager>();
     private IntroductionTilesManager checkpoints;
     private bool checkpointsHasBeenMarked = false;
+    Dictionary<Hexagon, Color> tileColors;
 
     // Filling the array and setting up the tiles
-    public void GetStarted()
+    public void GetStarted(Dictionary<Hexagon, Color> tileColors)
     {
         tiles = GetComponent<Tiles>();
+        this.tileColors = tileColors;
 
         colors.Add(new IntroductionTilesManager(crackedTilesColorStartTime, crackedTilesColorTime, crackedTimeBeforeFading, crackedTilesColorFading, crackedTilesColor, tiles.GetCrackedTiles(), cameraFollowCrackedTiles));
         colors.Add(new IntroductionTilesManager(distractionTilesColorStartTime, distractionTilesColorTime, distractionTimeBeforeFading, distractionTilesColorFading, distractionTilesColor, tiles.GetDistractionTiles(), cameraFollowDistractionTiles));
@@ -121,8 +126,7 @@ public class TileColorsIntroduction : MonoBehaviour
             yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
         }
         
-        Dictionary<int, List<Hexagon>> colorList = tileOptions.GetTiles();
-        Dictionary<Hexagon, Color> rememberColors = new Dictionary<Hexagon, Color>();
+        Dictionary<int, List<Hexagon>> colorList = tileOptions.GetTiles();        
         int numberOfLists = colorList.Count;
 
         for(int i = 0; i < numberOfLists; i++)
@@ -132,8 +136,7 @@ public class TileColorsIntroduction : MonoBehaviour
                 List<Hexagon> hexagons = hexagonList;
             
                 for(int k = 0; k < hexagons.Count; k++)
-                {
-                    rememberColors[hexagons[k]] = hexagons[k].GetColor();
+                {                    
                     hexagons[k].SetColor(tileOptions.GetColor());
                     if(tileOptions.CameraShouldFollow())
                     {
@@ -167,13 +170,13 @@ public class TileColorsIntroduction : MonoBehaviour
             }
         }
 
-        StartCoroutine(MakePathDisappear(tileOptions, rememberColors, cam)); //start the disappering backwards
+        StartCoroutine(MakePathDisappear(tileOptions, cam)); //start the disappering backwards
     }
 
     /* Tutorial: https://answers.unity.com/questions/1604527/instantiate-an-array-of-gameobjects-with-a-time-de.html
     * Method goes trough the Dictionary in the opposite ordner and coulors them back to the old colour
     */
-    private IEnumerator MakePathDisappear(IntroductionTilesManager tileOptions, Dictionary<Hexagon, Color> rememberColors, CameraFollow cam)
+    private IEnumerator MakePathDisappear(IntroductionTilesManager tileOptions, CameraFollow cam)
     {        
         Dictionary<int, List<Hexagon>> colorList = tileOptions.GetTiles();
 
@@ -210,9 +213,9 @@ public class TileColorsIntroduction : MonoBehaviour
 
                     if(!hexagon.IsCheckpointTile())  // if there was no choosing of checkpoints or the hexagon is not a checkpoint anyway, then get it's colour back
                     {
-                        if(rememberColors.TryGetValue(hexagon, out Color hexagonColor))
+                        if(tileColors.TryGetValue(hexagon, out Color hexagonColor))
                         {
-                            hexagon.SetColor(hexagonColor);                             
+                            hexagon.SetColor(hexagonColor);
                         }
                     }                    
                 }

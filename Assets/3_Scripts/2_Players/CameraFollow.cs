@@ -61,14 +61,26 @@ public class CameraFollow : MonoBehaviour
         return cameraReachedFinalPosition;
     }
 
+    public bool IsExperimentCamera()
+    {
+        return experimentCamera;
+    }
+
     public Vector3 GetOffset()
     {
         return offset;
     }
 
-    public void ResetPosition()
+    public void GetBackInPosition()
     {
-        cameraReachedFinalPosition = false;
+        if(experimentCamera)
+        {
+            cameraReachedFinalPosition = true;    
+        }
+        else
+        {
+            cameraReachedFinalPosition = false;
+        }        
     }
 
     public void ChangeCameraSettings(bool lerp, bool focus)
