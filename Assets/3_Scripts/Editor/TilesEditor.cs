@@ -17,7 +17,7 @@ public class TilesEditor : Editor {
         if (GUILayout.Button("Update all hexagons"))
         {
             tiles.CollectTiles(true);
-            AddNameSuffixToNonStandardHexagons(tiles.GetPlatforms());
+            UpdateNames(tiles.GetPlatforms());
         }
 
         if (GUILayout.Button("Enhance hexagon clicking experience (for old scenes)"))
@@ -37,8 +37,8 @@ public class TilesEditor : Editor {
 
     /*
      *  Add a script to the each hexagon child in order to auto select its parent (the hexagon gameobject) when it's clicked on at the scene view
-     */    
-    public void AddScriptToAllHexagonChildren(List<Platform> platforms)
+     */
+    private void AddScriptToAllHexagonChildren(List<Platform> platforms)
     {
         for(int i = 0; i < platforms.Count; i++)
         {
@@ -58,8 +58,9 @@ public class TilesEditor : Editor {
     /*
      *  Rename all non-standard tiles, so it's easier to navigate in the hierarchy
      */
-    private void AddNameSuffixToNonStandardHexagons(List<Platform> platforms)
+    public static void UpdateNames(List<Platform> platforms)
     {
+        string name;
         string nameSeparator = " || ";
         int sizeOfNameSeparator =  nameSeparator.Length;
 
@@ -84,6 +85,7 @@ public class TilesEditor : Editor {
             {
                 Hexagon hexagon = platformTiles[j];
                 
+                
                 for(int k = 0; k + sizeOfNameSeparator - 1 < hexagon.name.Length; k++)
                 {
                     string namePart = hexagon.name.Substring(k, sizeOfNameSeparator);
@@ -94,7 +96,7 @@ public class TilesEditor : Editor {
                     }
                 }
 
-                string name = hexagon.name + nameSeparator;
+                name = hexagon.name + nameSeparator;
                 
                 if(hexagon.IsCrackedTile())
                 {
@@ -147,11 +149,10 @@ public class TilesEditor : Editor {
                 hexagon.name = name;                
             }
 
-        name = platforms[i].name + nameSeparator + "Count: " + platformTiles.Count + nameSeparator;
-        platforms[i].name = name;
+            name = platforms[i].name + nameSeparator + "Count: " + platformTiles.Count + nameSeparator;
+            platforms[i].name = name;
 
-        // same here for platforms
+            // same here for platforms
         }
     }
-
 } // END OF CLASS

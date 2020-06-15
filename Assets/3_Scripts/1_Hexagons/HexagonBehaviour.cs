@@ -74,12 +74,14 @@ public class HexagonBehaviour : MonoBehaviour
         
         if(thisHexagon.IsStartingTile())
         {
-            thisHexagon.SetColor(colors[arrivedStartingTile]);            
+            thisHexagon.SetColor(colors[arrivedStartingTile]);
+            player.ArrviedStartingTile();
         }
 
         if(thisHexagon.IsWinningTile())
         {
             thisHexagon.SetColor(colors[arrivedWinningTile]);
+            player.Won();
         }
 
         if(thisHexagon.IsStandardTile())
@@ -131,7 +133,8 @@ public class HexagonBehaviour : MonoBehaviour
         
         if(thisHexagon.IsStartingTile())
         {
-            thisHexagon.SetColor(colors[leftStartingTile]);            
+            thisHexagon.SetColor(colors[leftStartingTile]);
+            player.LeftStartingTile();
         }
 
         if(thisHexagon.IsWinningTile())

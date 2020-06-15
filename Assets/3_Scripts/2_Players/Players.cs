@@ -9,15 +9,14 @@ public class Players : MonoBehaviour
     // [SerializeField] private Camera playerCamera;
 
     [SerializeField] private int numberOfPlayers = 1;
+    int childCount;
 
     private List<Ball> players = new List<Ball>();
 
 
     public void GetStarted()
-    {
-        
+    {        
         InstantiatePlayers(false);
-        // CollectPlayersAndGetThemStarted();
     }
 
     /*
@@ -28,14 +27,19 @@ public class Players : MonoBehaviour
         MapSettings settings = GetComponentInParent<MapSettings>();
         Hexagon[] getSpawnPositions = GetSpawnPositions(numberOfPlayers);
     
+        childCount = transform.childCount;
         for(int i = 0; i < numberOfPlayers; i++)
         {
-            
-            if(transform.childCount - 1 < i)
+            if(childCount - 1 >= i)
+            {
+                CheckForCompatibilityWithCurrentVersion(i, inEditor);
+            }
+
+            if(childCount - 1 < i)
             {
                 GameObject playerBall = Instantiate(ball);
                 playerBall.name = "Player" + (i + 1);
-                playerBall.transform.parent = this.transform;
+                playerBall.transform.parent = this.transform;                
             }
             
             Ball player = transform.GetChild(i).GetComponent<Ball>();
@@ -49,18 +53,6 @@ public class Players : MonoBehaviour
             player.GetStarted(i);
         }
     }
-
-    // private void CollectPlayersAndGetThemStarted()
-    // {
-    //     for(int i = 0; i < numberOfPlayers; i++)
-    //     {
-    //         Ball player = transform.GetChild(i).GetComponent<Ball>();
-    //         players.Add(player);
-    //         player.GetStarted(i);
-    //         GetCamera().SetTarget(player.transform);
-    //     }
-    // }
-
 
     private Hexagon[] GetSpawnPositions(int numberOfPlayers)
     {
@@ -89,14 +81,14 @@ public class Players : MonoBehaviour
                 // if spawnPosition is null again, then it goes another round and spawnTileNumber will increase by one and try again to get a spawn position in the list
                 spawnPosition = tiles.GetSpawnPosition(spawnTileNumber);
 
-                if(spawnTileNumber > 99999999)
+                if(spawnTileNumber >= int.MaxValue)
                 {
                     Debug.Log("Not enough startingTiles on the map!!!");
                     return spawnPositions;
                 }
             }
             spawnPositions[i] = spawnPosition;
-        }        
+        }
         return spawnPositions; 
     }
     
@@ -110,5 +102,25 @@ public class Players : MonoBehaviour
             camera.SetFocusOnTarget(true);
         }
         return camera;
+ 
+    }
+
+    private void CheckForCompatibilityWithCurrentVersion(int playerID, bool inEditor)
+    {
+        GameObject player = transform.GetChild(playerID).gameObject;
+        if(!player.transform.GetComponentInChildren<SkipButton>().HasSkipButtonReference())
+        {
+            if(inEditor)
+            {
+                DestroyImmediate(player);
+            }
+            else
+            {
+                Destroy(player);
+                
+            }
+            childCount--;
+            Debug.Log("Update player" + (playerID + 1) + " please. The current one in the scene is missing some new elements.");
+        }        
     }
 }

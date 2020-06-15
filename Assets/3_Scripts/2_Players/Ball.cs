@@ -180,7 +180,7 @@ public class Ball : MonoBehaviour
     /*  
      *  This method is called when the game starts
      */
-    private void PlayerArrviedStartingTile()
+    public void ArrviedStartingTile()
     {
         timer.Disappear();
         Debug.Log("Record to beat: " + timer.GetBestTime());
@@ -189,7 +189,7 @@ public class Ball : MonoBehaviour
     /*  
      *  This method is called when the game starts
      */
-    private void PlayerLeftStartingTile()
+    public void LeftStartingTile()
     {
         timer.Show();
         timer.StartTiming();
@@ -198,7 +198,7 @@ public class Ball : MonoBehaviour
 
 
                 /* --------------- STATUS: PLAYER WON, PLAYER REACHED A FINISH-TILE ---------------  */
-    private void PlayerWon()
+    public void Won()
     {
         timer.StopTiming();
         timer.ShowLastFinishTime();
@@ -227,7 +227,7 @@ public class Ball : MonoBehaviour
 
 
                 /* --------------- STATUS: PLAYER LOST, PLAYER MET A LOSE CONDITION ---------------  */
-    public void PlayerLost()
+    public void Lost()
     {
         Debug.Log("Time at loosing: " + timer.GetCurrentTime());
         timer.Disappear();
@@ -316,8 +316,7 @@ public class Ball : MonoBehaviour
             {
                 if(occupiedTile != null)            // Prevent a NullReferenceException
                 {
-                    occupiedTile.GotUnoccupied(this);   // Tell the former occupiedTile, that this ball left
-                    AnalyseLeftHexagon(occupiedTile.GetComponent<Hexagon>());
+                    occupiedTile.GotUnoccupied(this);   // Tell the former occupiedTile, that this ball left                    
                 }
 
                 if(currentTile != null)                 // in case it is a crackableTile, it could be gone already
@@ -332,36 +331,13 @@ public class Ball : MonoBehaviour
 
 
     /*  
-     *  The player has to check for some specific hexagon types in order to decide what to do next, e. g. starting tiles will start the timer
-    **/
-    private void AnalyseLeftHexagon(Hexagon hexagon)
-    {
-
-        if(hexagon.IsStartingTile())
-        {
-            PlayerLeftStartingTile();            
-        }        
-    }
-
-
-    /*  
      *  The player has to check for some specific hexagon types in order to decide what to do next, e. g. winning tiles have to change the state of the player
     **/
     private void AnalyseArrivedHexagon(Hexagon hexagon)
-    {
-        if(hexagon.IsStartingTile())
+    {        
+        if(hexagon.IsStandardTile() && settings.DoesStandardTilesMeansLosing())
         {
-            PlayerArrviedStartingTile();
-        }
-
-        else if(hexagon.IsWinningTile())
-        {
-            PlayerWon();
-        }
-        
-        else if(hexagon.IsStandardTile() && settings.DoesStandardTilesMeansLosing())
-        {
-            PlayerLost();
+            Lost();
         }
     }
 
@@ -377,7 +353,7 @@ public class Ball : MonoBehaviour
         {
             if(loseHeight > transform.position.y)
             {                
-                PlayerLost();
+                Lost();
             }
             yield return new WaitForSeconds(0.2f);
         }            
