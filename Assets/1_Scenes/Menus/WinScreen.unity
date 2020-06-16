@@ -112,12 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!224 &52671201 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3542435196488128068, guid: 565b66be1a3c5764a92d63882a81f57b,
-    type: 3}
-  m_PrefabInstance: {fileID: 3542435196473681061}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &115908663
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,6 +807,7 @@ GameObject:
   - component: {fileID: 605811317}
   - component: {fileID: 605811316}
   - component: {fileID: 605811320}
+  - component: {fileID: 605811321}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -912,6 +907,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc3a863d053fbf48a59a4bca05c844a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &605811321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605811315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5385b32ca6d214f8d473b3279a713b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: {fileID: 1925065495}
+  record: {fileID: 1483227668}
+  newRecord: {fileID: 0}
 --- !u!1001 &618969155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1079,7 +1089,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 8.5625
+  m_padding: 0
   m_canvasRenderer: {fileID: 745138358}
   m_TextComponent: {fileID: 477431126}
   m_materialReferenceIndex: 1
@@ -1662,7 +1672,7 @@ GameObject:
   - component: {fileID: 1483227668}
   - component: {fileID: 1483227667}
   m_Layer: 5
-  m_Name: HIghscore
+  m_Name: Record
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1719,7 +1729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Highscore: '
+  m_text: 'Record: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5bd81c39dc8db246a1402f5fb9af22f, type: 2}
   m_sharedMaterial: {fileID: 21651422602171302, guid: b5bd81c39dc8db246a1402f5fb9af22f,
@@ -1789,7 +1799,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1483227668}
-    characterCount: 11
+    characterCount: 8
     spriteCount: 0
     spaceCount: 1
     wordCount: 1
@@ -2034,7 +2044,7 @@ GameObject:
   - component: {fileID: 1925065496}
   - component: {fileID: 1925065495}
   m_Layer: 5
-  m_Name: Score
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2077,7 +2087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: '
+  m_text: 'Time: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5bd81c39dc8db246a1402f5fb9af22f, type: 2}
   m_sharedMaterial: {fileID: 21651422602171302, guid: b5bd81c39dc8db246a1402f5fb9af22f,
@@ -2147,7 +2157,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1925065495}
-    characterCount: 7
+    characterCount: 6
     spriteCount: 0
     spaceCount: 1
     wordCount: 1
@@ -2603,7 +2613,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 52671201}
+  - {fileID: 3542435196473681062}
   m_Father: {fileID: 1935037764}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2893,3 +2903,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565b66be1a3c5764a92d63882a81f57b, type: 3}
+--- !u!224 &3542435196473681062 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 292803467764840209, guid: 565b66be1a3c5764a92d63882a81f57b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3542435196473681061}
+  m_PrefabAsset: {fileID: 0}

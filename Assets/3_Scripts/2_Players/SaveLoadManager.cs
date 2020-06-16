@@ -49,6 +49,7 @@ public static class SaveLoadManager
         {
             newArray[i] = float.MinValue;
         }
+        Debug.Log("TimesReseted");
         SaveTimes(newArray);
         return newArray;
     }

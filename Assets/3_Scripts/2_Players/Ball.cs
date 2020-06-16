@@ -46,7 +46,7 @@ public class Ball : MonoBehaviour
         firstSpawnPosition = transform.position;
         this.playerNumber = playerNumber;        
         rb = GetComponent<Rigidbody>();
-        timer = GetComponentInChildren<Timer>();        
+        timer = GetComponentInChildren<Timer>();
         tiles = GameObject.Find("Map/Tiles").GetComponent<Tiles>();
         tileColorsIntroduction = tiles.GetComponent<TileColorsIntroduction>(); // Get the script for the colour introduction
         settings = GameObject.Find("Map").GetComponent<MapSettings>();
@@ -56,6 +56,8 @@ public class Ball : MonoBehaviour
         
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
         loseHeight = loseTile.transform.position.y;
+        timer.GetReady();
+        WinScreenTimes.record = timer.GetBestTime();
  
         StartCoroutine(Introduction(cameraFollow, skipButton));
     }
@@ -236,7 +238,16 @@ public class Ball : MonoBehaviour
     public void ArrviedStartingTile()
     {
         timer.Disappear();
-        Debug.Log("Record to beat: " + timer.GetBestTime());
+        float currentRecord = timer.GetBestTime();
+
+        if(currentRecord < 0)
+        {
+            Debug.Log("This map has not been played or finished, yet");
+        }
+        else if (currentRecord > 0)
+        {
+            Debug.Log("Record to beat: " + timer.GetBestTime());
+        }        
     }
     
     /*  
@@ -254,7 +265,8 @@ public class Ball : MonoBehaviour
     public void Won()
     {
         timer.StopTiming();
-        timer.ShowLastFinishTime();
+        timer.ShowLastFinishTime();        
+        WinScreenTimes.time = timer.GetLastFinishTime();
 
         Debug.Log("Finish time: " + timer.GetLastFinishTime());
 
@@ -264,7 +276,7 @@ public class Ball : MonoBehaviour
             GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset, false);
         }
         else
-        {
+        {            
             SceneManager.LoadScene("1_Scenes/Menus/WinScreen");
         }
         
