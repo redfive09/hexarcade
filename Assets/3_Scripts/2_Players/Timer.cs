@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using TMPro;
 
 public class Timer : MonoBehaviour
@@ -14,13 +15,21 @@ public class Timer : MonoBehaviour
     private bool timerIsRunning = true;
 
     private float bestTime;  // of current level
-    private float[] bestTimes;
+    private Dictionary<string, float> bestTimes;
 
     
     public void GetReady()
     {
-        bestTimes = SaveLoadManager.LoadTimes();       
-        bestTime = bestTimes[SceneTransitionValues.currentScene];
+        bestTimes = SaveLoadManager.LoadTimes();
+        if(bestTimes.TryGetValue(SceneTransitionValues.currentSceneName, out float bestTime))
+        {
+            this.bestTime = bestTime;
+        }
+        else
+        {
+            this.bestTime = float.MinValue;
+        }
+        
     }
     
     void FixedUpdate()
@@ -116,7 +125,7 @@ public class Timer : MonoBehaviour
         if (CompareWithBestTime(finishTime))
         {
             bestTime = finishTime;
-            bestTimes[SceneTransitionValues.currentScene] = bestTime;
+            bestTimes[SceneTransitionValues.currentSceneName] = bestTime;
             SaveLoadManager.SaveTimes(bestTimes);
             return true;
         }
