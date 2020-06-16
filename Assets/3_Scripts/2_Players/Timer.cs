@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using TMPro;
 
 public class Timer : MonoBehaviour
@@ -23,7 +20,7 @@ public class Timer : MonoBehaviour
     public void GetReady()
     {
         bestTimes = SaveLoadManager.LoadTimes();       
-        bestTime = bestTimes[SceneManager.GetActiveScene().buildIndex];
+        bestTime = bestTimes[SceneTransitionValues.currentScene];
     }
     
     void FixedUpdate()
@@ -119,7 +116,7 @@ public class Timer : MonoBehaviour
         if (CompareWithBestTime(finishTime))
         {
             bestTime = finishTime;
-            bestTimes[SceneManager.GetActiveScene().buildIndex] = bestTime;
+            bestTimes[SceneTransitionValues.currentScene] = bestTime;
             SaveLoadManager.SaveTimes(bestTimes);
             return true;
         }

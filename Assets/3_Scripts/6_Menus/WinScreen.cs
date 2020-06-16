@@ -9,7 +9,7 @@ public class WinScreen : MonoBehaviour
 
     void Start()
     {
-        time.text += Timer.GetTimeAsString(WinScreenTimes.time, 3);
-        this.record.text += Timer.GetTimeAsString(WinScreenTimes.record, 3);
+        time.text += Timer.GetTimeAsString(SceneTransitionValues.time, 3);
+        this.record.text += Timer.GetTimeAsString(SceneTransitionValues.record, 3);
     }
 }

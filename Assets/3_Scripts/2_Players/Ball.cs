@@ -57,7 +57,7 @@ public class Ball : MonoBehaviour
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
         loseHeight = loseTile.transform.position.y;
         timer.GetReady();
-        WinScreenTimes.record = timer.GetBestTime();
+        SceneTransitionValues.record = timer.GetBestTime();
  
         StartCoroutine(Introduction(cameraFollow, skipButton));
     }
@@ -256,8 +256,7 @@ public class Ball : MonoBehaviour
     public void LeftStartingTile()
     {
         timer.Show();
-        timer.StartTiming();
-        Debug.Log("Timer started/reseted");
+        timer.StartTiming();        
     }
 
 
@@ -266,7 +265,7 @@ public class Ball : MonoBehaviour
     {
         timer.StopTiming();
         timer.ShowLastFinishTime();        
-        WinScreenTimes.time = timer.GetLastFinishTime();
+        SceneTransitionValues.time = timer.GetLastFinishTime();
 
         Debug.Log("Finish time: " + timer.GetLastFinishTime());
 
