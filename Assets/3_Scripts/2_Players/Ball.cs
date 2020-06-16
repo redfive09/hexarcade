@@ -267,6 +267,11 @@ public class Ball : MonoBehaviour
         timer.ShowLastFinishTime();        
         SceneTransitionValues.time = timer.GetLastFinishTime();
 
+        if(timer.IsNewBestTime())
+        {
+            SceneTransitionValues.newRecord = true;
+        }
+
         Debug.Log("Finish time: " + timer.GetLastFinishTime());
 
         if(settings.IsRestartingInsteadOfMenu())
@@ -277,16 +282,7 @@ public class Ball : MonoBehaviour
         else
         {            
             SceneManager.LoadScene("1_Scenes/Menus/WinScreen");
-        }
-        
-        if(timer.IsNewBestTime())
-        {
-            Debug.Log("New record");
-        }
-        else
-        {
-            Debug.Log("No new record");
-        }
+        }        
     }
 
 

@@ -205,7 +205,7 @@ public class Timer : MonoBehaviour
     public void Show()
     {
         timerField.enabled = true;
-        timerField.gameObject.SetActive(true);        
+        timerField.gameObject.SetActive(true);
     }
 
     public void Disappear()
