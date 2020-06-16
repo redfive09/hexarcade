@@ -10,9 +10,16 @@ public class Map : MonoBehaviour
     
     void Start()
     {
-        SceneTransitionValues.currentScene = SceneManager.GetActiveScene().buildIndex;
+        SetupSceneInformation();
         CreateTiles();
         CreatePlayers();
+    }
+
+    private void SetupSceneInformation()
+    {
+        SceneTransitionValues.currentScene = SceneManager.GetActiveScene().buildIndex;
+        SceneTransitionValues.currentSceneName = SceneManager.GetActiveScene().name;
+        SceneTransitionValues.newRecord = false;
     }
 
     private void CreateTiles()

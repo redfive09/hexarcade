@@ -14,7 +14,6 @@ public class WinScreen : MonoBehaviour
             newRecord.enabled = true;
             newRecord.gameObject.SetActive(true);
             newRecord.text += Timer.GetTimeAsString(SceneTransitionValues.time, 3);
-            SceneTransitionValues.newRecord = false; // make sure to set it to false at the end, otherwise it will always assume there's a new record
         }
         else
         {
