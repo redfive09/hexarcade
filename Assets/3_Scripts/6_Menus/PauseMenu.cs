@@ -23,6 +23,14 @@ public class PauseMenu : MonoBehaviour
         GameIsCurrentlyPaused = false;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            ResumeOrPause();
+        }
+    }
+
     public void ResumeOrPause()
     {
         if (GameIsCurrentlyPaused)

@@ -13,8 +13,8 @@ public class MenuController : MonoBehaviour
 
     public void StartGame()
     {
-       // SceneManager.LoadScene(1);
-        SceneManager.LoadScene("1_Scenes/Tutorial_Levels/Scene1");
+       SceneManager.LoadScene(3);
+        // SceneManager.LoadScene("1_Scenes/Tutorial_Levels/Scene1");
 
     }
 
