@@ -1,14 +1,11 @@
-﻿
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class CheckpointCounter : MonoBehaviour
 {
-    private TextMeshProUGUI counter;
+    [SerializeField] private TextMeshProUGUI counter;
 
     public int Counter
     {
@@ -28,11 +25,20 @@ public class CheckpointCounter : MonoBehaviour
         counter = GetComponent<TextMeshProUGUI>();
     }
 
-    //Update is called once per frame
-    //void Update()
-    //{
+    public void SetCounter(int number)
+    {
+        counter.text = number.ToString();
+    }
 
-    //    Counter = 12;
-    //    Debug.Log(Counter);
-    //}
+    public void Appear()
+    {     
+        counter.enabled = true;
+        counter.gameObject.SetActive(true);
+    }
+
+    public void Disappear()
+    {     
+        counter.enabled = false;
+        counter.gameObject.SetActive(false);
+    }
 }

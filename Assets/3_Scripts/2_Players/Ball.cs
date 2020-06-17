@@ -55,6 +55,7 @@ public class Ball : MonoBehaviour
         
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
         loseHeight = loseTile.transform.position.y;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
         timer.GetReady();
         SceneTransitionValues.record = timer.GetBestTime();
  
@@ -171,7 +172,8 @@ public class Ball : MonoBehaviour
         cameraFollow.enabled = false;                                           // deactivate the camera script            
         GetPlayerCamera().orthographic = true;                                  // change the projection of the camera
         checkpointController.enabled = true;                                    // enable the checkpointController
-        checkpointController.GetStarted(settings.GetNumberOfCheckpoints(), checkpointTiles, tiles, GetPlayerCamera());   // and get it started
+        checkpointController.GetStarted(settings.GetNumberOfCheckpoints(),      // and get it started
+            checkpointTiles, tiles, GetPlayerCamera()/* , GetComponentInChildren<CheckpointCounter>() */);
 
         if(isStoptimeForCheckpoints)                                            
         {
@@ -184,6 +186,7 @@ public class Ball : MonoBehaviour
     {
         timer.Disappear();                                                      // let the timer disappear
         skipButton.Reset();                                                     // reset the skipButton
+        // GetComponentInChildren<CheckpointCounter>().Disappear();                // make the checkpointCounter disappear
         checkpointController.enabled = false;                                   // disable the checkpointController, since we don't need it anymore
         GetPlayerCamera().orthographic = false;                                 // change the projection of the camera
         cameraFollow.enabled = true;                                            // enable the player camera again
@@ -228,6 +231,7 @@ public class Ball : MonoBehaviour
     private void GameStarts()
     {
         gameStarted = true;
+        rb.constraints = RigidbodyConstraints.None;
         ActivatePlayerControls();
         StartCoroutine(CheckLoseCondition());
     }
@@ -281,7 +285,7 @@ public class Ball : MonoBehaviour
         }
         else
         {            
-            SceneManager.LoadScene("1_Scenes/Menus/WinScreen");
+            SceneManager.LoadScene("1_Scenes/_Menus/WinScreen");
         }        
     }
 
@@ -300,7 +304,7 @@ public class Ball : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("1_Scenes/Menus/LoseScreen");
+            SceneManager.LoadScene("1_Scenes/_Menus/LoseScreen");
         }
     }
     
