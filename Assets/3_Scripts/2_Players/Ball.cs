@@ -22,13 +22,12 @@ public class Ball : MonoBehaviour
     private Tiles tiles;
     private TileColorsIntroduction tileColorsIntroduction;
     private List<Vector3> positions = new List<Vector3>();
-    Dictionary<int, List<Hexagon>> checkpointTiles;
-    private bool playerMarkedCheckpoints = false;
+    Dictionary<int, List<Hexagon>> checkpointTiles;    
     private bool hasWatchedIntroductionScreen = false;
-
+    private bool gameStarted = false;
     private int playerNumber;
     private float loseHeight = -10;
-    private int replayPositionCounter = 0;
+    // private int replayPositionCounter = 0;
     
     
 
@@ -227,7 +226,8 @@ public class Ball : MonoBehaviour
      *  The player gets its controls and the timer will show up
      */
     private void GameStarts()
-    {        
+    {
+        gameStarted = true;
         ActivatePlayerControls();
         StartCoroutine(CheckLoseCondition());
     }
@@ -307,16 +307,22 @@ public class Ball : MonoBehaviour
             /* --------------- STATUS: GAME PAUSED ---------------  */
 
     public void GamePaused()
-    { 
-       rb.constraints = RigidbodyConstraints.FreezeAll;
-       DeactivatePlayerControls();
-       timer.Pause();
-       timer.Disappear();
+    {
+        if(gameStarted)
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            DeactivatePlayerControls();
+            timer.Pause();
+            timer.Disappear();
+        }        
     }
             
     public void GameUnpaused()
     {
-        StartCoroutine(UnpauseStopwatch(3.9f));
+        if(gameStarted)
+        {
+            StartCoroutine(UnpauseStopwatch(3.9f));
+        }        
     }
 
     private IEnumerator UnpauseStopwatch(float seconds)
