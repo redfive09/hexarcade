@@ -2,7 +2,7 @@
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 // Loads, saves and updates high score
 public static class SaveLoadManager
@@ -10,7 +10,7 @@ public static class SaveLoadManager
     private static string nameOfSaveFile = "/time_records.lox";
 
     // Update high score in file
-    public static void SaveTimes(float[] newBestTimes)
+    public static void SaveTimes(Dictionary<string, float> newBestTimes)
     {
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         FileStream fileStream = new FileStream(Application.persistentDataPath + nameOfSaveFile, FileMode.Create);
@@ -21,7 +21,7 @@ public static class SaveLoadManager
     }
 
     // Retrieve high score from file
-    public static float[] LoadTimes()
+    public static Dictionary<string, float> LoadTimes()
     {
         if (File.Exists(Application.persistentDataPath + nameOfSaveFile))
         {
@@ -31,6 +31,12 @@ public static class SaveLoadManager
             TimeKeeper data = binaryFormatter.Deserialize(fileStream) as TimeKeeper;
 
             fileStream.Close();
+
+            // In case someone has still the old version with another datatype, replace it with the new one
+            if(!typeof(IDictionary<string, float>).IsAssignableFrom(data.GetTimes().GetType())) // thx to: https://stackoverflow.com/questions/16956903/determine-if-type-is-dictionary
+            {
+                return ResetTimes();
+            }
             return data.GetTimes();
         }
         else
@@ -41,30 +47,27 @@ public static class SaveLoadManager
 
     // Overwrite/reset high score to negative values
     // Negative values equal to non-existent time record
-    public static float[] ResetTimes()
+    public static Dictionary<string, float> ResetTimes()
     {
-        float[] newArray = new float[SceneManager.sceneCountInBuildSettings];
-
-        for (int i = 0; i < newArray.Length; i++)
-        {
-            newArray[i] = float.MinValue;
-        }
-        SaveTimes(newArray);
-        return newArray;
+        Dictionary<string, float> dictionary = new Dictionary<string, float>();
+        
+        Debug.Log("TimesReseted");
+        SaveTimes(dictionary);
+        return dictionary;
     }
 }
 
 [Serializable]
 public class TimeKeeper
 {
-    private float[] bestTimes;
+    private Dictionary<string, float> bestTimes;
 
-    public TimeKeeper(float[] newBestTimes)
+    public TimeKeeper(Dictionary<string, float> newBestTimes)
     {
         bestTimes = newBestTimes;
     }
 
-    public float[] GetTimes()
+    public Dictionary<string, float> GetTimes()
     {
         return bestTimes;
     }

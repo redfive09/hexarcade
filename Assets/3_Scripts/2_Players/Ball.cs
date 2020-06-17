@@ -8,22 +8,26 @@ using UnityEngine.SceneManagement;
 **/
 public class Ball : MonoBehaviour
 {    
+    private const float TIME_TO_CHECK_AGAIN = 0.06f; // Waiting time for Coroutines
+
     private Rigidbody rb;
+    private CameraFollow cameraFollow;
+    private SkipButton skipButton;
     private HexagonBehaviour occupiedTile;
     private Hexagon lastSpawnPosition;
     private Vector3 firstSpawnPosition;
     private Vector3 lastSpawnOffset;
     private Timer timer;
     private MapSettings settings;
-    private Tiles tiles;    
+    private Tiles tiles;
+    private TileColorsIntroduction tileColorsIntroduction;
     private List<Vector3> positions = new List<Vector3>();
-    Dictionary<int, List<Hexagon>> checkpointTiles;
-    bool playerMarkedCheckpoints = false;
-    bool hasWatchedIntroductionScreen = false;
-
+    Dictionary<int, List<Hexagon>> checkpointTiles;    
+    private bool hasWatchedIntroductionScreen = false;
+    private bool gameStarted = false;
     private int playerNumber;
     private float loseHeight = -10;
-    private int replayPositionCounter = 0;
+    // private int replayPositionCounter = 0;
     
     
 
@@ -41,15 +45,18 @@ public class Ball : MonoBehaviour
         firstSpawnPosition = transform.position;
         this.playerNumber = playerNumber;        
         rb = GetComponent<Rigidbody>();
-        timer = GetComponentInChildren<Timer>();        
+        timer = GetComponentInChildren<Timer>();
         tiles = GameObject.Find("Map/Tiles").GetComponent<Tiles>();
+        tileColorsIntroduction = tiles.GetComponent<TileColorsIntroduction>(); // Get the script for the colour introduction
         settings = GameObject.Find("Map").GetComponent<MapSettings>();
         lastSpawnOffset = settings.GetSpawnPositionOffset();        
-        CameraFollow cameraFollow = GetPlayerCamera().GetComponent<CameraFollow>();
-        SkipButton skipButton = GetComponentInChildren<SkipButton>();
+        cameraFollow = GetPlayerCamera().GetComponent<CameraFollow>();
+        skipButton = GetComponentInChildren<SkipButton>();
         
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
         loseHeight = loseTile.transform.position.y;
+        timer.GetReady();
+        SceneTransitionValues.record = timer.GetBestTime();
  
         StartCoroutine(Introduction(cameraFollow, skipButton));
     }
@@ -65,7 +72,7 @@ public class Ball : MonoBehaviour
     {
         while(!cameraFollow.GetCameraReachedFinalPosition())                        // wait for the user to finish watching the introduction screen
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
         }
 
 
@@ -75,80 +82,71 @@ public class Ball : MonoBehaviour
 
             while(!hasWatchedIntroductionScreen)                                    // wait for the user to finish watching the introduction screen
             {
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
             }
         }
 
         /* --------------- DISPLAYING NON-STANDARD TILES ---------------  */
-        
-        TileColorsIntroduction tileColorsIntroduction = tiles.GetComponent<TileColorsIntroduction>(); // Get the script for the colour introduction
+                
 
         bool chooseCheckPoints = settings.GetNumberOfCheckpoints() > 0;             // are there any checkpoints to choose for this map
-
-        tileColorsIntroduction.DisplayTiles(chooseCheckPoints, skipButton);         // display the non-standard tiles
+        ShowNonStandardTiles(chooseCheckPoints);        
         
         if(chooseCheckPoints)
         {
             while(!tileColorsIntroduction.IsReadyForCheckpoints())                  // once the colours have appeared, it will wait with the fading process
             {
-                yield return new WaitForSeconds(0.2f);                              // check regularly if all the colours have appeared
+                yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);               // check regularly if all the colours have appeared
             }
 
-            checkpointTiles = tiles.GetCheckpointTiles();                           // prepare the place for adding the checkpoints
-            skipButton.ResetForCheckpoints();                                       // The button will reset its booleans and change its text
             ControlsCheckpoint checkpointController = GetComponent<ControlsCheckpoint>();   // get the controls for choosing the checkpoints
-            cameraFollow.enabled = false;                                           // deactivate the camera script            
-            GetPlayerCamera().orthographic = true;                                  // change the projection of the camera
-            checkpointController.enabled = true;                                    // enable the checkpointController
-            checkpointController.GetStarted(settings.GetNumberOfCheckpoints(), checkpointTiles, tiles, GetPlayerCamera());   // and get it started            
-
-            bool isStoptimeForCheckpoints = settings.GetStoptimeForCheckpoints() > 0;             // get the boolean, if a limited time for choosing checkpoints is set
-            if(isStoptimeForCheckpoints)                                            
-            {
-                timer.Show();                                                       // show the timer
-                timer.SetStopWatch(settings.GetStoptimeForCheckpoints());           // and give it the stopwatchtime
-            }
-            
+            bool isStoptimeForCheckpoints = settings.GetStoptimeForCheckpoints() > 0;       // get the boolean, if a limited time for choosing checkpoints is set
+            SelectCheckpoints(checkpointController, isStoptimeForCheckpoints);
+                                    
             while(!(isStoptimeForCheckpoints && timer.IsStopTimeOver()) &&          // there is a stopwatch for choosing checkpoints and it's not over yet and
                   !skipButton.IsButtonPressed())                                    // the skipButton, for confirming the player's selections, has not been pressed yet
             {                
-                yield return new WaitForSeconds(0.2f);                              // it will check regularly if the player has choosen the checkpoints
+                yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);               // it will check regularly if the player has choosen the checkpoints
             }
             
-            timer.Disappear();                                                      // let the timer disappear
-            skipButton.Reset();                                                     // reset the skipButton
-            checkpointController.enabled = false;                                   // disable the checkpointController, since we don't need it anymore
-            GetPlayerCamera().orthographic = false;                                 // change the projection of the camera
-            cameraFollow.enabled = true;                                            // enable the player camera again            
-            cameraFollow.ResetPosition();                                           // go back to the player
+            FinishedSelectingCheckpoints(checkpointController);
+            
             while(!cameraFollow.GetCameraReachedFinalPosition())                    // wait for the camera to be back in position
             {
                 if(skipButton.IsButtonPressed())
                 {
                     cameraFollow.GoToTargetInstantly();
                 }
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
             }
-            skipButton.Reset();
-            tileColorsIntroduction.Finish();                                        // as soon as the player has choosen the checkpoints and the camera is back, the colours start fading
+            
+            FinishShowingNonStandardTiles();
         }
                 
         while(!tileColorsIntroduction.IsFinished())                                 // waiting for the tiles to finish fading
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
         }
-        
-        timer.Show();                                                               // the timer appears now
-        timer.SetStopWatch(3.9f);                                                   // it counts down before the game starts
-        skipButton.Reset();                                                         // skipbutton can be used to skip the countdown
+
+        WaitForCameraToBeInPlayingPosition();
+
+        while(!cameraFollow.GetCameraReachedFinalPosition())                        // wait for the camera to be back in position
+        {
+            if(skipButton.IsButtonPressed())
+            {
+                cameraFollow.GoToTargetInstantly();
+            }
+            yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
+        }
+                
+        SetCountdownForPlaying();
 
         while (!timer.IsStopTimeOver() && !skipButton.IsButtonPressed())            // as soon as the stoptime is over or the skipbutton pressed, the game will start
         {
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
         }
 
-        timer.Disappear();                                                          // disappear the stoptime
-        skipButton.gameObject.SetActive(false);                                     // disappear the skipbutton
+        PrepareGameStart();        
         GameStarts();                                                               // start the game
     }
 
@@ -160,9 +158,65 @@ public class Ball : MonoBehaviour
         hasWatchedIntroductionScreen = true;       // once the introductionScreen has gone, mark the boolean
     }
     
-    private void PrepareChoosingCheckpoints()
+    private void ShowNonStandardTiles(bool chooseCheckPoints)
     {
-        
+        cameraFollow.ChangeCameraSettings(false, false);                                        // change settings for colour introductions
+        tileColorsIntroduction.DisplayTiles(chooseCheckPoints, skipButton, cameraFollow);       // display the non-standard tiles
+    }
+
+    private void SelectCheckpoints(ControlsCheckpoint checkpointController, bool isStoptimeForCheckpoints)
+    {
+        checkpointTiles = tiles.GetCheckpointTiles();                           // prepare the place for adding the checkpoints
+        skipButton.ResetForCheckpoints();                                       // The button will reset its booleans and change its text        
+        cameraFollow.enabled = false;                                           // deactivate the camera script            
+        GetPlayerCamera().orthographic = true;                                  // change the projection of the camera
+        checkpointController.enabled = true;                                    // enable the checkpointController
+        checkpointController.GetStarted(settings.GetNumberOfCheckpoints(), checkpointTiles, tiles, GetPlayerCamera());   // and get it started
+
+        if(isStoptimeForCheckpoints)                                            
+        {
+            timer.Show();                                                       // show the timer
+            timer.SetStopWatch(settings.GetStoptimeForCheckpoints());           // and give it the stopwatchtime
+        }
+    }
+
+    private void FinishedSelectingCheckpoints(ControlsCheckpoint checkpointController)
+    {
+        timer.Disappear();                                                      // let the timer disappear
+        skipButton.Reset();                                                     // reset the skipButton
+        checkpointController.enabled = false;                                   // disable the checkpointController, since we don't need it anymore
+        GetPlayerCamera().orthographic = false;                                 // change the projection of the camera
+        cameraFollow.enabled = true;                                            // enable the player camera again
+        cameraFollow.ChangeCameraSettings(false, true);                         // change settings for a nice effect, while going back to the last target
+        cameraFollow.GetBackInPosition();                                       // go back to target
+    }
+
+    private void FinishShowingNonStandardTiles()
+    {
+        skipButton.Reset();
+        cameraFollow.ChangeCameraSettings(false, false);                        // change settings for colour introductions
+        tileColorsIntroduction.Finish();                                        // as soon as the player has choosen the checkpoints and the camera is back, the colours start fading
+    }
+
+    private void WaitForCameraToBeInPlayingPosition()
+    {        
+        cameraFollow.GetBackInPosition();                                       // go back to target
+        skipButton.Reset();                                                     // reset the skipButton
+    }
+
+    private void SetCountdownForPlaying()
+    {
+        cameraFollow.SetTarget(transform);                                      // focus the camera back to the player        
+        timer.Show();                                                           // the timer appears now
+        timer.SetStopWatch(3.9f);                                               // it counts down before the game starts
+        skipButton.Reset();                                                     // skipbutton can be used to skip the countdown
+    }
+
+    private void PrepareGameStart()
+    {
+        cameraFollow.ResetCameraSettings();                                     // set the original camera settings
+        timer.Disappear();                                                      // disappear the stoptime
+        skipButton.gameObject.SetActive(false);                                 // disappear the skipbutton        
     }
 
 
@@ -172,7 +226,8 @@ public class Ball : MonoBehaviour
      *  The player gets its controls and the timer will show up
      */
     private void GameStarts()
-    {        
+    {
+        gameStarted = true;
         ActivatePlayerControls();
         StartCoroutine(CheckLoseCondition());
     }
@@ -180,28 +235,42 @@ public class Ball : MonoBehaviour
     /*  
      *  This method is called when the game starts
      */
-    private void PlayerArrviedStartingTile()
+    public void ArrviedStartingTile()
     {
         timer.Disappear();
-        Debug.Log("Record to beat: " + timer.GetBestTime());
+        float currentRecord = timer.GetBestTime();
+
+        if(currentRecord < 0)
+        {
+            Debug.Log("This map has not been played or finished, yet");
+        }
+        else if (currentRecord > 0)
+        {
+            Debug.Log("Record to beat: " + timer.GetBestTime());
+        }        
     }
     
     /*  
      *  This method is called when the game starts
      */
-    private void PlayerLeftStartingTile()
+    public void LeftStartingTile()
     {
         timer.Show();
-        timer.StartTiming();
-        Debug.Log("Timer started/reseted");
+        timer.StartTiming();        
     }
 
 
                 /* --------------- STATUS: PLAYER WON, PLAYER REACHED A FINISH-TILE ---------------  */
-    private void PlayerWon()
+    public void Won()
     {
         timer.StopTiming();
-        timer.ShowLastFinishTime();
+        timer.ShowLastFinishTime();        
+        SceneTransitionValues.time = timer.GetLastFinishTime();
+
+        if(timer.IsNewBestTime())
+        {
+            SceneTransitionValues.newRecord = true;
+        }
 
         Debug.Log("Finish time: " + timer.GetLastFinishTime());
 
@@ -211,23 +280,14 @@ public class Ball : MonoBehaviour
             GoToSpawnPosition(lastSpawnPosition, lastSpawnOffset, false);
         }
         else
-        {
+        {            
             SceneManager.LoadScene("1_Scenes/Menus/WinScreen");
-        }
-        
-        if(timer.IsNewBestTime())
-        {
-            Debug.Log("New record");
-        }
-        else
-        {
-            Debug.Log("No new record");
-        }
+        }        
     }
 
 
                 /* --------------- STATUS: PLAYER LOST, PLAYER MET A LOSE CONDITION ---------------  */
-    public void PlayerLost()
+    public void Lost()
     {
         Debug.Log("Time at loosing: " + timer.GetCurrentTime());
         timer.Disappear();
@@ -247,16 +307,22 @@ public class Ball : MonoBehaviour
             /* --------------- STATUS: GAME PAUSED ---------------  */
 
     public void GamePaused()
-    { 
-       rb.constraints = RigidbodyConstraints.FreezeAll;
-       DeactivatePlayerControls();
-       timer.Pause();
-       timer.Disappear();
+    {
+        if(gameStarted)
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            DeactivatePlayerControls();
+            timer.Pause();
+            timer.Disappear();
+        }        
     }
             
     public void GameUnpaused()
     {
-        StartCoroutine(UnpauseStopwatch(3.9f));
+        if(gameStarted)
+        {
+            StartCoroutine(UnpauseStopwatch(3.9f));
+        }        
     }
 
     private IEnumerator UnpauseStopwatch(float seconds)
@@ -316,8 +382,7 @@ public class Ball : MonoBehaviour
             {
                 if(occupiedTile != null)            // Prevent a NullReferenceException
                 {
-                    occupiedTile.GotUnoccupied(this);   // Tell the former occupiedTile, that this ball left
-                    AnalyseLeftHexagon(occupiedTile.GetComponent<Hexagon>());
+                    occupiedTile.GotUnoccupied(this);   // Tell the former occupiedTile, that this ball left                    
                 }
 
                 if(currentTile != null)                 // in case it is a crackableTile, it could be gone already
@@ -332,36 +397,13 @@ public class Ball : MonoBehaviour
 
 
     /*  
-     *  The player has to check for some specific hexagon types in order to decide what to do next, e. g. starting tiles will start the timer
-    **/
-    private void AnalyseLeftHexagon(Hexagon hexagon)
-    {
-
-        if(hexagon.IsStartingTile())
-        {
-            PlayerLeftStartingTile();            
-        }        
-    }
-
-
-    /*  
      *  The player has to check for some specific hexagon types in order to decide what to do next, e. g. winning tiles have to change the state of the player
     **/
     private void AnalyseArrivedHexagon(Hexagon hexagon)
-    {
-        if(hexagon.IsStartingTile())
+    {        
+        if(hexagon.IsStandardTile() && settings.DoesStandardTilesMeansLosing())
         {
-            PlayerArrviedStartingTile();
-        }
-
-        else if(hexagon.IsWinningTile())
-        {
-            PlayerWon();
-        }
-        
-        else if(hexagon.IsStandardTile() && settings.DoesStandardTilesMeansLosing())
-        {
-            PlayerLost();
+            Lost();
         }
     }
 
@@ -377,7 +419,7 @@ public class Ball : MonoBehaviour
         {
             if(loseHeight > transform.position.y)
             {                
-                PlayerLost();
+                Lost();
             }
             yield return new WaitForSeconds(0.2f);
         }            

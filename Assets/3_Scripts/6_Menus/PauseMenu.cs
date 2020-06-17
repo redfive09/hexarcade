@@ -10,18 +10,25 @@ public class PauseMenu : MonoBehaviour
 
     /*
      * Tutorial used: https://youtu.be/JivuXdrIHK0
-     */
-    public bool GameIsCurrentlyPaused ;
-    public Button pauseButton;
+     */    
     [SerializeField] GameObject pauseMenuUI;
     [SerializeField] private int countDownTime; // int so that we dont display floting point numbers as count down
     [SerializeField] private TextMeshProUGUI CountDownDisplay;
     private Ball player;
+    private bool GameIsCurrentlyPaused;
     
     void Start()
     {
         player = GetComponentInParent<Ball>();
         GameIsCurrentlyPaused = false;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            ResumeOrPause();
+        }
     }
 
     public void ResumeOrPause()
@@ -39,22 +46,6 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    //we need to start the coroutine somewhere
-    IEnumerator CountDownToStart()
-    {
-        CountDownDisplay.gameObject.SetActive(true);
-        while (countDownTime > 0)
-        {
-            CountDownDisplay.text = countDownTime.ToString();
-            yield return new WaitForSeconds(1f);
-            countDownTime--;
-        }
-
-        CountDownDisplay.text = "GO!";
-        // unpause game
-        yield return new WaitForSeconds(1f);
-        CountDownDisplay.gameObject.SetActive(false);
-    }
     public void Resume() //public to be able to call it from the button
     {
         pauseMenuUI.SetActive(false); //disable Pause Menu (Child of the Canvas this script is linked to 

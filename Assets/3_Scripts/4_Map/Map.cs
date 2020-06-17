@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Map : MonoBehaviour
 {    
@@ -11,8 +10,16 @@ public class Map : MonoBehaviour
     
     void Start()
     {
+        SetupSceneInformation();
         CreateTiles();
         CreatePlayers();
+    }
+
+    private void SetupSceneInformation()
+    {
+        SceneTransitionValues.currentScene = SceneManager.GetActiveScene().buildIndex;
+        SceneTransitionValues.currentSceneName = SceneManager.GetActiveScene().name;
+        SceneTransitionValues.newRecord = false;
     }
 
     private void CreateTiles()

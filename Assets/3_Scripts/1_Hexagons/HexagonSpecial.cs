@@ -27,6 +27,7 @@ public class HexagonSpecial : MonoBehaviour
     private const int TELEPORTER = 0;
     private const int VELOCITY = 1;
     private const int JUMPAD = 2;
+    private const int LOSING_TILE = 3;
 
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */    
@@ -55,6 +56,7 @@ public class HexagonSpecial : MonoBehaviour
             switch(specialCase)
             {
                 case TELEPORTER:
+                {
                     if(teleporterEntrance)
                     {
                         if(!keepSpeedThroughTeleporter) player.StopMovement();
@@ -63,19 +65,29 @@ public class HexagonSpecial : MonoBehaviour
                         Hexagon teleporterExit = FindTeleporterExit();
                         if(teleporterExit) player.GoToSpawnPosition(teleporterExit, teleporterOffset, false);                        
                     }
-                break;
+                    break;
+                }
 
                 case VELOCITY:
-                    
+                {
                     Rigidbody rb = player.GetRigidbody();
                     Vector3 currentVelocity = rb.velocity;
                     currentVelocity *= velocity;
                     rb.velocity = currentVelocity;
-                break;
+                    break;
+                }
 
-                case JUMPAD:       
+                case JUMPAD:
+                {
                     player.GetRigidbody().AddForce(jumpDirection);
-                break;
+                    break;
+                }
+
+                case LOSING_TILE:
+                {
+                    player.Lost();
+                    break;
+                }
             }
         }
     }
@@ -162,6 +174,9 @@ public class HexagonSpecial : MonoBehaviour
     
             case JUMPAD:
                 return prefix + nameof(JUMPAD).ToLower();
+
+            case LOSING_TILE:
+                return prefix + nameof(LOSING_TILE).ToLower();
         }
         return "";
     }

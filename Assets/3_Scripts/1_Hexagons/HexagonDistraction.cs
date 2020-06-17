@@ -27,7 +27,6 @@ public class HexagonDistraction : MonoBehaviour
     private const int BLINKING_STOP = 1;
     private const int SCROLLING_TEXT = 2;
     private const int SCROLLING_TEXT_STOP = 3;
-    private const int LOSING_TILE = 4;
 
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */
@@ -53,7 +52,6 @@ public class HexagonDistraction : MonoBehaviour
     public void DistractionTileTouched(Ball player)
     {
         players.Add(player);
-
 
         switch(distractionCase)
         {
@@ -92,10 +90,6 @@ public class HexagonDistraction : MonoBehaviour
                 string distractionFolder = "/Map/Distractions/Player" + (player.GetPlayerNumber() + 1);
                 GameObject distraction = GameObject.Find(distractionFolder);
                 Destroy	(distraction);
-            break;            
-            
-            case LOSING_TILE:
-                player.PlayerLost();
             break;
         }
 
@@ -281,10 +275,7 @@ public class HexagonDistraction : MonoBehaviour
                 return prefix + nameof(SCROLLING_TEXT).ToLower();
 
             case SCROLLING_TEXT_STOP:
-                return prefix + nameof(SCROLLING_TEXT_STOP).ToLower();
-
-            case LOSING_TILE:
-                return prefix + nameof(LOSING_TILE).ToLower();
+                return prefix + nameof(SCROLLING_TEXT_STOP).ToLower();            
         }
 
         return "";

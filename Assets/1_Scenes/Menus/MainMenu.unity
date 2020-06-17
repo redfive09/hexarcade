@@ -112,12 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!224 &52671201 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3542435196488128068, guid: 565b66be1a3c5764a92d63882a81f57b,
-    type: 3}
-  m_PrefabInstance: {fileID: 3542435196473681061}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &383178983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1923,7 +1917,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 52671201}
+  - {fileID: 3542435196473681062}
   m_Father: {fileID: 1935037764}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2044,6 +2038,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2138195154}
     m_Modifications:
+    - target: {fileID: 292803467885790614, guid: 565b66be1a3c5764a92d63882a81f57b,
+        type: 3}
+      propertyPath: m_text
+      value: Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 292803467885790614, guid: 565b66be1a3c5764a92d63882a81f57b,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 292803467885790614, guid: 565b66be1a3c5764a92d63882a81f57b,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3542435196488128068, guid: 565b66be1a3c5764a92d63882a81f57b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2156,3 +2165,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565b66be1a3c5764a92d63882a81f57b, type: 3}
+--- !u!224 &3542435196473681062 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 292803467764840209, guid: 565b66be1a3c5764a92d63882a81f57b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3542435196473681061}
+  m_PrefabAsset: {fileID: 0}

@@ -2005,7 +2005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1726d9565e37db4f9c498439a59c479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useLerp: 1
+  useLerp: 0
   timeAlignment: 0.75
   focusTarget: 0
   offset: {x: 0, y: 15, z: 0}
@@ -11905,13 +11905,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCrackedTile: -1
-  isPath: -1
+  isPath: 11
   isDistractionTile: -1
   isCheckpointTile: -1
   isSpecialTile: -1
   isMovingTile: -1
   isStartingTile: -1
-  isWinningTile: 0
+  isWinningTile: 1
   color: {r: 0, g: 0.6542542, b: 0.9339623, a: 0}
   markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &687860372
@@ -17499,42 +17499,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1b4501ad6ef7f448b114b032cf12c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraFollowCrackedTiles: 0
   crackedTilesColorStartTime: 1
   crackedTilesColorTime: 2
   crackedTimeBeforeFading: 0
   crackedTilesColorFading: 0
   crackedTilesColor: {r: 1, g: 0, b: 0.08150673, a: 0}
+  cameraFollowPathTiles: 1
   pathTilesColorStartTime: 1
   pathTilesColorTime: 0.4
   pathTimeBeforeFading: 0.5
   pathTilesColorFading: 0.3
   pathTilesColor: {r: 0.22041243, g: 0.754717, b: 0.1459594, a: 0}
+  cameraFollowDistractionTiles: 0
   distractionTilesColorStartTime: 0
   distractionTilesColorTime: 0
   distractionTimeBeforeFading: 0
   distractionTilesColorFading: 0
   distractionTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowCheckpointTiles: 0
   checkpointTilesColorStartTime: 0
   checkpointTilesColorTime: 0
   checkpointTimeBeforeFading: 0
   checkpointTilesColorFading: 0
   checkpointTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowSpecialTiles: 0
   specialTilesColorStartTime: 0
   specialTilesColorTime: 0
   specialTimeBeforeFading: 0
   specialTilesColorFading: 0
   specialTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowMovingTiles: 0
   movingTilesColorStartTime: 5
   movingTilesColorTime: 0
   movingTimeBeforeFading: 0.5
   movingTilesColorFading: 0
   movingTilesColor: {r: 0, g: 0.10980392, b: 1, a: 0}
+  cameraFollowStartingTiles: 0
   startingTilesColorStartTime: 1
   startingTilesColorTime: 0
   startingTimeBeforeFading: 0.5
   startingTilesColorFading: 0
   startingTilesColor: {r: 1, g: 0.61947197, b: 0, a: 0}
-  winningTilesColorStartTime: 5.5
+  cameraFollowWinningTiles: 0
+  winningTilesColorStartTime: 6
   winningTilesColorTime: 0
   winningTimeBeforeFading: 0.5
   winningTilesColorFading: 0
@@ -22321,9 +22329,8 @@ GameObject:
   - component: {fileID: 1426709349}
   - component: {fileID: 1426709348}
   - component: {fileID: 1426709347}
-  - component: {fileID: 1426709345}
   m_Layer: 0
-  m_Name: '-5, -1 || Path 0 || Special -> velocity 2 || '
+  m_Name: '-5, -1 || Path 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22344,26 +22351,6 @@ Transform:
   m_Father: {fileID: 412004885}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1426709345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426709343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 2
-  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1426709347
 MonoBehaviour:
   m_ObjectHideFlags: 0

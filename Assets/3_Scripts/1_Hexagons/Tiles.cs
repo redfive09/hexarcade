@@ -29,7 +29,7 @@ public class Tiles : MonoBehaviour
     public void GetStarted(bool inEditor)
     {        
         CollectTiles(inEditor);
-        GetComponent<TileColorsIntroduction>().GetStarted();
+        GetComponent<TileColorsIntroduction>().GetStarted(tileColors);
     }
 
     public void CollectTiles(bool inEditor)

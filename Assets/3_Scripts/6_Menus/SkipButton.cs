@@ -39,4 +39,9 @@ public class SkipButton : MonoBehaviour
         timerField.text = "Skip";
         buttonPressed = false;
     }
+
+    public bool HasSkipButtonReference()
+    {
+        return timerField != null;
+    }
 }

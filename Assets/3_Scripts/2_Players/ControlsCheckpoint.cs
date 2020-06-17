@@ -121,7 +121,7 @@ public class ControlsCheckpoint : MonoBehaviour
     }
 
     private void zoom(float increment)
-    {
+    {        
         cam.orthographicSize = Mathf.Clamp(cam.orthographicSize - increment, ZOOM_OUT_MIN, ZOOM_OUT_MAX);
     }
 

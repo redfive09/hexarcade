@@ -13,8 +13,8 @@ public class MenuController : MonoBehaviour
 
     public void StartGame()
     {
-       // SceneManager.LoadScene(1);
-        SceneManager.LoadScene("1_Scenes/Tutorial_Levels/Scene1");
+       SceneManager.LoadScene(3);
+        // SceneManager.LoadScene("1_Scenes/Tutorial_Levels/Scene1");
 
     }
 
@@ -27,16 +27,12 @@ public class MenuController : MonoBehaviour
     
     public void Restart()
     {
-        // Scene scene = SceneManager.GetActiveScene(); 
-        // SceneManager.LoadScene(scene.name);
-        SceneManager.LoadScene(sceneIndex - 1);
+        SceneManager.LoadScene(SceneTransitionValues.currentScene);
     }
 
     public void Next()
     {
-        // Scene scene = SceneManager.GetActiveScene(); 
-        // SceneManager.LoadScene(scene.name);
-        SceneManager.LoadScene(sceneIndex + 1);
+        SceneManager.LoadScene(SceneTransitionValues.currentScene + 1);
     }
 
     public void MainMenu()

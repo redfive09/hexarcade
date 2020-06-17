@@ -1,7 +1,5 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Timer : MonoBehaviour
@@ -9,7 +7,7 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerField;
 
     private float startTime;
-    private float stopTime;
+    private float finishTime;
     private float timeCounter;
     private float stopwatchCounter;
     private float stopwatchTime;
@@ -17,17 +15,23 @@ public class Timer : MonoBehaviour
     private bool timerIsRunning = true;
 
     private float bestTime;  // of current level
-    private float[] bestTimes;
+    private Dictionary<string, float> bestTimes;
 
-
-    // Start is called before the first frame update
-    void Start()
+    
+    public void GetReady()
     {
         bestTimes = SaveLoadManager.LoadTimes();
-        // bestTime = bestTimes[SceneManager.GetActiveScene().buildIndex];
+        if(bestTimes.TryGetValue(SceneTransitionValues.currentSceneName, out float bestTime))
+        {
+            this.bestTime = bestTime;
+        }
+        else
+        {
+            this.bestTime = float.MinValue;
+        }
+        
     }
-
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         if(timerIsRunning)
@@ -42,13 +46,13 @@ public class Timer : MonoBehaviour
                 }
                 else
                 {
-                    TimeToTimerField(stopwatchCounter, 1);                    
+                    timerField.text = GetTimeAsString(stopwatchCounter, 1);                    
                 }                
             }
             else
             {
                 timeCounter = Time.fixedTime - startTime;
-                TimeToTimerField(timeCounter, 2);
+                timerField.text = GetTimeAsString(timeCounter, 2);
             }
         }
     }
@@ -63,22 +67,27 @@ public class Timer : MonoBehaviour
 
     public void StopTiming()
     {
-        stopTime = timeCounter;
+        finishTime = timeCounter;
         timerIsRunning = false;
     }
 
     public float GetLastFinishTime()
     {
-        return stopTime;
+        return finishTime;
     }
 
     public void ShowLastFinishTime()
     {
-        TimeToTimerField(stopTime, 3);
+        timerField.text = GetTimeAsString(finishTime, 3);
     }
 
     public float GetBestTime()
     {
+        if(bestTime == 0)
+        {            
+            Debug.Log("This map has not been added to the 'Scenes In Build'");
+        }
+        
         return bestTime;
     }
 
@@ -113,10 +122,10 @@ public class Timer : MonoBehaviour
     
     public bool IsNewBestTime()
     {
-        if (CompareWithBestTime(stopTime))
+        if (CompareWithBestTime(finishTime))
         {
-            bestTime = stopTime;
-            bestTimes[SceneManager.GetActiveScene().buildIndex] = bestTime;
+            bestTime = finishTime;
+            bestTimes[SceneTransitionValues.currentSceneName] = bestTime;
             SaveLoadManager.SaveTimes(bestTimes);
             return true;
         }
@@ -136,36 +145,15 @@ public class Timer : MonoBehaviour
     public void TimeToTimerField(float time, int timerFormat)
     {
         int seconds = (int) time % 60;
+        int minutes = (int) (time / 60);
+        float milliseconds = time - (int) time;
+
         timerField.text = "";
-
-        if (timerFormat == 1)
-        {
-            timerField.text += seconds.ToString();
-        }
-        else
-        {
-            int minutes = (int) (time / 60);
-            float milliseconds = time - (int) time;
-            
-            if(timerFormat == 2)
-            {
-                int tenthsOfSecond = (int) (milliseconds * 10);
-                timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (tenthsOfSecond).ToString("0");            
-            }
-            else
-            {
-                int hundredthsOfseconds = (int) (milliseconds * 100);
-                timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (hundredthsOfseconds).ToString("00");     
-            }
-        }
-
-
-  
         
-        /*switch (timerFormat)
+        switch (timerFormat)
         {
             case 1:
-                timerField.text += seconds.ToString();
+                timerField.text += seconds.ToString();                
                 break;
             
             case 2:
@@ -177,13 +165,56 @@ public class Timer : MonoBehaviour
                 int hundredthsOfseconds = (int) (milliseconds * 100);
                 timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (hundredthsOfseconds).ToString("00");
                 break;
-        }*/
+        }
+
+        // if (timerFormat == 1)
+        // {
+        //     timerField.text += seconds.ToString();
+        // }
+        // else
+        // {
+        //     int minutes = (int) (time / 60);
+        //     float milliseconds = time - (int) time;
+            
+        //     if(timerFormat == 2)
+        //     {
+        //         int tenthsOfSecond = (int) (milliseconds * 10);
+        //         timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (tenthsOfSecond).ToString("0");            
+        //     }
+        //     else
+        //     {
+        //         int hundredthsOfseconds = (int) (milliseconds * 100);
+        //         timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (hundredthsOfseconds).ToString("00");     
+        //     }
+        // }
+    }
+
+    public static string GetTimeAsString(float time, int timerFormat)
+    {
+        int seconds = (int) time % 60;
+        int minutes = (int) (time / 60);
+        float milliseconds = time - (int) time;
+        
+        switch (timerFormat)
+        {
+            case 1:
+                return seconds.ToString();                
+            
+            case 2:
+                int tenthsOfSecond = (int) (milliseconds * 10);
+                return minutes + ":" + (seconds.ToString("00")) + ":" + (tenthsOfSecond).ToString("0");                
+
+            case 3:
+                int hundredthsOfseconds = (int) (milliseconds * 100);
+                return minutes + ":" + (seconds.ToString("00")) + ":" + (hundredthsOfseconds).ToString("00");                
+        }
+        return "";
     }
 
     public void Show()
     {
         timerField.enabled = true;
-        timerField.gameObject.SetActive(true);        
+        timerField.gameObject.SetActive(true);
     }
 
     public void Disappear()
