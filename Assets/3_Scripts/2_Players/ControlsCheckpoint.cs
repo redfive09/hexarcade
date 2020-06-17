@@ -62,7 +62,7 @@ public class ControlsCheckpoint : MonoBehaviour
         }
 
         // Beginn of camera movement during checkpoint selection; thx to this tutorial --> https://pressstart.vip/tutorials/2018/07/12/44/pan--zoom.html
-        if(Input.touchCount == 2)
+        if(Input.touchCount == 2) // Zooming
         {
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
@@ -79,7 +79,7 @@ public class ControlsCheckpoint : MonoBehaviour
             lastZoomTime = Time.fixedTime;
         }
         
-        else if(Input.GetMouseButton(0) && MIN_TIME_BETWEEN_PAN_AND_ZOOM < Time.fixedTime - lastZoomTime)
+        else if(Input.GetMouseButton(0) && MIN_TIME_BETWEEN_PAN_AND_ZOOM < Time.fixedTime - lastZoomTime) // Dragging
         {
             Vector3 direction = touchStart - cam.ScreenToWorldPoint(Input.mousePosition);
             if(direction.sqrMagnitude > MIN_DISTANCE_FOR_PANNING_RECOGNITION)
@@ -89,7 +89,7 @@ public class ControlsCheckpoint : MonoBehaviour
             }
         } // End of camera movement during checkpoint selection
 
-        if(Input.GetMouseButtonUp(0) && !touchPhaseEnded)
+        if(Input.GetMouseButtonUp(0) && !touchPhaseEnded) // Selecting
         {
             if(startedPanning)
             {

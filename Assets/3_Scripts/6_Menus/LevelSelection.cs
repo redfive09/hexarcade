@@ -7,17 +7,69 @@ using TMPro;
 
 public class LevelSelection : MonoBehaviour
 {
-private Dictionary<string, float> bestTimes;
-    private bool switchToFirstPage = true;
-    [SerializeField] private GameObject timeRecords;
+    [SerializeField] private GameObject timeRecords;    
     [SerializeField] private GameObject menuPage01;
     [SerializeField] private GameObject menuPage02;
+    [SerializeField] private GameObject LevelAtPos1;
 
+
+    private Dictionary<string, float> bestTimes;
+    private bool switchToFirstPage = true;
+    
+
+    // Settings for control
+    private const float MIN_DISTANCE_FOR_PANNING_RECOGNITION = 0.05f;
+    private Camera cam;
+    private Touch touch;
+    private Vector3 touchStart;
+    private bool touchPhaseEnded = true;
+    private bool startedPanning = false;
+
+    
     private void Start()
     {
+        cam = Camera.main;
         bestTimes = SaveLoadManager.LoadTimes();
-        ShowTimeRecords();
-        SwitchPage();
+        // ShowTimeRecords();
+        // SwitchPage();
+    }
+
+    private void Update()
+    {
+        if(Input.touchCount == 1)
+        {
+            touch = Input.GetTouch(0);
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            touchStart = cam.ScreenToWorldPoint(Input.mousePosition);
+            touchPhaseEnded = false;
+        }
+
+        if(Input.GetMouseButton(0)) // Dragging
+        {
+            Vector3 direction = touchStart - cam.ScreenToWorldPoint(Input.mousePosition);
+            direction = new Vector3(direction.x, 0, 0);
+            if(direction.sqrMagnitude > MIN_DISTANCE_FOR_PANNING_RECOGNITION)
+            {                
+                cam.transform.position += direction;
+                startedPanning = true;
+            }
+        }
+
+        if(Input.GetMouseButtonUp(0) && !touchPhaseEnded) // Selecting
+        {
+            if(startedPanning)
+            {
+                startedPanning = false;
+            }
+            else
+            {
+                // Check if a level got choosen
+            }
+            touchPhaseEnded = true;   
+        }
     }
 
     // Shows time records below their corresponding level
@@ -65,7 +117,7 @@ private Dictionary<string, float> bestTimes;
     //Show Level 1 from Scenes In Build
     public void Level01()
     {
-        LoadLevel(1);
+        LevelAtPos1.transform.position = new Vector3(LevelAtPos1.transform.position.x - 100, 0, 0);
     }
 
     //Show Level 2 from Scenes In Build
@@ -78,84 +130,6 @@ private Dictionary<string, float> bestTimes;
     public void Level03()
     {
         LoadLevel(3);
-    }
-
-    //Show Level 4 from Scenes In Build
-    public void Level04()
-    {
-        LoadLevel(4);
-    }
-
-    //Show Level 5 from Scenes In Build
-    public void Level05()
-    {
-        LoadLevel(5);
-    }
-
-    //Show Level 6 from Scenes In Build
-    public void Level06()
-    {
-        LoadLevel(6);
-    }
-
-    //Show Level 7 from Scenes In Build
-    public void Level07()
-    {
-        LoadLevel(7);
-    }
-
-    //Show Level 8 from Scenes In Build
-    public void Level08()
-    {
-        LoadLevel(8);
-    }
-
-    //Show Level 9 from Scenes In Build
-    public void Level09()
-    {
-        LoadLevel(9);
-    }
-
-    //Show Level 10 from Scenes In Build
-    public void Level10()
-    {
-        LoadLevel(10);
-    }
-
-    //Show Level 11 from Scenes In Build
-    public void Level11()
-    {
-        LoadLevel(11);
-    }
-
-        //Show Level 11 from Scenes In Build
-    public void Level12()
-    {
-        LoadLevel(12);
-    }
-
-        //Show Level 11 from Scenes In Build
-    public void Level13()
-    {
-        LoadLevel(13);
-    }
-
-        //Show Level 11 from Scenes In Build
-    public void Level14()
-    {
-        LoadLevel(14);
-    }
-
-        //Show Level 11 from Scenes In Build
-    public void Level15()
-    {
-        LoadLevel(15);
-    }
-
-        //Show Level 11 from Scenes In Build
-    public void Level16()
-    {
-        LoadLevel(16);
     }
 
     // Determines which level scene is loaded
