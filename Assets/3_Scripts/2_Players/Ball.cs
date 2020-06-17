@@ -55,6 +55,7 @@ public class Ball : MonoBehaviour
         
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
         loseHeight = loseTile.transform.position.y;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
         timer.GetReady();
         SceneTransitionValues.record = timer.GetBestTime();
  
@@ -228,6 +229,7 @@ public class Ball : MonoBehaviour
     private void GameStarts()
     {
         gameStarted = true;
+        rb.constraints = RigidbodyConstraints.None;
         ActivatePlayerControls();
         StartCoroutine(CheckLoseCondition());
     }
