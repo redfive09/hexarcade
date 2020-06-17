@@ -18,7 +18,7 @@ public class Map : MonoBehaviour
     private void SetupSceneInformation()
     {
         SceneTransitionValues.currentScene = SceneManager.GetActiveScene().buildIndex;
-        SceneTransitionValues.currentSceneName = SceneManager.GetActiveScene().name;
+        SceneTransitionValues.currentSceneName = SceneManager.GetActiveScene().name;        
         SceneTransitionValues.newRecord = false;
     }
 
@@ -43,6 +43,4 @@ public class Map : MonoBehaviour
     {
         this.tiles = tiles;
     }
-
-
 } // END OF CLASS
