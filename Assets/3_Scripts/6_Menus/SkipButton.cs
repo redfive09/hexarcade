@@ -33,7 +33,7 @@ public class SkipButton : MonoBehaviour
         timerField.text = "Confirm";
         buttonPressed = false;
     }
-
+    
     public void Reset()
     {
         timerField.text = "Skip";

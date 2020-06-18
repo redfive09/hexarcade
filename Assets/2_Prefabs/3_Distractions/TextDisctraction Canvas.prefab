@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1007147284843261148
+--- !u!1 &187026096608955192
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,58 +8,58 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1007147284843261149}
-  - component: {fileID: 1007147284843261136}
-  - component: {fileID: 1007147284843261139}
-  - component: {fileID: 1007147284843261138}
+  - component: {fileID: 303008014242095405}
+  - component: {fileID: 4449481730002183051}
+  - component: {fileID: 4560780546601950515}
+  - component: {fileID: 8838034647319181259}
   m_Layer: 5
-  m_Name: Ticker (1)
+  m_Name: Ticker (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1007147284843261149
+--- !u!224 &303008014242095405
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147284843261148}
+  m_GameObject: {fileID: 187026096608955192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1007147286438792233}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 680.3}
-  m_SizeDelta: {x: 0, y: 79.7}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
+  m_SizeDelta: {x: 0, y: 130.44}
   m_Pivot: {x: 0.5, y: 0}
---- !u!222 &1007147284843261136
+--- !u!222 &4449481730002183051
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147284843261148}
+  m_GameObject: {fileID: 187026096608955192}
   m_CullTransparentMesh: 0
---- !u!114 &1007147284843261139
+--- !u!114 &4560780546601950515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147284843261148}
+  m_GameObject: {fileID: 187026096608955192}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -73,13 +73,13 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &1007147284843261138
+--- !u!114 &8838034647319181259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147284843261148}
+  m_GameObject: {fileID: 187026096608955192}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2d530223bc83024d942ebf9be2831ba, type: 3}
@@ -87,14 +87,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tickerItemPrefab: {fileID: 6537276553031834385, guid: d02e1f425932a3346a5fc8e570f35ec1,
     type: 3}
-  itemDuration: 3
+  itemDuration: 2
   fillerItems:
-  - Sollte ich bei einer firma machen?
-  - 'Wie ist der normale Arbeitsablauf? '
-  - 'Sollte man nur Themen nehmen in denen man sowieso schon gut ist? '
-  - "Wie sieht ein normaler Titel f\xFCr eine BA aus? "
-  - Was passiert nach Juli?
---- !u!1 &1007147285149874682
+  - Never gonna give you up
+  - never gonna let you down
+  - never gonna run around
+  - 'and desert you '
+--- !u!1 &954865911246376514
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,10 +101,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1007147285149874683}
-  - component: {fileID: 1007147285149874686}
-  - component: {fileID: 1007147285149874681}
-  - component: {fileID: 1007147285149874680}
+  - component: {fileID: 6897825849159602651}
+  - component: {fileID: 5336290222591283954}
+  - component: {fileID: 3478097897448735942}
+  - component: {fileID: 2250749439384298407}
   m_Layer: 5
   m_Name: Ticker (4)
   m_TagString: Untagged
@@ -113,107 +112,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1007147285149874683
+--- !u!224 &6897825849159602651
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147285149874682}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1007147286438792233}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 334.1}
-  m_SizeDelta: {x: 0, y: 73.9}
-  m_Pivot: {x: 0.5, y: 0}
---- !u!222 &1007147285149874686
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147285149874682}
-  m_CullTransparentMesh: 0
---- !u!114 &1007147285149874681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147285149874682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
---- !u!114 &1007147285149874680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147285149874682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2d530223bc83024d942ebf9be2831ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tickerItemPrefab: {fileID: 6537276553031834385, guid: d02e1f425932a3346a5fc8e570f35ec1,
-    type: 3}
-  itemDuration: 3
-  fillerItems:
-  - Sollte ich bei einer firma machen?
-  - 'Wie ist der normale Arbeitsablauf? '
-  - 'Sollte man nur Themen nehmen in denen man sowieso schon gut ist? '
-  - "Wie sieht ein normaler Titel f\xFCr eine BA aus? "
-  - Was passiert nach Juli?
---- !u!1 &1007147285640633407
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1007147285640633404}
-  - component: {fileID: 1007147285640633395}
-  - component: {fileID: 1007147285640633394}
-  - component: {fileID: 1007147285640633405}
-  m_Layer: 5
-  m_Name: Ticker (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1007147285640633404
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147285640633407}
+  m_GameObject: {fileID: 954865911246376514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -223,31 +128,31 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 156.3}
-  m_SizeDelta: {x: 0, y: 79.7}
+  m_AnchoredPosition: {x: 0, y: 331.44}
+  m_SizeDelta: {x: 0, y: 100.5}
   m_Pivot: {x: 0.5, y: 0}
---- !u!222 &1007147285640633395
+--- !u!222 &5336290222591283954
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147285640633407}
+  m_GameObject: {fileID: 954865911246376514}
   m_CullTransparentMesh: 0
---- !u!114 &1007147285640633394
+--- !u!114 &3478097897448735942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147285640633407}
+  m_GameObject: {fileID: 954865911246376514}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -261,13 +166,13 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &1007147285640633405
+--- !u!114 &2250749439384298407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147285640633407}
+  m_GameObject: {fileID: 954865911246376514}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2d530223bc83024d942ebf9be2831ba, type: 3}
@@ -275,13 +180,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tickerItemPrefab: {fileID: 6537276553031834385, guid: d02e1f425932a3346a5fc8e570f35ec1,
     type: 3}
-  itemDuration: 3
+  itemDuration: 1.5
   fillerItems:
-  - Sollte ich bei einer firma machen?
-  - 'Wie ist der normale Arbeitsablauf? '
-  - 'Sollte man nur Themen nehmen in denen man sowieso schon gut ist? '
-  - "Wie sieht ein normaler Titel f\xFCr eine BA aus? "
-  - Was passiert nach Juli?
+  - BOOM
+  - There is a Easter Egg in the Game
+  - 'Find it '
 --- !u!1 &1007147286050093363
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,8 +220,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 35}
-  m_SizeDelta: {x: 0, y: 48}
+  m_AnchoredPosition: {x: -10.099976, y: 431.94}
+  m_SizeDelta: {x: 0, y: 100.5}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1007147286050093367
 CanvasRenderer:
@@ -341,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -369,14 +272,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tickerItemPrefab: {fileID: 6537276553031834385, guid: d02e1f425932a3346a5fc8e570f35ec1,
     type: 3}
-  itemDuration: 3
+  itemDuration: 2
   fillerItems:
-  - Sollte ich bei einer firma machen?
-  - 'Wie ist der normale Arbeitsablauf? '
-  - 'Sollte man nur Themen nehmen in denen man sowieso schon gut ist? '
-  - "Wie sieht ein normaler Titel f\xFCr eine BA aus? "
-  - Was passiert nach Juli?
-  - '----------'
+  - WATCH OUT!
+  - '...There might be something unexpected....'
+  - 'Maybe a Cracked Tile ? '
+  - K-POW
+  - ahhhhhhhhh
 --- !u!1 &1007147286438792245
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,10 +310,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1007147286050093360}
-  - {fileID: 1007147284843261149}
-  - {fileID: 1007147286442657043}
-  - {fileID: 1007147285640633404}
-  - {fileID: 1007147285149874683}
+  - {fileID: 6069209701886074523}
+  - {fileID: 1219974307165344438}
+  - {fileID: 6897825849159602651}
+  - {fileID: 3600559491649396373}
+  - {fileID: 6324335834626128140}
+  - {fileID: 303008014242095405}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -480,7 +384,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1 &1007147286442657042
+--- !u!1 &1998806772172675057
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -488,58 +392,58 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1007147286442657043}
-  - component: {fileID: 1007147286442657046}
-  - component: {fileID: 1007147286442657041}
-  - component: {fileID: 1007147286442657040}
+  - component: {fileID: 3600559491649396373}
+  - component: {fileID: 441938095346391985}
+  - component: {fileID: 4513624652952495106}
+  - component: {fileID: 4520397416854102517}
   m_Layer: 5
-  m_Name: Ticker (2)
+  m_Name: Ticker (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1007147286442657043
+--- !u!224 &3600559491649396373
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147286442657042}
+  m_GameObject: {fileID: 1998806772172675057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1007147286438792233}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 525.2}
-  m_SizeDelta: {x: 0, y: 76.8}
+  m_AnchoredPosition: {x: 0, y: 230.94}
+  m_SizeDelta: {x: 0, y: 100.5}
   m_Pivot: {x: 0.5, y: 0}
---- !u!222 &1007147286442657046
+--- !u!222 &441938095346391985
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147286442657042}
+  m_GameObject: {fileID: 1998806772172675057}
   m_CullTransparentMesh: 0
---- !u!114 &1007147286442657041
+--- !u!114 &4513624652952495106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147286442657042}
+  m_GameObject: {fileID: 1998806772172675057}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -553,13 +457,13 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &1007147286442657040
+--- !u!114 &4520397416854102517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007147286442657042}
+  m_GameObject: {fileID: 1998806772172675057}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2d530223bc83024d942ebf9be2831ba, type: 3}
@@ -567,10 +471,289 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tickerItemPrefab: {fileID: 6537276553031834385, guid: d02e1f425932a3346a5fc8e570f35ec1,
     type: 3}
-  itemDuration: 3
+  itemDuration: 2
   fillerItems:
-  - Sollte ich bei einer firma machen?
-  - 'Wie ist der normale Arbeitsablauf? '
-  - 'Sollte man nur Themen nehmen in denen man sowieso schon gut ist? '
-  - "Wie sieht ein normaler Titel f\xFCr eine BA aus? "
-  - Was passiert nach Juli?
+  - 80s
+  - neon
+  - disco
+  - vibe
+--- !u!1 &3259488260814466822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6069209701886074523}
+  - component: {fileID: 1228774825814376393}
+  - component: {fileID: 2086402796104057738}
+  - component: {fileID: 773499054853031459}
+  m_Layer: 5
+  m_Name: Ticker (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6069209701886074523
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3259488260814466822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1007147286438792233}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 532.44}
+  m_SizeDelta: {x: 0, y: 88.4}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!222 &1228774825814376393
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3259488260814466822}
+  m_CullTransparentMesh: 0
+--- !u!114 &2086402796104057738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3259488260814466822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!114 &773499054853031459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3259488260814466822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d530223bc83024d942ebf9be2831ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickerItemPrefab: {fileID: 6537276553031834385, guid: d02e1f425932a3346a5fc8e570f35ec1,
+    type: 3}
+  itemDuration: 1.5
+  fillerItems:
+  - Unity
+  - Bouncentrate
+  - HexArcade
+  - Hold your phone flat
+--- !u!1 &3627128779665979713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6324335834626128140}
+  - component: {fileID: 887204624925234974}
+  - component: {fileID: 3177521520855072746}
+  - component: {fileID: 2259383528791342539}
+  m_Layer: 5
+  m_Name: Ticker (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6324335834626128140
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3627128779665979713}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1007147286438792233}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 130.44}
+  m_SizeDelta: {x: 0, y: 100.5}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!222 &887204624925234974
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3627128779665979713}
+  m_CullTransparentMesh: 0
+--- !u!114 &3177521520855072746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3627128779665979713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!114 &2259383528791342539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3627128779665979713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d530223bc83024d942ebf9be2831ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickerItemPrefab: {fileID: 6537276553031834385, guid: d02e1f425932a3346a5fc8e570f35ec1,
+    type: 3}
+  itemDuration: 1.5
+  fillerItems:
+  - Tainted Love
+  - Living on a Prayer
+  - Like a virgin
+  - blinding lights
+  - arcade
+--- !u!1 &8093149655643879408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219974307165344438}
+  - component: {fileID: 6355035129037289414}
+  - component: {fileID: 7506138976645689904}
+  - component: {fileID: 2106939589431444802}
+  m_Layer: 5
+  m_Name: Ticker (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1219974307165344438
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093149655643879408}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1007147286438792233}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0.00012207031, y: 620.84}
+  m_SizeDelta: {x: 0.00012207, y: 92.4}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!222 &6355035129037289414
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093149655643879408}
+  m_CullTransparentMesh: 0
+--- !u!114 &7506138976645689904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093149655643879408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!114 &2106939589431444802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093149655643879408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d530223bc83024d942ebf9be2831ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickerItemPrefab: {fileID: 6537276553031834385, guid: d02e1f425932a3346a5fc8e570f35ec1,
+    type: 3}
+  itemDuration: 2
+  fillerItems:
+  - LOOK
+  - OVER HERE
+  - 4 months in development
+  - 'Do you like it ? '

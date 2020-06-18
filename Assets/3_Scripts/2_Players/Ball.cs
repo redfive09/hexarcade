@@ -21,6 +21,7 @@ public class Ball : MonoBehaviour
     private MapSettings settings;
     private Tiles tiles;
     private TileColorsIntroduction tileColorsIntroduction;
+    private TutorialManager tutorialManager;
     private List<Vector3> positions = new List<Vector3>();
     Dictionary<int, List<Hexagon>> checkpointTiles;    
     private bool hasWatchedIntroductionScreen = false;
@@ -52,12 +53,15 @@ public class Ball : MonoBehaviour
         lastSpawnOffset = settings.GetSpawnPositionOffset();        
         cameraFollow = GetPlayerCamera().GetComponent<CameraFollow>();
         skipButton = GetComponentInChildren<SkipButton>();
-        
+        tutorialManager = GetComponentInChildren<TutorialManager>(true);
+
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
         loseHeight = loseTile.transform.position.y;
         rb.constraints = RigidbodyConstraints.FreezeAll;
         timer.GetReady();
         SceneTransitionValues.record = timer.GetBestTime();
+        
+        
  
         StartCoroutine(Introduction(cameraFollow, skipButton));
     }
@@ -79,12 +83,14 @@ public class Ball : MonoBehaviour
 
         if(settings.IsIntroductionScreen())                                         // check if the level has a introduction screen to show
         {
-            ShowIntroductionScreen();                                               // if so, show it
+            tutorialManager.gameObject.SetActive(true);
+          /*  ShowIntroductionScreen();                                               // if so, show it
 
             while(!hasWatchedIntroductionScreen)                                    // wait for the user to finish watching the introduction screen
             {
+                
                 yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
-            }
+            }*/
         }
 
         /* --------------- DISPLAYING NON-STANDARD TILES ---------------  */
@@ -312,13 +318,22 @@ public class Ball : MonoBehaviour
 
     public void GamePaused()
     {
+        if (settings.IsIntroductionScreen()) // check if the level has a introduction screen to show
+        {
+            tutorialManager.gameObject.SetActive(false);
+        }
+        
         if(gameStarted)
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;
             DeactivatePlayerControls();
             timer.Pause();
-            timer.Disappear();
-        }        
+            timer.Disappear();           
+        }
+        else
+        {
+            skipButton.gameObject.SetActive(false);
+        }
     }
             
     public void GameUnpaused()
@@ -326,7 +341,13 @@ public class Ball : MonoBehaviour
         if(gameStarted)
         {
             StartCoroutine(UnpauseStopwatch(3.9f));
-        }        
+            
+        }
+        else
+        {
+            skipButton.gameObject.SetActive(true);
+        }
+        
     }
 
     private IEnumerator UnpauseStopwatch(float seconds)
@@ -334,6 +355,10 @@ public class Ball : MonoBehaviour
         timer.SetStopWatch(seconds);
         timer.Show();
         
+        if (settings.IsIntroductionScreen()) // check if the level has a introduction screen to show
+        {
+            tutorialManager.gameObject.SetActive(true);
+        }
            
         while (!timer.IsStopTimeOver())
         {
