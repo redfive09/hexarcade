@@ -10,24 +10,26 @@ public class LevelSelectionButton : MonoBehaviour
 
     public void SetLevelData(string name, string record, Sprite levelImage)
     {
-        transform.gameObject.SetActive(true);
-        
         levelName = name;
         TextMeshProUGUI[] textFields = GetComponentsInChildren<TextMeshProUGUI>();
-        
-        for(int i = 0; i < textFields.Length; i++)
-        {            
-            if(textFields[i].name == "Name")
+
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            if(transform.GetChild(i).name == "Name")
             {
                 textFields[i].text = name;
             }
 
-            if(textFields[i].name == "Record")
+            if(transform.GetChild(i).name == "Record")
             {
-                textFields[i].text = record;
+                textFields[i].text = record;                
+            }
+
+            if(transform.GetChild(i).name == "Image")
+            {
+                transform.GetChild(i).GetComponent<Image>().sprite = levelImage;
             }
         }
-        GetComponentInChildren<Image>().sprite = levelImage;
     }
 
     public void SetInactive()
