@@ -1,24 +1,33 @@
 ﻿using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
 
+
 public class LevelSelection : MonoBehaviour
 {
-    // [SerializeField] private GameObject timeRecords;    
-    // [SerializeField] private GameObject menuPage01;
-    // [SerializeField] private GameObject menuPage02;
-    // [SerializeField] private GameObject LevelAtPos1;
+    [SerializeField] private GameObject levelFolder;
+    [SerializeField] private GameObject menuButton;
+    [SerializeField] private GameObject previousWorld;
+    [SerializeField] private GameObject nextWorld;
+    [SerializeField] private GameObject previousPageButton;
+    [SerializeField] private GameObject nextPageButton;
+    [SerializeField] private TMP_Text currentWorld;
+    
+    
 
-
+    private const int FIRST_LEVEL_AT_BUILD_INDEX = 3;
+    private int currentPage = 0;
+    private int maxPages;
     private Dictionary<string, float> bestTimes;
     private Dictionary<string, List<string>> worlds = new Dictionary<string, List<string>>();
-    private SortedSet<string> worldList = new SortedSet<string>();
+    private List<string> worldList = new List<string>();
     
     
     // Settings for control
-    private const float MIN_DISTANCE_FOR_PANNING_RECOGNITION = 0.05f;
+    private const float MIN_DISTANCE_FOR_PANNING_RECOGNITION = 0.05f;    
     private Camera cam;
     private Touch touch;
     private Vector3 touchStart;
@@ -30,9 +39,11 @@ public class LevelSelection : MonoBehaviour
     {
         cam = Camera.main;
         bestTimes = SaveLoadManager.LoadTimes();
-        // ShowTimeRecords();
-        // SwitchPage();
+        
         ManageLevels();
+        SetWorldSelection();
+        OrganiseLevelPages();
+        // PrintAllLevels();
     }
 
     private void Update()
@@ -78,7 +89,8 @@ public class LevelSelection : MonoBehaviour
     {        
         int skipNamePart = ".unity".Length;                                             // every scene ends with that extension, so we can remember it (respectively its length) in order to save some time
                 
-        for(int i = 3; i < SceneManager.sceneCountInBuildSettings - 1; i++)             // first level starts at build 3 and last scene is not a level either
+        for(int i = FIRST_LEVEL_AT_BUILD_INDEX; 
+                i < SceneManager.sceneCountInBuildSettings - 1; i++)                    // iterate only over all levels (last scene is this level selection screen)
         {
             string scenePath = SceneUtility.GetScenePathByBuildIndex(i);                // thx to this -> https://stackoverflow.com/questions/40898310/get-name-of-next-scene-in-build-settings-in-unity3d/40901893
             string worldName = "";
@@ -113,6 +125,46 @@ public class LevelSelection : MonoBehaviour
                 }
             }
         }
+        currentWorld.text = worldList[0];
+    }
+
+    private void SetWorldSelection()
+    {
+        currentWorld.text = worldList[0];
+    }
+
+    private void ShowLevels()
+    {
+        List<string> levels = worlds[currentWorld.text];
+        int maxLevelsPerPage = levelFolder.transform.childCount;
+        
+        LevelSelectionButton[] levelButtons = levelFolder.GetComponentsInChildren<LevelSelectionButton>();
+        
+        for(int i = 0; i < maxLevelsPerPage; i++)
+        {
+            int currentLevel = currentPage * maxLevelsPerPage + i;
+            if(currentLevel < levels.Count)
+            {
+                string levelName = levels[currentLevel];
+                
+                string record = "";
+                if(bestTimes.TryGetValue(levelName, out float playersRecord)) // mayber level was never played or finished
+                {
+                    record = Timer.GetTimeAsString(playersRecord, 3);
+                }
+
+                Sprite levelImage = Resources.Load<Sprite>("8_LevelImages/" + currentWorld.text + "/" + levelName);
+                if(levelImage == null)
+                {
+                    levelImage = Resources.Load<Sprite>("8_LevelImages/defaultImage");
+                }
+                levelButtons[i].SetLevelData(levelName, record, levelImage);
+            }
+            else
+            {
+                levelButtons[i].SetInactive();
+            }            
+        }        
     }
 
     private void PrintAllLevels()
@@ -149,7 +201,10 @@ public class LevelSelection : MonoBehaviour
         // }
     }
 
-
+    private void CalcPages()
+    {
+        // maxPages   
+    }
 
 
     public void ResetRecords()
@@ -159,27 +214,57 @@ public class LevelSelection : MonoBehaviour
         ShowTimeRecords();
     }
 
-    //Show Level 1 from Scenes In Build
-    public void Level1()
+
+    public void Menu()
     {
-        // LevelAtPos1.transform.position = new Vector3(LevelAtPos1.transform.position.x - 100, 0, 0);
+        SceneManager.LoadScene(0);
     }
 
-    //Show Level 2 from Scenes In Build
-    public void Level2()
-    {
-        LoadLevel(2);
+    public void PreviousWorld()
+    {       
+        for(int i = 0; i < worldList.Count; i++)
+        {            
+            if(worldList[i] == currentWorld.text)
+            {                
+                int setNewWorld = i - 1;
+                if(setNewWorld < 0) setNewWorld = worldList.Count - 1;
+                currentWorld.text = worldList[setNewWorld];
+                break;
+            }
+        }
+        OrganiseLevelPages();
     }
 
-    //Show Level 3 from Scenes In Build
-    public void Level3()
+    public void NextWorld()
     {
-        LoadLevel(3);
+        for(int i = 0; i < worldList.Count; i++)
+        {
+            if(worldList[i] == currentWorld.text)
+            {
+                int setNewWorld = (i + 1) % worldList.Count;
+                currentWorld.text = worldList[setNewWorld];
+                break;
+            }
+        }
+        OrganiseLevelPages();
     }
 
-    // Determines which level scene is loaded
-    private void LoadLevel(int level)
+    private void OrganiseLevelPages()
     {
-        SceneManager.LoadScene(level);
+        currentPage = 0;
+        ShowLevels();
+        
+    }
+
+    public void PreviousLevelPage()
+    {
+        currentPage--;              // boundary check!!!
+        OrganiseLevelPages();
+    }
+
+    public void NextLevelPage()
+    {
+        currentPage++;              // boundary check!!!
+        OrganiseLevelPages();
     }
 }

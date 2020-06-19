@@ -13,9 +13,7 @@ public class MenuController : MonoBehaviour
 
     public void StartGame()
     {
-       SceneManager.LoadScene(3);
-        // SceneManager.LoadScene("1_Scenes/Tutorial_Levels/Scene1");
-
+       SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1); // Last scene is the level selection screen
     }
 
     public void QuitGame()
