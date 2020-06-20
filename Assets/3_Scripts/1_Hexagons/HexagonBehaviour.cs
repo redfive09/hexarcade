@@ -37,6 +37,7 @@ public class HexagonBehaviour : MonoBehaviour
     public void GotOccupied(Ball player)
     {
         balls.Add(player);
+        thisHexagon.SetIsTouched(true);
 
         if(thisHexagon.IsCrackedTile())
         {
@@ -87,7 +88,7 @@ public class HexagonBehaviour : MonoBehaviour
         if(thisHexagon.IsStandardTile())
         {
             thisHexagon.SetColor(colors[arrivedStandardTile]);
-        }
+        }        
     }
 
 

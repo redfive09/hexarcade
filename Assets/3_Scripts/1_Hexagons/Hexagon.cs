@@ -28,9 +28,10 @@ using UnityEngine;
         [SerializeField] private Color color;
         [SerializeField] private Color markedColor; // in effect when touched by user
 
-    private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here        
+        private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here        
 
         private bool isStandardTile = true; // = no special function at all
+        private bool isTouched = false;
 
         // Platform coordinates, not world coordinates!
         private float x;
@@ -145,6 +146,11 @@ using UnityEngine;
         public void SetStandardTile(bool status)
         {
             isStandardTile = status;
+        }
+
+        public void SetIsTouched(bool status)
+        {
+            isTouched = status;
         }
 
 
@@ -306,6 +312,11 @@ using UnityEngine;
         public bool IsStandardTile()
         {
             return isStandardTile;
+        }
+
+        public bool IsTouched()
+        {
+            return isTouched;
         }
 
 

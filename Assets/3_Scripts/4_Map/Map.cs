@@ -12,7 +12,7 @@ public class Map : MonoBehaviour
     {
         SetupSceneInformation();
         CreateTiles();
-        CreatePlayers();
+        CreatePlayers();        
     }
 
     private void SetupSceneInformation()

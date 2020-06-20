@@ -29,7 +29,7 @@ public class Tiles : MonoBehaviour
     public void GetStarted(bool inEditor)
     {        
         CollectTiles(inEditor);
-        GetComponent<TileColorsIntroduction>().GetStarted(tileColors);
+        GetComponent<TileColorsIntroduction>().GetStarted(tileColors);        
     }
 
     public void CollectTiles(bool inEditor)
@@ -129,7 +129,7 @@ public class Tiles : MonoBehaviour
                     SaveHexagonInList(specialTiles, hexagon, hexagon.GetSpecialNumber());                    
                     hexagon.SetStandardTile(false);
                     if(!hexagon.GetComponent<HexagonSpecial>()) hexagon.gameObject.AddComponent<HexagonSpecial>();                    
-                    hexagon.GetComponent<HexagonSpecial>().GetStarted(specialTiles);
+                    hexagon.GetComponent<HexagonSpecial>().GetStarted(specialTiles, this);
                 }
                 else
                 {
@@ -310,9 +310,10 @@ public class Tiles : MonoBehaviour
         return platforms;
     }
 
-    public int GetNumberOfPathTiles(int player)
+
+    public Dictionary<int, List<Hexagon>>[] GetAllNonStandardTiles()
     {
-        return pathTiles[player].Count;
+        return tileLists;
     }
 
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2070,7 +2070,7 @@ GameObject:
   - component: {fileID: 210382731}
   - component: {fileID: 210382732}
   m_Layer: 0
-  m_Name: Platform0
+  m_Name: 'Platform0 || Count: 43 || '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2399,6 +2399,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245044671}
   m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
+--- !u!21 &246117316
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hexagon (Instance) (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.8490566, g: 0.8471247, b: 0.15619439, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &258838270
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,7 +2551,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 658588128}
+  - {fileID: 246117316}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3294,7 +3369,7 @@ GameObject:
   - component: {fileID: 385806964}
   - component: {fileID: 385806969}
   m_Layer: 0
-  m_Name: '1, -2 || '
+  m_Name: '1, -2 || Distraction -> scrolling_text || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3878,8 +3953,9 @@ GameObject:
   - component: {fileID: 442683271}
   - component: {fileID: 442683270}
   - component: {fileID: 442683269}
+  - component: {fileID: 442683267}
   m_Layer: 0
-  m_Name: '0, 0 || '
+  m_Name: '0, 0 || Special  || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3900,6 +3976,26 @@ Transform:
   m_Father: {fileID: 210382731}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &442683267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442683265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  reverseSpeed: 0
+  teleporterNumber: 0
+  teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
+  velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &442683269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3929,11 +4025,11 @@ MonoBehaviour:
   isPath: -1
   isDistractionTile: -1
   isCheckpointTile: -1
-  isSpecialTile: -1
+  isSpecialTile: 4
   isMovingTile: -1
   isStartingTile: -1
   isWinningTile: -1
-  color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
+  color: {r: 0.8490566, g: 0.8471247, b: 0.15619439, a: 0}
   markedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &442683271
 MeshRenderer:
@@ -4214,7 +4310,7 @@ MonoBehaviour:
   arrivedPathTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedDistractionTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedCheckpointTile: {r: 0, g: 0, b: 0, a: 0}
-  arrivedSpecialTile: {r: 0, g: 0, b: 0, a: 0}
+  arrivedSpecialTile: {r: 0.8509804, g: 0.84705883, b: 0.15686275, a: 0}
   arrivedMovingTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedStartingTile: {r: 0, g: 0, b: 0, a: 0}
   arrivedWinningTile: {r: 0, g: 0, b: 0, a: 0}
@@ -4223,7 +4319,7 @@ MonoBehaviour:
   leftPathTile: {r: 0, g: 0, b: 0, a: 0}
   leftDistractionTile: {r: 0, g: 0, b: 0, a: 0}
   leftCheckpointTile: {r: 0, g: 0, b: 0, a: 0}
-  leftSpecialTile: {r: 0, g: 0, b: 0, a: 0}
+  leftSpecialTile: {r: 0.8509804, g: 0.84705883, b: 0.15686275, a: 0}
   leftMovingTile: {r: 0, g: 0, b: 0, a: 0}
   leftStartingTile: {r: 0, g: 0, b: 0, a: 0}
   leftWinningTile: {r: 0, g: 0, b: 0, a: 0}
@@ -4269,7 +4365,7 @@ MonoBehaviour:
   specialTilesColorTime: 0
   specialTimeBeforeFading: 0
   specialTilesColorFading: 0
-  specialTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  specialTilesColor: {r: 0.8509804, g: 0.84705883, b: 0.15686275, a: 0}
   cameraFollowMovingTiles: 0
   movingTilesColorStartTime: 0
   movingTilesColorTime: 0
@@ -5420,81 +5516,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617489671}
   m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
---- !u!21 &658588128
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hexagon (Instance)
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 0.14509805, g: 0.5259812, b: 0.74509805, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &669985676
 GameObject:
   m_ObjectHideFlags: 0
@@ -7270,7 +7291,7 @@ GameObject:
   - component: {fileID: 879467910}
   - component: {fileID: 879467915}
   m_Layer: 0
-  m_Name: '1, -1 || '
+  m_Name: '1, -1 || Distraction -> scrolling_text_stop || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12851,7 +12872,7 @@ GameObject:
   - component: {fileID: 1639461549}
   - component: {fileID: 1639461548}
   m_Layer: 0
-  m_Name: '-2, -1 || Cracked 0 || '
+  m_Name: '-2, -1 || Cracked 0 -> Time: 2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14190,7 +14211,7 @@ GameObject:
   - component: {fileID: 1830739257}
   - component: {fileID: 1830739256}
   m_Layer: 0
-  m_Name: '0, -1 || Cracked 0 || '
+  m_Name: '0, -1 || Cracked 0 -> Time: 2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

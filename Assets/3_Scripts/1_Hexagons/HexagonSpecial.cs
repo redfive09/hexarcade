@@ -28,10 +28,13 @@ public class HexagonSpecial : MonoBehaviour
     private const int VELOCITY = 1;
     private const int JUMPAD = 2;
     private const int LOSING_TILE = 3;
+    private const int NON_STANDARD_COUNTER = 4;
+
 
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */    
     private Dictionary<int, List<Hexagon>> specialTiles;
+    private Tiles tiles;
     private List<Ball> players = new List<Ball>();
     private int getIndexNumberInList;
     private Hexagon thisHexagon;
@@ -39,11 +42,12 @@ public class HexagonSpecial : MonoBehaviour
 
 
     /* ------------------------------ MAIN METHODS FOR SPECIAL TILES ------------------------------  */
-    public void GetStarted(Dictionary<int, List<Hexagon>> specialTiles)
+    public void GetStarted(Dictionary<int, List<Hexagon>> specialTiles, Tiles tiles)
     {
         thisHexagon = this.transform.GetComponent<Hexagon>();
         specialCase = thisHexagon.GetSpecialNumber();
         this.specialTiles = specialTiles;
+        this.tiles = tiles;
     }
 
     public void SpecialTileTouched(Ball player)
@@ -86,6 +90,12 @@ public class HexagonSpecial : MonoBehaviour
                 case LOSING_TILE:
                 {
                     player.Lost();
+                    break;
+                }
+
+                case NON_STANDARD_COUNTER:
+                {
+                    CheckIfPlayerTouchedAllNonSpecificHexagons(player);
                     break;
                 }
             }
@@ -139,6 +149,50 @@ public class HexagonSpecial : MonoBehaviour
     {
         return teleporterNumber;
     }
+
+
+    /* ------------------------------ SPECIFIC METHOD FOR NON_STANDARD_COUNTER ------------------------------  */
+
+    private void CheckIfPlayerTouchedAllNonSpecificHexagons(Ball player)
+    {
+        Dictionary<int, List<Hexagon>>[] nonStandardTiles = tiles.GetAllNonStandardTiles();        
+        int nonStandardTilesCount = 0;
+
+        for(int i = 0; i < nonStandardTiles.Length; i++)
+        {
+            Dictionary<int, List<Hexagon>> currentHexagonDictionary = nonStandardTiles[i];
+            int listLength = currentHexagonDictionary.Count;
+
+            for(int j = 0; j < listLength; j++)
+            {
+                if(currentHexagonDictionary.TryGetValue(j, out List<Hexagon> hexagonList))
+                {
+                    for(int h = 0; h < hexagonList.Count; h++)
+                    {
+                        if(!hexagonList[h].IsTouched())
+                        {
+                            nonStandardTilesCount++;
+                        }
+                    }
+                }
+                else
+                {
+                    listLength++;
+                }
+            } 
+        }
+
+        if(nonStandardTilesCount == 0)
+        {
+            player.Won();
+        }
+        else
+        {
+            Debug.Log("Please come back, when you found the " + nonStandardTilesCount + " remaining non-standard hexagons.");
+        }         
+    }
+
+
 
     /* ------------------------------ SETTERS FOR SPECIAL TILES ------------------------------  */
 

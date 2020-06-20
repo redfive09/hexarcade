@@ -6,8 +6,7 @@ using TMPro;
 
 
 public class LevelSelection : MonoBehaviour
-{
-    [SerializeField] private Object levelImages;
+{    
     [SerializeField] private GameObject levelFolder;
     [SerializeField] private GameObject menuButton;
     [SerializeField] private GameObject previousWorld;

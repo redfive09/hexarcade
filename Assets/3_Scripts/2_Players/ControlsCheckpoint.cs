@@ -18,10 +18,10 @@ public class ControlsCheckpoint : MonoBehaviour
     private Dictionary<Hexagon, Color> rememberOriginalColors = new Dictionary<Hexagon, Color>();
     private Color checkpointTilesColor;
     private Tiles tiles;
-    private Ray ray;
-    private CheckpointCounter counterField;
+    private Ray ray;    
     private int numberOfCheckpoints;
     private int chosenCheckpoints = 0;
+    private CheckpointCounter checkpointCounter;
 
 
     // Fields for controls
@@ -34,15 +34,16 @@ public class ControlsCheckpoint : MonoBehaviour
 
  
 
-   public void GetStarted(int numberOfCheckpoints, Dictionary<int, List<Hexagon>> checkpointTiles, Tiles tiles, Camera cam/* , CheckpointCounter counterField */)
+   public void GetStarted(int numberOfCheckpoints, Dictionary<int, List<Hexagon>> checkpointTiles, Tiles tiles, Camera cam, CheckpointCounter checkpointCounter /* , CheckpointCounter counterField */)
    {       
        this.tiles = tiles;
        this.checkpointTiles = checkpointTiles;
        this.numberOfCheckpoints = numberOfCheckpoints;
        this.checkpointTilesColor = tiles.GetComponent<TileColorsPermanent>().GetCheckpointTilesColor();
        this.cam = cam;
-    //    this.counterField = counterField;
-    //    counterField.Appear();
+       this.checkpointCounter = checkpointCounter;
+    
+       checkpointCounter.Appear();
        cam.orthographicSize = (cam.orthographicSize + cam.GetComponent<CameraFollow>().GetOffset().y) / 2.25f;
        Debug.Log("Choose " + numberOfCheckpoints + " path tiles as checkpoints now");
    }
@@ -135,7 +136,7 @@ public class ControlsCheckpoint : MonoBehaviour
         rememberOriginalColors.Add(clickedTile, clickedTile.GetColor());                // Remember the original colour in case user missclicked or decided otherwise
         clickedTile.SetColor(checkpointTilesColor);                                     // Set the checkpoint colour
         chosenCheckpoints++;                                                            // Count up the chosen Checkpoints
-        // counterField.SetCounter(numberOfCheckpoints - chosenCheckpoints);
+        checkpointCounter.SetCounter(numberOfCheckpoints - chosenCheckpoints);
         Debug.Log((numberOfCheckpoints - chosenCheckpoints) + " more checkpoint(s) to choose");
     }
 
@@ -146,7 +147,7 @@ public class ControlsCheckpoint : MonoBehaviour
         rememberOriginalColors.Remove(clickedTile);                                     // Remove it from the original colours                        
         clickedTile.SetIsCheckpointTile(-1);                                            // Tell the tile it is not a checkpoint anymore
         chosenCheckpoints--;                                                            // Count down the chosen Checkpoints
-        // counterField.SetCounter(numberOfCheckpoints - chosenCheckpoints);
+        checkpointCounter.SetCounter(numberOfCheckpoints - chosenCheckpoints);
         Debug.Log((numberOfCheckpoints - chosenCheckpoints) + " more checkpoint(s) to choose");
     }
 }
