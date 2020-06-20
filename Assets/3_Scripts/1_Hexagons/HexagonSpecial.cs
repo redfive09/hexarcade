@@ -188,7 +188,17 @@ public class HexagonSpecial : MonoBehaviour
         }
         else
         {
-            Debug.Log("Please come back, when you found the " + nonStandardTilesCount + " remaining non-standard hexagons.");
+            string information = "Find the remaining " + nonStandardTilesCount;
+            if(nonStandardTilesCount > 1)
+            {
+                information += " non-standard hexagons.";
+            }
+            else
+            {
+                information += " non-standard hexagon.";
+            }
+            
+            player.GetComponentInChildren<TutorialManager>().SetInformationText(3, 0.3f, information);
         }         
     }
 
@@ -231,6 +241,9 @@ public class HexagonSpecial : MonoBehaviour
 
             case LOSING_TILE:
                 return prefix + nameof(LOSING_TILE).ToLower();
+
+            case NON_STANDARD_COUNTER:
+                return prefix + nameof(NON_STANDARD_COUNTER).ToLower();
         }
         return "";
     }
