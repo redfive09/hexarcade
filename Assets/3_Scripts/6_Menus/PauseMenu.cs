@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
 
 public class PauseMenu : MonoBehaviour
@@ -12,8 +10,6 @@ public class PauseMenu : MonoBehaviour
      * Tutorial used: https://youtu.be/JivuXdrIHK0
      */    
     [SerializeField] GameObject pauseMenuUI;
-    [SerializeField] private int countDownTime; // int so that we dont display floting point numbers as count down
-    [SerializeField] private TextMeshProUGUI CountDownDisplay;
     private Ball player;
     private bool GameIsCurrentlyPaused;
     
