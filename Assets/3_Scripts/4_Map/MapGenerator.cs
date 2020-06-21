@@ -164,8 +164,8 @@ public class MapGenerator : MonoBehaviour
     **/ 
     public Hexagon CreateTile(float xWorld, float zWorld, string hexagonName, Platform platform)
     {
-        if(hexagonName == null || hexagonName == "")                    // Check if the name is set, otherwise give it one
-        {
+        if(hexagonName == null || hexagonName == "")                           // Check if the name is set, otherwise give it one
+        {            
             hexagonName = "Hexagon" + platform.GetNumberOfHexagons();
         }
 

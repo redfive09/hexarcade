@@ -168,6 +168,10 @@ public class Platform : MonoBehaviour
 
     public int GetNumberOfHexagons()
     {
+        if(allPlatformTiles == null)
+        {
+            return this.transform.childCount;
+        }
         return allPlatformTiles.Length;
     }
 
