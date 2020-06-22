@@ -1,20 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class EnterName : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI textDisplay;
+    [SerializeField] private TextMeshProUGUI nameDisplay;
     [SerializeField] private GameObject saveNameButton;
     private TouchScreenKeyboard touchScreenKeyboard;
+    private TimeKeeper nameChanger;
 
+    void Start()
+    {        
+        nameChanger = SaveLoadManager.Load();
+        nameDisplay.text = nameChanger.GetPlayerName();
+        // EventSystem.currentSystem.SetSelectedGameObject(nameDisplay.gameObject, null);
+        // nameDisplay.OnPointerClick (null);
+    }
   
     public void OpenKeyboard()
-    {
-        touchScreenKeyboard = TouchScreenKeyboard.Open ("", TouchScreenKeyboardType.Default, false, false, false, false, "", 10);              
-        Debug.Log("trigger");
+    {        
+        touchScreenKeyboard = TouchScreenKeyboard.Open ("", TouchScreenKeyboardType.Default, false, false, false, false, "", 10);
     }
 
     public void Vibrate()
@@ -29,6 +36,8 @@ public class EnterName : MonoBehaviour
 
     public void SaveName()
     {
+        nameChanger.SetPlayerName(nameDisplay.text);
+        SaveLoadManager.Save(nameChanger);
         saveNameButton.SetActive(false);
     }
 
@@ -39,7 +48,7 @@ public class EnterName : MonoBehaviour
             // Debug.Log(touchScreenKeyboard.status.GetType());
             if(touchScreenKeyboard.done);
             {
-                textDisplay.text = touchScreenKeyboard.text;
+                nameDisplay.text = touchScreenKeyboard.text;
                 touchScreenKeyboard = null;                                
             }
         }

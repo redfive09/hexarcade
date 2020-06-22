@@ -125,6 +125,7 @@ public class TimeKeeper
 {
     private Dictionary<string, float> bestTimes;
     private string versionControl = "";
+    private string playerName = "hexanymous";
 
     public TimeKeeper(Dictionary<string, float> newBestTimes, string versionControl)
     {
@@ -146,4 +147,15 @@ public class TimeKeeper
     {
         return versionControl == versionController;
     }
+
+    public void SetPlayerName(string name)
+    {
+        playerName = name;
+    }
+
+    public string GetPlayerName()
+    {
+        return playerName;
+    }
+
 }

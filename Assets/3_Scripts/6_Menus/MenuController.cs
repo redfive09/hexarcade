@@ -8,7 +8,7 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;        
     }
 
     public void StartGame()
