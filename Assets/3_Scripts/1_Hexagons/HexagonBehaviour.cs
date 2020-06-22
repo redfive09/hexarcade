@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DentedPixel;
 
 public class HexagonBehaviour : MonoBehaviour
 {
 
-    [SerializeField] private float crackedTileBreaksInSeconds;
+    [SerializeField] private float crackedTileTrapsInSeconds;
+    private float fallDepth = 1.5f;
+    private float destructionDelay;
 
     private Color[] colors; // all colours for the scenarios right below
-    
+
     // colour codes for all different scenarios
     private int arrivedCrackedTile = 0, arrivedPathTile = 1, arrivedDistractionTile = 2, arrivedCheckpointTile = 3, arrivedSpecialTile = 4, arrivedMovingTile = 5, arrivedStartingTile = 6, arrivedWinningTile = 7, arrivedStandardTile = 8;
-    
+
     private int leftCrackedTile = 9, leftPathTile = 10, leftDistractionTile = 11, leftCheckpointTile = 12, leftSpecialTile = 13, leftMovingTile = 14, leftStartingTile = 15, leftWinningTile = 16, leftStandardTile = 17;
 
     private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here
@@ -22,14 +25,21 @@ public class HexagonBehaviour : MonoBehaviour
     // Setup standard values for the editor mode
     public void Setup()
     {
-        crackedTileBreaksInSeconds = 2f;        
+        crackedTileTrapsInSeconds = 2f;
     }
 
     void Start()
     {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
+        destructionDelay = crackedTileTrapsInSeconds * 3.0f;
+        Debug.Log("destDel" +destructionDelay);
     }
-    
+
+    void FixedUpdate()
+    {
+        ;   
+    }
+
 
     /* Method gets called in order to tell the tile that a player stands on it
     *  Depending on its values, the tile knows what to do
@@ -42,6 +52,7 @@ public class HexagonBehaviour : MonoBehaviour
         if(thisHexagon.IsCrackedTile())
         {
             thisHexagon.SetColor(colors[arrivedCrackedTile]);
+            FallAndFade();
             ActivateCrackedTile();
         }
 
@@ -157,7 +168,7 @@ public class HexagonBehaviour : MonoBehaviour
     {
         if(!markedForDestruction)
         {
-            thisHexagon.DestroyHexagon(false, crackedTileBreaksInSeconds);
+            thisHexagon.DestroyHexagon(false, destructionDelay);
             markedForDestruction = true;            
         }        
     }
@@ -170,19 +181,28 @@ public class HexagonBehaviour : MonoBehaviour
 
     public void SetCrackedTileBreaksInTime(float seconds)
     {
-        crackedTileBreaksInSeconds = seconds;
+        crackedTileTrapsInSeconds = seconds;
     }
 
 
     /* ------------------------------ GETTER METHODS BEGINN ------------------------------  */
     public float GetCrackedTileBreaksInTime()
     {
-        return crackedTileBreaksInSeconds;
+        return crackedTileTrapsInSeconds;
     }
 
     public Hexagon GetHexagon()
     {
         return thisHexagon;
+    }
+
+    private void FallAndFade()
+    {
+
+        LeanTween.moveY(gameObject, gameObject.transform.position.y - fallDepth, destructionDelay);
+        LeanTween.alpha(thisHexagon.gameObject, 0.0f, destructionDelay);
+        //gameObject.transform.GetChild(0).gameObject
+        //LeanTween.alpha 
     }
 
 }
