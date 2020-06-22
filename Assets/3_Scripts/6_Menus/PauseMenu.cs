@@ -59,7 +59,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f; // normal time
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
     }
     
     public void RestartLevel()
