@@ -19,10 +19,10 @@ public class LevelSelectionButton : MonoBehaviour
             {
                 textFields[i].text = name;
             }
-
-            if(transform.GetChild(i).name == "Record")
+            
+            if(transform.GetChild(i).gameObject.activeSelf && transform.GetChild(i).name == "Record")
             {
-                textFields[i].text = record;                
+                textFields[i].text = record;
             }
 
             if(transform.GetChild(i).name == "Image")

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using System;
 
 public class Timer : MonoBehaviour
 {
@@ -127,6 +128,14 @@ public class Timer : MonoBehaviour
             bestTime = finishTime;
             bestTimes[SceneTransitionValues.currentSceneName] = bestTime;
             SaveLoadManager.SaveTimes(bestTimes);
+            
+            string playerName = SceneTransitionValues.currentSceneName;
+            if(String.IsNullOrEmpty(playerName))
+            {
+                playerName = SaveLoadManager.Load().GetPlayerName();
+            }
+            Highscores.AddNewHighscore(SceneTransitionValues.currentSceneName, playerName, finishTime);            
+
             return true;
         }
         return false;

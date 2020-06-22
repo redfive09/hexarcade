@@ -16,7 +16,7 @@ public class LevelSelection : MonoBehaviour
     [SerializeField] private TMP_Text currentWorld;
             
 
-    private const int FIRST_LEVEL_AT_BUILD_INDEX = 3;
+    private const int FIRST_LEVEL_AT_BUILD_INDEX = 4;
     private int currentPage = 1;
     private int maxPages;
     private int maxLevelsPerPage;
