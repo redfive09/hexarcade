@@ -98,7 +98,7 @@ public class Players : MonoBehaviour
         {
             GameObject.FindWithTag("MainCamera").AddComponent<CameraFollow>();
             camera = Camera.main.GetComponent<CameraFollow>();
-            camera.SetFocusOnTarget(true);
+            camera.SetFocusOnTarget(false);
         }
         return camera;
  
