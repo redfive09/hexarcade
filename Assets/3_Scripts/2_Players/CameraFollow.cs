@@ -19,13 +19,13 @@ public class CameraFollow : MonoBehaviour
     // experimental feature on    
     private Rigidbody playerRB;
     private float changePosition, distance;
-    private Vector3 playerMoveDir, playerPrevPos;    
+    private Vector3 playerMoveDir, playerPrevPos;
     //experimental feature off
 
     public void GetReady(Transform player)
     {
-        SetTarget(player);
         SetPosition(player);
+        SetTarget(player);
         playerRB = player.GetComponent<Rigidbody>();
 
         rememberLerp = useLerp;
@@ -48,7 +48,7 @@ public class CameraFollow : MonoBehaviour
 
     public void SetTarget(Transform objectTransform)
     {
-        target = objectTransform;               
+        target = objectTransform;
     }
 
     public void SetFocusOnTarget(bool status)
