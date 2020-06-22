@@ -434,6 +434,11 @@ public class Ball : MonoBehaviour
         {
             Lost();
         }
+
+        if (settings.IsIntroductionScreen() && !hexagon.IsStandardTile() && !hexagon.IsStartingTile())
+        {
+            GetComponentInChildren<TutorialManager>().CheckForNonStandardTiles(hexagon, tiles, this);
+        }
     }
 
 
