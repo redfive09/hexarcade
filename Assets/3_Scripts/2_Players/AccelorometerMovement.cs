@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
@@ -9,12 +10,18 @@ public class AccelorometerMovement : MonoBehaviour
     private float multiplier = 75.5f;
     [SerializeField]
     private ForceMode inputApplyment = ForceMode.Acceleration;
+    Matrix4x4 baseMatrix = Matrix4x4.identity;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+  /*  private void Start()
+    {
+        Calibrate();    
+    }
+*/
     /*
      * 
      * Takes in the gravity induced acceleration from sensors hopply build in in every handy this script will ever run on. Proper fuction is guaranteet only having the screen facing up.
@@ -29,4 +36,22 @@ public class AccelorometerMovement : MonoBehaviour
         tilt *= multiplier;
         rb.AddForce(tilt, inputApplyment);
     }
+    
+ /*
+  * Accelorometer Calibration: https://forum.unity.com/threads/input-acceleration-calibration.317121/
+  */
+  /*  public void Calibrate() {
+        Quaternion rotate = Quaternion.FromToRotation(new Vector3(0.0f, 0.0f, -1.0f), Input.acceleration);
+     
+        Matrix4x4 matrix = Matrix4x4.TRS(Vector3.zero, rotate, new Vector3(1.0f, 1.0f, 1.0f));
+     
+        this.baseMatrix = matrix.inverse;
+    }
+    
+    public Vector3 AdjustedAccelerometer {
+        get {
+            return this.baseMatrix.MultiplyVector(Input.acceleration);
+        }
+    }*/
+  
 }
