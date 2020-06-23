@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * https://www.youtube.com/watch?v=JKoBWBXVvKY
+ */
 public class DontDestroy : MonoBehaviour
 {
     void Awake()
