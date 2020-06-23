@@ -17,10 +17,10 @@ public class AccelorometerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-  /* private void Start()
+     private void Start()
     {
         Calibrate();    
-    }*/
+    }
 
     /*
      * 
@@ -30,8 +30,8 @@ public class AccelorometerMovement : MonoBehaviour
      */
     void Update()
     {
-        Vector3 tilt = Input.acceleration;
-       // Vector3 tilt = AdjustedAccelerometer;
+        //Vector3 tilt = Input.acceleration;
+        Vector3 tilt = AdjustedAccelerometer;
         tilt.z = 0.0f;
         tilt = Quaternion.Euler(90, 0, 0) * tilt;
         tilt *= multiplier;
@@ -41,7 +41,7 @@ public class AccelorometerMovement : MonoBehaviour
  /*
   * Accelorometer Calibration: https://forum.unity.com/threads/input-acceleration-calibration.317121/
   */
-   /*public void Calibrate() {
+   public void Calibrate() {
         Quaternion rotate = Quaternion.FromToRotation(new Vector3(0.0f, 0.0f, -1.0f), Input.acceleration);
      
         Matrix4x4 matrix = Matrix4x4.TRS(Vector3.zero, rotate, new Vector3(1.0f, 1.0f, 1.0f));
@@ -53,6 +53,6 @@ public class AccelorometerMovement : MonoBehaviour
         get {
             return this.baseMatrix.MultiplyVector(Input.acceleration);
         }
-    }*/
+    }
   
 }
