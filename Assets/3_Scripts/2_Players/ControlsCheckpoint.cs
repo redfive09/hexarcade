@@ -31,11 +31,12 @@ public class ControlsCheckpoint : MonoBehaviour
     private float lastZoomTime;
     private bool touchPhaseEnded = true;
     private bool startedPanning = false;
+    private bool startedZooming = false;
 
  
 
-   public void GetStarted(int numberOfCheckpoints, Dictionary<int, List<Hexagon>> checkpointTiles, Tiles tiles, Camera cam, CheckpointCounter checkpointCounter /* , CheckpointCounter counterField */)
-   {       
+   public void GetStarted(int numberOfCheckpoints, Dictionary<int, List<Hexagon>> checkpointTiles, Tiles tiles, Camera cam, CheckpointCounter checkpointCounter)
+   {
        this.tiles = tiles;
        this.checkpointTiles = checkpointTiles;
        this.numberOfCheckpoints = numberOfCheckpoints;
@@ -44,6 +45,7 @@ public class ControlsCheckpoint : MonoBehaviour
        this.checkpointCounter = checkpointCounter;
     
        checkpointCounter.Appear();
+       checkpointCounter.SetCounter(numberOfCheckpoints);
        cam.orthographicSize = (cam.orthographicSize + cam.GetComponent<CameraFollow>().GetOffset().y) / 2.25f;
        Debug.Log("Choose " + numberOfCheckpoints + " path tiles as checkpoints now");
    }
@@ -78,6 +80,7 @@ public class ControlsCheckpoint : MonoBehaviour
 
             zoom(different * SENSITIVITY_TOUCH_ZOOM);
             lastZoomTime = Time.fixedTime;
+            startedZooming = true;
         }
         
         else if(Input.GetMouseButton(0) && MIN_TIME_BETWEEN_PAN_AND_ZOOM < Time.fixedTime - lastZoomTime) // Dragging
@@ -95,6 +98,7 @@ public class ControlsCheckpoint : MonoBehaviour
             if(startedPanning)
             {
                 startedPanning = false;
+                startedZooming = false;
             }
             else
             {                

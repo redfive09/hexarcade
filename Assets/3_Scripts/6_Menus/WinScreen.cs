@@ -13,6 +13,7 @@ public class WinScreen : MonoBehaviour
     void Start()
     {
         SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
+        Phone.Vibrate();
 
         if(SceneTransitionValues.newRecord)
         {
