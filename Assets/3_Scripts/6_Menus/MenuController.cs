@@ -4,11 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    private int sceneIndex;
-
     void Start()
     {
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;        
+        SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
     }
 
     public void StartGame()
@@ -21,7 +19,6 @@ public class MenuController : MonoBehaviour
         Debug.Log("Quit Game!");
         Application.Quit();
     }
-    
     
     public void Restart()
     {
@@ -36,5 +33,15 @@ public class MenuController : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void Options()
+    {
+        SceneManager.LoadScene("1_Scenes/_Menus/Options");
+    }
+
+    public void SeeHighscores()
+    {
+        SceneManager.LoadScene("1_Scenes/_Menus/Highscores");
     }
 }

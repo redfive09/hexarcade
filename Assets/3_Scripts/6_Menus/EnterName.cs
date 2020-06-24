@@ -16,7 +16,7 @@ public class EnterName : MonoBehaviour
         nameChanger = SaveLoadManager.Load();
         string playerName = nameChanger.GetPlayerName();
         nameDisplay.text = playerName;
-        SceneTransitionValues.playerName = playerName;
+        SceneTransitionValues.playerName = playerName.Trim();
         // EventSystem.currentSystem.SetSelectedGameObject(nameDisplay.gameObject, null);
         // nameDisplay.OnPointerClick (null);
     }
@@ -51,7 +51,7 @@ public class EnterName : MonoBehaviour
             // Debug.Log(touchScreenKeyboard.status.GetType());
             if(touchScreenKeyboard.done);
             {
-                nameDisplay.text = touchScreenKeyboard.text;
+                nameDisplay.text = touchScreenKeyboard.text.Trim();
                 touchScreenKeyboard = null;
             }
         }

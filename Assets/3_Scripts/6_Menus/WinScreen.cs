@@ -1,19 +1,35 @@
-﻿using UnityEngine;
+﻿using UnityEngine.SceneManagement;
+using UnityEngine;
 using TMPro;
+using System;
 
 public class WinScreen : MonoBehaviour
 {    
-    [SerializeField] TextMeshProUGUI time;
-    [SerializeField] TextMeshProUGUI record;
-    [SerializeField] TextMeshProUGUI newRecord;
+    [SerializeField] private TextMeshProUGUI time;
+    [SerializeField] private TextMeshProUGUI record;
+    [SerializeField] private TextMeshProUGUI newRecord;
+    [SerializeField] private GameObject highscores;
 
     void Start()
     {
+        SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
+        UploadTime();        
+
         if(SceneTransitionValues.newRecord)
         {
             newRecord.enabled = true;
             newRecord.gameObject.SetActive(true);
             newRecord.text += Timer.GetTimeAsString(SceneTransitionValues.time, 3);
+
+            // highscores = Instantiate(highscores);
+
+            // string playerName = SceneTransitionValues.playerName;
+            // if(String.IsNullOrEmpty(playerName))
+            // {
+            //     playerName = SaveLoadManager.Load().GetPlayerName();
+            // }
+
+            // Highscores.AddNewHighscore(SceneTransitionValues.currentSceneName, playerName, SceneTransitionValues.time);
         }
         else
         {
@@ -25,5 +41,17 @@ public class WinScreen : MonoBehaviour
             this.record.gameObject.SetActive(true);
             this.record.text += Timer.GetTimeAsString(SceneTransitionValues.record, 3);
         }
+    }
+
+    private void UploadTime()
+    {
+        highscores = Instantiate(highscores);
+
+        string playerName = SceneTransitionValues.playerName;
+        if(String.IsNullOrEmpty(playerName))
+        {
+            playerName = SaveLoadManager.Load().GetPlayerName();
+        }
+        Highscores.AddNewHighscore(SceneTransitionValues.currentSceneName, playerName, SceneTransitionValues.time);
     }
 }

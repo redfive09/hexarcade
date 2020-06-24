@@ -20,15 +20,14 @@ public class LevelSelection : MonoBehaviour
     private int currentPage = 1;
     private int maxPages;
     private int maxLevelsPerPage;
-    private Dictionary<string, float> bestTimes;
-    private Dictionary<string, List<string>> worlds = new Dictionary<string, List<string>>();
-    private List<string> worldList = new List<string>();
     
-
+    private Dictionary<string, List<string>> worlds = new Dictionary<string, List<string>>();
+    private List<string> worldList = new List<string>(); 
+    
     
     private void Start()
-    {        
-        bestTimes = SaveLoadManager.LoadTimes();
+    {
+        SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
         maxLevelsPerPage = levelFolder.transform.childCount;
         
         ManageLevels();
@@ -38,7 +37,8 @@ public class LevelSelection : MonoBehaviour
 
 
     private void ManageLevels()
-    {        
+    {
+        string ignore = "_Menus";                                                       // ignore scenes from a folder, which are not levels
         int skipNamePart = ".unity".Length;                                             // every scene ends with that extension, so we can remember it (respectively its length) in order to save some time
                 
         for(int i = FIRST_LEVEL_AT_BUILD_INDEX; 
@@ -62,17 +62,20 @@ public class LevelSelection : MonoBehaviour
                 {
                     worldName = scenePath.Substring(j + 1, firstSlashAtIndex - j - 1);  // -1 since we don't want the slash-char to be part of the name
                     
-                    if(worlds.TryGetValue(worldName, out List<string> levels))          // check, if we saved the world already
+                    if(worldName != ignore)
                     {
-                        levels.Add(levelName);                                          // add the level to the existing world
-                    }
-                    else                                                                // in case the world does not exist, yet:
-                    {
-                        List<string> levelList = new List<string>();                    // create a new list for its levels
-                        levelList.Add(levelName);                                       // add the new level
-                        worlds[worldName] = levelList;                                  // give the level list to the world
-                        worldList.Add(worldName);                                      // and save the world name as well
-                    }
+                        if(worlds.TryGetValue(worldName, out List<string> levels))      // check, if we saved the world already
+                        {
+                            levels.Add(levelName);                                      // add the level to the existing world
+                        }
+                        else                                                            // in case the world does not exist, yet:
+                        {
+                            List<string> levelList = new List<string>();                // create a new list for its levels
+                            levelList.Add(levelName);                                   // add the new level
+                            worlds[worldName] = levelList;                              // give the level list to the world
+                            worldList.Add(worldName);                                   // and save the world name as well
+                        }
+                    }                    
                     break;                                                              // we found everything we need, so let's go to the next level
                 }
             }
@@ -98,20 +101,8 @@ public class LevelSelection : MonoBehaviour
             if(currentLevel < levels.Count)                                                                 // make sure, if there is even a level left for the current button
             {
                 string levelName = levels[currentLevel];                                                    // get the level name
-                string record = "";                                                                         // prepare a variable for the record
-
-                if(bestTimes.TryGetValue(levelName, out float playersRecord))                               // prevent an error in case the level was never finished before
-                {
-                    record = Timer.GetTimeAsString(playersRecord, 3);                                       // if if was finished before, save the record as a string
-                }
-
-                Sprite levelImage = Resources.Load<Sprite>(currentWorld.text + "/" + levelName);            // get the level picture                
-               
-                if(levelImage == null)                                                                      // in case it didn't find a picture
-                {
-                    levelImage = Resources.Load<Sprite>("defaultImage");                                    // get a default picture
-                }                
-                levelButtons[i].SetLevelData(levelName, record, levelImage);                                // give all the collected data to the button script                
+                SceneTransitionValues.currentSceneName = levelName;                                         // we save this for the highscore list                                
+                levelButtons[i].SetLevelData(levelName);                                                    // give all the collected data to the button script
             }
             else
             {
@@ -119,13 +110,6 @@ public class LevelSelection : MonoBehaviour
             }
         }        
     }
-
-    
-    // public void ResetRecords()
-    // {
-    //     bestTimes = SaveLoadManager.ResetTimes();
-    //     SaveLoadManager.SaveTimes(bestTimes);        
-    // }
 
     private void WorldChanged(bool nextWorld)
     {

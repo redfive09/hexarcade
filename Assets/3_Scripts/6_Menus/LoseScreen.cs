@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LoseScreen : MonoBehaviour
 {        
@@ -7,6 +8,8 @@ public class LoseScreen : MonoBehaviour
 
     void Start()
     {
+        SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
+
         if(SceneTransitionValues.record > 0)
         {
             record.text = "Record: " + Timer.GetTimeAsString(SceneTransitionValues.record, 3);

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEngine.SceneManagement;
+using UnityEngine;
 using System.Collections;
 using TMPro;
 
@@ -7,27 +8,62 @@ using TMPro;
 public class HighscoresDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject leaderboard;
+	[SerializeField] private GameObject levelGO;
     private TextMeshProUGUI[] highscoreFields;
-	private Highscores highscoresManager;
+	private Highscores highscoresManager;	
+	private string level;
+	
 
-	void Start() {
+	void Start() 
+	{
+		level = SceneTransitionValues.currentSceneName;
+		levelGO.GetComponent<LevelSelectionButton>().SetLevelData(level);
 
         highscoreFields = new TextMeshProUGUI[leaderboard.transform.childCount];
 
-        for (int i = 0; i < highscoreFields.Length; i ++) {
+        for (int i = 0; i < highscoreFields.Length; i ++) 
+		{			
             highscoreFields[i] = leaderboard.transform.GetChild(i).GetComponent<TextMeshProUGUI>();
-			highscoreFields[i].text = i + 1 + ". Fetching...";
+			highscoreFields[i].gameObject.SetActive(true);
+			highscoreFields[i].text = "Fetching...";
 		}
-				
+		
 		highscoresManager = GetComponent<Highscores>();
-		StartCoroutine("RefreshHighscores");
+		StartCoroutine(RefreshHighscores());		
 	}
 	
-	public void OnHighscoresDownloaded(Highscore[] highscoreList) {
-		for (int i =0; i < highscoreFields.Length; i ++) {
-			highscoreFields[i].text = i+1 + ". ";
-			if (i < highscoreList.Length) {
-				highscoreFields[i].text += highscoreList[i].username + " - " + highscoreList[i].time;
+	public void OnHighscoresDownloaded(Highscore[] highscoreList) 
+	{
+		int startPositionLevels = 0;
+		
+		for (int i = 0; i < highscoreFields.Length; i ++) 
+		{
+			if (i < highscoreList.Length)
+			{
+				bool notEnoughTimes = true;
+				for(int j = startPositionLevels; j < highscoreList.Length; j++)
+				{
+					if(highscoreList[j].level == level)
+					{
+						Debug.Log(i);
+						Debug.Log(j);
+						highscoreFields[i].text = i + 1 + ". " + highscoreList[i].username + " - " + Timer.GetTimeAsString(highscoreList[i].time, 3);
+						startPositionLevels = j + 1;
+						notEnoughTimes = false;
+						Debug.Log(highscoreFields[i].text);
+
+						break;
+					}
+				}
+				if(notEnoughTimes)
+				{
+					Debug.Log("not");
+					highscoreFields[i].gameObject.SetActive(false);
+				}				
+			}
+			else
+			{
+				highscoreFields[i].gameObject.SetActive(false);
 			}
 		}
 	}
@@ -52,5 +88,10 @@ public class HighscoresDisplay : MonoBehaviour
         highscoreFields[middleTextField].gameObject.SetActive(true);
         highscoreFields[middleTextField].text = message;
     }
+
+	public void GoBack()
+	{		
+		SceneManager.LoadScene(SceneTransitionValues.lastMenuName);
+	}
 
 }

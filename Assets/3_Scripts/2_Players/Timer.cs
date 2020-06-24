@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
-using System;
 
 public class Timer : MonoBehaviour
 {
@@ -128,14 +127,6 @@ public class Timer : MonoBehaviour
             bestTime = finishTime;
             bestTimes[SceneTransitionValues.currentSceneName] = bestTime;
             SaveLoadManager.SaveTimes(bestTimes);
-            
-            string playerName = SceneTransitionValues.currentSceneName;
-            if(String.IsNullOrEmpty(playerName))
-            {
-                playerName = SaveLoadManager.Load().GetPlayerName();
-            }
-            Highscores.AddNewHighscore(SceneTransitionValues.currentSceneName, playerName, finishTime);            
-
             return true;
         }
         return false;
@@ -218,6 +209,35 @@ public class Timer : MonoBehaviour
                 return minutes + ":" + (seconds.ToString("00")) + ":" + (hundredthsOfseconds).ToString("00");                
         }
         return "";
+    }
+
+    public static int ConvertToInt(float time)
+    {
+        int newTime = (int) ((time - (int) time) * 100);        
+        newTime += (int) (time) * 100;
+        return newTime;
+    }
+
+    public static float ConvertToFloat(int time)
+    {
+        return (float) time / 100;
+    }
+
+    public static int GetSeconds(float time)
+    {
+        return (int) time;
+    }
+
+    public static int GetMilliseconds(float time)
+    {
+        float milliseconds = time - (int) time;
+        return (int) (milliseconds * 100);
+    }
+
+    public static float GetTimeAsFloat(int seconds, int milliseconds)
+    {
+        float secondsFloat = (float) seconds + (float) milliseconds / 100;
+        return secondsFloat;
     }
 
     public void Show()

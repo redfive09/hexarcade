@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.Collections.Generic;
+
 
 // Thx to -> https://github.com/SebLague/Dreamlo-Highscores/blob/master/Episode%2002/Highscores.cs && https://www.youtube.com/watch?v=KZuqEyxYZCc
 public class Highscores : MonoBehaviour {
@@ -13,21 +16,26 @@ public class Highscores : MonoBehaviour {
 	HighscoresDisplay highscoreDisplay;
 	public Highscore[] highscoresList;
 	static Highscores instance;
-    static bool uploaded = false;
+	static bool uploaded = false;
+	string[] separatingStrings = { "___" };
+	private const string levelNameSeparator = "___";
 	
 	void Awake() {
 		highscoreDisplay = GetComponent<HighscoresDisplay> ();
 		instance = this;
 	}
 
-	public static void AddNewHighscore(string level, string username, float time) {
+	public static void AddNewHighscore(string level, string username, float time) {		
         uploaded = false;
-        Highscores newHighscore = new Highscores();
-		newHighscore.StartCoroutine(newHighscore.UploadNewHighscore(level,username,time));
+		instance.StartCoroutine(instance.UploadNewHighscore(
+			level,
+			username,
+			Timer.ConvertToInt(time)));
 	}
 
-	IEnumerator UploadNewHighscore(string level, string username, float time) {
-		WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(level) +  "/" + username + "/" + time);
+	IEnumerator UploadNewHighscore(string level, string username, int time) {
+		WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(level + levelNameSeparator + username) +  "/1337/" + time);
+		Debug.Log(www.url);
 		yield return www;
 
 		if (string.IsNullOrEmpty(www.error)) {
@@ -50,7 +58,7 @@ public class Highscores : MonoBehaviour {
 		
 		if (string.IsNullOrEmpty (www.error)) {
 			FormatHighscores (www.text);
-			highscoreDisplay.OnHighscoresDownloaded(highscoresList);
+			if(highscoreDisplay) highscoreDisplay.OnHighscoresDownloaded(highscoresList);
 		}
 		else {
 			print ("Error Downloading: " + www.error);
@@ -58,21 +66,65 @@ public class Highscores : MonoBehaviour {
 		}
 	}
 
-	void FormatHighscores(string textStream) {
+	void FormatHighscores(string textStream) 
+	{
 		string[] entries = textStream.Split(new char[] {'\n'}, System.StringSplitOptions.RemoveEmptyEntries);
 		highscoresList = new Highscore[entries.Length];
 
-		for (int i = 0; i <entries.Length; i++) {
-			string[] entryInfo = entries[i].Split(new char[] {'|'});
-			string level = entryInfo[0];
-            string username = entryInfo[1];
-			float time = float.Parse(entryInfo[2]);
-			highscoresList[i] = new Highscore(level,username,time);
-            print (highscoresList[i].level + ": " + highscoresList[i].username + ": " + highscoresList[i].time);
+		for (int i = 0; i <entries.Length; i++) 
+		{
+			string[] entryInfo = entries[i].Split(new char[] {'|'});			
+			string[] levelUsername = entryInfo[0].Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+			int intTime = int.Parse(entryInfo[2]);			
+			float time = Timer.ConvertToFloat(intTime);			
+			SetPosition(levelUsername[0], levelUsername[1], time);
+
+			// print (levelUsername[0] + ": " + levelUsername[1] + ": " + time);
+            // print (highscoresList[i].level + ": " + highscoresList[i].username + ": " + highscoresList[i].time);
 		}
 	}
 
-}
+	private void SetPosition(string level, string username, float time)
+	{
+		for(int i = 0; i < highscoresList.Length; i++)
+		{			
+			if(string.IsNullOrEmpty(highscoresList[i].username))
+			{
+				highscoresList[i] = new Highscore(level, username, time);
+				Debug.Log(level + ": " + highscoresList[i].username + " - " + Timer.GetTimeAsString(highscoresList[i].time, 3));
+			}
+
+			else if(highscoresList[i].time > time)
+			{
+				Highscore tempScore;
+				Highscore tempScore2;
+
+				tempScore = highscoresList[i];
+				highscoresList[i] = new Highscore(level, username, time);
+				Debug.Log(i + 1 + ". " + level + " || " + highscoresList[i].username + " - " + Timer.GetTimeAsString(highscoresList[i].time, 3));
+
+				for(int j = i + 1; j < highscoresList.Length; j++)
+				{
+					if(string.IsNullOrEmpty(highscoresList[j].username))
+					{
+						highscoresList[j] = tempScore;
+						Debug.Log(j + 1 + ". " + level + " || " + highscoresList[j].username + " - " + Timer.GetTimeAsString(highscoresList[j].time, 3));
+						break;
+					}
+					else
+					{
+						tempScore2 = highscoresList[j];
+						highscoresList[j] = tempScore;
+						tempScore = tempScore2;
+					}
+				}
+			}
+			// Debug.Log(i + 1 + ". " + highscoresList[i].username + " - " + Timer.GetTimeAsString(highscoresList[i].time, 3));
+		}		
+	}
+} // End of class
+
+
 
 public struct Highscore {
     public string level;
@@ -82,7 +134,7 @@ public struct Highscore {
 	public Highscore(string _level, string _username, float _time) {
 		level = _level;
         username = _username;
-		time = _time;
+		time = _time;		
 	}
 }
 
