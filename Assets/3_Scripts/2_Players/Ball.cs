@@ -41,6 +41,13 @@ public class Ball : MonoBehaviour
     /*  
      *  Preparing the ball by saving some of it's components or getting values from the map
      */
+    
+    void Start()
+    {
+        // Disable screen dimming
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+    }
+    
     public void GetStarted(int playerNumber)
     {
         firstSpawnPosition = transform.position;
