@@ -5,21 +5,21 @@ using DentedPixel;
 
 public class HexagonBehaviour : MonoBehaviour
 {
-
-    [SerializeField] private float crackedTileTrapsInSeconds;
-    private float fallDepth = 1.5f;
-    private float destructionDelay;
-
-    private Color[] colors; // all colours for the scenarios right below
-
     // colour codes for all different scenarios
+    private Color[] colors; // all colours for the scenarios right below
     private int arrivedCrackedTile = 0, arrivedPathTile = 1, arrivedDistractionTile = 2, arrivedCheckpointTile = 3, arrivedSpecialTile = 4, arrivedMovingTile = 5, arrivedStartingTile = 6, arrivedWinningTile = 7, arrivedStandardTile = 8;
 
     private int leftCrackedTile = 9, leftPathTile = 10, leftDistractionTile = 11, leftCheckpointTile = 12, leftSpecialTile = 13, leftMovingTile = 14, leftStartingTile = 15, leftWinningTile = 16, leftStandardTile = 17;
+    
+
+    [SerializeField] private float crackedTileTrapsInSeconds;
+    [SerializeField] private float fallDepth = 1.5f;
+    private float destructionDelay;
 
     private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here
     private Hexagon thisHexagon;
     private bool markedForDestruction = false; // Make sure a hexagon doesn't try to get deleted twice (e. g. crackable tile)
+    private AudioSource source;
 
 
     // Setup standard values for the editor mode
@@ -31,13 +31,14 @@ public class HexagonBehaviour : MonoBehaviour
     void Start()
     {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
+        source = GetComponent<AudioSource>();
         destructionDelay = crackedTileTrapsInSeconds * 3.0f;
     }
 
 
     /* Method gets called in order to tell the tile that a player stands on it
     *  Depending on its values, the tile knows what to do
-    **/ // All colour settings and other values like "delay" gotta go to another place later
+    **/
     public void GotOccupied(Ball player)
     {
         balls.Add(player);

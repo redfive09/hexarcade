@@ -95,7 +95,7 @@ public class ControlsCheckpoint : MonoBehaviour
 
         if(Input.GetMouseButtonUp(0) && !touchPhaseEnded) // Selecting
         {
-            if(startedPanning)
+            if(startedPanning || startedZooming)
             {
                 startedPanning = false;
                 startedZooming = false;

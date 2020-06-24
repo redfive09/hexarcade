@@ -82,10 +82,10 @@ public class LevelSelection : MonoBehaviour
                     break;                                                              // we found everything we need, so let's go to the next level
                 }
             }
-        }
+        }        
         SceneTransitionValues.allLevels = allLevels;
         currentWorld.text = worldList[0];
-        maxPages = Mathf.CeilToInt((float) worlds[currentWorld.text].Count / maxLevelsPerPage);     // amount of levels divided by number of buttons and then round up
+        CalculatePages();
     }
 
     private void ShowLevels()
@@ -133,16 +133,16 @@ public class LevelSelection : MonoBehaviour
                 }
                 break;
             }            
-        }        
+        }
         currentPage = 1;
+        CalculatePages();        
         ShowLevels();
     }
 
-    // public 
-    // {
-    //     ManageLevels();
-    //     return 
-    // }
+    private void CalculatePages()    
+    {
+        maxPages = Mathf.CeilToInt((float) worlds[currentWorld.text].Count / maxLevelsPerPage);     // amount of levels divided by number of buttons and then round up
+    }
 
     public void PreviousLevelPage()
     {

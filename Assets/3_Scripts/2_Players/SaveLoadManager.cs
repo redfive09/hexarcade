@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public static class SaveLoadManager
 {
     private static string nameOfSaveFile = "/time_records.lox";
-    private static string versionController = "2020-06-22";
+    private static string versionController = "2020-06-24";
 
     public static TimeKeeper Load()
     {
@@ -38,6 +38,7 @@ public static class SaveLoadManager
         Dictionary<string, float> dictionary = new Dictionary<string, float>();
         TimeKeeper newKeep = new TimeKeeper(dictionary, versionController);
         Save(newKeep);
+        Debug.Log("Loadings Reseted");
         return newKeep;
     }  
 
@@ -129,7 +130,7 @@ public class TimeKeeper
 
     public TimeKeeper(Dictionary<string, float> newBestTimes, string versionControl)
     {
-        this.versionControl = versionControl;    
+        this.versionControl = versionControl;
         bestTimes = newBestTimes;
     }
 

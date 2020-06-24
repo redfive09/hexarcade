@@ -13,15 +13,13 @@ public class WinScreen : MonoBehaviour
     void Start()
     {
         SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
-        Phone.Vibrate();
+        OneTimeWinningScreenEvents();
 
         if(SceneTransitionValues.newRecord)
         {
             newRecord.enabled = true;
             newRecord.gameObject.SetActive(true);
-            newRecord.text += Timer.GetTimeAsString(SceneTransitionValues.time, 3);
-
-            UploadTime();
+            newRecord.text += Timer.GetTimeAsString(SceneTransitionValues.time, 3);          
         }
         else
         {
@@ -33,6 +31,19 @@ public class WinScreen : MonoBehaviour
             this.record.gameObject.SetActive(true);
             this.record.text += Timer.GetTimeAsString(SceneTransitionValues.record, 3);
         }
+    }
+
+    private void OneTimeWinningScreenEvents()
+    {
+        if(!SceneTransitionValues.alreadyEnteredWinningScreen)
+        {
+            Phone.Vibrate();
+            if(SceneTransitionValues.newRecord)
+            {            
+                UploadTime();            
+            }
+        }        
+        SceneTransitionValues.alreadyEnteredWinningScreen = true;
     }
 
     private void UploadTime()

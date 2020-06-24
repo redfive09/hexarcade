@@ -2,8 +2,7 @@
 using UnityEngine.SceneManagement;
 
 public class Map : MonoBehaviour
-{    
-
+{
     private Tiles tiles;
     private Players players;
     

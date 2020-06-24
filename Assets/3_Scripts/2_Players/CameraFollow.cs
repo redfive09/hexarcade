@@ -15,6 +15,7 @@ public class CameraFollow : MonoBehaviour
     private bool cameraReachedFinalPosition;
     private bool rememberLerp;
     private bool rememberFocus;
+    private Quaternion rememberRotation;
 
     // experimental feature on    
     private Rigidbody playerRB;
@@ -30,6 +31,8 @@ public class CameraFollow : MonoBehaviour
 
         rememberLerp = useLerp;
         rememberFocus = focusTarget;
+        rememberRotation = transform.rotation;
+        Debug.Log(transform.rotation);
 
         //experimental feature on 
         if (GameObject.Find("Map/UntaggedGameObjects/CameraChangePosition"))
@@ -92,8 +95,13 @@ public class CameraFollow : MonoBehaviour
     public void ResetCameraSettings()
     {
         useLerp = rememberLerp;
-        focusTarget = rememberFocus;
-    }    
+        focusTarget = rememberFocus;        
+    }
+    
+    public void ResetCameraRotation()
+    {
+        transform.rotation = rememberRotation;
+    }
 
     public void GoToTargetInstantly()
     {        

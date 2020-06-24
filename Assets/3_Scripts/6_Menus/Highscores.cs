@@ -35,7 +35,7 @@ public class Highscores : MonoBehaviour {
 
 	IEnumerator UploadNewHighscore(string level, string username, int time) {
 		WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(level + separatingStrings[0] + username) +  "/1337/" + time);
-		Debug.Log(www.url);
+		// Debug.Log(www.url);
 		yield return www;
 
 		if (string.IsNullOrEmpty(www.error)) {

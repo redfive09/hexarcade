@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
@@ -40,13 +41,14 @@ public class Timer : MonoBehaviour
             {
                 stopwatchCounter = stopwatchTime - Time.fixedTime;
 
-                if(stopwatchCounter < 1)
+                if(stopwatchCounter <= 0)
                 {
-                    timerField.text = "GO!";               
+                    timerField.text = "GO!";
+                    FadeOutInformation(2, 3, timerField);
                 }
                 else
                 {
-                    timerField.text = GetTimeAsString(stopwatchCounter, 1);                    
+                    timerField.text = GetTimeAsString(stopwatchCounter, 1);
                 }                
             }
             else
@@ -94,6 +96,11 @@ public class Timer : MonoBehaviour
     public float GetCurrentTime()
     {
         return timeCounter;
+    }
+
+    public bool IsStopwatchMode()
+    {
+        return stopwatchMode;
     }
 
     public void SetStopWatch(float seconds)
@@ -148,45 +155,28 @@ public class Timer : MonoBehaviour
         int minutes = (int) (time / 60);
         float milliseconds = time - (int) time;
 
-        timerField.text = "";
-        
         switch (timerFormat)
         {
             case 1:
-                timerField.text += seconds.ToString();                
+            {               
+                timerField.text = seconds.ToString();
                 break;
+            }
             
             case 2:
+            {
                 int tenthsOfSecond = (int) (milliseconds * 10);
-                timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (tenthsOfSecond).ToString("0");
+                timerField.text = minutes + ":" + (seconds.ToString("00")) + ":" + (tenthsOfSecond).ToString("0");
                 break;
+            }
 
             case 3:
+            {
                 int hundredthsOfseconds = (int) (milliseconds * 100);
-                timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (hundredthsOfseconds).ToString("00");
+                timerField.text = minutes + ":" + (seconds.ToString("00")) + ":" + (hundredthsOfseconds).ToString("00");
                 break;
+            }
         }
-
-        // if (timerFormat == 1)
-        // {
-        //     timerField.text += seconds.ToString();
-        // }
-        // else
-        // {
-        //     int minutes = (int) (time / 60);
-        //     float milliseconds = time - (int) time;
-            
-        //     if(timerFormat == 2)
-        //     {
-        //         int tenthsOfSecond = (int) (milliseconds * 10);
-        //         timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (tenthsOfSecond).ToString("0");            
-        //     }
-        //     else
-        //     {
-        //         int hundredthsOfseconds = (int) (milliseconds * 100);
-        //         timerField.text += minutes + ":" + (seconds.ToString("00")) + ":" + (hundredthsOfseconds).ToString("00");     
-        //     }
-        // }
     }
 
     public static string GetTimeAsString(float time, int timerFormat)
@@ -198,15 +188,21 @@ public class Timer : MonoBehaviour
         switch (timerFormat)
         {
             case 1:
-                return seconds.ToString();                
-            
+            {
+                return (seconds+1).ToString();                
+            }
+
             case 2:
+            {
                 int tenthsOfSecond = (int) (milliseconds * 10);
                 return minutes + ":" + (seconds.ToString("00")) + ":" + (tenthsOfSecond).ToString("0");                
+            }
 
             case 3:
+            {
                 int hundredthsOfseconds = (int) (milliseconds * 100);
-                return minutes + ":" + (seconds.ToString("00")) + ":" + (hundredthsOfseconds).ToString("00");                
+                return minutes + ":" + (seconds.ToString("00")) + ":" + (hundredthsOfseconds).ToString("00");
+            }
         }
         return "";
     }
@@ -252,4 +248,15 @@ public class Timer : MonoBehaviour
         timerField.gameObject.SetActive(false);
     }
 
+       // Thx to --> https://stackoverflow.com/questions/56031067/using-coroutines-to-fade-in-out-textmeshpro-text-element
+    private IEnumerator FadeOutInformation(float startFading, float fadingSpeed, TextMeshProUGUI text) 
+    {         
+         text.color = new Color(text.color.r, text.color.g, text.color.b, 1);
+         yield return new WaitForSeconds(startFading);
+         while (text.color.a > 0.0f)
+        {
+            text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - (Time.deltaTime * fadingSpeed));
+            yield return null;
+        }
+    }
 } // END of class

@@ -12,12 +12,7 @@ public class TutorialManager : MonoBehaviour
    void Start()
    {
       Time.timeScale = 1.0f;
-   }
-   void Update()
-   {
-      //Debug.Log(Time.timeScale);
-    
-         for (int i = 0; i < popUps.Length; i++)
+      for (int i = 0; i < popUps.Length; i++)
          {
             if (i == popUpIndex)
             {
@@ -30,12 +25,17 @@ public class TutorialManager : MonoBehaviour
 
             StartCoroutine(ShowInstructions());
       }
+   }
+   void Update()
+   {
+      //Debug.Log(Time.timeScale);
+    
+         
 
    }
 
    IEnumerator ShowInstructions()
-   {
-      
+   {      
       {
          yield return new WaitForSeconds(waitTime);
          if (popUpIndex == 0 )
@@ -112,20 +112,6 @@ public class TutorialManager : MonoBehaviour
       }
 
       popUps[0].gameObject.SetActive(true);
-      popUps[0].text = information;
-
-     // StartCoroutine(FadeOutInformation(startFading, fadingSpeed, popUps[0]));
+      popUps[0].text = information;   
    }
-
-   // Thx to --> https://stackoverflow.com/questions/56031067/using-coroutines-to-fade-in-out-textmeshpro-text-element
-   private IEnumerator FadeOutInformation(float startFading, float fadingSpeed, TextMeshProUGUI text) 
-    {         
-         text.color = new Color(text.color.r, text.color.g, text.color.b, 1);
-         yield return new WaitForSeconds(startFading);
-         while (text.color.a > 0.0f)
-         {
-            text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - (Time.deltaTime * fadingSpeed));
-            yield return null;
-         }
-    }
 }

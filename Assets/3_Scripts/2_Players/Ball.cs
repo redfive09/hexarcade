@@ -67,8 +67,7 @@ public class Ball : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeAll;
         timer.GetReady();
         SceneTransitionValues.record = timer.GetBestTime();
-        
-        
+        SceneTransitionValues.alreadyEnteredWinningScreen = false;
  
         StartCoroutine(Introduction(cameraFollow, skipButton));
     }
@@ -212,26 +211,26 @@ public class Ball : MonoBehaviour
         skipButton.Reset();
         cameraFollow.ChangeCameraSettings(false, false);                        // change settings for colour introductions
         tileColorsIntroduction.Finish();                                        // as soon as the player has choosen the checkpoints and the camera is back, the colours start fading
+        cameraFollow.ResetCameraRotation();                                     // get original rotation back
     }
 
     private void WaitForCameraToBeInPlayingPosition()
     {        
         cameraFollow.GetBackInPosition();                                       // go back to target
-        skipButton.Reset();                                                     // reset the skipButton
+        skipButton.Reset();                                                     // reset the skipButton        
     }
 
     private void SetCountdownForPlaying()
     {
         cameraFollow.SetTarget(transform);                                      // focus the camera back to the player        
         timer.Show();                                                           // the timer appears now
-        timer.SetStopWatch(3.9f);                                               // it counts down before the game starts
+        timer.SetStopWatch(3);                                                  // it counts down before the game starts
         skipButton.Reset();                                                     // skipbutton can be used to skip the countdown
     }
 
     private void PrepareGameStart()
     {
-        cameraFollow.ResetCameraSettings();                                     // set the original camera settings
-        timer.Disappear();                                                      // disappear the stoptime
+        cameraFollow.ResetCameraSettings();                                     // set the original camera settings        
         skipButton.gameObject.SetActive(false);                                 // disappear the skipbutton        
     }
 
@@ -254,7 +253,11 @@ public class Ball : MonoBehaviour
      */
     public void ArrviedStartingTile()
     {
-        timer.Disappear();
+        if(!timer.IsStopwatchMode())
+        {
+            timer.Disappear();
+        }
+
         float currentRecord = timer.GetBestTime();
 
         if(currentRecord < 0)
@@ -347,7 +350,7 @@ public class Ball : MonoBehaviour
     {
         if(gameStarted)
         {
-            StartCoroutine(UnpauseStopwatch(3.9f));
+            StartCoroutine(UnpauseStopwatch(3));
             
         }
         else

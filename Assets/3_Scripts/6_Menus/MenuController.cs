@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
+        SaveLoadManager.Load();        
     }
 
     public void StartGame()
