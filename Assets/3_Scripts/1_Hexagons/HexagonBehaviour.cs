@@ -32,12 +32,6 @@ public class HexagonBehaviour : MonoBehaviour
     {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
         destructionDelay = crackedTileTrapsInSeconds * 3.0f;
-        Debug.Log("destDel" +destructionDelay);
-    }
-
-    void FixedUpdate()
-    {
-        ;   
     }
 
 

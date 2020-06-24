@@ -13,7 +13,6 @@ public class WinScreen : MonoBehaviour
     void Start()
     {
         SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
-        UploadTime();        
 
         if(SceneTransitionValues.newRecord)
         {
@@ -21,15 +20,7 @@ public class WinScreen : MonoBehaviour
             newRecord.gameObject.SetActive(true);
             newRecord.text += Timer.GetTimeAsString(SceneTransitionValues.time, 3);
 
-            // highscores = Instantiate(highscores);
-
-            // string playerName = SceneTransitionValues.playerName;
-            // if(String.IsNullOrEmpty(playerName))
-            // {
-            //     playerName = SaveLoadManager.Load().GetPlayerName();
-            // }
-
-            // Highscores.AddNewHighscore(SceneTransitionValues.currentSceneName, playerName, SceneTransitionValues.time);
+            UploadTime();
         }
         else
         {

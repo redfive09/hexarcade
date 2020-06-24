@@ -46,10 +46,11 @@ public class HighscoresDisplay : MonoBehaviour
 	
 	public void OnHighscoresDownloaded(Dictionary<string, LinkedList<Highscore>> levelBestTimes) 
 	{
-		// int startPositionLevels = 0;
-
-		LinkedList<Highscore> levelHighscores = levelBestTimes[level];
-		LinkedListNode<Highscore> currentEntry = levelHighscores.First;	
+		LinkedListNode<Highscore> currentEntry = null;
+		if(levelBestTimes.TryGetValue(level, out LinkedList<Highscore> levelHighscores))
+		{
+			currentEntry = levelHighscores.First;
+		}
 		
 		for (int i = 0; i < highscoreFields.Length; i ++) 
 		{
@@ -62,44 +63,12 @@ public class HighscoresDisplay : MonoBehaviour
 			{
 				highscoreFields[i].gameObject.SetActive(false);
 			}
+		}
 
-				
-			// while(currentEntry != null )
-			// {
-			// 	Debug.Log(currentEntry.Value.level + ": " + currentEntry.Value.username + ": " + currentEntry.Value.time);
-			// 	currentEntry = currentEntry.Next;
-			// 		// Debug.Log(levelHighscores.ElementAt(i).level + ": " + levelHighscores[i].username + ": " + levelHighscores[i].time);
-				
-			// }
-
-
-			// if (i < highscoreList.Length)
-			// {
-			// 	bool notEnoughTimes = true;
-			// 	for(int j = startPositionLevels; j < highscoreList.Length; j++)
-			// 	{
-			// 		if(highscoreList[j].level == level)
-			// 		{
-			// 			// Debug.Log(i);
-			// 			// Debug.Log(j);
-			// 			highscoreFields[i].text = i + 1 + ". " + highscoreList[i].username + " - " + Timer.GetTimeAsString(highscoreList[i].time, 3);
-			// 			startPositionLevels = j + 1;
-			// 			notEnoughTimes = false;
-			// 			// Debug.Log(highscoreFields[i].text);
-
-			// 			break;
-			// 		}
-			// 	}
-			// 	if(notEnoughTimes)
-			// 	{
-			// 		// Debug.Log("not");
-			// 		highscoreFields[i].gameObject.SetActive(false);
-			// 	}				
-			// }
-			// else
-			// {
-			// 	highscoreFields[i].gameObject.SetActive(false);
-			// }
+		if(!highscoreFields[0].gameObject.activeSelf)
+		{
+			string message = "No one finished this map!";			
+			SetMiddleTextField(message);
 		}
 	}
 	
@@ -124,10 +93,15 @@ public class HighscoresDisplay : MonoBehaviour
             highscoreFields[i].gameObject.SetActive(false);
         }
 
-        int middleTextField = highscoreFields.Length / 2;
+        SetMiddleTextField(message);
+    }
+
+	private void SetMiddleTextField(string message)
+	{
+		int middleTextField = highscoreFields.Length / 2;
         highscoreFields[middleTextField].gameObject.SetActive(true);
         highscoreFields[middleTextField].text = message;
-    }
+	}
 
 	public void SetError(bool status)
 	{
@@ -145,5 +119,4 @@ public class HighscoresDisplay : MonoBehaviour
 			SceneManager.LoadScene(SceneTransitionValues.lastMenuName);
 		}		
 	}
-
 }

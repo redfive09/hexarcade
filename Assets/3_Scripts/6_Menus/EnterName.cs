@@ -26,11 +26,6 @@ public class EnterName : MonoBehaviour
         touchScreenKeyboard = TouchScreenKeyboard.Open ("", TouchScreenKeyboardType.Default, false, false, false, false, "", 10);
     }
 
-    public void Vibrate()
-    {
-        Handheld.Vibrate();
-    }
-
     public void SaveButtonAppear()
     {
         saveNameButton.SetActive(true);
@@ -42,6 +37,7 @@ public class EnterName : MonoBehaviour
         SaveLoadManager.Save(nameChanger);
         SceneTransitionValues.playerName = nameDisplay.text;
         saveNameButton.SetActive(false);
+        Phone.Vibrate();
     }
 
     void Update()

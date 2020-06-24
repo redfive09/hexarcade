@@ -51,7 +51,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        pauseMenuUI.SetActive(true); //enable Pause Menu (Child of the Canvas this script is linked to 
+        pauseMenuUI.SetActive(true); //enable Pause Menu (Child of the Canvas this script is linked to)
         Time.timeScale = 0f; // Stop time
         GameIsCurrentlyPaused = true;
     }
@@ -66,6 +66,13 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Resume();
+    }
+
+    public void SeeHighscores()
+    {
+        Time.timeScale = 1f;
+        SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("1_Scenes/_Menus/Highscores");
     }
 
     public void QuitGame()
