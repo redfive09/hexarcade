@@ -19,7 +19,7 @@ public class HexagonBehaviour : MonoBehaviour
     private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here
     private Hexagon thisHexagon;
     private bool markedForDestruction = false; // Make sure a hexagon doesn't try to get deleted twice (e. g. crackable tile)
-    private AudioSource source;
+    private AudioSource audioSource;
 
 
     // Setup standard values for the editor mode
@@ -31,7 +31,6 @@ public class HexagonBehaviour : MonoBehaviour
     void Start()
     {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
-        source = GetComponent<AudioSource>();
         destructionDelay = crackedTileTrapsInSeconds * 3.0f;
     }
 
@@ -42,10 +41,10 @@ public class HexagonBehaviour : MonoBehaviour
     public void GotOccupied(Ball player)
     {
         balls.Add(player);
-        thisHexagon.SetIsTouched(true);
+        thisHexagon.SetIsTouched(true);        
 
         if(thisHexagon.IsCrackedTile())
-        {
+        {            
             thisHexagon.SetColor(colors[arrivedCrackedTile]);
             FallAndFade();
             ActivateCrackedTile();
@@ -94,7 +93,13 @@ public class HexagonBehaviour : MonoBehaviour
         if(thisHexagon.IsStandardTile())
         {
             thisHexagon.SetColor(colors[arrivedStandardTile]);
-        }        
+        }
+
+        if(!thisHexagon.IsStandardTile() && audioSource)
+        {
+            Debug.Log(audioSource);
+            audioSource.Play();
+        }
     }
 
 
@@ -189,6 +194,13 @@ public class HexagonBehaviour : MonoBehaviour
     public Hexagon GetHexagon()
     {
         return thisHexagon;
+    }
+
+    public void SetAudio(string sound)
+    {
+        gameObject.AddComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();        
+        audioSource.clip = Resources.Load<AudioClip>(sound);
     }
 
     private void FallAndFade()

@@ -253,9 +253,10 @@ public class Ball : MonoBehaviour
      */
     public void ArrviedStartingTile()
     {
-        if(!timer.IsStopwatchMode())
+        if(!timer.IsStopwatchMode() || skipButton.IsButtonPressed())
         {
             timer.Disappear();
+            skipButton.Reset();
         }
 
         float currentRecord = timer.GetBestTime();
@@ -363,18 +364,22 @@ public class Ball : MonoBehaviour
     private IEnumerator UnpauseStopwatch(float seconds)
     {
         timer.SetStopWatch(seconds);
-        timer.Show();
+        timer.Show();        
         
         if (settings.IsIntroductionScreen()) // check if the level has a introduction screen to show
         {
             tutorialManager.gameObject.SetActive(true);
         }
+
+        skipButton.gameObject.SetActive(true);
+        skipButton.Reset();
            
-        while (!timer.IsStopTimeOver())
+        while (!timer.IsStopTimeOver() && !skipButton.IsButtonPressed())
         {
             yield return new WaitForSeconds(0.00001f);
-        }        
-
+        }
+        
+        skipButton.gameObject.SetActive(false);
         rb.constraints = RigidbodyConstraints.None;
         ActivatePlayerControls();
 

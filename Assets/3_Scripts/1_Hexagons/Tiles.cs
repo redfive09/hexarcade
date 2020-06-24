@@ -80,6 +80,7 @@ public class Tiles : MonoBehaviour
             for(int k = 0; k < platformTiles.Count; k++)
             {
                 Hexagon hexagon = platformTiles[k];
+                HexagonBehaviour behaviour = hexagon.GetComponent<HexagonBehaviour>();
                 allTiles[tilesCounter] = hexagon;
                 tileColors[hexagon] = hexagon.GetColor();
                 hexagon.SetStandardTile(true);
@@ -88,6 +89,7 @@ public class Tiles : MonoBehaviour
                 {
                     SaveHexagonInList(crackedTiles, hexagon, hexagon.GetCrackedNumber());
                     hexagon.SetStandardTile(false);
+                    behaviour.SetAudio("cracked");
                 }                
 
                 if(hexagon.IsPathTile())
@@ -180,7 +182,7 @@ public class Tiles : MonoBehaviour
                 }
 
                 Color[] getAllTouchingColors = this.GetComponent<TileColorsTouching>().GiveColorSet(); // get all Colors when the ball for touching and leaving a hexagon
-                hexagon.GetComponent<HexagonBehaviour>().SetColors(getAllTouchingColors); // give current hexagon the set, in order to get its individual color settings
+                behaviour.SetColors(getAllTouchingColors); // give current hexagon the set, in order to get its individual color settings
                 tilesCounter++;
             }
         }        

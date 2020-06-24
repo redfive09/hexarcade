@@ -32,7 +32,6 @@ public class CameraFollow : MonoBehaviour
         rememberLerp = useLerp;
         rememberFocus = focusTarget;
         rememberRotation = transform.rotation;
-        Debug.Log(transform.rotation);
 
         //experimental feature on 
         if (GameObject.Find("Map/UntaggedGameObjects/CameraChangePosition"))

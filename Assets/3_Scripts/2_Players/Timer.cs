@@ -44,7 +44,7 @@ public class Timer : MonoBehaviour
                 if(stopwatchCounter <= 0)
                 {
                     timerField.text = "GO!";
-                    FadeOutInformation(2, 3, timerField);
+                    // FadeOutInformation(2, 3, timerField);
                 }
                 else
                 {
