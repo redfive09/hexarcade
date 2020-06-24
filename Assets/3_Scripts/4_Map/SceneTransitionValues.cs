@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class SceneTransitionValues : MonoBehaviour
 {
@@ -9,4 +10,5 @@ public class SceneTransitionValues : MonoBehaviour
     public static float record;
     public static bool newRecord;
     public static string playerName;
+    public static List<string> allLevels;
 }

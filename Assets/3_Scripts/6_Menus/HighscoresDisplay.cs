@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using System.Collections.Generic;
 
 
 // Thx to -> https://github.com/SebLague/Dreamlo-Highscores/blob/master/Episode%2002/DisplayHighscores.cs // https://www.youtube.com/watch?v=9jejKPPKomg
@@ -12,64 +13,103 @@ public class HighscoresDisplay : MonoBehaviour
     private TextMeshProUGUI[] highscoreFields;
 	private Highscores highscoresManager;	
 	private string level;
+	private bool error = false;
 	
 
 	void Start() 
-	{
+	{		
 		level = SceneTransitionValues.currentSceneName;
+		if(string.IsNullOrEmpty(level))
+		{
+			level = "Level_1";
+		}
+
 		levelGO.GetComponent<LevelSelectionButton>().SetLevelData(level);
 
         highscoreFields = new TextMeshProUGUI[leaderboard.transform.childCount];
 
-        for (int i = 0; i < highscoreFields.Length; i ++) 
+        SetupHighscoreFields();
+		
+		highscoresManager = GetComponent<Highscores>();
+		StartCoroutine(RefreshHighscores());		
+	}
+
+	private void SetupHighscoreFields()
+	{
+		for (int i = 0; i < highscoreFields.Length; i ++) 
 		{			
             highscoreFields[i] = leaderboard.transform.GetChild(i).GetComponent<TextMeshProUGUI>();
 			highscoreFields[i].gameObject.SetActive(true);
 			highscoreFields[i].text = "Fetching...";
 		}
-		
-		highscoresManager = GetComponent<Highscores>();
-		StartCoroutine(RefreshHighscores());		
 	}
 	
-	public void OnHighscoresDownloaded(Highscore[] highscoreList) 
+	public void OnHighscoresDownloaded(Dictionary<string, LinkedList<Highscore>> levelBestTimes) 
 	{
-		int startPositionLevels = 0;
+		// int startPositionLevels = 0;
+
+		LinkedList<Highscore> levelHighscores = levelBestTimes[level];
+		LinkedListNode<Highscore> currentEntry = levelHighscores.First;	
 		
 		for (int i = 0; i < highscoreFields.Length; i ++) 
 		{
-			if (i < highscoreList.Length)
+			if(currentEntry != null)
 			{
-				bool notEnoughTimes = true;
-				for(int j = startPositionLevels; j < highscoreList.Length; j++)
-				{
-					if(highscoreList[j].level == level)
-					{
-						Debug.Log(i);
-						Debug.Log(j);
-						highscoreFields[i].text = i + 1 + ". " + highscoreList[i].username + " - " + Timer.GetTimeAsString(highscoreList[i].time, 3);
-						startPositionLevels = j + 1;
-						notEnoughTimes = false;
-						Debug.Log(highscoreFields[i].text);
-
-						break;
-					}
-				}
-				if(notEnoughTimes)
-				{
-					Debug.Log("not");
-					highscoreFields[i].gameObject.SetActive(false);
-				}				
+				highscoreFields[i].text = i + 1 + ". " + currentEntry.Value.username + " - " + Timer.GetTimeAsString(currentEntry.Value.time, 3);
+				currentEntry = currentEntry.Next;
 			}
 			else
 			{
 				highscoreFields[i].gameObject.SetActive(false);
 			}
+
+				
+			// while(currentEntry != null )
+			// {
+			// 	Debug.Log(currentEntry.Value.level + ": " + currentEntry.Value.username + ": " + currentEntry.Value.time);
+			// 	currentEntry = currentEntry.Next;
+			// 		// Debug.Log(levelHighscores.ElementAt(i).level + ": " + levelHighscores[i].username + ": " + levelHighscores[i].time);
+				
+			// }
+
+
+			// if (i < highscoreList.Length)
+			// {
+			// 	bool notEnoughTimes = true;
+			// 	for(int j = startPositionLevels; j < highscoreList.Length; j++)
+			// 	{
+			// 		if(highscoreList[j].level == level)
+			// 		{
+			// 			// Debug.Log(i);
+			// 			// Debug.Log(j);
+			// 			highscoreFields[i].text = i + 1 + ". " + highscoreList[i].username + " - " + Timer.GetTimeAsString(highscoreList[i].time, 3);
+			// 			startPositionLevels = j + 1;
+			// 			notEnoughTimes = false;
+			// 			// Debug.Log(highscoreFields[i].text);
+
+			// 			break;
+			// 		}
+			// 	}
+			// 	if(notEnoughTimes)
+			// 	{
+			// 		// Debug.Log("not");
+			// 		highscoreFields[i].gameObject.SetActive(false);
+			// 	}				
+			// }
+			// else
+			// {
+			// 	highscoreFields[i].gameObject.SetActive(false);
+			// }
 		}
 	}
 	
 	IEnumerator RefreshHighscores() {
 		while (true) {
+			if(error)
+			{
+				SetupHighscoreFields();
+			}
+
 			highscoresManager.DownloadHighscores();
 			yield return new WaitForSeconds(30);
 		}
@@ -89,9 +129,21 @@ public class HighscoresDisplay : MonoBehaviour
         highscoreFields[middleTextField].text = message;
     }
 
+	public void SetError(bool status)
+	{
+		error = status;
+	}
+
 	public void GoBack()
-	{		
-		SceneManager.LoadScene(SceneTransitionValues.lastMenuName);
+	{
+		if(string.IsNullOrEmpty(SceneTransitionValues.lastMenuName))
+		{
+			SceneManager.LoadScene(0);
+		}
+		else
+		{
+			SceneManager.LoadScene(SceneTransitionValues.lastMenuName);
+		}		
 	}
 
 }

@@ -22,7 +22,7 @@ public class LevelSelection : MonoBehaviour
     private int maxLevelsPerPage;
     
     private Dictionary<string, List<string>> worlds = new Dictionary<string, List<string>>();
-    private List<string> worldList = new List<string>(); 
+    private List<string> worldList = new List<string>();    
     
     
     private void Start()
@@ -40,6 +40,7 @@ public class LevelSelection : MonoBehaviour
     {
         string ignore = "_Menus";                                                       // ignore scenes from a folder, which are not levels
         int skipNamePart = ".unity".Length;                                             // every scene ends with that extension, so we can remember it (respectively its length) in order to save some time
+        List<string> allLevels = new List<string>();                                    // list for all levels
                 
         for(int i = FIRST_LEVEL_AT_BUILD_INDEX; 
                 i < SceneManager.sceneCountInBuildSettings - 1; i++)                    // iterate only over all levels (last scene is this level selection screen)
@@ -67,11 +68,13 @@ public class LevelSelection : MonoBehaviour
                         if(worlds.TryGetValue(worldName, out List<string> levels))      // check, if we saved the world already
                         {
                             levels.Add(levelName);                                      // add the level to the existing world
+                            allLevels.Add(levelName);                                   // add the level to a list with all levels
                         }
                         else                                                            // in case the world does not exist, yet:
                         {
                             List<string> levelList = new List<string>();                // create a new list for its levels
                             levelList.Add(levelName);                                   // add the new level
+                            allLevels.Add(levelName);                                   // add the level to a list with all levels
                             worlds[worldName] = levelList;                              // give the level list to the world
                             worldList.Add(worldName);                                   // and save the world name as well
                         }
@@ -79,7 +82,8 @@ public class LevelSelection : MonoBehaviour
                     break;                                                              // we found everything we need, so let's go to the next level
                 }
             }
-        }        
+        }
+        SceneTransitionValues.allLevels = allLevels;
         currentWorld.text = worldList[0];
         maxPages = Mathf.CeilToInt((float) worlds[currentWorld.text].Count / maxLevelsPerPage);     // amount of levels divided by number of buttons and then round up
     }
@@ -100,8 +104,7 @@ public class LevelSelection : MonoBehaviour
             int currentLevel = (currentPage - 1) * maxLevelsPerPage + i;                                    // calculate the current level
             if(currentLevel < levels.Count)                                                                 // make sure, if there is even a level left for the current button
             {
-                string levelName = levels[currentLevel];                                                    // get the level name
-                SceneTransitionValues.currentSceneName = levelName;                                         // we save this for the highscore list                                
+                string levelName = levels[currentLevel];                                                    // get the level name                
                 levelButtons[i].SetLevelData(levelName);                                                    // give all the collected data to the button script
             }
             else
@@ -134,6 +137,12 @@ public class LevelSelection : MonoBehaviour
         currentPage = 1;
         ShowLevels();
     }
+
+    // public 
+    // {
+    //     ManageLevels();
+    //     return 
+    // }
 
     public void PreviousLevelPage()
     {
@@ -188,4 +197,36 @@ public class LevelSelection : MonoBehaviour
             }
         }
     }
+
+    
+
 }
+
+// public class WorldAndLevels
+// {
+//     private Dictionary<string, List<string>> worlds;
+//     private List<string> worldList;
+//     private List<string> allLevels;
+
+//     public WorldAndLevels(Dictionary<string, List<string>> worlds, List<string> worldList, List<string> allLevels)
+//     {
+//         this.worlds = worlds;
+//         this.worldList = worldList;
+//         this.allLevels = allLevels;
+//     }
+
+//     public Dictionary<string, List<string>> GetWorlds()
+//     {
+//         return worlds;
+//     }
+
+//     public List<string> GetWorldList()
+//     {
+//         return worldList;
+//     }
+
+//     public List<string> GetLevelList()
+//     {
+//         return allLevels;
+//     }
+// }
