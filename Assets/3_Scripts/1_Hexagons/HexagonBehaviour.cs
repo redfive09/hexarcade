@@ -155,17 +155,45 @@ public class HexagonBehaviour : MonoBehaviour
         }
     }
 
-  
+
+    /* ------------------------------ METHODS FOR CRACKED TILES ------------------------------  */
     /* 
     *  Method gets called to change the color of the cracked tile and destroy it after a delay.
     **/
-    void ActivateCrackedTile()
+    private void ActivateCrackedTile()
     {
         if(!markedForDestruction)
         {
-            thisHexagon.DestroyHexagon(false, destructionDelay);
+            StartCoroutine(Disappear());
+
             markedForDestruction = true;            
         }        
+    }
+
+    private IEnumerator Disappear()
+    {        
+        float soundEndingTime = thisHexagon.GetAudioSource().clip.length;
+
+        if(destructionDelay < soundEndingTime)
+        {
+            yield return new WaitForSeconds(destructionDelay);
+            transform.GetChild(0).gameObject.SetActive(false);
+            yield return new WaitForSeconds(soundEndingTime - destructionDelay);
+            thisHexagon.DestroyHexagon(false, 0);
+        }
+        else
+        {
+            thisHexagon.DestroyHexagon(false, destructionDelay);
+        }
+    }
+
+    private void FallAndFade()
+    {
+
+        LeanTween.moveY(gameObject, gameObject.transform.position.y - fallDepth, destructionDelay);
+        LeanTween.alpha(thisHexagon.gameObject, 0.0f, destructionDelay);
+        //gameObject.transform.GetChild(0).gameObject
+        //LeanTween.alpha 
     }
 
     /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
@@ -189,14 +217,5 @@ public class HexagonBehaviour : MonoBehaviour
     public Hexagon GetHexagon()
     {
         return thisHexagon;
-    }
-
-    private void FallAndFade()
-    {
-
-        LeanTween.moveY(gameObject, gameObject.transform.position.y - fallDepth, destructionDelay);
-        LeanTween.alpha(thisHexagon.gameObject, 0.0f, destructionDelay);
-        //gameObject.transform.GetChild(0).gameObject
-        //LeanTween.alpha 
     }
 }

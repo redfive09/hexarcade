@@ -306,8 +306,8 @@ GameObject:
   - component: {fileID: 12240686}
   - component: {fileID: 12240685}
   - component: {fileID: 12240684}
-  - component: {fileID: 12240683}
   - component: {fileID: 12240682}
+  - component: {fileID: 12240683}
   m_Layer: 0
   m_Name: '3, -1 || Special -> teleporter, 0 to 1 || '
   m_TagString: Tile
@@ -350,25 +350,102 @@ MonoBehaviour:
   teleporterOffset: {x: 0, y: 1, z: 0}
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &12240683
-MonoBehaviour:
+--- !u!82 &12240683
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12240680}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 02edc9e8644b28a48afd755d7aefcd43, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &12240684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &12240685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,10 +563,10 @@ GameObject:
   - component: {fileID: 26786264}
   - component: {fileID: 26786263}
   - component: {fileID: 26786262}
-  - component: {fileID: 26786261}
   - component: {fileID: 26786260}
+  - component: {fileID: 26786261}
   m_Layer: 0
-  m_Name: '3, 0 || Special -> jumpad (0.0, 50000.0, 0.0) || '
+  m_Name: '3, 0 || Special -> jump_pad || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,25 +607,102 @@ MonoBehaviour:
   teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
   jumpDirection: {x: 250, y: 500, z: 0}
---- !u!114 &26786261
-MonoBehaviour:
+--- !u!82 &26786261
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26786258}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a51e9f5416b0ed040b03ce32efa0a6e4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &26786262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,7 +715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &26786263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1129,8 +1285,6 @@ GameObject:
   - component: {fileID: 44460881}
   - component: {fileID: 44460880}
   - component: {fileID: 44460879}
-  - component: {fileID: 44460878}
-  - component: {fileID: 44460877}
   m_Layer: 0
   m_Name: '1, -1 || '
   m_TagString: Tile
@@ -1153,45 +1307,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &44460877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 44460875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &44460878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 44460875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &44460879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,7 +1319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &44460880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1308,8 +1424,6 @@ GameObject:
   - component: {fileID: 57911686}
   - component: {fileID: 57911685}
   - component: {fileID: 57911684}
-  - component: {fileID: 57911683}
-  - component: {fileID: 57911682}
   m_Layer: 0
   m_Name: '0, 1 || '
   m_TagString: Tile
@@ -1332,45 +1446,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &57911682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57911680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &57911683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57911680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &57911684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1383,7 +1458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &57911685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,8 +1638,6 @@ GameObject:
   - component: {fileID: 64409817}
   - component: {fileID: 64409816}
   - component: {fileID: 64409815}
-  - component: {fileID: 64409814}
-  - component: {fileID: 64409813}
   m_Layer: 0
   m_Name: '2, 0 || '
   m_TagString: Tile
@@ -1586,45 +1660,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &64409813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 64409811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &64409814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 64409811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &64409815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1637,7 +1672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &64409816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2916,8 +2952,6 @@ GameObject:
   - component: {fileID: 170284634}
   - component: {fileID: 170284633}
   - component: {fileID: 170284632}
-  - component: {fileID: 170284631}
-  - component: {fileID: 170284630}
   m_Layer: 0
   m_Name: '0, -2 || '
   m_TagString: Tile
@@ -2940,45 +2974,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &170284630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170284628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &170284631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170284628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &170284632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2991,7 +2986,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &170284633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3095,8 +3091,6 @@ GameObject:
   - component: {fileID: 176730660}
   - component: {fileID: 176730659}
   - component: {fileID: 176730658}
-  - component: {fileID: 176730657}
-  - component: {fileID: 176730656}
   m_Layer: 0
   m_Name: '-1, -2 || '
   m_TagString: Tile
@@ -3119,45 +3113,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &176730656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176730654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &176730657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176730654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &176730658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3170,7 +3125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &176730659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3349,8 +3305,6 @@ GameObject:
   - component: {fileID: 194381114}
   - component: {fileID: 194381113}
   - component: {fileID: 194381112}
-  - component: {fileID: 194381111}
-  - component: {fileID: 194381110}
   m_Layer: 0
   m_Name: '1, 2 || '
   m_TagString: Tile
@@ -3373,45 +3327,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &194381110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194381108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &194381111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194381108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &194381112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3424,7 +3339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &194381113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3852,8 +3768,6 @@ GameObject:
   - component: {fileID: 265131473}
   - component: {fileID: 265131472}
   - component: {fileID: 265131471}
-  - component: {fileID: 265131470}
-  - component: {fileID: 265131469}
   m_Layer: 0
   m_Name: '-2, 1 || '
   m_TagString: Tile
@@ -3876,45 +3790,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &265131469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265131467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &265131470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265131467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &265131471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3927,7 +3802,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &265131472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4031,8 +3907,6 @@ GameObject:
   - component: {fileID: 279778276}
   - component: {fileID: 279778275}
   - component: {fileID: 279778274}
-  - component: {fileID: 279778273}
-  - component: {fileID: 279778272}
   m_Layer: 0
   m_Name: '-3, 2 || '
   m_TagString: Tile
@@ -4055,45 +3929,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &279778272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279778270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &279778273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279778270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &279778274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4106,7 +3941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &279778275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4570,8 +4406,6 @@ GameObject:
   - component: {fileID: 326260675}
   - component: {fileID: 326260674}
   - component: {fileID: 326260673}
-  - component: {fileID: 326260672}
-  - component: {fileID: 326260671}
   m_Layer: 0
   m_Name: '2, -3 || '
   m_TagString: Tile
@@ -4594,45 +4428,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &326260671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326260669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &326260672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326260669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &326260673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4645,7 +4440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &326260674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4854,8 +4650,6 @@ GameObject:
   - component: {fileID: 341569482}
   - component: {fileID: 341569481}
   - component: {fileID: 341569480}
-  - component: {fileID: 341569479}
-  - component: {fileID: 341569478}
   m_Layer: 0
   m_Name: '2, 1 || '
   m_TagString: Tile
@@ -4878,45 +4672,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &341569478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341569476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &341569479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341569476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &341569480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4929,7 +4684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &341569481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5258,8 +5014,6 @@ GameObject:
   - component: {fileID: 357370987}
   - component: {fileID: 357370986}
   - component: {fileID: 357370985}
-  - component: {fileID: 357370984}
-  - component: {fileID: 357370983}
   m_Layer: 0
   m_Name: '0, 2 || '
   m_TagString: Tile
@@ -5282,45 +5036,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &357370983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357370981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &357370984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357370981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &357370985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5333,7 +5048,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &357370986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5437,8 +5153,6 @@ GameObject:
   - component: {fileID: 358184430}
   - component: {fileID: 358184429}
   - component: {fileID: 358184428}
-  - component: {fileID: 358184427}
-  - component: {fileID: 358184426}
   m_Layer: 0
   m_Name: '-2, 0 || '
   m_TagString: Tile
@@ -5461,45 +5175,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &358184426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 358184424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &358184427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 358184424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &358184428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5512,7 +5187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &358184429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5721,8 +5397,8 @@ GameObject:
   - component: {fileID: 371647381}
   - component: {fileID: 371647380}
   - component: {fileID: 371647379}
-  - component: {fileID: 371647378}
   - component: {fileID: 371647377}
+  - component: {fileID: 371647378}
   m_Layer: 0
   m_Name: '2, -3 || Special -> teleporter, 2 to 3 || '
   m_TagString: Tile
@@ -5765,25 +5441,102 @@ MonoBehaviour:
   teleporterOffset: {x: 0, y: -1, z: 0}
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &371647378
-MonoBehaviour:
+--- !u!82 &371647378
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371647375}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 02edc9e8644b28a48afd755d7aefcd43, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &371647379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5796,7 +5549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &371647380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5975,8 +5729,6 @@ GameObject:
   - component: {fileID: 375199091}
   - component: {fileID: 375199090}
   - component: {fileID: 375199089}
-  - component: {fileID: 375199088}
-  - component: {fileID: 375199087}
   m_Layer: 0
   m_Name: '-1, 1 || '
   m_TagString: Tile
@@ -5999,45 +5751,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &375199087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 375199085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &375199088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 375199085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &375199089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6050,7 +5763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &375199090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6229,8 +5943,6 @@ GameObject:
   - component: {fileID: 403583361}
   - component: {fileID: 403583360}
   - component: {fileID: 403583359}
-  - component: {fileID: 403583358}
-  - component: {fileID: 403583357}
   m_Layer: 0
   m_Name: '-3, 1 || '
   m_TagString: Tile
@@ -6253,45 +5965,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &403583357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 403583355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &403583358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 403583355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &403583359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6304,7 +5977,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &403583360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7083,8 +6757,6 @@ GameObject:
   - component: {fileID: 475541030}
   - component: {fileID: 475541029}
   - component: {fileID: 475541028}
-  - component: {fileID: 475541027}
-  - component: {fileID: 475541026}
   m_Layer: 0
   m_Name: '0, -3 || '
   m_TagString: Tile
@@ -7107,45 +6779,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &475541026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 475541024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &475541027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 475541024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &475541028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7158,7 +6791,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &475541029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7262,8 +6896,6 @@ GameObject:
   - component: {fileID: 482958547}
   - component: {fileID: 482958546}
   - component: {fileID: 482958545}
-  - component: {fileID: 482958544}
-  - component: {fileID: 482958543}
   m_Layer: 0
   m_Name: '-3, -2 || '
   m_TagString: Tile
@@ -7286,45 +6918,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &482958543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482958541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &482958544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482958541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &482958545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7337,7 +6930,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &482958546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7441,8 +7035,6 @@ GameObject:
   - component: {fileID: 491272986}
   - component: {fileID: 491272985}
   - component: {fileID: 491272984}
-  - component: {fileID: 491272983}
-  - component: {fileID: 491272982}
   m_Layer: 0
   m_Name: '1, 0 || Path 11 || '
   m_TagString: Tile
@@ -7465,45 +7057,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &491272982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491272980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &491272983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491272980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &491272984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7516,7 +7069,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &491272985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7620,8 +7174,6 @@ GameObject:
   - component: {fileID: 496681983}
   - component: {fileID: 496681982}
   - component: {fileID: 496681981}
-  - component: {fileID: 496681980}
-  - component: {fileID: 496681979}
   m_Layer: 0
   m_Name: '3, 1 || '
   m_TagString: Tile
@@ -7644,45 +7196,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &496681979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496681977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &496681980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496681977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &496681981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7695,7 +7208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &496681982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8159,8 +7673,6 @@ GameObject:
   - component: {fileID: 535169917}
   - component: {fileID: 535169916}
   - component: {fileID: 535169915}
-  - component: {fileID: 535169914}
-  - component: {fileID: 535169913}
   m_Layer: 0
   m_Name: '1, -2 || '
   m_TagString: Tile
@@ -8183,45 +7695,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &535169913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535169911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &535169914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535169911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &535169915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8234,7 +7707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &535169916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8629,8 +8103,8 @@ GameObject:
   - component: {fileID: 577908839}
   - component: {fileID: 577908838}
   - component: {fileID: 577908837}
-  - component: {fileID: 577908836}
   - component: {fileID: 577908835}
+  - component: {fileID: 577908836}
   m_Layer: 0
   m_Name: '3, 2 || Special -> teleporter_exit 3 || '
   m_TagString: Tile
@@ -8673,25 +8147,102 @@ MonoBehaviour:
   teleporterOffset: {x: 0, y: 10, z: 0}
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &577908836
-MonoBehaviour:
+--- !u!82 &577908836
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577908833}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 02edc9e8644b28a48afd755d7aefcd43, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &577908837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8704,7 +8255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &577908838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9417,8 +8969,6 @@ GameObject:
   - component: {fileID: 606105068}
   - component: {fileID: 606105067}
   - component: {fileID: 606105066}
-  - component: {fileID: 606105065}
-  - component: {fileID: 606105064}
   - component: {fileID: 606105071}
   m_Layer: 0
   m_Name: '2, -2 || Distraction -> blinking_start, length: 0 || '
@@ -9442,45 +8992,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &606105064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 606105062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &606105065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 606105062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &606105066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9493,7 +9004,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &606105067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9617,8 +9129,6 @@ GameObject:
   - component: {fileID: 616912497}
   - component: {fileID: 616912496}
   - component: {fileID: 616912495}
-  - component: {fileID: 616912494}
-  - component: {fileID: 616912493}
   m_Layer: 0
   m_Name: '-4, -1 || '
   m_TagString: Tile
@@ -9641,45 +9151,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &616912493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616912491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &616912494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616912491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &616912495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9692,7 +9163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &616912496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10291,8 +9763,8 @@ GameObject:
   - component: {fileID: 661634443}
   - component: {fileID: 661634442}
   - component: {fileID: 661634441}
-  - component: {fileID: 661634440}
   - component: {fileID: 661634439}
+  - component: {fileID: 661634440}
   m_Layer: 0
   m_Name: '-3, 0 || Special -> teleporter, 4 to 5 || '
   m_TagString: Tile
@@ -10335,25 +9807,102 @@ MonoBehaviour:
   teleporterOffset: {x: 0, y: 3, z: 0}
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &661634440
-MonoBehaviour:
+--- !u!82 &661634440
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661634437}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 02edc9e8644b28a48afd755d7aefcd43, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &661634441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10366,7 +9915,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &661634442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10695,8 +10245,6 @@ GameObject:
   - component: {fileID: 714479637}
   - component: {fileID: 714479636}
   - component: {fileID: 714479635}
-  - component: {fileID: 714479634}
-  - component: {fileID: 714479633}
   m_Layer: 0
   m_Name: '-2, -3 || '
   m_TagString: Tile
@@ -10719,45 +10267,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &714479633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714479631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &714479634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714479631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &714479635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10770,7 +10279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &714479636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10979,8 +10489,6 @@ GameObject:
   - component: {fileID: 753299146}
   - component: {fileID: 753299145}
   - component: {fileID: 753299144}
-  - component: {fileID: 753299143}
-  - component: {fileID: 753299142}
   m_Layer: 0
   m_Name: '-2, -1 || '
   m_TagString: Tile
@@ -11003,45 +10511,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &753299142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753299140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &753299143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753299140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &753299144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11054,7 +10523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &753299145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11563,8 +11033,6 @@ GameObject:
   - component: {fileID: 782539033}
   - component: {fileID: 782539032}
   - component: {fileID: 782539031}
-  - component: {fileID: 782539030}
-  - component: {fileID: 782539029}
   m_Layer: 0
   m_Name: '2, 0 || '
   m_TagString: Tile
@@ -11587,45 +11055,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &782539029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782539027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &782539030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782539027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &782539031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11638,7 +11067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &782539032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12072,8 +11502,6 @@ GameObject:
   - component: {fileID: 798519852}
   - component: {fileID: 798519851}
   - component: {fileID: 798519850}
-  - component: {fileID: 798519849}
-  - component: {fileID: 798519848}
   m_Layer: 0
   m_Name: '-2, -3 || '
   m_TagString: Tile
@@ -12096,45 +11524,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &798519848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798519846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &798519849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798519846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &798519850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12147,7 +11536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &798519851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12251,8 +11641,6 @@ GameObject:
   - component: {fileID: 807679597}
   - component: {fileID: 807679596}
   - component: {fileID: 807679595}
-  - component: {fileID: 807679594}
-  - component: {fileID: 807679593}
   m_Layer: 0
   m_Name: '1, -1 || '
   m_TagString: Tile
@@ -12275,45 +11663,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &807679593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 807679591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &807679594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 807679591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &807679595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12326,7 +11675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &807679596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12430,8 +11780,6 @@ GameObject:
   - component: {fileID: 817190288}
   - component: {fileID: 817190287}
   - component: {fileID: 817190286}
-  - component: {fileID: 817190285}
-  - component: {fileID: 817190284}
   m_Layer: 0
   m_Name: '0, 2 || '
   m_TagString: Tile
@@ -12454,45 +11802,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &817190284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817190282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &817190285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817190282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &817190286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12505,7 +11814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &817190287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12609,8 +11919,6 @@ GameObject:
   - component: {fileID: 824809572}
   - component: {fileID: 824809571}
   - component: {fileID: 824809570}
-  - component: {fileID: 824809569}
-  - component: {fileID: 824809568}
   m_Layer: 0
   m_Name: '1, 2 || '
   m_TagString: Tile
@@ -12633,45 +11941,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &824809568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824809566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &824809569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824809566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &824809570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12684,7 +11953,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &824809571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12788,8 +12058,6 @@ GameObject:
   - component: {fileID: 829683291}
   - component: {fileID: 829683290}
   - component: {fileID: 829683289}
-  - component: {fileID: 829683288}
-  - component: {fileID: 829683287}
   m_Layer: 0
   m_Name: '0, -3 || '
   m_TagString: Tile
@@ -12812,45 +12080,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &829683287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829683285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &829683288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829683285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &829683289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12863,7 +12092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &829683290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13252,8 +12482,6 @@ GameObject:
   - component: {fileID: 863540166}
   - component: {fileID: 863540165}
   - component: {fileID: 863540164}
-  - component: {fileID: 863540163}
-  - component: {fileID: 863540162}
   m_Layer: 0
   m_Name: '-2, -2 || '
   m_TagString: Tile
@@ -13276,45 +12504,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &863540162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863540160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &863540163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863540160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &863540164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13327,7 +12516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &863540165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13431,8 +12621,6 @@ GameObject:
   - component: {fileID: 877172107}
   - component: {fileID: 877172106}
   - component: {fileID: 877172105}
-  - component: {fileID: 877172104}
-  - component: {fileID: 877172103}
   - component: {fileID: 877172110}
   m_Layer: 0
   m_Name: '-3, -1 || Path 1 || Distraction -> blinking_start, length: 5 || '
@@ -13456,45 +12644,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &877172103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877172101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &877172104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877172101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &877172105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13507,7 +12656,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &877172106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13904,8 +13054,6 @@ GameObject:
   - component: {fileID: 896565192}
   - component: {fileID: 896565191}
   - component: {fileID: 896565190}
-  - component: {fileID: 896565189}
-  - component: {fileID: 896565188}
   m_Layer: 0
   m_Name: '-1, -1 || '
   m_TagString: Tile
@@ -13928,45 +13076,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &896565188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896565186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &896565189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896565186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &896565190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13979,7 +13088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &896565191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14368,8 +13478,6 @@ GameObject:
   - component: {fileID: 920050966}
   - component: {fileID: 920050965}
   - component: {fileID: 920050964}
-  - component: {fileID: 920050963}
-  - component: {fileID: 920050962}
   m_Layer: 0
   m_Name: '1, 0 || '
   m_TagString: Tile
@@ -14392,45 +13500,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &920050962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920050960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 1
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &920050963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920050960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &920050964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14443,7 +13512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &920050965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15127,41 +14197,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1b4501ad6ef7f448b114b032cf12c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraFollowCrackedTiles: 0
   crackedTilesColorStartTime: 0
   crackedTilesColorTime: 0
   crackedTimeBeforeFading: 0
   crackedTilesColorFading: 0
   crackedTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowPathTiles: 0
   pathTilesColorStartTime: 0.2
   pathTilesColorTime: 0.2
   pathTimeBeforeFading: 0.2
   pathTilesColorFading: 0.2
   pathTilesColor: {r: 0.47247642, g: 0.8301887, b: 0.05873976, a: 0}
+  cameraFollowDistractionTiles: 0
   distractionTilesColorStartTime: 0
   distractionTilesColorTime: 0
   distractionTimeBeforeFading: 0
   distractionTilesColorFading: 0
   distractionTilesColor: {r: 0.20143741, g: 0.85882354, b: 0.16470587, a: 0}
+  cameraFollowCheckpointTiles: 0
   checkpointTilesColorStartTime: 0
   checkpointTilesColorTime: 0
   checkpointTimeBeforeFading: 0
   checkpointTilesColorFading: 0
   checkpointTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowSpecialTiles: 0
   specialTilesColorStartTime: 0
   specialTilesColorTime: 0
   specialTimeBeforeFading: 0
   specialTilesColorFading: 0
   specialTilesColor: {r: 0.85882354, g: 0.49411765, b: 0.16470589, a: 0}
+  cameraFollowMovingTiles: 0
   movingTilesColorStartTime: 0
   movingTilesColorTime: 0
   movingTimeBeforeFading: 0
   movingTilesColorFading: 0
   movingTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowStartingTiles: 0
   startingTilesColorStartTime: 0
   startingTilesColorTime: 0
   startingTimeBeforeFading: 0
   startingTilesColorFading: 0
   startingTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowWinningTiles: 0
   winningTilesColorStartTime: 0
   winningTilesColorTime: 2
   winningTimeBeforeFading: 0
@@ -15312,8 +14390,6 @@ GameObject:
   - component: {fileID: 978585560}
   - component: {fileID: 978585559}
   - component: {fileID: 978585558}
-  - component: {fileID: 978585557}
-  - component: {fileID: 978585556}
   m_Layer: 0
   m_Name: '3, 2 || '
   m_TagString: Tile
@@ -15336,45 +14412,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &978585556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978585554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &978585557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978585554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &978585558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15387,7 +14424,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &978585559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15802,8 +14840,6 @@ GameObject:
   - component: {fileID: 1001086600}
   - component: {fileID: 1001086599}
   - component: {fileID: 1001086598}
-  - component: {fileID: 1001086597}
-  - component: {fileID: 1001086596}
   m_Layer: 0
   m_Name: '1, -3 || '
   m_TagString: Tile
@@ -15826,45 +14862,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1001086596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001086594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1001086597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001086594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1001086598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15877,7 +14874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1001086599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16161,8 +15159,6 @@ GameObject:
   - component: {fileID: 1015862585}
   - component: {fileID: 1015862584}
   - component: {fileID: 1015862583}
-  - component: {fileID: 1015862582}
-  - component: {fileID: 1015862581}
   m_Layer: 0
   m_Name: '-4, 1 || '
   m_TagString: Tile
@@ -16185,45 +15181,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1015862581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015862579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1015862582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015862579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1015862583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16236,7 +15193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1015862584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16520,8 +15478,6 @@ GameObject:
   - component: {fileID: 1042169937}
   - component: {fileID: 1042169936}
   - component: {fileID: 1042169935}
-  - component: {fileID: 1042169934}
-  - component: {fileID: 1042169933}
   m_Layer: 0
   m_Name: '0, -2 || '
   m_TagString: Tile
@@ -16544,45 +15500,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1042169933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042169931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1042169934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042169931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1042169935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16595,7 +15512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1042169936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16699,8 +15617,6 @@ GameObject:
   - component: {fileID: 1051906126}
   - component: {fileID: 1051906125}
   - component: {fileID: 1051906124}
-  - component: {fileID: 1051906123}
-  - component: {fileID: 1051906122}
   - component: {fileID: 1051906129}
   m_Layer: 0
   m_Name: '-2, -2 || Distraction -> blinking_stop || '
@@ -16724,45 +15640,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1051906122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051906120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1051906123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051906120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1051906124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16775,7 +15652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1051906125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17289,8 +16167,6 @@ GameObject:
   - component: {fileID: 1087347495}
   - component: {fileID: 1087347494}
   - component: {fileID: 1087347493}
-  - component: {fileID: 1087347492}
-  - component: {fileID: 1087347491}
   m_Layer: 0
   m_Name: '0, -1 || '
   m_TagString: Tile
@@ -17313,45 +16189,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1087347491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087347489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1087347492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087347489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1087347493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17364,7 +16201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1087347494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17468,8 +16306,6 @@ GameObject:
   - component: {fileID: 1097828137}
   - component: {fileID: 1097828136}
   - component: {fileID: 1097828135}
-  - component: {fileID: 1097828134}
-  - component: {fileID: 1097828133}
   m_Layer: 0
   m_Name: '-2, 1 || '
   m_TagString: Tile
@@ -17492,45 +16328,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1097828133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097828131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1097828134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097828131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1097828135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17543,7 +16340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1097828136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18757,8 +17555,6 @@ GameObject:
   - component: {fileID: 1200120193}
   - component: {fileID: 1200120192}
   - component: {fileID: 1200120191}
-  - component: {fileID: 1200120190}
-  - component: {fileID: 1200120189}
   m_Layer: 0
   m_Name: '3, 1 || '
   m_TagString: Tile
@@ -18781,45 +17577,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1200120189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200120187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1200120190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200120187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1200120191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18832,7 +17589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1200120192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19146,8 +17904,6 @@ GameObject:
   - component: {fileID: 1229028687}
   - component: {fileID: 1229028686}
   - component: {fileID: 1229028685}
-  - component: {fileID: 1229028684}
-  - component: {fileID: 1229028683}
   m_Layer: 0
   m_Name: '2, 2 || Winning 7 || '
   m_TagString: Tile
@@ -19170,45 +17926,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1229028683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229028681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1229028684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229028681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1229028685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19221,7 +17938,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1229028686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19400,8 +18118,6 @@ GameObject:
   - component: {fileID: 1236760388}
   - component: {fileID: 1236760387}
   - component: {fileID: 1236760386}
-  - component: {fileID: 1236760385}
-  - component: {fileID: 1236760384}
   m_Layer: 0
   m_Name: '1, -3 || '
   m_TagString: Tile
@@ -19424,45 +18140,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1236760384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1236760382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1236760385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1236760382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1236760386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19475,7 +18152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1236760387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19759,8 +18437,6 @@ GameObject:
   - component: {fileID: 1280854698}
   - component: {fileID: 1280854697}
   - component: {fileID: 1280854696}
-  - component: {fileID: 1280854695}
-  - component: {fileID: 1280854694}
   m_Layer: 0
   m_Name: '2, -1 || '
   m_TagString: Tile
@@ -19783,45 +18459,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1280854694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280854692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1280854695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280854692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1280854696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19834,7 +18471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1280854697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20118,8 +18756,6 @@ GameObject:
   - component: {fileID: 1301517436}
   - component: {fileID: 1301517435}
   - component: {fileID: 1301517434}
-  - component: {fileID: 1301517433}
-  - component: {fileID: 1301517432}
   m_Layer: 0
   m_Name: '-1, 1 || '
   m_TagString: Tile
@@ -20142,45 +18778,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1301517432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301517430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1301517433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301517430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1301517434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20193,7 +18790,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1301517435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20552,8 +19150,6 @@ GameObject:
   - component: {fileID: 1337886812}
   - component: {fileID: 1337886811}
   - component: {fileID: 1337886810}
-  - component: {fileID: 1337886809}
-  - component: {fileID: 1337886808}
   m_Layer: 0
   m_Name: '-1, 2 || '
   m_TagString: Tile
@@ -20576,45 +19172,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1337886808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337886806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1337886809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337886806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1337886810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20627,7 +19184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1337886811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20836,8 +19394,6 @@ GameObject:
   - component: {fileID: 1349993041}
   - component: {fileID: 1349993040}
   - component: {fileID: 1349993039}
-  - component: {fileID: 1349993038}
-  - component: {fileID: 1349993037}
   m_Layer: 0
   m_Name: '0, 1 || '
   m_TagString: Tile
@@ -20860,45 +19416,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1349993037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349993035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1349993038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349993035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1349993039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20911,7 +19428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1349993040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21090,8 +19608,6 @@ GameObject:
   - component: {fileID: 1371804997}
   - component: {fileID: 1371804996}
   - component: {fileID: 1371804995}
-  - component: {fileID: 1371804994}
-  - component: {fileID: 1371804993}
   m_Layer: 0
   m_Name: '-3, -1 || '
   m_TagString: Tile
@@ -21114,45 +19630,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1371804993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371804991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1371804994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371804991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1371804995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21165,7 +19642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1371804996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21554,8 +20032,6 @@ GameObject:
   - component: {fileID: 1396734945}
   - component: {fileID: 1396734944}
   - component: {fileID: 1396734943}
-  - component: {fileID: 1396734942}
-  - component: {fileID: 1396734941}
   m_Layer: 0
   m_Name: '-1, -3 || '
   m_TagString: Tile
@@ -21578,45 +20054,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1396734941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396734939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1396734942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396734939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1396734943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21629,7 +20066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1396734944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22093,8 +20531,6 @@ GameObject:
   - component: {fileID: 1441361296}
   - component: {fileID: 1441361295}
   - component: {fileID: 1441361294}
-  - component: {fileID: 1441361293}
-  - component: {fileID: 1441361292}
   m_Layer: 0
   m_Name: '3, -2 || '
   m_TagString: Tile
@@ -22117,45 +20553,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1441361292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441361290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1441361293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441361290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1441361294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22168,7 +20565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1441361295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22482,8 +20880,6 @@ GameObject:
   - component: {fileID: 1447122661}
   - component: {fileID: 1447122660}
   - component: {fileID: 1447122659}
-  - component: {fileID: 1447122658}
-  - component: {fileID: 1447122657}
   m_Layer: 0
   m_Name: '3, -2 || '
   m_TagString: Tile
@@ -22506,45 +20902,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1447122657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447122655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1447122658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447122655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1447122659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22557,7 +20914,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1447122660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22661,8 +21019,6 @@ GameObject:
   - component: {fileID: 1459490320}
   - component: {fileID: 1459490319}
   - component: {fileID: 1459490318}
-  - component: {fileID: 1459490317}
-  - component: {fileID: 1459490316}
   m_Layer: 0
   m_Name: '2, -1 || '
   m_TagString: Tile
@@ -22685,45 +21041,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1459490316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459490314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1459490317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459490314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1459490318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22736,7 +21053,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1459490319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22945,10 +21263,9 @@ GameObject:
   - component: {fileID: 1505709563}
   - component: {fileID: 1505709562}
   - component: {fileID: 1505709561}
-  - component: {fileID: 1505709560}
   - component: {fileID: 1505709559}
   m_Layer: 0
-  m_Name: '-2, 0 || Cracked 0 -> Time: 1 || '
+  m_Name: '-2, 0 || Cracked 0 -> Time: 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22969,45 +21286,102 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1505709559
-MonoBehaviour:
+--- !u!82 &1505709559
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505709557}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1505709560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505709557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2b74b751a2dd4f6419ab5e8ab3184abb, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1505709561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23020,7 +21394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1505709562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23124,8 +21499,6 @@ GameObject:
   - component: {fileID: 1506932291}
   - component: {fileID: 1506932290}
   - component: {fileID: 1506932289}
-  - component: {fileID: 1506932288}
-  - component: {fileID: 1506932287}
   m_Layer: 0
   m_Name: '1, -2 || '
   m_TagString: Tile
@@ -23148,45 +21521,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1506932287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1506932285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1506932288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1506932285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1506932289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23199,7 +21533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1506932290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23408,8 +21743,6 @@ GameObject:
   - component: {fileID: 1584278078}
   - component: {fileID: 1584278077}
   - component: {fileID: 1584278076}
-  - component: {fileID: 1584278075}
-  - component: {fileID: 1584278074}
   m_Layer: 0
   m_Name: '1, 1 || '
   m_TagString: Tile
@@ -23432,45 +21765,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1584278074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584278072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1584278075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584278072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1584278076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23483,7 +21777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1584278077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23977,8 +22272,6 @@ GameObject:
   - component: {fileID: 1626857063}
   - component: {fileID: 1626857062}
   - component: {fileID: 1626857061}
-  - component: {fileID: 1626857060}
-  - component: {fileID: 1626857059}
   m_Layer: 0
   m_Name: '0, 0 || '
   m_TagString: Tile
@@ -24001,45 +22294,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1626857059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626857057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1626857060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626857057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1626857061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24052,7 +22306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1626857062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24156,8 +22411,6 @@ GameObject:
   - component: {fileID: 1626874253}
   - component: {fileID: 1626874252}
   - component: {fileID: 1626874251}
-  - component: {fileID: 1626874250}
-  - component: {fileID: 1626874249}
   m_Layer: 0
   m_Name: '-2, 2 || '
   m_TagString: Tile
@@ -24180,45 +22433,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1626874249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626874247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1626874250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626874247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1626874251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24231,7 +22445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1626874252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24335,8 +22550,6 @@ GameObject:
   - component: {fileID: 1628379710}
   - component: {fileID: 1628379709}
   - component: {fileID: 1628379708}
-  - component: {fileID: 1628379707}
-  - component: {fileID: 1628379706}
   m_Layer: 0
   m_Name: '-3, -3 || '
   m_TagString: Tile
@@ -24359,45 +22572,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1628379706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628379704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1628379707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628379704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1628379708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24410,7 +22584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1628379709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24892,8 +23067,6 @@ GameObject:
   - component: {fileID: 1689128898}
   - component: {fileID: 1689128897}
   - component: {fileID: 1689128896}
-  - component: {fileID: 1689128895}
-  - component: {fileID: 1689128894}
   m_Layer: 0
   m_Name: '-4, -1 || Starting 0 || '
   m_TagString: Tile
@@ -24916,45 +23089,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1689128894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689128892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1689128895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689128892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1689128896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24967,7 +23101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1689128897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25071,8 +23206,6 @@ GameObject:
   - component: {fileID: 1696710618}
   - component: {fileID: 1696710617}
   - component: {fileID: 1696710616}
-  - component: {fileID: 1696710615}
-  - component: {fileID: 1696710614}
   m_Layer: 0
   m_Name: '3, -1 || '
   m_TagString: Tile
@@ -25095,45 +23228,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1696710614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696710612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 1
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 5
-  teleporterConnectedWith: 4
-  teleporterOffset: {x: 3, y: 3, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1696710615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696710612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1696710616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25146,7 +23240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1696710617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25250,8 +23345,6 @@ GameObject:
   - component: {fileID: 1716108023}
   - component: {fileID: 1716108022}
   - component: {fileID: 1716108021}
-  - component: {fileID: 1716108020}
-  - component: {fileID: 1716108019}
   m_Layer: 0
   m_Name: '-3, 1 || '
   m_TagString: Tile
@@ -25274,45 +23367,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1716108019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716108017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1716108020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716108017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1716108021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25325,7 +23379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1716108022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25504,8 +23559,6 @@ GameObject:
   - component: {fileID: 1756228518}
   - component: {fileID: 1756228517}
   - component: {fileID: 1756228516}
-  - component: {fileID: 1756228515}
-  - component: {fileID: 1756228514}
   m_Layer: 0
   m_Name: '-1, -3 || '
   m_TagString: Tile
@@ -25528,45 +23581,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1756228514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756228512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1756228515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756228512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1756228516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25579,7 +23593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1756228517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25833,8 +23848,6 @@ GameObject:
   - component: {fileID: 1761381282}
   - component: {fileID: 1761381281}
   - component: {fileID: 1761381280}
-  - component: {fileID: 1761381279}
-  - component: {fileID: 1761381278}
   m_Layer: 0
   m_Name: '-1, -2 || '
   m_TagString: Tile
@@ -25857,45 +23870,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1761381278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761381276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1761381279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761381276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1761381280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25908,7 +23882,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1761381281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26012,8 +23987,6 @@ GameObject:
   - component: {fileID: 1766916676}
   - component: {fileID: 1766916675}
   - component: {fileID: 1766916674}
-  - component: {fileID: 1766916673}
-  - component: {fileID: 1766916672}
   m_Layer: 0
   m_Name: '-3, -2 || '
   m_TagString: Tile
@@ -26036,45 +24009,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1766916672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766916670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1766916673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766916670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1766916674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26087,7 +24021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1766916675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26551,8 +24486,6 @@ GameObject:
   - component: {fileID: 1810410594}
   - component: {fileID: 1810410593}
   - component: {fileID: 1810410592}
-  - component: {fileID: 1810410591}
-  - component: {fileID: 1810410590}
   m_Layer: 0
   m_Name: '1, 1 || Path 15 || '
   m_TagString: Tile
@@ -26575,45 +24508,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1810410590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810410588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1810410591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810410588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1810410592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26626,7 +24520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1810410593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26835,8 +24730,6 @@ GameObject:
   - component: {fileID: 1815429596}
   - component: {fileID: 1815429595}
   - component: {fileID: 1815429594}
-  - component: {fileID: 1815429593}
-  - component: {fileID: 1815429592}
   m_Layer: 0
   m_Name: '0, -1 || Path 10 || '
   m_TagString: Tile
@@ -26859,45 +24752,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1815429592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1815429590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1815429593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1815429590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1815429594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26910,7 +24764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1815429595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27014,8 +24869,6 @@ GameObject:
   - component: {fileID: 1821507323}
   - component: {fileID: 1821507322}
   - component: {fileID: 1821507321}
-  - component: {fileID: 1821507320}
-  - component: {fileID: 1821507319}
   m_Layer: 0
   m_Name: '2, 2 || '
   m_TagString: Tile
@@ -27038,45 +24891,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1821507319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821507317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1821507320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821507317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1821507321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27089,7 +24903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1821507322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27268,10 +25083,9 @@ GameObject:
   - component: {fileID: 1846499955}
   - component: {fileID: 1846499954}
   - component: {fileID: 1846499953}
-  - component: {fileID: 1846499952}
   - component: {fileID: 1846499951}
   m_Layer: 0
-  m_Name: '-1, 0 || Cracked 0 -> Time: 1 || '
+  m_Name: '-1, 0 || Cracked 0 -> Time: 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27292,45 +25106,102 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1846499951
-MonoBehaviour:
+--- !u!82 &1846499951
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846499949}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1846499952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846499949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2b74b751a2dd4f6419ab5e8ab3184abb, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1846499953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27343,7 +25214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1846499954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27522,8 +25394,6 @@ GameObject:
   - component: {fileID: 1873260712}
   - component: {fileID: 1873260711}
   - component: {fileID: 1873260710}
-  - component: {fileID: 1873260709}
-  - component: {fileID: 1873260708}
   m_Layer: 0
   m_Name: '-1, 2 || '
   m_TagString: Tile
@@ -27546,45 +25416,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1873260708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873260706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1873260709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873260706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1873260710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27597,7 +25428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1873260711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27776,8 +25608,6 @@ GameObject:
   - component: {fileID: 1883127935}
   - component: {fileID: 1883127934}
   - component: {fileID: 1883127933}
-  - component: {fileID: 1883127932}
-  - component: {fileID: 1883127931}
   - component: {fileID: 1883127938}
   m_Layer: 0
   m_Name: '-1, -1 || Path 5 || Distraction -> blinking_start, length: 15 || '
@@ -27801,45 +25631,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1883127931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1883127929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1883127932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1883127929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1883127933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27852,7 +25643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1883127934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28516,8 +26308,6 @@ GameObject:
   - component: {fileID: 1942463324}
   - component: {fileID: 1942463323}
   - component: {fileID: 1942463322}
-  - component: {fileID: 1942463321}
-  - component: {fileID: 1942463320}
   m_Layer: 0
   m_Name: '-4, 1 || '
   m_TagString: Tile
@@ -28540,45 +26330,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1942463320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942463318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1942463321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942463318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1942463322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28591,7 +26342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1942463323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28695,8 +26447,8 @@ GameObject:
   - component: {fileID: 1944504845}
   - component: {fileID: 1944504844}
   - component: {fileID: 1944504843}
-  - component: {fileID: 1944504842}
   - component: {fileID: 1944504841}
+  - component: {fileID: 1944504842}
   m_Layer: 0
   m_Name: '-2, -1 || Path 3 || Special -> teleporter_exit 5 || '
   m_TagString: Tile
@@ -28739,25 +26491,102 @@ MonoBehaviour:
   teleporterOffset: {x: 3, y: 3, z: 0}
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1944504842
-MonoBehaviour:
+--- !u!82 &1944504842
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944504839}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 02edc9e8644b28a48afd755d7aefcd43, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1944504843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28770,7 +26599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1944504844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29234,8 +27064,6 @@ GameObject:
   - component: {fileID: 1972477296}
   - component: {fileID: 1972477295}
   - component: {fileID: 1972477294}
-  - component: {fileID: 1972477293}
-  - component: {fileID: 1972477292}
   m_Layer: 0
   m_Name: '-2, 2 || '
   m_TagString: Tile
@@ -29258,45 +27086,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1972477292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972477290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &1972477293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972477290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &1972477294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29309,7 +27098,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1972477295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29803,8 +27593,6 @@ GameObject:
   - component: {fileID: 2001876378}
   - component: {fileID: 2001876377}
   - component: {fileID: 2001876376}
-  - component: {fileID: 2001876375}
-  - component: {fileID: 2001876374}
   m_Layer: 0
   m_Name: '-3, -3 || '
   m_TagString: Tile
@@ -29827,45 +27615,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2001876374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001876372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2001876375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001876372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2001876376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29878,7 +27627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &2001876377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30087,8 +27837,6 @@ GameObject:
   - component: {fileID: 2046057117}
   - component: {fileID: 2046057116}
   - component: {fileID: 2046057115}
-  - component: {fileID: 2046057114}
-  - component: {fileID: 2046057113}
   m_Layer: 0
   m_Name: '2, -2 || '
   m_TagString: Tile
@@ -30111,45 +27859,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2046057113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046057111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2046057114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046057111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2046057115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30162,7 +27871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &2046057116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30446,10 +28156,9 @@ GameObject:
   - component: {fileID: 2080634465}
   - component: {fileID: 2080634464}
   - component: {fileID: 2080634463}
-  - component: {fileID: 2080634462}
   - component: {fileID: 2080634461}
   m_Layer: 0
-  m_Name: '-3, 0 || Cracked 0 -> Time: 1 || '
+  m_Name: '-3, 0 || Cracked 0 -> Time: 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30470,45 +28179,102 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2080634461
-MonoBehaviour:
+--- !u!82 &2080634461
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080634459}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2080634462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080634459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2b74b751a2dd4f6419ab5e8ab3184abb, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &2080634463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30521,7 +28287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &2080634464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30775,8 +28542,6 @@ GameObject:
   - component: {fileID: 2107706058}
   - component: {fileID: 2107706057}
   - component: {fileID: 2107706056}
-  - component: {fileID: 2107706055}
-  - component: {fileID: 2107706054}
   - component: {fileID: 2107706061}
   m_Layer: 0
   m_Name: '3, 0 || Distraction -> blinking_start, length: 0 || '
@@ -30800,45 +28565,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2107706054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107706052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2107706055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107706052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2107706056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30851,7 +28577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &2107706057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30975,8 +28702,8 @@ GameObject:
   - component: {fileID: 2107800494}
   - component: {fileID: 2107800493}
   - component: {fileID: 2107800492}
-  - component: {fileID: 2107800491}
   - component: {fileID: 2107800490}
+  - component: {fileID: 2107800491}
   m_Layer: 0
   m_Name: '0, 0 || Checkpoint 0 || Special -> teleporter_exit 1 || '
   m_TagString: Tile
@@ -31019,25 +28746,102 @@ MonoBehaviour:
   teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2107800491
-MonoBehaviour:
+--- !u!82 &2107800491
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107800488}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 02edc9e8644b28a48afd755d7aefcd43, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &2107800492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31050,7 +28854,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &2107800493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31154,8 +28959,6 @@ GameObject:
   - component: {fileID: 2114962247}
   - component: {fileID: 2114962246}
   - component: {fileID: 2114962245}
-  - component: {fileID: 2114962244}
-  - component: {fileID: 2114962243}
   m_Layer: 0
   m_Name: '-1, 0 || '
   m_TagString: Tile
@@ -31178,45 +28981,6 @@ Transform:
   m_Father: {fileID: 99255202}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2114962243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114962241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2114962244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114962241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2114962245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31229,7 +28993,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &2114962246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31408,8 +29173,6 @@ GameObject:
   - component: {fileID: 2130954537}
   - component: {fileID: 2130954536}
   - component: {fileID: 2130954535}
-  - component: {fileID: 2130954534}
-  - component: {fileID: 2130954533}
   m_Layer: 0
   m_Name: '2, 1 || '
   m_TagString: Tile
@@ -31432,45 +29195,6 @@ Transform:
   m_Father: {fileID: 880364242}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2130954533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130954531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterEntrance: 0
-  keepSpeedThroughTeleporter: 0
-  reverseSpeed: 0
-  teleporterNumber: 0
-  teleporterConnectedWith: 0
-  teleporterOffset: {x: 0, y: 0, z: 0}
-  velocity: 0
-  jumpDirection: {x: 0, y: 0, z: 0}
---- !u!114 &2130954534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130954531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingTilePosA: {x: 0, y: 0, z: 0}
-  movingTilePosB: {x: 0, y: 0, z: 0}
-  speedOfMovingTiles: 2
-  startingDelay: 0
-  waitBeforeTurningBack: 0
-  isLift: 0
-  needsNumberOfPlayersForLifting: 1
 --- !u!114 &2130954535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31483,7 +29207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 1
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &2130954536
 MonoBehaviour:
   m_ObjectHideFlags: 0

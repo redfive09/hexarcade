@@ -8,11 +8,6 @@ public class MenuController : MonoBehaviour
     {
         SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
         SaveLoadManager.Load();
-
-        gameObject.AddComponent<AudioSource>();
-        AudioSource audioSource = GetComponent<AudioSource>();
-        audioSource.clip = Resources.Load<AudioClip>("mainMenu");
-        audioSource.Play();
     }
 
     public void StartGame()

@@ -14,7 +14,7 @@ public class MainMenuCamera : MonoBehaviour
     void Start()
     {
         ThisTransform = GetComponent<Transform>();
-        initialPosition = this.transform.position;        
+        initialPosition = this.transform.position;
     }
 
     // Update is called once per frame
