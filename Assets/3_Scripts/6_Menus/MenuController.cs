@@ -33,7 +33,7 @@ public class MenuController : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
     }
 
     public void Options()

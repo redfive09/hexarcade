@@ -9,6 +9,7 @@ public class LoseScreen : MonoBehaviour
     void Start()
     {
         SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
+        OneTimeLosingScreenEvents();
 
         if(SceneTransitionValues.record > 0)
         {
