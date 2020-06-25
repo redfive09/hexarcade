@@ -19,7 +19,7 @@ public class HexagonBehaviour : MonoBehaviour
     private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here
     private Hexagon thisHexagon;
     private bool markedForDestruction = false; // Make sure a hexagon doesn't try to get deleted twice (e. g. crackable tile)
-    private AudioSource audioSource;
+    
 
 
     // Setup standard values for the editor mode
@@ -46,6 +46,7 @@ public class HexagonBehaviour : MonoBehaviour
         if(thisHexagon.IsCrackedTile())
         {            
             thisHexagon.SetColor(colors[arrivedCrackedTile]);
+            thisHexagon.GetAudioSource().Play();
             FallAndFade();
             ActivateCrackedTile();
         }
@@ -93,12 +94,6 @@ public class HexagonBehaviour : MonoBehaviour
         if(thisHexagon.IsStandardTile())
         {
             thisHexagon.SetColor(colors[arrivedStandardTile]);
-        }
-
-        if(!thisHexagon.IsStandardTile() && audioSource)
-        {
-            Debug.Log(audioSource);
-            audioSource.Play();
         }
     }
 
@@ -196,13 +191,6 @@ public class HexagonBehaviour : MonoBehaviour
         return thisHexagon;
     }
 
-    public void SetAudio(string sound)
-    {
-        gameObject.AddComponent<AudioSource>();
-        audioSource = GetComponent<AudioSource>();        
-        audioSource.clip = Resources.Load<AudioClip>(sound);
-    }
-
     private void FallAndFade()
     {
 
@@ -211,5 +199,4 @@ public class HexagonBehaviour : MonoBehaviour
         //gameObject.transform.GetChild(0).gameObject
         //LeanTween.alpha 
     }
-
 }

@@ -82,15 +82,21 @@ public class Tiles : MonoBehaviour
                 Hexagon hexagon = platformTiles[k];
                 HexagonBehaviour behaviour = hexagon.GetComponent<HexagonBehaviour>();
                 allTiles[tilesCounter] = hexagon;
-                tileColors[hexagon] = hexagon.GetColor();
+                tileColors[hexagon] = hexagon.GetColor();                
+
                 hexagon.SetStandardTile(true);
+
+                if(inEditor && hexagon.GetAudioSource())
+                {
+                    DestroyImmediate(hexagon.GetAudioSource());
+                }
 
                 if(hexagon.IsCrackedTile())
                 {
                     SaveHexagonInList(crackedTiles, hexagon, hexagon.GetCrackedNumber());
                     hexagon.SetStandardTile(false);
-                    behaviour.SetAudio("cracked");
-                }                
+                    hexagon.SetAudio("cracked");
+                }
 
                 if(hexagon.IsPathTile())
                 {
@@ -106,7 +112,7 @@ public class Tiles : MonoBehaviour
                     if(!hexagon.GetComponent<HexagonDistraction>()) hexagon.gameObject.AddComponent<HexagonDistraction>();
 
                     hexagon.GetComponent<HexagonDistraction>().GetStarted(hexagon.GetDistractionNumber(), platforms[i].GetAllPlatformTiles(), 
-                                                                            allTiles, tileColors, distractionTiles);
+                                                                            allTiles, tileColors, distractionTiles, hexagon);
                 }
                 else
                 {
@@ -130,8 +136,9 @@ public class Tiles : MonoBehaviour
                 {                    
                     SaveHexagonInList(specialTiles, hexagon, hexagon.GetSpecialNumber());                    
                     hexagon.SetStandardTile(false);
-                    if(!hexagon.GetComponent<HexagonSpecial>()) hexagon.gameObject.AddComponent<HexagonSpecial>();                    
-                    hexagon.GetComponent<HexagonSpecial>().GetStarted(specialTiles, this);
+                    if(!hexagon.GetComponent<HexagonSpecial>()) hexagon.gameObject.AddComponent<HexagonSpecial>();
+                    HexagonSpecial specialScript = hexagon.GetComponent<HexagonSpecial>();                
+                    specialScript.GetStarted(specialTiles, this, hexagon);            
                 }
                 else
                 {
@@ -139,10 +146,9 @@ public class Tiles : MonoBehaviour
                     {
                         HexagonSpecial specialScript = hexagon.GetComponent<HexagonSpecial>();
                         if(specialScript)
-                        {
-                           
-                            DestroyImmediate(specialScript);
-                        }                            
+                        {                           
+                           DestroyImmediate(specialScript);
+                        }                                                    
                     }
                 }
 
@@ -179,6 +185,18 @@ public class Tiles : MonoBehaviour
                 if(hexagon.IsStandardTile())
                 {
                     standardTiles.Add(hexagon);
+                    if(inEditor && hexagon.GetComponent<AudioSource>())
+                    {
+                        DestroyImmediate(hexagon.GetComponent<AudioSource>());
+                    }
+                }
+
+                if(inEditor && hexagon.GetComponent<AudioSource>())
+                {
+                    if(hexagon.GetComponent<AudioSource>().clip == null)
+                    {
+                        DestroyImmediate(hexagon.GetComponent<AudioSource>());
+                    }                    
                 }
 
                 Color[] getAllTouchingColors = this.GetComponent<TileColorsTouching>().GiveColorSet(); // get all Colors when the ball for touching and leaving a hexagon

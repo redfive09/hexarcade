@@ -26,7 +26,7 @@ public class HexagonSpecial : MonoBehaviour
     private int specialCase;
     private const int TELEPORTER = 0;
     private const int VELOCITY = 1;
-    private const int JUMPAD = 2;
+    private const int JUMP_PAD = 2;
     private const int LOSING_TILE = 3;
     private const int NON_STANDARD_COUNTER = 4;
 
@@ -38,22 +38,46 @@ public class HexagonSpecial : MonoBehaviour
     private List<Ball> players = new List<Ball>();
     private int getIndexNumberInList;
     private Hexagon thisHexagon;
-    
 
 
     /* ------------------------------ MAIN METHODS FOR SPECIAL TILES ------------------------------  */
-    public void GetStarted(Dictionary<int, List<Hexagon>> specialTiles, Tiles tiles)
+    public void GetStarted(Dictionary<int, List<Hexagon>> specialTiles, Tiles tiles, Hexagon hexagon)
     {
-        thisHexagon = this.transform.GetComponent<Hexagon>();
+        thisHexagon = hexagon;
         specialCase = thisHexagon.GetSpecialNumber();
         this.specialTiles = specialTiles;
         this.tiles = tiles;
+        TileNeedSetup();  
+    }
+
+    private void TileNeedSetup()
+    {
+        switch(specialCase)
+        {
+            case TELEPORTER:
+            {
+                thisHexagon.SetAudio(nameof(TELEPORTER).ToLower());
+                break;
+            }
+
+            case VELOCITY:
+            {
+                thisHexagon.SetAudio(nameof(VELOCITY).ToLower());
+                break;
+            }
+
+            case JUMP_PAD:
+            {
+                thisHexagon.SetAudio(nameof(JUMP_PAD).ToLower());
+                break;
+            }
+        }
     }
 
     public void SpecialTileTouched(Ball player)
     {
         players.Add(player);
-        getIndexNumberInList = GetIndexNumberInList();
+        getIndexNumberInList = GetIndexNumberInList();        
 
         if(getIndexNumberInList >= 0) // catch potential errors with the special tile list
         {
@@ -67,7 +91,8 @@ public class HexagonSpecial : MonoBehaviour
                         if(reverseSpeed) player.ReverseMovement();
 
                         Hexagon teleporterExit = FindTeleporterExit();
-                        if(teleporterExit) player.GoToSpawnPosition(teleporterExit, teleporterOffset, false);                        
+                        if(teleporterExit) player.GoToSpawnPosition(teleporterExit, teleporterOffset, false);
+                        thisHexagon.GetAudioSource().Play();
                     }
                     break;
                 }
@@ -78,12 +103,14 @@ public class HexagonSpecial : MonoBehaviour
                     Vector3 currentVelocity = rb.velocity;
                     currentVelocity *= velocity;
                     rb.velocity = currentVelocity;
+                    thisHexagon.GetAudioSource().Play();
                     break;
                 }
 
-                case JUMPAD:
+                case JUMP_PAD:
                 {
                     player.GetRigidbody().AddForce(jumpDirection);
+                    thisHexagon.GetAudioSource().Play();
                     break;
                 }
 
@@ -211,8 +238,6 @@ public class HexagonSpecial : MonoBehaviour
         this.velocity = velocity;
     }
 
-
-
     /* ------------------------------ EDITOR METHODS ------------------------------  */
 
     public string GetNameOfFunction()
@@ -236,8 +261,8 @@ public class HexagonSpecial : MonoBehaviour
             case VELOCITY:
                 return prefix + nameof(VELOCITY).ToLower() + " " + velocity;
     
-            case JUMPAD:
-                return prefix + nameof(JUMPAD).ToLower();
+            case JUMP_PAD:
+                return prefix + nameof(JUMP_PAD).ToLower();
 
             case LOSING_TILE:
                 return prefix + nameof(LOSING_TILE).ToLower();

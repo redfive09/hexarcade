@@ -27,8 +27,8 @@ using UnityEngine;
         [SerializeField] private int isWinningTile;
         [SerializeField] private Color color;
         [SerializeField] private Color markedColor; // in effect when touched by user
-
-        private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here        
+        
+        private AudioSource audioSource;   
 
         private bool isStandardTile = true; // = no special function at all
         private bool isTouched = false;
@@ -151,6 +151,18 @@ using UnityEngine;
         public void SetIsTouched(bool status)
         {
             isTouched = status;
+        }
+
+        public void SetAudio(string sound)
+        {
+            audioSource = GetComponent<AudioSource>();
+            if(!audioSource)
+            {
+                gameObject.AddComponent<AudioSource>();
+                audioSource = GetComponent<AudioSource>();                
+            }
+            audioSource.clip = Resources.Load<AudioClip>(sound);
+            audioSource.playOnAwake = false;
         }
 
 
@@ -317,6 +329,11 @@ using UnityEngine;
         public bool IsTouched()
         {
             return isTouched;
+        }
+
+        public AudioSource GetAudioSource()
+        {
+            return audioSource;
         }
 
 

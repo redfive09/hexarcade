@@ -35,18 +35,29 @@ public class HexagonDistraction : MonoBehaviour
     private Hexagon[] platformTiles;
     private Hexagon[] allTiles;
     private bool wasTouchedBefore = false;
+    private Hexagon thisHexagon;
 
 
     /* ------------------------------ MAIN METHODS FOR DISTRACTION-TILES ------------------------------  */
 
     public void GetStarted(int distractionNumber, Hexagon[] platformTiles, Hexagon[] allTiles,
-                            Dictionary<Hexagon, Color> tileColors, Dictionary<int, List<Hexagon>> distractionTiles)
+                            Dictionary<Hexagon, Color> tileColors, Dictionary<int, List<Hexagon>> distractionTiles, Hexagon hexagon)
     {
         distractionCase = distractionNumber;
         this.platformTiles = platformTiles;
         this.allTiles = allTiles;
         this.tileColors = tileColors;
         this.distractionTiles = distractionTiles;
+        thisHexagon = hexagon;
+        TileNeedSetup();
+    }
+
+    private void TileNeedSetup()
+    {
+        if(distractionCase == BLINKING_START || distractionCase == SCROLLING_TEXT)
+        {
+            thisHexagon.SetAudio("activation");
+        }         
     }
 
     public void DistractionTileTouched(Ball player)
@@ -58,6 +69,7 @@ public class HexagonDistraction : MonoBehaviour
             case BLINKING_START:
                 if(multipleActivationsPossible || !wasTouchedBefore)
                 {
+                    thisHexagon.GetAudioSource().Play();
                     blinking = true;
                     if(onlyThisPlatformIsBlinking)
                     {
@@ -79,6 +91,7 @@ public class HexagonDistraction : MonoBehaviour
                 if (!wasTouchedBefore)
                 {
                     GameObject ScrollingText = Instantiate(_scrollingText);
+                    thisHexagon.GetAudioSource().Play();
                     var Distraction = new GameObject();
                     Distraction.name = "Player" + (player.GetPlayerNumber() + 1);
                     Distraction.transform.parent = GameObject.Find("/Map/Distractions").transform;
