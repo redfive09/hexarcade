@@ -49,8 +49,7 @@ public class Ball : MonoBehaviour
     }
     
     public void GetStarted(int playerNumber)
-    {
-        SceneTransitionAudio.Instance.gameObject.GetComponent<AudioSource>().Stop();
+    {        
         firstSpawnPosition = transform.position;
         this.playerNumber = playerNumber;        
         rb = GetComponent<Rigidbody>();
@@ -69,6 +68,11 @@ public class Ball : MonoBehaviour
         timer.GetReady();
         SceneTransitionValues.record = timer.GetBestTime();
         SceneTransitionValues.alreadyEnteredEndScreen = false;
+
+        if(SceneTransitionAudio.Instance != null)
+        {
+            SceneTransitionAudio.Instance.gameObject.GetComponent<AudioSource>().Stop();
+        }
  
         StartCoroutine(Introduction(cameraFollow, skipButton));
     }

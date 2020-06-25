@@ -37,38 +37,45 @@ public class HexagonSpecial : MonoBehaviour
     private Tiles tiles;
     private List<Ball> players = new List<Ball>();
     private int getIndexNumberInList;
+    private bool hasVFX = false;
     private Hexagon thisHexagon;
 
 
     /* ------------------------------ MAIN METHODS FOR SPECIAL TILES ------------------------------  */
-    public void GetStarted(Dictionary<int, List<Hexagon>> specialTiles, Tiles tiles, Hexagon hexagon)
+    public void GetStarted(Dictionary<int, List<Hexagon>> specialTiles, Tiles tiles, Hexagon hexagon, bool inEditor)
     {
         thisHexagon = hexagon;
         specialCase = thisHexagon.GetSpecialNumber();
         this.specialTiles = specialTiles;
         this.tiles = tiles;
-        TileNeedSetup();  
+        TileNeedSetup(inEditor);  
     }
 
-    private void TileNeedSetup()
+    private void TileNeedSetup(bool inEditor)
     {
         switch(specialCase)
         {
             case TELEPORTER:
             {
                 thisHexagon.SetAudio(nameof(TELEPORTER).ToLower());
+                if(teleporterEntrance) thisHexagon.SetVisualEffect("TeleporterVFX", inEditor);
+                hasVFX = true;
                 break;
             }
 
             case VELOCITY:
             {
                 thisHexagon.SetAudio(nameof(VELOCITY).ToLower());
+                thisHexagon.SetVisualEffect("VelocityVFX", inEditor);
+                hasVFX = true;
                 break;
             }
 
             case JUMP_PAD:
             {
                 thisHexagon.SetAudio(nameof(JUMP_PAD).ToLower());
+                thisHexagon.SetVisualEffect("JumpPadVFX", inEditor);
+                hasVFX = true;
                 break;
             }
         }
@@ -236,6 +243,13 @@ public class HexagonSpecial : MonoBehaviour
     public void SetVelocity(float velocity)
     {
         this.velocity = velocity;
+    }
+
+
+    /* ------------------------------ GETTERS FOR SPECIAL TILES ------------------------------  */
+    public bool HasVFX()
+    {
+        return hasVFX;
     }
 
     /* ------------------------------ EDITOR METHODS ------------------------------  */

@@ -83,7 +83,7 @@ public class Tiles : MonoBehaviour
                 HexagonBehaviour behaviour = hexagon.GetComponent<HexagonBehaviour>();
                 allTiles[tilesCounter] = hexagon;
                 tileColors[hexagon] = hexagon.GetColor();                
-
+                bool destroyVFX = true;
                 hexagon.SetStandardTile(true);
 
                 if(inEditor && hexagon.GetAudioSource())
@@ -95,7 +95,7 @@ public class Tiles : MonoBehaviour
                 {
                     SaveHexagonInList(crackedTiles, hexagon, hexagon.GetCrackedNumber());
                     hexagon.SetStandardTile(false);
-                    hexagon.SetAudio("cracked");
+                    hexagon.SetAudio("cracked");                    
                 }
 
                 if(hexagon.IsPathTile())
@@ -138,7 +138,8 @@ public class Tiles : MonoBehaviour
                     hexagon.SetStandardTile(false);
                     if(!hexagon.GetComponent<HexagonSpecial>()) hexagon.gameObject.AddComponent<HexagonSpecial>();
                     HexagonSpecial specialScript = hexagon.GetComponent<HexagonSpecial>();                
-                    specialScript.GetStarted(specialTiles, this, hexagon);            
+                    specialScript.GetStarted(specialTiles, this, hexagon, inEditor);
+                    destroyVFX = !specialScript.HasVFX();
                 }
                 else
                 {
@@ -174,12 +175,16 @@ public class Tiles : MonoBehaviour
                 {
                     SaveHexagonInList(startingTiles, hexagon, hexagon.GetStartingNumber());
                     hexagon.SetStandardTile(false);
+                    hexagon.SetVisualEffect("StartingVFX", inEditor);
+                    destroyVFX = false;
                 }
 
                 if(hexagon.IsWinningTile())
                 {
                     SaveHexagonInList(winningTiles, hexagon, hexagon.GetWinningNumber());
-                    hexagon.SetStandardTile(false);
+                    hexagon.SetStandardTile(false);                    
+                    hexagon.SetVisualEffect("WinningVFX", inEditor);
+                    destroyVFX = false;
                 }
 
                 if(hexagon.IsStandardTile())
@@ -196,8 +201,10 @@ public class Tiles : MonoBehaviour
                     if(hexagon.GetComponent<AudioSource>().clip == null)
                     {
                         DestroyImmediate(hexagon.GetComponent<AudioSource>());
-                    }                    
+                    }
                 }
+
+                if(destroyVFX && hexagon.GetVisualEffect()) hexagon.DestroyVisualEffect(inEditor);
 
                 Color[] getAllTouchingColors = this.GetComponent<TileColorsTouching>().GiveColorSet(); // get all Colors when the ball for touching and leaving a hexagon
                 behaviour.SetColors(getAllTouchingColors); // give current hexagon the set, in order to get its individual color settings

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
     /*
      *  Class purpose: Storing values of each individual tile
@@ -28,7 +26,8 @@ using UnityEngine;
         [SerializeField] private Color color;
         [SerializeField] private Color markedColor; // in effect when touched by user
         
-        private AudioSource audioSource;   
+        private AudioSource audioSource;
+        private GameObject visualEffect;
 
         private bool isStandardTile = true; // = no special function at all
         private bool isTouched = false;
@@ -163,6 +162,25 @@ using UnityEngine;
             }
             audioSource.clip = Resources.Load<AudioClip>(sound);
             audioSource.playOnAwake = false;
+        }
+
+        public void SetVisualEffect(string vfx, bool inEditor)
+        {
+            visualEffect = GetVisualEffect();
+
+            if(visualEffect && visualEffect.name != vfx)    // if the type changed, destroy the old one
+            {                
+                DestroyVisualEffect(inEditor);
+            }
+            
+            if(!visualEffect)                               // if there is no (more) VFX-graph, create a new one
+            {
+                visualEffect = Resources.Load<GameObject>(vfx);
+                visualEffect = Instantiate(visualEffect);
+                visualEffect.transform.parent = transform;
+                visualEffect.transform.localPosition = new Vector3(0, 0.01f, 0);
+                visualEffect.name = vfx;
+            }
         }
 
 
@@ -333,7 +351,30 @@ using UnityEngine;
 
         public AudioSource GetAudioSource()
         {
-            return audioSource;
+            return audioSource;            
+        }
+
+        public GameObject GetVisualEffect()
+        {
+            if(visualEffect) return visualEffect;
+
+            if(transform.childCount > 1)                    // check, if there is already a VFX-graph
+            {
+                string checkFor ="VFX";
+                for(int i = 0; i < transform.childCount; i++)
+                {
+                    string childName = transform.GetChild(i).name;
+                    string compareWith = childName.Substring(childName.Length - checkFor.Length);
+                    if(checkFor == compareWith)
+                    {
+                        visualEffect = transform.GetChild(i).gameObject;
+                        return visualEffect;
+                    }
+                }
+            }
+
+            visualEffect = null;
+            return visualEffect;
         }
 
 
@@ -359,6 +400,22 @@ using UnityEngine;
                 {
                     Destroy(gameObject, seconds);
                 }
+            }
+        }
+
+        public void DestroyVisualEffect(bool inEditor)
+        {            
+            if(visualEffect)
+            {
+                if(inEditor)
+                {
+                    DestroyImmediate(visualEffect);
+                }
+                else
+                {
+                    Destroy(visualEffect);                    
+                }
+                visualEffect = null;
             }
         }
     } // CLASS END
