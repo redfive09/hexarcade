@@ -10,7 +10,8 @@ public class AccelorometerMovement : MonoBehaviour
     private float multiplier = 75.5f;
     [SerializeField]
     private ForceMode inputApplyment = ForceMode.Acceleration;
-    Matrix4x4 baseMatrix = Matrix4x4.identity;
+    private Matrix4x4 baseMatrix = Matrix4x4.identity;
+    private Vector3 tilt;
 
     void Awake()
     {
@@ -31,7 +32,7 @@ public class AccelorometerMovement : MonoBehaviour
     void Update()
     {
         //Vector3 tilt = Input.acceleration;
-        Vector3 tilt = AdjustedAccelerometer;
+        tilt = AdjustedAccelerometer;
         tilt.z = 0.0f;
         tilt = Quaternion.Euler(90, 0, 0) * tilt;
         tilt *= multiplier;
@@ -49,10 +50,17 @@ public class AccelorometerMovement : MonoBehaviour
         this.baseMatrix = matrix.inverse;
     }
     
-    public Vector3 AdjustedAccelerometer {
+    private Vector3 AdjustedAccelerometer {
         get {
             return this.baseMatrix.MultiplyVector(Input.acceleration);
         }
     }
-  
+
+    public Vector3 Tilt
+    {
+        get
+        {
+            return tilt;
+        }
+    }
 }
