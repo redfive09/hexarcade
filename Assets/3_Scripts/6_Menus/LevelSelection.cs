@@ -27,6 +27,11 @@ public class LevelSelection : MonoBehaviour
     
     private void Start()
     {
+        if(!SceneTransitionAudio.Instance.gameObject.GetComponent<AudioSource>().isPlaying)
+        {
+            SceneTransitionAudio.Instance.gameObject.GetComponent<AudioSource>().Play();
+        }
+        
         SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
         maxLevelsPerPage = levelFolder.transform.childCount;
         

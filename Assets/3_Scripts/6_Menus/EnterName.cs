@@ -51,5 +51,10 @@ public class EnterName : MonoBehaviour
                 touchScreenKeyboard = null;
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Return) && saveNameButton.activeSelf)
+        {
+            SaveName();
+        }
     }
 }

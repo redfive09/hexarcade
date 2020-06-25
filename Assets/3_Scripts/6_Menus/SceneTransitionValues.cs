@@ -9,7 +9,7 @@ public class SceneTransitionValues : MonoBehaviour
     public static float time;
     public static float record;
     public static bool newRecord;
-    public static bool alreadyEnteredWinningScreen;
+    public static bool alreadyEnteredEndScreen;
     public static string playerName;
     public static List<string> allLevels;
     

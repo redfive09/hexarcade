@@ -17,7 +17,12 @@ public class HighscoresDisplay : MonoBehaviour
 	
 
 	void Start() 
-	{		
+	{	
+		if(!SceneTransitionAudio.Instance.gameObject.GetComponent<AudioSource>().isPlaying)
+        {
+            SceneTransitionAudio.Instance.gameObject.GetComponent<AudioSource>().Play();
+        }
+
 		level = SceneTransitionValues.currentSceneName;
 		if(string.IsNullOrEmpty(level))
 		{

@@ -35,15 +35,17 @@ public class WinScreen : MonoBehaviour
 
     private void OneTimeWinningScreenEvents()
     {
-        if(!SceneTransitionValues.alreadyEnteredWinningScreen)
+        if(!SceneTransitionValues.alreadyEnteredEndScreen)
         {
             Phone.Vibrate();
             if(SceneTransitionValues.newRecord)
             {            
-                UploadTime();            
+                UploadTime();
             }
+
+            GetComponent<AudioSource>().Play();
         }        
-        SceneTransitionValues.alreadyEnteredWinningScreen = true;
+        SceneTransitionValues.alreadyEnteredEndScreen = true;
     }
 
     private void UploadTime()

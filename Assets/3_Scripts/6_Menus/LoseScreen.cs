@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LoseScreen : MonoBehaviour
 {        
-    [SerializeField] TextMeshProUGUI record;    
+    [SerializeField] TextMeshProUGUI record;
 
     void Start()
     {
@@ -18,5 +18,14 @@ public class LoseScreen : MonoBehaviour
         {
             record.text = "No record, yet";
         }
+    }
+
+    private void OneTimeLosingScreenEvents()
+    {
+        if(!SceneTransitionValues.alreadyEnteredEndScreen)
+        {
+            GetComponent<AudioSource>().Play();
+        }        
+        SceneTransitionValues.alreadyEnteredEndScreen = true;
     }
 }

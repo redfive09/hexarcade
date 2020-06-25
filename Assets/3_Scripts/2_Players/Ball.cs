@@ -50,6 +50,7 @@ public class Ball : MonoBehaviour
     
     public void GetStarted(int playerNumber)
     {
+        SceneTransitionAudio.Instance.gameObject.GetComponent<AudioSource>().Stop();
         firstSpawnPosition = transform.position;
         this.playerNumber = playerNumber;        
         rb = GetComponent<Rigidbody>();
@@ -67,7 +68,7 @@ public class Ball : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeAll;
         timer.GetReady();
         SceneTransitionValues.record = timer.GetBestTime();
-        SceneTransitionValues.alreadyEnteredWinningScreen = false;
+        SceneTransitionValues.alreadyEnteredEndScreen = false;
  
         StartCoroutine(Introduction(cameraFollow, skipButton));
     }
