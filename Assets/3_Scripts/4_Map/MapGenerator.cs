@@ -143,7 +143,7 @@ public class MapGenerator : MonoBehaviour
     **/ 
     Platform CreatePlatform(string platformName)
     {   
-        if(platformName == null || platformName == "")                // Check if the name is set, otherwise give it one
+        if(string.IsNullOrEmpty(platformName))                        // Check if the name is set, otherwise give it one
         {
             platformName = "Platform" + tiles.GetNumberOfPlatforms();
         }

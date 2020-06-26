@@ -96,9 +96,9 @@ public class HexagonSpecial : MonoBehaviour
                     {
                         if(!keepSpeedThroughTeleporter) player.StopMovement();
                         if(reverseSpeed) player.ReverseMovement();
-
                         Hexagon teleporterExit = FindTeleporterExit();
                         if(teleporterExit) player.GoToSpawnPosition(teleporterExit, teleporterOffset, false);
+                        if(jumpDirection.sqrMagnitude != 0) player.GetRigidbody().AddForce(jumpDirection);
                         thisHexagon.GetAudioSource().Play();
                     }
                     break;

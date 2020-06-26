@@ -35,7 +35,7 @@ public class Tiles : MonoBehaviour
     public void CollectTiles(bool inEditor)
     {
         PrepareLists();
-        ClearEverything();        
+        ClearEverything();
         CollectPlatforms();
         CollectTilesForListsAndColorThem(inEditor);
     }
@@ -250,6 +250,9 @@ public class Tiles : MonoBehaviour
      */
     public Platform GetPlatform(string platformName)
     {
+        PrepareLists();
+        ClearEverything();        
+        CollectPlatforms();        
         for(int i = 0; i < platforms.Count; i++)
         {
             if(platforms[i].name == platformName)
@@ -394,7 +397,7 @@ public class Tiles : MonoBehaviour
         for(int i = 0; i < this.transform.childCount; i++)
         {
             Platform platform = this.transform.GetChild(i).GetComponent<Platform>();
-            platform.GetTilesList().Clear();
+            if(platform) platform.GetTilesList().Clear();
         }
 
         platforms.Clear();

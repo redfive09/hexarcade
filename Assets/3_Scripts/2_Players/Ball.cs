@@ -315,7 +315,7 @@ public class Ball : MonoBehaviour
                 /* --------------- STATUS: PLAYER LOST, PLAYER MET A LOSE CONDITION ---------------  */
     public void Lost()
     {
-        Debug.Log("Time at loosing: " + timer.GetCurrentTime());
+        Debug.Log("Time at loosing: " + timer.GetCurrentTime() + " || Position at loosing: " + transform.position);
         timer.Disappear();
         StopMovement();
         
@@ -535,7 +535,7 @@ public class Ball : MonoBehaviour
     /*
      *  Deactivates the player attached scripts "Ball" and "AccelerometerMovement". Hence all the effects and manipulations caused by them will be absent.
     **/
-    private void DeactivatePlayerControls()
+    public void DeactivatePlayerControls()
     {
         if(GetComponent<BallControls>()) GetComponent<BallControls>().enabled = false;
         if(GetComponent<ControlsBallFromBehind>()) GetComponent<ControlsBallFromBehind>().enabled = false;
@@ -546,7 +546,7 @@ public class Ball : MonoBehaviour
     /*
      * Activates the player attached scripts "Ball" and "AccelerometerMovement"
      **/
-    private void ActivatePlayerControls()
+    public void ActivatePlayerControls()
     {
         if(GetComponent<BallControls>()) GetComponent<BallControls>().enabled = true;
         if(GetComponent<ControlsBallFromBehind>()) GetComponent<ControlsBallFromBehind>().enabled = true;

@@ -27,6 +27,8 @@ public class HexagonDistraction : MonoBehaviour
     private const int BLINKING_STOP = 1;
     private const int SCROLLING_TEXT = 2;
     private const int SCROLLING_TEXT_STOP = 3;
+    private const int LOSE_CONTROL = 4;
+    private const int REGAIN_CONTROL = 5;
 
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */
@@ -104,6 +106,18 @@ public class HexagonDistraction : MonoBehaviour
                 GameObject distraction = GameObject.Find(distractionFolder);
                 Destroy	(distraction);
             break;
+
+            case LOSE_CONTROL:
+            {
+                player.DeactivatePlayerControls();
+                break;
+            }
+
+            case REGAIN_CONTROL:
+            {
+                player.ActivatePlayerControls();
+                break;
+            }
         }
 
         wasTouchedBefore = true;
@@ -288,7 +302,13 @@ public class HexagonDistraction : MonoBehaviour
                 return prefix + nameof(SCROLLING_TEXT).ToLower();
 
             case SCROLLING_TEXT_STOP:
-                return prefix + nameof(SCROLLING_TEXT_STOP).ToLower();            
+                return prefix + nameof(SCROLLING_TEXT_STOP).ToLower();  
+
+            case LOSE_CONTROL:
+                return prefix + nameof(LOSE_CONTROL).ToLower();
+
+            case REGAIN_CONTROL:
+                return prefix + nameof(REGAIN_CONTROL).ToLower();          
         }
 
         return "";
