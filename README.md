@@ -1,39 +1,22 @@
 ## HexArcade 
-### Projektbetreuung
-> Prof. Dr. Tobias Lenz
-### Teilnehmende
-> Florian
+#### Projektbetreuung
+Prof. Dr. Tobias Lenz
+
+#### Teilnehmende
+Adil Altuner  
+Daphna Beljavskij   
+Diro Baloska  
+Florian Murzov-Pirkl  
+John Warkulat  
+Michael Schlesener   
 
 
-> Daphna  
+## Beschreibung
+Heutzutage prasseln auf den Menschen eine Vielzahl an verschiedensten Eindrücken ein.Eine Push Benachrichtigung hier, eine Mail dort, noch schnell auf die Nachricht antworten und dabei den Kaffee nicht verschütten, um dann frisch geduscht ins Zoom-Meeting zu kommen. Die konstante Überflutung unserer Reize und die wenige Zeit die uns pro Tag zur Verfügung stehen sorgen dafür, dass es uns immer schwerer fällt Dingen und Aufgaben unsere ungeteilte Aufmerksamkeit schenken zu können.
+### Unser Ziel
+Der Grundgedanke dieses Projektes ist es, diesem Umstand entgegenzuwirken und mithilfe einer Anwedung die Konzentrationfähigkeit, aber auch die Motorik, spielerisch zu verbessern.
+Deshalb war es unser Ziel, ein Spiel zu entwickeln, das jederzeit und in kurzen Sessions gespielt und so diese Fähigkeiten Schritt für Schritt wieder trainiert werden können. Das Endprodukt was dabei entstanden ist, heißt *HexArcade*
 
+### Was ist HexArcade?
 
-> Michael  
-
-> Diro  
-
-> John  
-### Über das Projekt
-At vero eos et accusam sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-#### General Idea
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-
-At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-At vero eos et accusam et justo duo dolores et ea rebum.
-#### HexArcade
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-### Videos
-*click on the images for opening the trailers*
-#### TOTALLY LEGIT HEXARCADE GAMEPLAY [WORLD PREMIERE!!!]
-> [![TOTALLY LEGIT HEXARCADE GAMEPLAY [WORLD PREMIERE!!!]](http://img.youtube.com/vi/o268qbb_0BM/0.jpg)](http://www.youtube.com/watch?v=dQw4w9WgXcQ)   
-#### HexArcade: Recogning  - Cinematic Reveal Trailer | PS5, Series X, GameBoy [4k]
-> [![HexArcade: Recogning  - Cinematic Reveal Trailer | PS5, Series X, GameBoy [4k]](http://img.youtube.com/vi/nb0YoRMXIY0/0.jpg)](http://www.youtube.com/watch?v=uwmeH6Rnj2E)  
-### Screenshots
-#### Made with Markdown Syntax
-> ![Funny](https://www.imgbase.info/images/safe-wallpapers/miscellaneous/funny/51464_funny_doge_doge_follow_your_dreams.jpg) 
-#### Made with good ol' HTML
-> <img src="https://www.imgbase.info/images/safe-wallpapers/miscellaneous/funny/51464_funny_doge_doge_follow_your_dreams.jpg" alt="Doge"
-	title="A cute doge "  height="300" />
-### Links
+*HexArcade* ist ein in Unity aufgebautes Mobile Game, in dem der Spieler versucht, durch kippen des Smartphones, einen Ball über ein Feld aus Hexagonen zu steuern. Es gibt jedoch nur einen korrekten Weg, um von Start- zum Zielpunkt zu gelangen. Zu Beginn leuchtet dieser Weg kurz auf und der Spieler muss versuchen, sich den Pfad so gut wie möglich in dieser Zeit zu merken. Es ist Konzentration und Geschick gefragt, um den Ball dann so schnell wie möglich ins Ziel zu bringen, vorallem weil genügend Überrauschungen auf dem Weg liegen können ...  
