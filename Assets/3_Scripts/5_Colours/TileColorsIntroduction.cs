@@ -128,11 +128,13 @@ public class TileColorsIntroduction : MonoBehaviour
         
         Dictionary<int, List<Hexagon>> colorList = tileOptions.GetTiles();        
         int numberOfLists = colorList.Count;
+        int countActualSteps = 0;        
 
         for(int i = 0; i < numberOfLists; i++)
         {
             if(colorList.TryGetValue(i, out List<Hexagon> hexagonList)) // if the key is available, then just procceed
             {
+                
                 List<Hexagon> hexagons = hexagonList;
             
                 for(int k = 0; k < hexagons.Count; k++)
@@ -141,7 +143,16 @@ public class TileColorsIntroduction : MonoBehaviour
                     if(tileOptions.CameraShouldFollow())
                     {
                         cam.SetTarget(hexagons[k].transform);
-                    }                    
+                    }
+                    
+                    if(countActualSteps == colorList.Count - 1)
+                    {                        
+                        cam.GetBackInPosition();                        
+                        while(!cam.GetCameraReachedFinalPosition() && !skipButton.IsButtonPressed())  // wait for the user to finish watching the introduction screen
+                        {
+                            yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
+                        }
+                    }
                 }
 
                 stopTime = Time.fixedTime + tileOptions.GetTimeToNextTile(); // wait for the specified seconds
@@ -149,6 +160,7 @@ public class TileColorsIntroduction : MonoBehaviour
                 {
                     yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
                 }
+                countActualSteps++;             
             }
             else
             {

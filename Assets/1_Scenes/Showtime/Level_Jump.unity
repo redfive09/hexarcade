@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -249,7 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 2
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &45263953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,7 +784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 2
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &259819844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,7 +1154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 2
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &335530984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,7 +1293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 2
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &428728689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1616,7 +1620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 2
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &534083170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2105,7 +2110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 2
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &733578762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2415,7 +2421,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 2
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &919783634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2779,7 +2786,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 2
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1149327378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2938,7 +2946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 2
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1181237282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3076,7 +3085,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 2
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1200841351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4004,7 +4014,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40030688696f25d49b21d889c61a5fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedTileBreaksInSeconds: 2
+  crackedTileTrapsInSeconds: 0
+  fallDepth: 1.5
 --- !u!114 &1588106608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4105,6 +4116,7 @@ GameObject:
   - component: {fileID: 1680535493}
   - component: {fileID: 1680535492}
   - component: {fileID: 1680535491}
+  - component: {fileID: 1680535494}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4169,13 +4181,31 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680535490}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1680535494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680535490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1726d9565e37db4f9c498439a59c479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useLerp: 0
+  timeAlignment: 0.15
+  focusTarget: 0
+  offset: {x: 0, y: 15, z: 0}
+  experimentCamera: 0
+  changePositionOffset: {x: 0, y: 15, z: 0}
 --- !u!1 &1722301668
 GameObject:
   m_ObjectHideFlags: 0

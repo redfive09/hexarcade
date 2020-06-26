@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class Ball : MonoBehaviour
 {    
     private const float TIME_TO_CHECK_AGAIN = 0.06f; // Waiting time for Coroutines
+    private const float CAMERA_TIME_ALIGNMENT = 0.75f;
 
     private Rigidbody rb;
     private CameraFollow cameraFollow;
@@ -22,13 +23,14 @@ public class Ball : MonoBehaviour
     private Tiles tiles;
     private TileColorsIntroduction tileColorsIntroduction;
     private TutorialManager tutorialManager;
-    private List<Vector3> positions = new List<Vector3>();
+    private GameObject accelerometerInformation;    
     Dictionary<int, List<Hexagon>> checkpointTiles;    
     private bool hasWatchedIntroductionScreen = false;
     private bool gameStarted = false;
     private int playerNumber;
     private float loseHeight = -10;
     // private int replayPositionCounter = 0;
+    // private List<Vector3> positions = new List<Vector3>();
     
     
 
@@ -61,6 +63,7 @@ public class Ball : MonoBehaviour
         cameraFollow = GetPlayerCamera().GetComponent<CameraFollow>();
         skipButton = GetComponentInChildren<SkipButton>();
         tutorialManager = GetComponentInChildren<TutorialManager>(true);
+        accelerometerInformation = GetComponentInChildren<AccelorometerReading>(true).transform.parent.gameObject;
 
         GameObject loseTile = GameObject.Find("Map/UntaggedGameObjects/LoseHeight");
         loseHeight = loseTile.transform.position.y;
@@ -92,9 +95,9 @@ public class Ball : MonoBehaviour
         }
 
 
-        if(settings.IsIntroductionScreen())                                         // check if the level has a introduction screen to show
-        {
-            tutorialManager.gameObject.SetActive(true);
+        // if(settings.IsIntroductionScreen())                                         // check if the level has a introduction screen to show
+        // {
+            // tutorialManager.gameObject.SetActive(true);
           /*  ShowIntroductionScreen();                                               // if so, show it
 
             while(!hasWatchedIntroductionScreen)                                    // wait for the user to finish watching the introduction screen
@@ -102,7 +105,7 @@ public class Ball : MonoBehaviour
                 
                 yield return new WaitForSeconds(TIME_TO_CHECK_AGAIN);
             }*/
-        }
+        // }
 
         /* --------------- DISPLAYING NON-STANDARD TILES ---------------  */
                 
@@ -178,7 +181,7 @@ public class Ball : MonoBehaviour
     
     private void ShowNonStandardTiles(bool chooseCheckPoints)
     {
-        cameraFollow.ChangeCameraSettings(false, false);                                        // change settings for colour introductions
+        cameraFollow.ChangeCameraSettings(false, false, CAMERA_TIME_ALIGNMENT);                 // change settings for colour introductions
         tileColorsIntroduction.DisplayTiles(chooseCheckPoints, skipButton, cameraFollow);       // display the non-standard tiles
     }
 
@@ -207,14 +210,14 @@ public class Ball : MonoBehaviour
         checkpointController.enabled = false;                                   // disable the checkpointController, since we don't need it anymore
         GetPlayerCamera().orthographic = false;                                 // change the projection of the camera
         cameraFollow.enabled = true;                                            // enable the player camera again
-        cameraFollow.ChangeCameraSettings(false, true);                         // change settings for a nice effect, while going back to the last target
+        cameraFollow.ChangeCameraSettings(false, true, CAMERA_TIME_ALIGNMENT);  // change settings for a nice effect, while going back to the last target
         cameraFollow.GetBackInPosition();                                       // go back to target
     }
 
     private void FinishShowingNonStandardTiles()
     {
         skipButton.Reset();
-        cameraFollow.ChangeCameraSettings(false, false);                        // change settings for colour introductions
+        cameraFollow.ChangeCameraSettings(false, false, CAMERA_TIME_ALIGNMENT); // change settings for colour introductions
         tileColorsIntroduction.Finish();                                        // as soon as the player has choosen the checkpoints and the camera is back, the colours start fading
         cameraFollow.ResetCameraRotation();                                     // get original rotation back
     }
@@ -236,7 +239,13 @@ public class Ball : MonoBehaviour
     private void PrepareGameStart()
     {
         cameraFollow.ResetCameraSettings();                                     // set the original camera settings        
-        skipButton.gameObject.SetActive(false);                                 // disappear the skipbutton        
+        skipButton.gameObject.SetActive(false);                                 // disappear the skipbutton
+        accelerometerInformation.SetActive(true);                               // activate the accelerometerGUI elements
+        
+        if(settings.IsIntroductionScreen())                                     // check if the level has a introduction screen to show
+        {
+            tutorialManager.gameObject.SetActive(true);        
+        }
     }
 
 
@@ -246,7 +255,7 @@ public class Ball : MonoBehaviour
      *  The player gets its controls and the timer will show up
      */
     private void GameStarts()
-    {
+    {        
         gameStarted = true;
         rb.constraints = RigidbodyConstraints.None;
         ActivatePlayerControls();
@@ -338,6 +347,7 @@ public class Ball : MonoBehaviour
         {
             tutorialManager.gameObject.SetActive(false);
         }
+        accelerometerInformation.SetActive(false);
         
         if(gameStarted)
         {
@@ -370,11 +380,6 @@ public class Ball : MonoBehaviour
     {
         timer.SetStopWatch(seconds);
         timer.Show();        
-        
-        if (settings.IsIntroductionScreen()) // check if the level has a introduction screen to show
-        {
-            tutorialManager.gameObject.SetActive(true);
-        }
 
         skipButton.gameObject.SetActive(true);
         skipButton.Reset();
@@ -383,10 +388,16 @@ public class Ball : MonoBehaviour
         {
             yield return new WaitForSeconds(0.00001f);
         }
+
+        if (settings.IsIntroductionScreen()) // check if the level has a introduction screen to show
+        {
+            tutorialManager.gameObject.SetActive(true);
+        }
         
         skipButton.gameObject.SetActive(false);
         rb.constraints = RigidbodyConstraints.None;
         ActivatePlayerControls();
+        accelerometerInformation.SetActive(false);
 
         if(!occupiedTile.GetHexagon().IsStartingTile())
         { 

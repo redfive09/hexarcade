@@ -15,7 +15,8 @@ public class CameraFollow : MonoBehaviour
     private bool cameraReachedFinalPosition;
     private bool rememberLerp;
     private bool rememberFocus;
-    private Quaternion rememberRotation;
+    private float rememberTimeAlignment;
+    private Quaternion rememberRotation;    
 
     // experimental feature on    
     private Rigidbody playerRB;
@@ -31,6 +32,7 @@ public class CameraFollow : MonoBehaviour
 
         rememberLerp = useLerp;
         rememberFocus = focusTarget;
+        rememberTimeAlignment = timeAlignment;
         rememberRotation = transform.rotation;
 
         //experimental feature on 
@@ -85,16 +87,18 @@ public class CameraFollow : MonoBehaviour
         }        
     }
 
-    public void ChangeCameraSettings(bool lerp, bool focus)
+    public void ChangeCameraSettings(bool lerp, bool focus, float alignment)
     {
         useLerp = lerp;
         focusTarget = focus;
+        timeAlignment = alignment;        
     }
 
     public void ResetCameraSettings()
     {
         useLerp = rememberLerp;
-        focusTarget = rememberFocus;        
+        focusTarget = rememberFocus;
+        timeAlignment = rememberTimeAlignment;
     }
     
     public void ResetCameraRotation()

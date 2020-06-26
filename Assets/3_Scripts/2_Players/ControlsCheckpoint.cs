@@ -10,7 +10,7 @@ public class ControlsCheckpoint : MonoBehaviour
     private const float SENSITIVITY_SCROLL_ZOOM = 10f;
     private const float SENSITIVITY_TOUCH_ZOOM = 0.025f;
     private const float MIN_TIME_BETWEEN_PAN_AND_ZOOM = 0.15f;
-    private const float MIN_DISTANCE_FOR_PANNING_RECOGNITION = 0.05f;
+    private const float MIN_DISTANCE_FOR_PANNING_RECOGNITION = 0.05f;    
 
 
     // Fields for checkpoint (de)selection
@@ -18,7 +18,7 @@ public class ControlsCheckpoint : MonoBehaviour
     private Dictionary<Hexagon, Color> rememberOriginalColors = new Dictionary<Hexagon, Color>();
     private Color checkpointTilesColor;
     private Tiles tiles;
-    private Ray ray;    
+    private Ray ray;
     private int numberOfCheckpoints;
     private int chosenCheckpoints = 0;
     private CheckpointCounter checkpointCounter;
@@ -46,7 +46,7 @@ public class ControlsCheckpoint : MonoBehaviour
     
        checkpointCounter.Appear();
        checkpointCounter.SetCounter(numberOfCheckpoints);
-       cam.orthographicSize = (cam.orthographicSize + cam.GetComponent<CameraFollow>().GetOffset().y) / 2.25f;
+       cam.orthographicSize = (cam.orthographicSize + cam.GetComponent<CameraFollow>().GetOffset().y) / 2.25f;       
        Debug.Log("Choose " + numberOfCheckpoints + " path tiles as checkpoints now");
    }
 
