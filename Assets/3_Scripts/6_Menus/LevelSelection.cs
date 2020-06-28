@@ -22,7 +22,7 @@ public class LevelSelection : MonoBehaviour
     private int maxLevelsPerPage;
     
     private Dictionary<string, List<string>> worlds = new Dictionary<string, List<string>>();
-    private List<string> worldList = new List<string>();    
+    private List<string> worldList = new List<string>();
     
     
     private void Start()
@@ -37,6 +37,7 @@ public class LevelSelection : MonoBehaviour
         
         ManageLevels();
         ShowLevels();
+        
         // PrintAllLevels();
     }
 
@@ -89,12 +90,15 @@ public class LevelSelection : MonoBehaviour
             }
         }        
         SceneTransitionValues.allLevels = allLevels;
+        SceneTransitionValues.worlds = worlds;
+        SceneTransitionValues.worldList = worldList;
         currentWorld.text = worldList[0];
         CalculatePages();
+        CheckNeedForWorldPageButtons();
     }
 
     private void ShowLevels()
-    {
+    {        
         for(int i = 0; i < maxLevelsPerPage; i++)        
         {
             levelFolder.transform.GetChild(i).gameObject.SetActive(true);                                   // make sure all buttons are activates, otherwise we cannot acces their scripts
@@ -116,7 +120,8 @@ public class LevelSelection : MonoBehaviour
             {
                 levelButtons[i].gameObject.SetActive(false);                                                // if there was no level left for this button, make it disappear
             }
-        }        
+        }
+        CheckNeedForLevelPageButtons();      
     }
 
     private void WorldChanged(bool nextWorld)
@@ -173,6 +178,29 @@ public class LevelSelection : MonoBehaviour
             currentPage = 1;
         }
         ShowLevels();
+    }
+
+    private void CheckNeedForLevelPageButtons()
+    {
+        if(maxPages == 1)
+        {
+            previousPageButton.SetActive(false);
+            nextPageButton.SetActive(false);
+        }
+        else
+        {
+            previousPageButton.SetActive(true);
+            nextPageButton.SetActive(true);
+        }
+    }
+
+    private void CheckNeedForWorldPageButtons()
+    {
+        if(worldList.Count == 1)
+        {
+            previousWorld.SetActive(false);
+            nextWorld.SetActive(false);
+        }
     }
 
     public void Menu()

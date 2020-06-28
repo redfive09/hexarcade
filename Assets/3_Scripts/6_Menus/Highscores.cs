@@ -7,8 +7,8 @@ using System.Collections.Generic;
 // Thx to -> https://github.com/SebLague/Dreamlo-Highscores/blob/master/Episode%2002/Highscores.cs && https://www.youtube.com/watch?v=KZuqEyxYZCc
 public class Highscores : MonoBehaviour {
 
-	const string privateCode = "ZzS_SAddkkufuTI20AAeKA1IB4xtQMEEuT0Lb0MjZnUg";
-	const string publicCode = "5ef12968377eda0b6c5ebd12";
+	const string privateCode = "z0wJr1tbBEiv_bVC-eXGyQCT3HuOeCeE25FS9VUjlnWQ";
+	const string publicCode = "5ef90b7e377eda0b6c89efae";
 	const string webURL = "http://dreamlo.com/lb/";
     
     // ABSOLUTELY PRIVAT LINK: http://dreamlo.com/lb/ZzS_SAddkkufuTI20AAeKA1IB4xtQMEEuT0Lb0MjZnUg
@@ -76,6 +76,7 @@ public class Highscores : MonoBehaviour {
 
 	void FormatHighscores(string textStream) 
 	{
+		levelBestTimes.Clear();
 		string[] entries = textStream.Split(new char[] {'\n'}, System.StringSplitOptions.RemoveEmptyEntries);
 
 		for (int i = 0; i <entries.Length; i++) 
@@ -86,12 +87,12 @@ public class Highscores : MonoBehaviour {
 			float time = Timer.ConvertToFloat(intTime);			
 			SetPosition(levelUsername[0], levelUsername[1], time);
 			// print (levelUsername[0] + ": " + levelUsername[1] + ": " + time);
-		}
+		}		
 	}
 
 	private void SetPosition(string level, string username, float time)
-	{
-		LinkedList<Highscore> levelHighscores;
+	{		
+		LinkedList<Highscore> levelHighscores;	
 		if(levelBestTimes.TryGetValue(level, out LinkedList<Highscore> levelHighscoreListExists))
 		{
 			levelHighscores = levelHighscoreListExists;

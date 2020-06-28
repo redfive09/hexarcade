@@ -12,5 +12,6 @@ public class SceneTransitionValues : MonoBehaviour
     public static bool alreadyEnteredEndScreen;
     public static string playerName;
     public static List<string> allLevels;
-    
+    public static Dictionary<string, List<string>> worlds;
+    public static List<string> worldList;    
 }

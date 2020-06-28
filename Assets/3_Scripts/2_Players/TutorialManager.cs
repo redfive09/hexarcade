@@ -6,7 +6,7 @@ public class TutorialManager : MonoBehaviour
 {
    public TextMeshProUGUI[] popUps;
    private int popUpIndex;
-   public float waitTime;
+   [SerializeField] float waitTime;
    
    
    void Start()
@@ -25,13 +25,6 @@ public class TutorialManager : MonoBehaviour
 
             StartCoroutine(ShowInstructions());
       }
-   }
-   void Update()
-   {
-      //Debug.Log(Time.timeScale);
-    
-         
-
    }
 
    IEnumerator ShowInstructions()
@@ -101,7 +94,7 @@ public class TutorialManager : MonoBehaviour
          }
             
          SetInformationText(3, 0.3f, information);
-      }  
+      }
    }
 
    public void SetInformationText(float startFading, float fadingSpeed, string information)

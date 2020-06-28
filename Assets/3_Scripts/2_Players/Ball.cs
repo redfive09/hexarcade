@@ -29,6 +29,10 @@ public class Ball : MonoBehaviour
     private bool gameStarted = false;
     private int playerNumber;
     private float loseHeight = -10;
+    private Vector3 rememberVelocity;
+    private bool controlOn = false;
+    private bool wasControlOn = false;
+
     // private int replayPositionCounter = 0;
     // private List<Vector3> positions = new List<Vector3>();
     
@@ -351,7 +355,9 @@ public class Ball : MonoBehaviour
         
         if(gameStarted)
         {
+            rememberVelocity = rb.velocity;
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            wasControlOn = controlOn;
             DeactivatePlayerControls();
             timer.Pause();
             timer.Disappear();           
@@ -396,7 +402,13 @@ public class Ball : MonoBehaviour
         
         skipButton.gameObject.SetActive(false);
         rb.constraints = RigidbodyConstraints.None;
-        ActivatePlayerControls();
+        rb.velocity = rememberVelocity;
+
+        if(wasControlOn)
+        {
+            ActivatePlayerControls();
+        }
+
         accelerometerInformation.SetActive(false);
 
         if(!occupiedTile.GetHexagon().IsStartingTile())
@@ -442,14 +454,15 @@ public class Ball : MonoBehaviour
             {
                 if(occupiedTile != null)            // Prevent a NullReferenceException
                 {
-                    occupiedTile.GotUnoccupied(this);   // Tell the former occupiedTile, that this ball left                    
+                    occupiedTile.GotUnoccupied(this);   // Tell the former occupiedTile, that this ball left
+                    AnalyseUnoccupiedHexagon(occupiedTile.GetComponent<Hexagon>());
                 }
 
                 if(currentTile != null)                 // in case it is a crackableTile, it could be gone already
                 {
                     currentTile.GotOccupied(this);      // Tell the currentTile, that this player stands on it
                     occupiedTile = currentTile;         // Save the current tile
-                    AnalyseArrivedHexagon(currentTile.GetComponent<Hexagon>());
+                    AnalyseOccupiedHexagon(currentTile.GetComponent<Hexagon>());                    
                 }
             }
         }
@@ -459,7 +472,7 @@ public class Ball : MonoBehaviour
     /*  
      *  The player has to check for some specific hexagon types in order to decide what to do next, e. g. winning tiles have to change the state of the player
     **/
-    private void AnalyseArrivedHexagon(Hexagon hexagon)
+    private void AnalyseOccupiedHexagon(Hexagon hexagon)
     {        
         if(hexagon.IsStandardTile() && settings.DoesStandardTilesMeansLosing())
         {
@@ -469,6 +482,14 @@ public class Ball : MonoBehaviour
         if (settings.IsIntroductionScreen() && !hexagon.IsStandardTile() && !hexagon.IsStartingTile())
         {
             GetComponentInChildren<TutorialManager>().CheckForNonStandardTiles(hexagon, tiles, this);
+        }
+    }
+
+    private void AnalyseUnoccupiedHexagon(Hexagon hexagon)
+    {        
+        if(hexagon.IsStartingTile() && settings.IsIntroductionScreen())
+        {
+            hexagon.SetIsStartingTile(-1);
         }
     }
 
@@ -550,7 +571,8 @@ public class Ball : MonoBehaviour
     {
         if(GetComponent<BallControls>()) GetComponent<BallControls>().enabled = false;
         if(GetComponent<ControlsBallFromBehind>()) GetComponent<ControlsBallFromBehind>().enabled = false;
-        if(GetComponent<AccelorometerMovement>()) GetComponent<AccelorometerMovement>().enabled = false;        
+        if(GetComponent<AccelorometerMovement>()) GetComponent<AccelorometerMovement>().enabled = false;
+        controlOn = false;
     }
 
 
@@ -562,6 +584,7 @@ public class Ball : MonoBehaviour
         if(GetComponent<BallControls>()) GetComponent<BallControls>().enabled = true;
         if(GetComponent<ControlsBallFromBehind>()) GetComponent<ControlsBallFromBehind>().enabled = true;
         if(GetComponent<AccelorometerMovement>()) GetComponent<AccelorometerMovement>().enabled = true;
+        controlOn = true;
     }
 
 
