@@ -8,6 +8,12 @@ public class MenuController : MonoBehaviour
     {
         SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
         SaveLoadManager.Load();
+
+        if(SceneTransitionValues.gameLoadedForTheFirstTime)
+        {
+            LevelSelection.ManageLevels();
+            SceneTransitionValues.gameLoadedForTheFirstTime = false;
+        }
     }
 
     public void StartGame()

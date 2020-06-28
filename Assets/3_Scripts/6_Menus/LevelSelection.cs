@@ -21,9 +21,6 @@ public class LevelSelection : MonoBehaviour
     private int maxPages;
     private int maxLevelsPerPage;
     
-    private Dictionary<string, List<string>> worlds = new Dictionary<string, List<string>>();
-    private List<string> worldList = new List<string>();
-    
     
     private void Start()
     {
@@ -33,17 +30,24 @@ public class LevelSelection : MonoBehaviour
         }
         
         SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
-        maxLevelsPerPage = levelFolder.transform.childCount;
+        maxLevelsPerPage = levelFolder.transform.childCount;        
         
-        ManageLevels();
+        currentWorld.text = SceneTransitionValues.worldList[0];
+        CalculatePages();
+        CheckNeedForWorldPageButtons();
+
         ShowLevels();
+        
         
         // PrintAllLevels();
     }
 
 
-    private void ManageLevels()
+    public static void ManageLevels()
     {
+        Dictionary<string, List<string>> worlds = new Dictionary<string, List<string>>();
+        List<string> worldList = new List<string>();
+
         string ignore = "_Menus";                                                       // ignore scenes from a folder, which are not levels
         int skipNamePart = ".unity".Length;                                             // every scene ends with that extension, so we can remember it (respectively its length) in order to save some time
         List<string> allLevels = new List<string>();                                    // list for all levels
@@ -88,13 +92,10 @@ public class LevelSelection : MonoBehaviour
                     break;                                                              // we found everything we need, so let's go to the next level
                 }
             }
-        }        
+        }
         SceneTransitionValues.allLevels = allLevels;
         SceneTransitionValues.worlds = worlds;
-        SceneTransitionValues.worldList = worldList;
-        currentWorld.text = worldList[0];
-        CalculatePages();
-        CheckNeedForWorldPageButtons();
+        SceneTransitionValues.worldList = worldList;        
     }
 
     private void ShowLevels()
@@ -104,7 +105,7 @@ public class LevelSelection : MonoBehaviour
             levelFolder.transform.GetChild(i).gameObject.SetActive(true);                                   // make sure all buttons are activates, otherwise we cannot acces their scripts
         }
 
-        List<string> levels = worlds[currentWorld.text];                                                    // get the levels of the current world        
+        List<string> levels = SceneTransitionValues.worlds[currentWorld.text];                                                    // get the levels of the current world        
         LevelSelectionButton[] levelButtons = levelFolder.GetComponentsInChildren<LevelSelectionButton>();  // save all button scripts
                                                                                                             // prepare variable to make sure, if the next level can be played already
         
@@ -126,20 +127,20 @@ public class LevelSelection : MonoBehaviour
 
     private void WorldChanged(bool nextWorld)
     {
-        for(int i = 0; i < worldList.Count; i++)
+        for(int i = 0; i < SceneTransitionValues.worldList.Count; i++)
         {
-            if(worldList[i] == currentWorld.text)
+            if(SceneTransitionValues.worldList[i] == currentWorld.text)
             {
                 if(nextWorld)
                 {
-                    int setNewWorld = (i + 1) % worldList.Count;
-                    currentWorld.text = worldList[setNewWorld];
+                    int setNewWorld = (i + 1) % SceneTransitionValues.worldList.Count;
+                    currentWorld.text = SceneTransitionValues.worldList[setNewWorld];
                 }
                 else
                 {
                     int setNewWorld = i - 1;
-                    if(setNewWorld < 0) setNewWorld = worldList.Count - 1;
-                    currentWorld.text = worldList[setNewWorld];
+                    if(setNewWorld < 0) setNewWorld = SceneTransitionValues.worldList.Count - 1;
+                    currentWorld.text = SceneTransitionValues.worldList[setNewWorld];
                 }
                 break;
             }            
@@ -151,7 +152,7 @@ public class LevelSelection : MonoBehaviour
 
     private void CalculatePages()    
     {
-        maxPages = Mathf.CeilToInt((float) worlds[currentWorld.text].Count / maxLevelsPerPage);     // amount of levels divided by number of buttons and then round up
+        maxPages = Mathf.CeilToInt((float) SceneTransitionValues.worlds[currentWorld.text].Count / maxLevelsPerPage);     // amount of levels divided by number of buttons and then round up
     }
 
     public void PreviousLevelPage()
@@ -196,7 +197,7 @@ public class LevelSelection : MonoBehaviour
 
     private void CheckNeedForWorldPageButtons()
     {
-        if(worldList.Count == 1)
+        if(SceneTransitionValues.worldList.Count == 1)
         {
             previousWorld.SetActive(false);
             nextWorld.SetActive(false);
@@ -220,9 +221,9 @@ public class LevelSelection : MonoBehaviour
    
     private void PrintAllLevels()
     {
-        foreach (string world in worldList)
+        foreach (string world in SceneTransitionValues.worldList)
         {
-            List<string> levelList = worlds[world];
+            List<string> levelList = SceneTransitionValues.worlds[world];
 
             foreach (string level in levelList)
             {
