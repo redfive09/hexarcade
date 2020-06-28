@@ -11,7 +11,9 @@ public class Highscores : MonoBehaviour {
 	const string publicCode = "5ef90b7e377eda0b6c89efae";
 	const string webURL = "http://dreamlo.com/lb/";
     
-    // ABSOLUTELY PRIVAT LINK: http://dreamlo.com/lb/ZzS_SAddkkufuTI20AAeKA1IB4xtQMEEuT0Lb0MjZnUg
+    // ABSOLUTELY PRIVAT LINKS: 
+	// 2020-06-26 http://dreamlo.com/lb/ZzS_SAddkkufuTI20AAeKA1IB4xtQMEEuT0Lb0MjZnUg
+	// 2020-07-xx http://dreamlo.com/lb/z0wJr1tbBEiv_bVC-eXGyQCT3HuOeCeE25FS9VUjlnWQ
 
 	private HighscoresDisplay highscoreDisplay;
 	static Highscores instance;
