@@ -119,8 +119,8 @@ public class HexagonDistraction : MonoBehaviour
             }
 
             case LOSE_CONTROL:
-            {
-                player.DeactivatePlayerControls();
+            {                
+                player.DeactivatePlayerControls();                
                 break;
             }
 

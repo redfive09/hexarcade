@@ -243,6 +243,11 @@ public class HexagonSpecial : MonoBehaviour
         this.velocity = velocity;
     }
 
+    public void SetJumpDirection(Vector3 jumpDirection)
+    {
+        this.jumpDirection = jumpDirection;
+    }
+
 
     /* ------------------------------ GETTERS FOR SPECIAL TILES ------------------------------  */
     public bool HasVFX()
