@@ -15,7 +15,7 @@ public class AccelorometerReading : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //transform.position.x += userInput.Tilt.x;
         //transform.position.z = userInput.Tilt.z;
