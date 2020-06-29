@@ -25,7 +25,7 @@ public class HexagonDistraction : MonoBehaviour
     private int distractionCase;
     private const int BLINKING_START = 0;
     private const int BLINKING_STOP = 1;
-    private const int SCROLLING_TEXT = 2;
+    private const int SCROLLING_TEXT_START = 2;
     private const int SCROLLING_TEXT_STOP = 3;
     private const int LOSE_CONTROL = 4;
     private const int REGAIN_CONTROL = 5;
@@ -36,8 +36,8 @@ public class HexagonDistraction : MonoBehaviour
     private List<Ball> players = new List<Ball>();
     private Hexagon[] platformTiles;
     private Hexagon[] allTiles;
-    private bool wasTouchedBefore = false;
     private Hexagon thisHexagon;
+    private bool touchedBefore = false;
 
 
     /* ------------------------------ MAIN METHODS FOR DISTRACTION-TILES ------------------------------  */
@@ -56,7 +56,7 @@ public class HexagonDistraction : MonoBehaviour
 
     private void TileNeedSetup()
     {
-        if(distractionCase == BLINKING_START || distractionCase == SCROLLING_TEXT)
+        if(distractionCase == BLINKING_START || distractionCase == SCROLLING_TEXT_START)
         {
             thisHexagon.SetAudio("activation");
         }         
@@ -69,7 +69,8 @@ public class HexagonDistraction : MonoBehaviour
         switch(distractionCase)
         {
             case BLINKING_START:
-                if(multipleActivationsPossible || !wasTouchedBefore)
+            {
+                if(multipleActivationsPossible || !thisHexagon.IsTouched())
                 {
                     thisHexagon.GetAudioSource().Play();
                     blinking = true;
@@ -82,30 +83,40 @@ public class HexagonDistraction : MonoBehaviour
                         StartCoroutine(StartBlinking(allTiles));
                     }
                 }
-            break;
+                break;
+            }
 
             case BLINKING_STOP:
+            {
                 StopBlinking();
                 if(setColorBackImmediately) SetColorBackImmediately();
                 break;
+            }
 
-            case SCROLLING_TEXT:
-                if (!wasTouchedBefore)
+            case SCROLLING_TEXT_START:
+            {                
+                if (!touchedBefore)
                 {
-                    GameObject ScrollingText = Instantiate(_scrollingText);
+                    GameObject scrollingText = Instantiate(_scrollingText);
                     thisHexagon.GetAudioSource().Play();
                     var Distraction = new GameObject();
                     Distraction.name = "Player" + (player.GetPlayerNumber() + 1);
                     Distraction.transform.parent = GameObject.Find("/Map/Distractions").transform;
-                    ScrollingText.transform.parent = Distraction.transform;
+                    scrollingText.transform.SetParent(Distraction.transform);                    
+                    player.SetDistractionOnCanvas(scrollingText);
+                    touchedBefore = true;
                 }
-            break;
+                break;
+            }
 
-            case SCROLLING_TEXT_STOP:            
+            case SCROLLING_TEXT_STOP:
+            {
                 string distractionFolder = "/Map/Distractions/Player" + (player.GetPlayerNumber() + 1);
-                GameObject distraction = GameObject.Find(distractionFolder);
-                Destroy	(distraction);
-            break;
+                GameObject scrollingText = GameObject.Find(distractionFolder);                
+                Destroy	(scrollingText);
+                player.RemoveDistractionOnCanvas();
+                break;
+            }
 
             case LOSE_CONTROL:
             {
@@ -119,8 +130,6 @@ public class HexagonDistraction : MonoBehaviour
                 break;
             }
         }
-
-        wasTouchedBefore = true;
     }
 
     public void DistractionTileLeft(Ball player)
@@ -298,8 +307,8 @@ public class HexagonDistraction : MonoBehaviour
             case BLINKING_STOP:
                 return prefix + nameof(BLINKING_STOP).ToLower();
 
-            case SCROLLING_TEXT:
-                return prefix + nameof(SCROLLING_TEXT).ToLower();
+            case SCROLLING_TEXT_START:
+                return prefix + nameof(SCROLLING_TEXT_START).ToLower();
 
             case SCROLLING_TEXT_STOP:
                 return prefix + nameof(SCROLLING_TEXT_STOP).ToLower();  

@@ -27,11 +27,14 @@ public class Ball : MonoBehaviour
     Dictionary<int, List<Hexagon>> checkpointTiles;    
     private bool hasWatchedIntroductionScreen = false;
     private bool gameStarted = false;
+    private bool controlOn = false;
+    private bool wasControlOn = false;
+    private bool gamePaused = false;
+    private GameObject distractionAtCanvas = null;
     private int playerNumber;
     private float loseHeight = -10;
     private Vector3 rememberVelocity;
-    private bool controlOn = false;
-    private bool wasControlOn = false;
+    
 
     // private int replayPositionCounter = 0;
     // private List<Vector3> positions = new List<Vector3>();
@@ -328,6 +331,11 @@ public class Ball : MonoBehaviour
                 /* --------------- STATUS: PLAYER LOST, PLAYER MET A LOSE CONDITION ---------------  */
     public void Lost()
     {
+        // if(gamePaused)
+        // {
+        //     GameUnpaused();
+        // }
+
         Debug.Log("Time at loosing: " + timer.GetCurrentTime() + " || Position at loosing: " + transform.position);
         timer.Disappear();
         StopMovement();
@@ -352,6 +360,8 @@ public class Ball : MonoBehaviour
             tutorialManager.gameObject.SetActive(false);
         }
         accelerometerInformation.SetActive(false);
+
+        if(distractionAtCanvas) distractionAtCanvas.SetActive(false);
         
         if(gameStarted)
         {
@@ -360,12 +370,13 @@ public class Ball : MonoBehaviour
             wasControlOn = controlOn;
             DeactivatePlayerControls();
             timer.Pause();
-            timer.Disappear();           
+            timer.Disappear();
         }
         else
         {
             skipButton.gameObject.SetActive(false);
         }
+        gamePaused = true;
     }
             
     public void GameUnpaused()
@@ -399,7 +410,7 @@ public class Ball : MonoBehaviour
         {
             tutorialManager.gameObject.SetActive(true);
         }
-        
+
         skipButton.gameObject.SetActive(false);
         rb.constraints = RigidbodyConstraints.None;
         rb.velocity = rememberVelocity;
@@ -409,12 +420,14 @@ public class Ball : MonoBehaviour
             ActivatePlayerControls();
         }
 
+        if(distractionAtCanvas) distractionAtCanvas.SetActive(true);
         accelerometerInformation.SetActive(false);
 
         if(!occupiedTile.GetHexagon().IsStartingTile())
         { 
             timer.Unpause();
         }
+        gamePaused = false;
     }
     
 
@@ -504,7 +517,7 @@ public class Ball : MonoBehaviour
         for(;;)
         {
             if(loseHeight > transform.position.y)
-            {                
+            {
                 Lost();
             }
             yield return new WaitForSeconds(0.2f);
@@ -602,6 +615,18 @@ public class Ball : MonoBehaviour
     public Camera GetPlayerCamera()
     {
         return Camera.main; // TO-DO for multiplayer: it couldn't be the main camera
+    }
+
+
+    /* ------------------------------ SETTER METHODS ------------------------------  */
+    public void SetDistractionOnCanvas(GameObject distraction)
+    {
+        distractionAtCanvas = distraction;
+    }
+
+    public void RemoveDistractionOnCanvas()
+    {
+        distractionAtCanvas = null;        
     }
 
 } // CLASS END
