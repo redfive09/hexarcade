@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 
 // Thx to -> https://github.com/SebLague/Dreamlo-Highscores/blob/master/Episode%2002/Highscores.cs && https://www.youtube.com/watch?v=KZuqEyxYZCc
@@ -36,7 +37,7 @@ public class Highscores : MonoBehaviour {
 	}
 
 	IEnumerator UploadNewHighscore(string level, string username, int time) {
-		WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(level + separatingStrings[0] + username) +  "/1337/" + time);
+		UnityWebRequest www = new UnityWebRequest(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(level + separatingStrings[0] + username) +  "/1337/" + time);
 		// Debug.Log(www.url);
 		yield return www;
 
@@ -54,29 +55,61 @@ public class Highscores : MonoBehaviour {
 		StartCoroutine(DownloadHighscoresFromDatabase());
 	}
 
-	IEnumerator DownloadHighscoresFromDatabase() {
-		WWW www = new WWW(webURL + publicCode + "/pipe/");
-		yield return www;
-		
-		if (string.IsNullOrEmpty (www.error)) {
-			FormatHighscores (www.text);
+	// IEnumerator DownloadHighscoresFromDatabase() 
+	// {
+	// 	UnityWebRequest www = new UnityWebRequest(webURL + publicCode + "/pipe/");
+	// 	yield return www;
+
+	// 	if (string.IsNullOrEmpty (www.error)) {
+	// 		FormatHighscores (www.downloadHandler.text);
+	// 		if(highscoreDisplay) 
+	// 		{
+	// 			highscoreDisplay.SetError(false);
+	// 			highscoreDisplay.OnHighscoresDownloaded(levelBestTimes);
+	// 		}
+	// 	}
+	// 	else {
+	// 		print ("Error Downloading: " + www.error);
+    //         if(highscoreDisplay) 
+	// 		{
+	// 			highscoreDisplay.SetError(true);
+	// 			highscoreDisplay.Error();
+	// 		}
+	// 	}
+
+
+	// For this method, thx to -> https://forum.unity.com/threads/api-web-request-error-help-nullreferenceexception.549760/
+	IEnumerator DownloadHighscoresFromDatabase()
+    {		
+        UnityWebRequest request = new UnityWebRequest();
+ 
+        request = UnityWebRequest.Get(webURL + publicCode + "/pipe/");
+ 
+        yield return request.SendWebRequest();
+ 
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.Log(request.error);
+			if(highscoreDisplay) 
+			{
+				highscoreDisplay.SetError(true);
+				highscoreDisplay.Error();
+			}
+        }
+        else
+        {            
+            // Debug.Log(request.downloadHandler.text); // Show results as text
+            
+			FormatHighscores(request.downloadHandler.text);
 			if(highscoreDisplay) 
 			{
 				highscoreDisplay.SetError(false);
 				highscoreDisplay.OnHighscoresDownloaded(levelBestTimes);
 			}
-		}
-		else {
-			print ("Error Downloading: " + www.error);
-            if(highscoreDisplay) 
-			{
-				highscoreDisplay.SetError(true);
-				highscoreDisplay.Error();
-			}
-		}
-	}
+        }        
+    }
 
-	void FormatHighscores(string textStream) 
+	void FormatHighscores(string textStream)
 	{
 		levelBestTimes.Clear();
 		string[] entries = textStream.Split(new char[] {'\n'}, System.StringSplitOptions.RemoveEmptyEntries);
