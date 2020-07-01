@@ -12,10 +12,12 @@ public class TilesApplyForAll : MonoBehaviour
     private const int VELOCITIY = 1;
     private const int LOSING = 2;
     private const int REMOVE_LOSING = 3;
+    private const int JUMP_PADS = 4;
 
 
     [SerializeField] private float crackedTileBreaksInSeconds;
     [SerializeField] private float velocity;
+    [SerializeField] private Vector3 jumpDirection;
 
 
     public void SetTiles(int operationNumber)
@@ -57,6 +59,13 @@ public class TilesApplyForAll : MonoBehaviour
                     {
                         hexagon.SetIsSpecialTile(-1);
                     }
+                    break;
+                }
+
+                case JUMP_PADS:
+                {
+                    HexagonSpecial hexagon = tiles[i].GetComponent<HexagonSpecial>();
+                    if(hexagon) hexagon.SetJumpDirection(jumpDirection);
                     break;
                 }
             }

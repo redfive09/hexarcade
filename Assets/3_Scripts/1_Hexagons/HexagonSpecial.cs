@@ -8,7 +8,6 @@ public class HexagonSpecial : MonoBehaviour
     /* ------------------------------ FIELDS FOR TELEPORTERS ------------------------------  */
     [SerializeField] private bool teleporterEntrance;
     [SerializeField] private bool keepSpeedThroughTeleporter;
-    [SerializeField] private bool reverseSpeed;
     [SerializeField] private int teleporterNumber;
     [SerializeField] private int teleporterConnectedWith;
     [SerializeField] private Vector3 teleporterOffset;
@@ -95,7 +94,6 @@ public class HexagonSpecial : MonoBehaviour
                     if(teleporterEntrance)
                     {
                         if(!keepSpeedThroughTeleporter) player.StopMovement();
-                        if(reverseSpeed) player.ReverseMovement();
                         Hexagon teleporterExit = FindTeleporterExit();
                         if(teleporterExit) player.GoToSpawnPosition(teleporterExit, teleporterOffset, false);
                         if(jumpDirection.sqrMagnitude != 0) player.GetRigidbody().AddForce(jumpDirection);
@@ -243,6 +241,11 @@ public class HexagonSpecial : MonoBehaviour
     public void SetVelocity(float velocity)
     {
         this.velocity = velocity;
+    }
+
+    public void SetJumpDirection(Vector3 jumpDirection)
+    {
+        this.jumpDirection = jumpDirection;
     }
 
 

@@ -46,7 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 7806642066602230678, guid: 7effc9b935780834aa6d9fdad5c365ee, type: 3}
   numberOfPlayers: 1
-  spawnPositionAtTile: {x: 0, y: 1, z: 0}
 --- !u!114 &4760833730494697969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +122,8 @@ MonoBehaviour:
   numberOfCheckpoints: 0
   stoptimeForCheckpoints: 0
   standardTilesMeansLosing: 0
+  spawnPositionOffset: {x: 0, y: 1, z: 0}
+  restartingInsteadOfMenu: 0
 --- !u!1 &1291507163197268973
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,8 +183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e46712b9065b943b6f6f1bed225df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applyForAllCrackableTiles: 0
   crackedTileBreaksInSeconds: 0
+  velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &4449128563728522217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,41 +198,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1b4501ad6ef7f448b114b032cf12c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraFollowCrackedTiles: 0
   crackedTilesColorStartTime: 0
   crackedTilesColorTime: 0
   crackedTimeBeforeFading: 0
   crackedTilesColorFading: 0
   crackedTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowPathTiles: 0
   pathTilesColorStartTime: 0
   pathTilesColorTime: 0
   pathTimeBeforeFading: 0
   pathTilesColorFading: 0
   pathTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowDistractionTiles: 0
   distractionTilesColorStartTime: 0
   distractionTilesColorTime: 0
   distractionTimeBeforeFading: 0
   distractionTilesColorFading: 0
   distractionTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowCheckpointTiles: 0
   checkpointTilesColorStartTime: 0
   checkpointTilesColorTime: 0
   checkpointTimeBeforeFading: 0
   checkpointTilesColorFading: 0
   checkpointTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowSpecialTiles: 0
   specialTilesColorStartTime: 0
   specialTilesColorTime: 0
   specialTimeBeforeFading: 0
   specialTilesColorFading: 0
   specialTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowMovingTiles: 0
   movingTilesColorStartTime: 0
   movingTilesColorTime: 0
   movingTimeBeforeFading: 0
   movingTilesColorFading: 0
   movingTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowStartingTiles: 0
   startingTilesColorStartTime: 0
   startingTilesColorTime: 0
   startingTimeBeforeFading: 0
   startingTilesColorFading: 0
   startingTilesColor: {r: 0, g: 0, b: 0, a: 0}
+  cameraFollowWinningTiles: 0
   winningTilesColorStartTime: 0
   winningTilesColorTime: 0
   winningTimeBeforeFading: 0
@@ -349,6 +359,76 @@ Transform:
   m_Father: {fileID: 8304183964364371795}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1301561278391193772
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8232741008106995100}
+    m_Modifications:
+    - target: {fileID: 3618799417640099069, guid: 0a7765b929327ac46bc1d5dc1a16d5e3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618799417640099069, guid: 0a7765b929327ac46bc1d5dc1a16d5e3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618799417640099069, guid: 0a7765b929327ac46bc1d5dc1a16d5e3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618799417640099069, guid: 0a7765b929327ac46bc1d5dc1a16d5e3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618799417640099069, guid: 0a7765b929327ac46bc1d5dc1a16d5e3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618799417640099069, guid: 0a7765b929327ac46bc1d5dc1a16d5e3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618799417640099069, guid: 0a7765b929327ac46bc1d5dc1a16d5e3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618799417640099069, guid: 0a7765b929327ac46bc1d5dc1a16d5e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618799417640099069, guid: 0a7765b929327ac46bc1d5dc1a16d5e3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618799417640099069, guid: 0a7765b929327ac46bc1d5dc1a16d5e3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618799417640099069, guid: 0a7765b929327ac46bc1d5dc1a16d5e3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415856898314525827, guid: 0a7765b929327ac46bc1d5dc1a16d5e3,
+        type: 3}
+      propertyPath: m_Name
+      value: disco-neon-levelground Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6101117331119695099, guid: 0a7765b929327ac46bc1d5dc1a16d5e3, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 0a7765b929327ac46bc1d5dc1a16d5e3, type: 3}
 --- !u!1001 &6837261492988924882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -365,6 +445,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2713309262422829314, guid: 9b19437d0a6bdfe4690258fef11a72b7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3216211466144050766, guid: 9b19437d0a6bdfe4690258fef11a72b7,
         type: 3}
@@ -419,6 +504,11 @@ PrefabInstance:
     - target: {fileID: 3216211466144050766, guid: 9b19437d0a6bdfe4690258fef11a72b7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383829734231067555, guid: 9b19437d0a6bdfe4690258fef11a72b7,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

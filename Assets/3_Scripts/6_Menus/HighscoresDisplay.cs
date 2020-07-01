@@ -8,12 +8,14 @@ using System.Collections.Generic;
 // Thx to -> https://github.com/SebLague/Dreamlo-Highscores/blob/master/Episode%2002/DisplayHighscores.cs // https://www.youtube.com/watch?v=9jejKPPKomg
 public class HighscoresDisplay : MonoBehaviour
 {
+	private const int REFRESH_HIGHSCORE_IN_SECONDS = 30;
     [SerializeField] private GameObject leaderboard;
 	[SerializeField] private GameObject levelGO;
     private TextMeshProUGUI[] highscoreFields;
 	private Highscores highscoresManager;	
 	private string level;
 	private bool error = false;
+	
 	
 
 	void Start() 
@@ -45,8 +47,10 @@ public class HighscoresDisplay : MonoBehaviour
 		{			
             highscoreFields[i] = leaderboard.transform.GetChild(i).GetComponent<TextMeshProUGUI>();
 			highscoreFields[i].gameObject.SetActive(true);
-			highscoreFields[i].text = "Fetching...";
+			highscoreFields[i].text = "";
 		}
+		string message = "Fetching...";
+		SetMiddleTextField(message);
 	}
 	
 	public void OnHighscoresDownloaded(Dictionary<string, LinkedList<Highscore>> levelBestTimes) 
@@ -72,7 +76,7 @@ public class HighscoresDisplay : MonoBehaviour
 
 		if(!highscoreFields[0].gameObject.activeSelf)
 		{
-			string message = "No one finished this map!";			
+			string message = "No one finished this map!";
 			SetMiddleTextField(message);
 		}
 	}
@@ -82,10 +86,9 @@ public class HighscoresDisplay : MonoBehaviour
 			if(error)
 			{
 				SetupHighscoreFields();
-			}
-
+			}			
 			highscoresManager.DownloadHighscores();
-			yield return new WaitForSeconds(30);
+			yield return new WaitForSeconds(REFRESH_HIGHSCORE_IN_SECONDS);
 		}
 	}
 

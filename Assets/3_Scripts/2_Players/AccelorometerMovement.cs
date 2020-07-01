@@ -29,7 +29,7 @@ public class AccelorometerMovement : MonoBehaviour
      * The read out values are offset to work as intuitive control on a game object viewed form above as it is the case with LookAt(<GameObject>, Verctor3.forward) and if then applied as force on it .
      * To further have the option scale the magnitude of "force" applied a additional multiplier is added to the calculation.
      */
-    void Update()
+    void FixedUpdate()
     {
         //Vector3 tilt = Input.acceleration;
         tilt = AdjustedAccelerometer;

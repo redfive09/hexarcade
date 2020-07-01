@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public static class SaveLoadManager
 {
     private static string nameOfSaveFile = "/time_records.lox";
-    private static string versionController = "2020-06-24";
+    private static string versionController = "2020-06-28";
 
     public static TimeKeeper Load()
     {

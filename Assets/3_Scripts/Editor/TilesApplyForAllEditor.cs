@@ -25,6 +25,14 @@ public class TilesApplyForAllEditor : Editor {
             tilesApplyForAll.SetTiles(1);            
         }
 
+        if (GUILayout.Button("Set all Jump Pads"))
+        {
+            CollectTiles();
+            tilesApplyForAll.SetTiles(4);
+            CollectTiles();
+            UpdateNames();
+        }
+
         if (GUILayout.Button("Set all Standard Tiles to Loosing Tiles"))
         {
             CollectTiles();

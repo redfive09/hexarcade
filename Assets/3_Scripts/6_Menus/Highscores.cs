@@ -2,16 +2,19 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 
 // Thx to -> https://github.com/SebLague/Dreamlo-Highscores/blob/master/Episode%2002/Highscores.cs && https://www.youtube.com/watch?v=KZuqEyxYZCc
 public class Highscores : MonoBehaviour {
 
-	const string privateCode = "ZzS_SAddkkufuTI20AAeKA1IB4xtQMEEuT0Lb0MjZnUg";
-	const string publicCode = "5ef12968377eda0b6c5ebd12";
-	const string webURL = "http://dreamlo.com/lb/";
+	const string privateCode = "z0wJr1tbBEiv_bVC-eXGyQCT3HuOeCeE25FS9VUjlnWQ";
+	const string publicCode = "5ef90b7e377eda0b6c89efae";
+	const string webURL = "https://www.dreamlo.com/lb/";
     
-    // ABSOLUTELY PRIVAT LINK: http://dreamlo.com/lb/ZzS_SAddkkufuTI20AAeKA1IB4xtQMEEuT0Lb0MjZnUg
+    // ABSOLUTELY PRIVAT LINKS: 
+	// 2020-06-26 http://dreamlo.com/lb/ZzS_SAddkkufuTI20AAeKA1IB4xtQMEEuT0Lb0MjZnUg
+	// 2020-07-xx https://www.dreamlo.com/lb/z0wJr1tbBEiv_bVC-eXGyQCT3HuOeCeE25FS9VUjlnWQ
 
 	private HighscoresDisplay highscoreDisplay;
 	static Highscores instance;
@@ -34,9 +37,10 @@ public class Highscores : MonoBehaviour {
 	}
 
 	IEnumerator UploadNewHighscore(string level, string username, int time) {
-		WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(level + separatingStrings[0] + username) +  "/1337/" + time);
+		UnityWebRequest www = new UnityWebRequest(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(level + separatingStrings[0] + username) +  "/1337/" + time);
 		// Debug.Log(www.url);
-		yield return www;
+
+		yield return www.SendWebRequest();
 
 		if (string.IsNullOrEmpty(www.error)) {
 			print ("Upload Successful");
@@ -52,30 +56,63 @@ public class Highscores : MonoBehaviour {
 		StartCoroutine(DownloadHighscoresFromDatabase());
 	}
 
-	IEnumerator DownloadHighscoresFromDatabase() {
-		WWW www = new WWW(webURL + publicCode + "/pipe/");
-		yield return www;
-		
-		if (string.IsNullOrEmpty (www.error)) {
-			FormatHighscores (www.text);
+	// IEnumerator DownloadHighscoresFromDatabase() 
+	// {
+	// 	UnityWebRequest www = new UnityWebRequest(webURL + publicCode + "/pipe/");
+	// 	yield return www;
+
+	// 	if (string.IsNullOrEmpty (www.error)) {
+	// 		FormatHighscores (www.downloadHandler.text);
+	// 		if(highscoreDisplay) 
+	// 		{
+	// 			highscoreDisplay.SetError(false);
+	// 			highscoreDisplay.OnHighscoresDownloaded(levelBestTimes);
+	// 		}
+	// 	}
+	// 	else {
+	// 		print ("Error Downloading: " + www.error);
+    //         if(highscoreDisplay) 
+	// 		{
+	// 			highscoreDisplay.SetError(true);
+	// 			highscoreDisplay.Error();
+	// 		}
+	// 	}
+
+
+	// For this method, thx to -> https://forum.unity.com/threads/api-web-request-error-help-nullreferenceexception.549760/
+	IEnumerator DownloadHighscoresFromDatabase()
+    {		
+        UnityWebRequest request = new UnityWebRequest();
+ 
+        request = UnityWebRequest.Get(webURL + publicCode + "/pipe/");
+ 
+        yield return request.SendWebRequest();
+ 
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.Log(request.error);
+			if(highscoreDisplay) 
+			{
+				highscoreDisplay.SetError(true);
+				highscoreDisplay.Error();
+			}
+        }
+        else
+        {            
+            // Debug.Log(request.downloadHandler.text); // Show results as text
+            
+			FormatHighscores(request.downloadHandler.text);
 			if(highscoreDisplay) 
 			{
 				highscoreDisplay.SetError(false);
 				highscoreDisplay.OnHighscoresDownloaded(levelBestTimes);
 			}
-		}
-		else {
-			print ("Error Downloading: " + www.error);
-            if(highscoreDisplay) 
-			{
-				highscoreDisplay.SetError(true);
-				highscoreDisplay.Error();
-			}
-		}
-	}
+        }        
+    }
 
-	void FormatHighscores(string textStream) 
+	void FormatHighscores(string textStream)
 	{
+		levelBestTimes.Clear();
 		string[] entries = textStream.Split(new char[] {'\n'}, System.StringSplitOptions.RemoveEmptyEntries);
 
 		for (int i = 0; i <entries.Length; i++) 
@@ -86,12 +123,12 @@ public class Highscores : MonoBehaviour {
 			float time = Timer.ConvertToFloat(intTime);			
 			SetPosition(levelUsername[0], levelUsername[1], time);
 			// print (levelUsername[0] + ": " + levelUsername[1] + ": " + time);
-		}
+		}		
 	}
 
 	private void SetPosition(string level, string username, float time)
-	{
-		LinkedList<Highscore> levelHighscores;
+	{		
+		LinkedList<Highscore> levelHighscores;	
 		if(levelBestTimes.TryGetValue(level, out LinkedList<Highscore> levelHighscoreListExists))
 		{
 			levelHighscores = levelHighscoreListExists;

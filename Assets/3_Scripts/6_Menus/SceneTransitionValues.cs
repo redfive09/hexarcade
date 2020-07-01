@@ -10,7 +10,9 @@ public class SceneTransitionValues : MonoBehaviour
     public static float record;
     public static bool newRecord;
     public static bool alreadyEnteredEndScreen;
+    public static bool gameLoadedForTheFirstTime = true;
     public static string playerName;
     public static List<string> allLevels;
-    
+    public static Dictionary<string, List<string>> worlds;
+    public static List<string> worldList;    
 }

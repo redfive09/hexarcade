@@ -14,7 +14,7 @@ public class Ball : MonoBehaviour
     private Rigidbody rb;
     private CameraFollow cameraFollow;
     private SkipButton skipButton;
-    private HexagonBehaviour occupiedTile;
+    private HexagonBehaviour occupiedTile = null;
     private Hexagon lastSpawnPosition;
     private Vector3 firstSpawnPosition;
     private Vector3 lastSpawnOffset;
@@ -27,8 +27,15 @@ public class Ball : MonoBehaviour
     Dictionary<int, List<Hexagon>> checkpointTiles;    
     private bool hasWatchedIntroductionScreen = false;
     private bool gameStarted = false;
+    private bool controlOn = false;
+    private bool wasControlOn = false;
+    private bool gamePaused = false;
+    private GameObject distractionAtCanvas = null;
     private int playerNumber;
     private float loseHeight = -10;
+    private Vector3 rememberVelocity;
+    
+
     // private int replayPositionCounter = 0;
     // private List<Vector3> positions = new List<Vector3>();
     
@@ -325,8 +332,6 @@ public class Ball : MonoBehaviour
     public void Lost()
     {
         Debug.Log("Time at loosing: " + timer.GetCurrentTime() + " || Position at loosing: " + transform.position);
-        timer.Disappear();
-        StopMovement();
         
         if(settings.IsRestartingInsteadOfMenu())
         {
@@ -348,18 +353,23 @@ public class Ball : MonoBehaviour
             tutorialManager.gameObject.SetActive(false);
         }
         accelerometerInformation.SetActive(false);
+
+        if(distractionAtCanvas) distractionAtCanvas.SetActive(false);
         
-        if(gameStarted)
+        if(gameStarted && !gamePaused) // just in case someone hits more times the pause button in a row, before the game was unpaused
         {
+            rememberVelocity = rb.velocity;
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            wasControlOn = controlOn;
             DeactivatePlayerControls();
             timer.Pause();
-            timer.Disappear();           
+            timer.Disappear();
         }
-        else
+        else if(!gameStarted)
         {
             skipButton.gameObject.SetActive(false);
         }
+        gamePaused = true;
     }
             
     public void GameUnpaused()
@@ -379,7 +389,7 @@ public class Ball : MonoBehaviour
     private IEnumerator UnpauseStopwatch(float seconds)
     {
         timer.SetStopWatch(seconds);
-        timer.Show();        
+        timer.Show();
 
         skipButton.gameObject.SetActive(true);
         skipButton.Reset();
@@ -387,22 +397,35 @@ public class Ball : MonoBehaviour
         while (!timer.IsStopTimeOver() && !skipButton.IsButtonPressed())
         {
             yield return new WaitForSeconds(0.00001f);
-        }
+        }        
 
         if (settings.IsIntroductionScreen()) // check if the level has a introduction screen to show
         {
             tutorialManager.gameObject.SetActive(true);
         }
-        
+
         skipButton.gameObject.SetActive(false);
         rb.constraints = RigidbodyConstraints.None;
-        ActivatePlayerControls();
+        rb.velocity = rememberVelocity;
+
+        if(wasControlOn)
+        {
+            ActivatePlayerControls();
+        }
+
+        if(distractionAtCanvas) distractionAtCanvas.SetActive(true);
         accelerometerInformation.SetActive(false);
 
-        if(!occupiedTile.GetHexagon().IsStartingTile())
-        { 
+        if(gameStarted && !occupiedTile.GetHexagon().IsStartingTile())
+        {
             timer.Unpause();
         }
+        else
+        {
+            timer.Disappear();
+        }
+
+        gamePaused = false;
     }
     
 
@@ -437,21 +460,22 @@ public class Ball : MonoBehaviour
         if(hexagonObject.tag == "Tile")
         {
             HexagonBehaviour currentTile = hexagonObject.GetComponent<HexagonBehaviour>();
-        
-            if(occupiedTile != currentTile)         // Check if the former occupiedTile has changed
-            {
-                if(occupiedTile != null)            // Prevent a NullReferenceException
-                {
-                    occupiedTile.GotUnoccupied(this);   // Tell the former occupiedTile, that this ball left                    
-                }
+            occupiedTile = currentTile;         // Save the current tile
+            currentTile.GotOccupied(this);      // Tell the currentTile, that this player stands on it            
+            AnalyseOccupiedHexagon(currentTile.GetComponent<Hexagon>());            
+        }
+    }
 
-                if(currentTile != null)                 // in case it is a crackableTile, it could be gone already
-                {
-                    currentTile.GotOccupied(this);      // Tell the currentTile, that this player stands on it
-                    occupiedTile = currentTile;         // Save the current tile
-                    AnalyseArrivedHexagon(currentTile.GetComponent<Hexagon>());
-                }
-            }
+    void OnCollisionExit(Collision collision)
+    {
+        GameObject hexagonObject = collision.gameObject;
+
+        if(hexagonObject.tag == "Tile")
+        {
+            HexagonBehaviour leftTile = hexagonObject.GetComponent<HexagonBehaviour>();
+
+            leftTile.GotUnoccupied(this);   // Tell the former occupiedTile, that this ball left
+            AnalyseUnoccupiedHexagon(occupiedTile.GetComponent<Hexagon>());
         }
     }
 
@@ -459,7 +483,7 @@ public class Ball : MonoBehaviour
     /*  
      *  The player has to check for some specific hexagon types in order to decide what to do next, e. g. winning tiles have to change the state of the player
     **/
-    private void AnalyseArrivedHexagon(Hexagon hexagon)
+    private void AnalyseOccupiedHexagon(Hexagon hexagon)
     {        
         if(hexagon.IsStandardTile() && settings.DoesStandardTilesMeansLosing())
         {
@@ -469,6 +493,14 @@ public class Ball : MonoBehaviour
         if (settings.IsIntroductionScreen() && !hexagon.IsStandardTile() && !hexagon.IsStartingTile())
         {
             GetComponentInChildren<TutorialManager>().CheckForNonStandardTiles(hexagon, tiles, this);
+        }
+    }
+
+    private void AnalyseUnoccupiedHexagon(Hexagon hexagon)
+    {        
+        if(hexagon.IsStartingTile() && settings.IsIntroductionScreen())
+        {
+            hexagon.SetIsStartingTile(-1);
         }
     }
 
@@ -483,7 +515,7 @@ public class Ball : MonoBehaviour
         for(;;)
         {
             if(loseHeight > transform.position.y)
-            {                
+            {
                 Lost();
             }
             yield return new WaitForSeconds(0.2f);
@@ -521,8 +553,6 @@ public class Ball : MonoBehaviour
         {
             transform.position = firstSpawnPosition;
         }
-        
-        
     }
 
     public Hexagon GetLastSpawnPosition()
@@ -531,10 +561,10 @@ public class Ball : MonoBehaviour
     }    
 
     public void StopMovement()
-    {
+    {        
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        transform.rotation = Quaternion.identity;
+        // Debug.Log("stopped control: " + Time.fixedTime);
     }
 
     public void ReverseMovement()
@@ -550,7 +580,9 @@ public class Ball : MonoBehaviour
     {
         if(GetComponent<BallControls>()) GetComponent<BallControls>().enabled = false;
         if(GetComponent<ControlsBallFromBehind>()) GetComponent<ControlsBallFromBehind>().enabled = false;
-        if(GetComponent<AccelorometerMovement>()) GetComponent<AccelorometerMovement>().enabled = false;        
+        if(GetComponent<AccelorometerMovement>()) GetComponent<AccelorometerMovement>().enabled = false;
+        // Debug.Log("lost control: " + Time.fixedTime);
+        controlOn = false;
     }
 
 
@@ -562,6 +594,7 @@ public class Ball : MonoBehaviour
         if(GetComponent<BallControls>()) GetComponent<BallControls>().enabled = true;
         if(GetComponent<ControlsBallFromBehind>()) GetComponent<ControlsBallFromBehind>().enabled = true;
         if(GetComponent<AccelorometerMovement>()) GetComponent<AccelorometerMovement>().enabled = true;
+        controlOn = true;
     }
 
 
@@ -579,6 +612,18 @@ public class Ball : MonoBehaviour
     public Camera GetPlayerCamera()
     {
         return Camera.main; // TO-DO for multiplayer: it couldn't be the main camera
+    }
+
+
+    /* ------------------------------ SETTER METHODS ------------------------------  */
+    public void SetDistractionOnCanvas(GameObject distraction)
+    {
+        distractionAtCanvas = distraction;
+    }
+
+    public void RemoveDistractionOnCanvas()
+    {
+        distractionAtCanvas = null;        
     }
 
 } // CLASS END
