@@ -101,6 +101,7 @@ public class CameraFollow : MonoBehaviour
         timeAlignment = rememberTimeAlignment;
     }
     
+    // Coroutine needed here
     public void ResetCameraRotation()
     {
         transform.rotation = rememberRotation;
