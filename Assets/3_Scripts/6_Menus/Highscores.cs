@@ -10,11 +10,11 @@ public class Highscores : MonoBehaviour {
 
 	const string privateCode = "z0wJr1tbBEiv_bVC-eXGyQCT3HuOeCeE25FS9VUjlnWQ";
 	const string publicCode = "5ef90b7e377eda0b6c89efae";
-	const string webURL = "http://dreamlo.com/lb/";
+	const string webURL = "https://www.dreamlo.com/lb/";
     
     // ABSOLUTELY PRIVAT LINKS: 
 	// 2020-06-26 http://dreamlo.com/lb/ZzS_SAddkkufuTI20AAeKA1IB4xtQMEEuT0Lb0MjZnUg
-	// 2020-07-xx http://dreamlo.com/lb/z0wJr1tbBEiv_bVC-eXGyQCT3HuOeCeE25FS9VUjlnWQ
+	// 2020-07-xx https://www.dreamlo.com/lb/z0wJr1tbBEiv_bVC-eXGyQCT3HuOeCeE25FS9VUjlnWQ
 
 	private HighscoresDisplay highscoreDisplay;
 	static Highscores instance;
@@ -39,7 +39,8 @@ public class Highscores : MonoBehaviour {
 	IEnumerator UploadNewHighscore(string level, string username, int time) {
 		UnityWebRequest www = new UnityWebRequest(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(level + separatingStrings[0] + username) +  "/1337/" + time);
 		// Debug.Log(www.url);
-		yield return www;
+
+		yield return www.SendWebRequest();
 
 		if (string.IsNullOrEmpty(www.error)) {
 			print ("Upload Successful");
