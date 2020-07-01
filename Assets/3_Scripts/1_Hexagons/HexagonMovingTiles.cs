@@ -58,11 +58,11 @@ public class HexagonMovingTiles : MonoBehaviour
         while (ConditionsMet())
         {
             yield return new WaitForSeconds(startingDelay);
-            yield return StartCoroutine(MoveObject(this.transform, movingTilePosA, movingTilePosB, speedOfMovingTiles));
+            yield return StartCoroutine(MoveObject(this.transform, movingTilePosA, movingTilePosB));
             yield return new WaitForSeconds(waitBeforeTurningBack);
             // if(isRoundTrip)
             // {
-                yield return StartCoroutine(MoveObject(this.transform, movingTilePosB, movingTilePosA, speedOfMovingTiles));
+                yield return StartCoroutine(MoveObject(this.transform, movingTilePosB, movingTilePosA));
             // }
         }
     }
@@ -71,13 +71,16 @@ public class HexagonMovingTiles : MonoBehaviour
     /*
     *  Method gets called to move the tile up and down.
     */
-    IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
+    IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos)
     {
         float i = 0.0f;
-        float rate = 1.0f * time/5;
+        float rate = 1.0f * speedOfMovingTiles/5;
         while (i < 1.0f) 
         {
             i += Time.deltaTime * rate;
+            Debug.Log(i);
+            Debug.Log(thisTransform.position);
+            
             thisTransform.position = Vector3.Lerp(startPos, endPos, i);
             yield return null;
         }
