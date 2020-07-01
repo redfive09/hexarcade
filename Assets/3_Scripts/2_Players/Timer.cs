@@ -209,9 +209,10 @@ public class Timer : MonoBehaviour
 
     public static int ConvertToInt(float time)
     {
-        int newTime = (int) ((time - (int) time) * 100);        
-        newTime += (int) (time) * 100;
-        return newTime;
+        // int newTime = (int) ((time - (int) time) * 100);        
+        // newTime += (int) (time) * 100;
+        // return newTime;
+        return (int) (time * 100);
     }
 
     public static float ConvertToFloat(int time)
