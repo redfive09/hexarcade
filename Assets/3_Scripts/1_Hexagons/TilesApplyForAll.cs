@@ -16,6 +16,7 @@ public class TilesApplyForAll : MonoBehaviour
 
 
     [SerializeField] private float crackedTileBreaksInSeconds;
+    [SerializeField] private float fallDepth;
     [SerializeField] private float velocity;
     [SerializeField] private Vector3 jumpDirection;
 
@@ -32,6 +33,7 @@ public class TilesApplyForAll : MonoBehaviour
                 {
                     HexagonBehaviour hexagon = tiles[i].GetComponent<HexagonBehaviour>();
                     hexagon.SetCrackedTileBreaksInTime(crackedTileBreaksInSeconds);
+                    hexagon.SetFallDepth(fallDepth);
                     break;
                 }            
 

@@ -26,6 +26,7 @@ public class HexagonBehaviour : MonoBehaviour
     public void Setup()
     {
         crackedTileTrapsInSeconds = 2f;
+        fallDepth = 0f;
     }
 
     void Start()
@@ -205,6 +206,11 @@ public class HexagonBehaviour : MonoBehaviour
     public void SetCrackedTileBreaksInTime(float seconds)
     {
         crackedTileTrapsInSeconds = seconds;
+    }
+
+    public void SetFallDepth(float fallDepth)
+    {
+        this.fallDepth = fallDepth;
     }
 
 
