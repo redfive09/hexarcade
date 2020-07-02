@@ -17,7 +17,6 @@ public class LevelSelection : MonoBehaviour
             
 
     private const int FIRST_LEVEL_AT_BUILD_INDEX = 4;
-    private int currentPage = 1;
     private int maxPages;
     private int maxLevelsPerPage;
     
@@ -32,13 +31,12 @@ public class LevelSelection : MonoBehaviour
         SceneTransitionValues.lastMenuName = SceneManager.GetActiveScene().name;
         maxLevelsPerPage = levelFolder.transform.childCount;        
         
-        currentWorld.text = SceneTransitionValues.worldList[0];
+        currentWorld.text = SceneTransitionValues.currentWorld;
         CalculatePages();
         CheckNeedForWorldPageButtons();
 
         ShowLevels();
-        
-        
+
         // PrintAllLevels();
     }
 
@@ -60,6 +58,7 @@ public class LevelSelection : MonoBehaviour
             string levelName = "";
             int firstSlashAtIndex = 0;
             int indexEndOfLevelName = scenePath.Length - skipNamePart - 1;              // we need -1, because the index starts at 0
+            // Debug.Log(scenePath);
             
             for(int j = indexEndOfLevelName; j >= 0; j--)
             {                
@@ -95,7 +94,10 @@ public class LevelSelection : MonoBehaviour
         }
         SceneTransitionValues.allLevels = allLevels;
         SceneTransitionValues.worlds = worlds;
-        SceneTransitionValues.worldList = worldList;        
+        SceneTransitionValues.worldList = worldList;
+        SceneTransitionValues.currentWorld = SceneTransitionValues.worldList[0];
+
+        // PrintAllLevels();
     }
 
     private void ShowLevels()
@@ -105,13 +107,13 @@ public class LevelSelection : MonoBehaviour
             levelFolder.transform.GetChild(i).gameObject.SetActive(true);                                   // make sure all buttons are activates, otherwise we cannot acces their scripts
         }
 
-        List<string> levels = SceneTransitionValues.worlds[currentWorld.text];                                                    // get the levels of the current world        
+        List<string> levels = SceneTransitionValues.worlds[SceneTransitionValues.currentWorld];                                                    // get the levels of the current world        
         LevelSelectionButton[] levelButtons = levelFolder.GetComponentsInChildren<LevelSelectionButton>();  // save all button scripts
                                                                                                             // prepare variable to make sure, if the next level can be played already
         
         for(int i = 0; i < maxLevelsPerPage; i++)                                                           // go through all buttons of the page
         {
-            int currentLevel = (currentPage - 1) * maxLevelsPerPage + i;                                    // calculate the current level
+            int currentLevel = (SceneTransitionValues.currentPage - 1) * maxLevelsPerPage + i;                                    // calculate the current level
             if(currentLevel < levels.Count)                                                                 // make sure, if there is even a level left for the current button
             {
                 string levelName = levels[currentLevel];                                                    // get the level name                
@@ -129,54 +131,57 @@ public class LevelSelection : MonoBehaviour
     {
         for(int i = 0; i < SceneTransitionValues.worldList.Count; i++)
         {
-            if(SceneTransitionValues.worldList[i] == currentWorld.text)
+            if(SceneTransitionValues.worldList[i] == SceneTransitionValues.currentWorld)
             {
                 if(nextWorld)
                 {
                     int setNewWorld = (i + 1) % SceneTransitionValues.worldList.Count;
-                    currentWorld.text = SceneTransitionValues.worldList[setNewWorld];
+                    SceneTransitionValues.currentWorld = SceneTransitionValues.worldList[setNewWorld];
+                    currentWorld.text = SceneTransitionValues.currentWorld;
+                    
                 }
                 else
                 {
                     int setNewWorld = i - 1;
                     if(setNewWorld < 0) setNewWorld = SceneTransitionValues.worldList.Count - 1;
-                    currentWorld.text = SceneTransitionValues.worldList[setNewWorld];
+                    SceneTransitionValues.currentWorld = SceneTransitionValues.worldList[setNewWorld];
+                    currentWorld.text = SceneTransitionValues.currentWorld;
                 }
                 break;
             }            
         }
-        currentPage = 1;
+        SceneTransitionValues.currentPage = 1;
         CalculatePages();        
         ShowLevels();
     }
 
     private void CalculatePages()    
     {
-        maxPages = Mathf.CeilToInt((float) SceneTransitionValues.worlds[currentWorld.text].Count / maxLevelsPerPage);     // amount of levels divided by number of buttons and then round up
+        maxPages = Mathf.CeilToInt((float) SceneTransitionValues.worlds[SceneTransitionValues.currentWorld].Count / maxLevelsPerPage);     // amount of levels divided by number of buttons and then round up
     }
 
     public void PreviousLevelPage()
     {
-        if(currentPage - 1 > 0)
+        if(SceneTransitionValues.currentPage - 1 > 0)
         {           
-            currentPage--;            
+            SceneTransitionValues.currentPage--;            
         }
         else
         {
-            currentPage = maxPages;            
+            SceneTransitionValues.currentPage = maxPages;            
         }
         ShowLevels();
     }
 
     public void NextLevelPage()
     {
-        if(currentPage + 1 <= maxPages)
+        if(SceneTransitionValues.currentPage + 1 <= maxPages)
         {
-            currentPage++;                        
+            SceneTransitionValues.currentPage++;                        
         }
         else
         {
-            currentPage = 1;
+            SceneTransitionValues.currentPage = 1;
         }
         ShowLevels();
     }
@@ -219,7 +224,7 @@ public class LevelSelection : MonoBehaviour
         WorldChanged(true);
     }
    
-    private void PrintAllLevels()
+    private static void PrintAllLevels()
     {
         foreach (string world in SceneTransitionValues.worldList)
         {
