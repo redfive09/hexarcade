@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 1d622d3ee78781d49a01e726f01d4c09, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.16784054, g: 0.5637526, b: 0.59927046, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5147,6 +5147,11 @@ PrefabInstance:
       propertyPath: checkpointTilesColor.g
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3522351982723486733, guid: 23e8a6e44356cdd44a3726f12b2b562d,
+        type: 3}
+      propertyPath: crackedHexagonPattern
+      value: 
+      objectReference: {fileID: 2800000, guid: ecd640e3ff687c14daa08ba85d621569, type: 3}
     - target: {fileID: 4449128563728522217, guid: 23e8a6e44356cdd44a3726f12b2b562d,
         type: 3}
       propertyPath: pathTilesColor.r
@@ -5255,7 +5260,7 @@ PrefabInstance:
     - target: {fileID: 4449128563728522217, guid: 23e8a6e44356cdd44a3726f12b2b562d,
         type: 3}
       propertyPath: cameraFollowPathTiles
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4449128563728522217, guid: 23e8a6e44356cdd44a3726f12b2b562d,
         type: 3}
@@ -25157,7 +25162,7 @@ MonoBehaviour:
   useLerp: 0
   timeAlignment: 0.75
   focusTarget: 0
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 13, z: -3}
   experimentCamera: 0
   changePositionOffset: {x: 0, y: 15, z: 0}
 --- !u!1 &1586211703

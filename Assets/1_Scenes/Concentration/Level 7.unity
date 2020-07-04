@@ -2866,6 +2866,7 @@ GameObject:
   - component: {fileID: 386576683}
   - component: {fileID: 386576682}
   - component: {fileID: 386576681}
+  - component: {fileID: 386576684}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2937,6 +2938,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &386576684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386576680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1726d9565e37db4f9c498439a59c479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useLerp: 0
+  timeAlignment: 0.75
+  focusTarget: 0
+  offset: {x: 8, y: 15, z: 0}
+  experimentCamera: 0
+  changePositionOffset: {x: 0, y: 15, z: 0}
 --- !u!21 &391169772
 Material:
   serializedVersion: 6
@@ -3224,7 +3243,7 @@ MonoBehaviour:
   crackedTimeBeforeFading: 10
   crackedTilesColorFading: 0
   crackedTilesColor: {r: 0, g: 0, b: 0, a: 0}
-  cameraFollowPathTiles: 1
+  cameraFollowPathTiles: 0
   pathTilesColorStartTime: 1
   pathTilesColorTime: 1
   pathTimeBeforeFading: 1
@@ -3293,6 +3312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0ba334cfef05b488274837dab06a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crackedHexagonPattern: {fileID: 2800000, guid: ecd640e3ff687c14daa08ba85d621569,
+    type: 3}
 --- !u!1 &407033375
 GameObject:
   m_ObjectHideFlags: 0
