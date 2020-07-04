@@ -23,7 +23,8 @@ public class Tiles : MonoBehaviour
 
     private List<Hexagon> standardTiles = new List<Hexagon>();  // list of all tiles without any special purpose
 
-
+    [SerializeField]
+    private Texture crackedHexagonPattern;
 
     /* ------------------------------ STARTING METHODS BEGINN ------------------------------  */
     public void GetStarted(bool inEditor)
@@ -95,7 +96,14 @@ public class Tiles : MonoBehaviour
                 {
                     SaveHexagonInList(crackedTiles, hexagon, hexagon.GetCrackedNumber());
                     hexagon.SetStandardTile(false);
-                    hexagon.SetAudio("cracked");                    
+                    hexagon.SetAudio("cracked");
+                    GameObject child = hexagon.transform.GetChild(0).gameObject;
+                    Material material = child.GetComponent<MeshRenderer>().material;
+                    material.EnableKeyword("_NORMALMAP");
+                    material.SetTexture("_BumpMap", crackedHexagonPattern);
+                    material.SetTextureScale("_MainTex", new Vector2(1.95f, 1.95f)); //aka tiling
+                    material.SetTextureOffset("_MainTex", new Vector2(-0.087f, 0.013f));
+                    Debug.Log("texture");
                 }
 
                 if(hexagon.IsPathTile())
