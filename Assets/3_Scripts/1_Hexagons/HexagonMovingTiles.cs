@@ -78,8 +78,8 @@ public class HexagonMovingTiles : MonoBehaviour
         while (i < 1.0f) 
         {
             i += Time.deltaTime * rate;
-            Debug.Log(i);
-            Debug.Log(thisTransform.position);
+            // Debug.Log(i);
+            // Debug.Log(thisTransform.position);
             
             thisTransform.position = Vector3.Lerp(startPos, endPos, i);
             yield return null;

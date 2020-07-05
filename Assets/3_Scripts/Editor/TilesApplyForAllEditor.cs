@@ -11,7 +11,7 @@ public class TilesApplyForAllEditor : Editor {
     {
         base.OnInspectorGUI();
 
-        TilesApplyForAll tilesApplyForAll = (TilesApplyForAll) target;        
+        TilesApplyForAll tilesApplyForAll = (TilesApplyForAll) target;
         
         if (GUILayout.Button("Set all Crackable Tiles"))
         {
