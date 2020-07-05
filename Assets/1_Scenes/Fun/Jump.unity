@@ -211,7 +211,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45263949}
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 84.02, y: 24.65, z: 0}
+  m_LocalPosition: {x: 86, y: 30, z: 0}
   m_LocalScale: {x: 1.5, y: 41.49744, z: 1.5}
   m_Children:
   - {fileID: 1261743614}
@@ -231,9 +231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingTilePosA: {x: 107.408455, y: 31.317532, z: -15.9}
-  movingTilePosB: {x: 107.408455, y: 31.317532, z: 15.9}
-  speedOfMovingTiles: 1
+  movingTilePosA: {x: 86, y: 30, z: -15.9}
+  movingTilePosB: {x: 86, y: 30, z: 15.9}
+  speedOfMovingTiles: 0.8
   startingDelay: 0
   waitBeforeTurningBack: 0
   isLift: 0
@@ -15677,7 +15677,7 @@ MonoBehaviour:
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
   velocity: 0
-  jumpDirection: {x: 0, y: 500, z: 0}
+  jumpDirection: {x: 0, y: 1000, z: 0}
 --- !u!114 &534083169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55546,6 +55546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0ba334cfef05b488274837dab06a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crackedHexagonPattern: {fileID: 0}
 --- !u!1 &1588106605
 GameObject:
   m_ObjectHideFlags: 0

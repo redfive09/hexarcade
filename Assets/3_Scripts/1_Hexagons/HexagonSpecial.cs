@@ -114,7 +114,7 @@ public class HexagonSpecial : MonoBehaviour
 
                 case JUMP_PAD:
                 {
-                    player.GetRigidbody().AddForce(jumpDirection);
+                    player.GetRigidbody().AddForce(jumpDirection * 3.5f);
                     thisHexagon.GetAudioSource().Play();
                     break;
                 }
