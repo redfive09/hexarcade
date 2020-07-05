@@ -16,7 +16,7 @@ public class BallControls : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis ("Horizontal");
         float moveVertical = Input.GetAxis ("Vertical");
-        Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+        Vector3 movement = new Vector3 (moveHorizontal * 2.5f, 0.0f, moveVertical * 2.5f);
         rb.AddForce (movement * (speed * Time.fixedDeltaTime));
     }
 }
