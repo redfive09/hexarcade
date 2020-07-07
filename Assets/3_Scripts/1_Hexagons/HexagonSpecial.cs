@@ -11,6 +11,7 @@ public class HexagonSpecial : MonoBehaviour
     [SerializeField] private int teleporterNumber;
     [SerializeField] private int teleporterConnectedWith;
     [SerializeField] private Vector3 teleporterOffset;
+    [SerializeField] private bool normalizePhysics;
 
 
     /* ------------------------------ FIELDS FOR VELOCITY TILES ------------------------------  */
@@ -131,6 +132,20 @@ public class HexagonSpecial : MonoBehaviour
                     break;
                 }
             }
+        }
+
+        //If normalizePhysics, means that the gravity will be turned to the normal unity vanilla and drag of rigidbody turned to 0 
+        if (normalizePhysics)
+        {
+            Physics.gravity = new Vector3(0,-9.81f);
+            player.GetRigidbody().drag = 0;
+            Debug.Log("Normalized physics to vanilla unity");
+        }
+        //This else case is to changed back to the setting after physics control 
+        {
+           Physics.gravity = new Vector3(0,-40);
+           player.GetRigidbody().drag = 2;
+           Debug.Log("Changed back to new Physics setting");
         }
     }
 
