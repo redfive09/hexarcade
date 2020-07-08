@@ -139,13 +139,17 @@ public class HexagonSpecial : MonoBehaviour
         {
             Physics.gravity = new Vector3(0,-9.81f);
             player.GetRigidbody().drag = 0;
-            Debug.Log("Normalized physics to vanilla unity");
+            player.GetComponent<BallControls>().setMultiplier(1);
+            //Debug.Log("Normalized physics to vanilla unity");
+            //Debug.Log(player.GetComponent<BallControls>().getMultiplier());
         }
         //This else case is to changed back to the setting after physics control 
         else {
-           Physics.gravity = new Vector3(0,-40);
+           Physics.gravity = new Vector3(0,-45);
            player.GetRigidbody().drag = 2;
-           Debug.Log("Changed back to new Physics setting");
+           player.GetComponent<BallControls>().setMultiplier(2.5f);
+           //Debug.Log("Changed back to new Physics setting");
+           //Debug.Log(player.GetComponent<BallControls>().getMultiplier());
         }
     }
 
