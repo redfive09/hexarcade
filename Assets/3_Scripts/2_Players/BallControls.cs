@@ -6,7 +6,7 @@ public class BallControls : MonoBehaviour
 {
     [SerializeField] private float speed = 1000.0f;
     private Rigidbody rb;
-    
+    private float multiplier = 2.5f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -16,7 +16,17 @@ public class BallControls : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis ("Horizontal");
         float moveVertical = Input.GetAxis ("Vertical");
-        Vector3 movement = new Vector3 (moveHorizontal * 2.5f, 0.0f, moveVertical * 2.5f);
+        Vector3 movement = new Vector3 (moveHorizontal * multiplier, 0.0f, moveVertical * multiplier);
         rb.AddForce (movement * (speed * Time.fixedDeltaTime));
+    }
+
+    public void setMultiplier(float newMultiplier)
+    {
+        multiplier = newMultiplier;
+    }
+
+    public float getMultiplier()
+    {
+        return multiplier;
     }
 }

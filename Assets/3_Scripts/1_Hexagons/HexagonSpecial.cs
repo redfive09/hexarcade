@@ -142,7 +142,7 @@ public class HexagonSpecial : MonoBehaviour
             Debug.Log("Normalized physics to vanilla unity");
         }
         //This else case is to changed back to the setting after physics control 
-        {
+        else {
            Physics.gravity = new Vector3(0,-40);
            player.GetRigidbody().drag = 2;
            Debug.Log("Changed back to new Physics setting");
