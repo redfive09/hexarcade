@@ -16,7 +16,7 @@ public class HexagonBehaviour : MonoBehaviour
     [SerializeField] private float fallDepth = 1.5f;
     private float destructionDelay;
 
-    private List<Ball> balls = new List<Ball>(); // All the players who are setting on the tile get saved here
+    private HashSet<Ball> balls = new HashSet<Ball>(); // All the players who are setting on the tile get saved here
     private Hexagon thisHexagon;
     private bool markedForDestruction = false; // Make sure a hexagon doesn't try to get deleted twice (e. g. crackable tile)
     
@@ -77,7 +77,7 @@ public class HexagonBehaviour : MonoBehaviour
         if(thisHexagon.IsMovingTile())
         {
             thisHexagon.SetColor(colors[arrivedMovingTile]);
-            this.transform.GetComponent<HexagonMovingTiles>().MovingTileTouched();
+            this.transform.GetComponent<HexagonMovingTiles>().MovingTileTouched(balls);
         }
         
         if(thisHexagon.IsStartingTile())
@@ -136,7 +136,7 @@ public class HexagonBehaviour : MonoBehaviour
         if(thisHexagon.IsMovingTile())
         {
             thisHexagon.SetColor(colors[leftMovingTile]);
-            this.transform.GetComponent<HexagonMovingTiles>().MovingTileLeft();
+            this.transform.GetComponent<HexagonMovingTiles>().MovingTileLeft(balls);
         }
         
         if(thisHexagon.IsStartingTile())

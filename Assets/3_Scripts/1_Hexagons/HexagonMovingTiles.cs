@@ -5,85 +5,139 @@ using UnityEngine;
 public class HexagonMovingTiles : MonoBehaviour
 {
 
+    // [SerializeField] private Vector3[] movingPositions;
     [SerializeField] private Vector3 movingTilePosA;
     [SerializeField] private Vector3 movingTilePosB;
     [SerializeField] private float speedOfMovingTiles = 2f;
-
     [SerializeField] private float startingDelay;
     [SerializeField] private float waitBeforeTurningBack;
 
     // [SerializeField] private bool isRoundTrip;
-
+    [SerializeField] private bool startMovingBeforeGameStarted;
+    [SerializeField] private bool liftFinishMoving = true;
     [SerializeField] private bool isLift;
     [SerializeField] private int needsNumberOfPlayersForLifting = 1;
+    
 
-
-    // private
     private Hexagon thisHexagon;
-    private int currentPlayersOnTile = 0;
+    private HashSet<Ball> balls = new HashSet<Ball>();
+    private bool startedMoving = false;
+    private float leftWaitingTime;
+    private bool hexagonHasToWait = false;
+    private float[] distances = new float[3];
+    private float[] speedRegulator = new float[3];
 
 
     void Start()
     {
         thisHexagon = this.transform.GetComponentInParent<Hexagon>();
-        StartCoroutine(PrepareMoving());
+        SetupMovingSpeedRegulator(transform.position, movingTilePosB);
+        WaitingCheck(startingDelay);
     }
+   
 
-    public void MovingTileTouched()
-    {
-        currentPlayersOnTile++;
-        StartCoroutine(PrepareMoving());
-
-    }
-
-    public void MovingTileLeft()
-    {
-        currentPlayersOnTile--;
-    }
-
-
-    private bool ConditionsMet()
-    {
-        if(thisHexagon.IsMovingTile() && !isLift || 
-            isLift && needsNumberOfPlayersForLifting <= currentPlayersOnTile)
+    // Well, at the end not used, but thx anyway to -> https://low-scope.com/unity-quick-the-most-common-ways-to-move-a-object
+    private void FixedUpdate()
+    {        
+        if(!Game.isPaused && (Game.hasStarted || startMovingBeforeGameStarted))
         {
-            return true;
+            if(!isLift || balls.Count >= needsNumberOfPlayersForLifting || (liftFinishMoving && startedMoving))
+            {
+                if(hexagonHasToWait && leftWaitingTime > 0)
+                {
+                    leftWaitingTime -= Time.fixedDeltaTime;
+                }
+                else
+                {
+                    startedMoving = true;
+
+                    float x = GetSign(movingTilePosB.x-transform.position.x) * speedOfMovingTiles * speedRegulator[0] * Time.deltaTime + transform.position.x;
+                    float y = GetSign(movingTilePosB.y-transform.position.y) * speedOfMovingTiles * speedRegulator[1] * Time.deltaTime + transform.position.y;
+                    float z = GetSign(movingTilePosB.z-transform.position.z) * speedOfMovingTiles * speedRegulator[2] * Time.deltaTime + transform.position.z;
+
+                    transform.position = new Vector3(x, y, z); // Moves the object to target position
+                    
+                    if (Vector3.Distance(transform.position, movingTilePosB) <= 0.0001f) // Flip the points once it has reached the target
+                    {
+                        startedMoving = false;
+                        var b = movingTilePosB;
+                        var a = movingTilePosA;
+                        movingTilePosA = b;
+                        movingTilePosB = a;
+                        SetupMovingSpeedRegulator(transform.position, movingTilePosB);
+
+                        WaitingCheck(waitBeforeTurningBack);
+                    }
+                }
+            }
         }
-        return false;
+    }
+
+    private void WaitingCheck(float waitingTime)
+    {
+        if(waitingTime > 0)
+        {
+            hexagonHasToWait = true;
+            leftWaitingTime = waitingTime;
+        }
+        else
+        {
+            hexagonHasToWait = false;
+            leftWaitingTime = 0;
+        }
+    }
+    
+    private float GetSign(float number)
+    {
+        if(number < 0)
+        {
+            return -1f;
+        }
+        else
+        {
+            return 1f;
+        }
+    }
+
+    private void SetupMovingSpeedRegulator(Vector3 position1, Vector3 position2)
+    {
+        int biggest = -1;
+        distances[0] = GetPositiveNumber(position1.x - position2.x);
+        distances[1] = GetPositiveNumber(position1.y - position2.y);
+        distances[2] = GetPositiveNumber(position1.z - position2.z);
+
+        for(int i = 0; i < distances.Length; i++)
+        {
+            if(distances[i] >= distances[(i+1) % distances.Length])
+            {                
+                biggest = i;                
+            }
+        }
+
+        for(int i = 0; i < speedRegulator.Length; i++)
+        {
+            speedRegulator[i] = distances[i] / distances[biggest];
+        }
+    }
+
+    private float GetPositiveNumber(float number)
+    {
+        if(number < 0)
+        {
+            return (-1) * number;
+        }
+        return number;
     }
 
 
-    private IEnumerator PrepareMoving()
+    public void MovingTileTouched(HashSet<Ball> balls)
     {
-        while (ConditionsMet())
-        {
-            yield return new WaitForSeconds(startingDelay);
-            yield return StartCoroutine(MoveObject(this.transform, movingTilePosA, movingTilePosB));
-            yield return new WaitForSeconds(waitBeforeTurningBack);
-            // if(isRoundTrip)
-            // {
-                yield return StartCoroutine(MoveObject(this.transform, movingTilePosB, movingTilePosA));
-            // }
-        }
+        this.balls = balls;
     }
 
-
-    /*
-    *  Method gets called to move the tile up and down.
-    */
-    IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos)
+    public void MovingTileLeft(HashSet<Ball> balls)
     {
-        float i = 0.0f;
-        float rate = 1.0f * speedOfMovingTiles/5;
-        while (i < 1.0f) 
-        {
-            i += Time.deltaTime * rate;
-            // Debug.Log(i);
-            // Debug.Log(thisTransform.position);
-            
-            thisTransform.position = Vector3.Lerp(startPos, endPos, i);
-            yield return null;
-        }
+        this.balls = balls;
     }
 
 

@@ -11,12 +11,10 @@ public class PauseMenu : MonoBehaviour
      */    
     [SerializeField] GameObject pauseMenuUI;
     private Ball player;
-    private bool GameIsCurrentlyPaused;
     
     void Start()
     {
         player = GetComponentInParent<Ball>();
-        GameIsCurrentlyPaused = false;
     }
 
     void Update()
@@ -29,7 +27,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeOrPause()
     {
-        if (GameIsCurrentlyPaused)
+        if (Game.isPaused)
         {
             player.GameUnpaused();
          //   StartCoroutine(CountDownToStart());
@@ -46,14 +44,13 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false); //disable Pause Menu (Child of the Canvas this script is linked to 
         Time.timeScale = 1f; // normal time
-        GameIsCurrentlyPaused = false;
     }
 
     public void Pause()
     {
         pauseMenuUI.SetActive(true); //enable Pause Menu (Child of the Canvas this script is linked to)
         Time.timeScale = 0f; // Stop time
-        GameIsCurrentlyPaused = true;
+        Game.isPaused = true;
     }
 
     public void LoadMenu()

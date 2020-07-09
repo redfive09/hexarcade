@@ -26,10 +26,8 @@ public class Ball : MonoBehaviour
     private GameObject accelerometerInformation;    
     Dictionary<int, List<Hexagon>> checkpointTiles;    
     private bool hasWatchedIntroductionScreen = false;
-    private bool gameStarted = false;
     private bool controlOn = false;
-    private bool wasControlOn = false;
-    private bool gamePaused = false;
+    private bool wasControlOn = false;    
     private GameObject distractionAtCanvas = null;
     private int playerNumber;
     private float loseHeight = -10;
@@ -58,7 +56,10 @@ public class Ball : MonoBehaviour
     }
     
     public void GetStarted(int playerNumber)
-    {        
+    {
+        Game.hasStarted = false;
+        Game.isPaused = false;
+        
         firstSpawnPosition = transform.position;
         this.playerNumber = playerNumber;        
         rb = GetComponent<Rigidbody>();
@@ -263,7 +264,7 @@ public class Ball : MonoBehaviour
      */
     private void GameStarts()
     {        
-        gameStarted = true;
+        Game.hasStarted = true;
         rb.constraints = RigidbodyConstraints.None;
         ActivatePlayerControls();
         StartCoroutine(CheckLoseCondition());
@@ -345,7 +346,7 @@ public class Ball : MonoBehaviour
 
         if(distractionAtCanvas) distractionAtCanvas.SetActive(false);
         
-        if(gameStarted && !gamePaused) // just in case someone hits more times the pause button in a row, before the game was unpaused
+        if(Game.hasStarted && !Game.isPaused) // just in case someone hits more times the pause button in a row, before the game was unpaused
         {
             rememberVelocity = rb.velocity;
             rb.constraints = RigidbodyConstraints.FreezeAll;
@@ -354,16 +355,16 @@ public class Ball : MonoBehaviour
             timer.Pause();
             timer.Disappear();
         }
-        else if(!gameStarted)
+        else if(!Game.hasStarted)
         {
             skipButton.gameObject.SetActive(false);
         }
-        gamePaused = true;
+        Game.isPaused = true;
     }
             
     public void GameUnpaused()
     {
-        if(gameStarted)
+        if(Game.hasStarted)
         {
             StartCoroutine(UnpauseStopwatch(3));
             
@@ -405,7 +406,7 @@ public class Ball : MonoBehaviour
         if(distractionAtCanvas) distractionAtCanvas.SetActive(true);
         accelerometerInformation.SetActive(false);
 
-        if(gameStarted && !occupiedTile.GetHexagon().IsStartingTile())
+        if(Game.hasStarted && !occupiedTile.GetHexagon().IsStartingTile())
         {
             timer.Unpause();
         }
@@ -414,7 +415,7 @@ public class Ball : MonoBehaviour
             timer.Disappear();
         }
 
-        gamePaused = false;
+        Game.isPaused = false;
     }
     
 
