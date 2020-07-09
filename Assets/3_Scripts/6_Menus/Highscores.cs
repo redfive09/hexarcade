@@ -56,28 +56,6 @@ public class Highscores : MonoBehaviour {
 		StartCoroutine(DownloadHighscoresFromDatabase());
 	}
 
-	// IEnumerator DownloadHighscoresFromDatabase() 
-	// {
-	// 	UnityWebRequest www = new UnityWebRequest(webURL + publicCode + "/pipe/");
-	// 	yield return www;
-
-	// 	if (string.IsNullOrEmpty (www.error)) {
-	// 		FormatHighscores (www.downloadHandler.text);
-	// 		if(highscoreDisplay) 
-	// 		{
-	// 			highscoreDisplay.SetError(false);
-	// 			highscoreDisplay.OnHighscoresDownloaded(levelBestTimes);
-	// 		}
-	// 	}
-	// 	else {
-	// 		print ("Error Downloading: " + www.error);
-    //         if(highscoreDisplay) 
-	// 		{
-	// 			highscoreDisplay.SetError(true);
-	// 			highscoreDisplay.Error();
-	// 		}
-	// 	}
-
 
 	// For this method, thx to -> https://forum.unity.com/threads/api-web-request-error-help-nullreferenceexception.549760/
 	IEnumerator DownloadHighscoresFromDatabase()
@@ -120,14 +98,16 @@ public class Highscores : MonoBehaviour {
 			string[] entryInfo = entries[i].Split(new char[] {'|'});			
 			string[] levelUsername = entryInfo[0].Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
 			int intTime = int.Parse(entryInfo[2]);			
-			float time = Timer.ConvertToFloat(intTime);			
+			float time = Timer.ConvertToFloat(intTime);
 			SetPosition(levelUsername[0], levelUsername[1], time);
 			// print (levelUsername[0] + ": " + levelUsername[1] + ": " + time);
 		}		
 	}
 
 	private void SetPosition(string level, string username, float time)
-	{		
+	{
+		level = level.Replace('+', ' ');
+
 		LinkedList<Highscore> levelHighscores;	
 		if(levelBestTimes.TryGetValue(level, out LinkedList<Highscore> levelHighscoreListExists))
 		{
@@ -139,7 +119,7 @@ public class Highscores : MonoBehaviour {
 			levelBestTimes[level] = levelHighscores;
 		}
 
-		LinkedListNode<Highscore> currentEntry = levelHighscores.First;		
+		LinkedListNode<Highscore> currentEntry = levelHighscores.First;
 		while(currentEntry != null )
 		{
 			if(currentEntry.Value.time > time)

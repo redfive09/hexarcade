@@ -279,17 +279,6 @@ public class Ball : MonoBehaviour
             timer.Disappear();
             skipButton.Reset();
         }
-
-        float currentRecord = timer.GetBestTime();
-
-        if(currentRecord < 0)
-        {
-            Debug.Log("This map has not been played or finished, yet");
-        }
-        else if (currentRecord > 0)
-        {
-            Debug.Log("Record to beat: " + timer.GetBestTime());
-        }        
     }
     
     /*  
@@ -314,7 +303,7 @@ public class Ball : MonoBehaviour
             SceneTransitionValues.newRecord = true;
         }
 
-        Debug.Log("Finish time: " + timer.GetLastFinishTime());
+        // Debug.Log("Finish time: " + timer.GetLastFinishTime());
 
         if(settings.IsRestartingInsteadOfMenu())
         {

@@ -103,7 +103,7 @@ public class Tiles : MonoBehaviour
                     material.SetTexture("_BumpMap", crackedHexagonPattern);
                     material.SetTextureScale("_MainTex", new Vector2(1.95f, 1.95f)); //aka tiling
                     material.SetTextureOffset("_MainTex", new Vector2(-0.087f, 0.013f));
-                    Debug.Log("texture");
+                    // Debug.Log("texture");
                 }
 
                 if(hexagon.IsPathTile())
