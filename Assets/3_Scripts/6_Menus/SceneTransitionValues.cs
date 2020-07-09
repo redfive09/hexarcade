@@ -14,5 +14,7 @@ public class SceneTransitionValues : MonoBehaviour
     public static string playerName;
     public static List<string> allLevels;
     public static Dictionary<string, List<string>> worlds;
-    public static List<string> worldList;    
+    public static List<string> worldList;
+    public static int currentPage = 1;
+    public static string currentWorld ="";
 }

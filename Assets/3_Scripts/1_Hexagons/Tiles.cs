@@ -119,6 +119,14 @@ public class Tiles : MonoBehaviour
                     SaveHexagonInList(pathTiles, hexagon, hexagon.GetPathNumber());
                     hexagon.SetStandardTile(false);
                     hexagon.SetMaterial(pathHexagons);
+                    //hexagon.SetAudio("cracked");
+                    //GameObject child = hexagon.transform.GetChild(0).gameObject;
+                    //Material material = child.GetComponent<MeshRenderer>().material;
+                    //material.EnableKeyword("_NORMALMAP");
+                    //material.SetTexture("_BumpMap", crackedHexagonPattern);
+                    //material.SetTextureScale("_MainTex", new Vector2(1.95f, 1.95f)); //aka tiling
+                    //material.SetTextureOffset("_MainTex", new Vector2(-0.087f, 0.013f));
+                    // Debug.Log("texture");
                 }
 
                 if(hexagon.IsCrackedTile())
