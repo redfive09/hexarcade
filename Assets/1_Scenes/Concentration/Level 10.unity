@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1641092, g: 0.5631615, b: 0.59739244, a: 1}
+  m_IndirectSpecularColor: {r: 0.16410914, g: 0.56316143, b: 0.5973924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -51549,7 +51549,7 @@ PrefabInstance:
     - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
         type: 3}
@@ -51559,7 +51559,7 @@ PrefabInstance:
     - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
         type: 3}
@@ -51574,7 +51574,7 @@ PrefabInstance:
     - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
         type: 3}
@@ -51858,7 +51858,6 @@ GameObject:
   - component: {fileID: 1388032040}
   - component: {fileID: 1388032043}
   - component: {fileID: 1388032042}
-  - component: {fileID: 1388032041}
   m_Layer: 0
   m_Name: default
   m_TagString: Tile
@@ -51880,20 +51879,6 @@ Transform:
   m_Father: {fileID: 1744575487}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1388032041
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1388032039}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
 --- !u!23 &1388032042
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -54675,7 +54660,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 45.14
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4333753208795967516, guid: fbc88039f7dc6b9499f9c201ec73801e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fbc88039f7dc6b9499f9c201ec73801e, type: 3}
 --- !u!4 &1656443053 stripped
 Transform:
@@ -65191,7 +65177,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1744575487}
-  - component: {fileID: 1744575488}
   m_Layer: 0
   m_Name: LoseHeight
   m_TagString: Untagged
@@ -65215,20 +65200,6 @@ Transform:
   m_Father: {fileID: 485213437}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1744575488
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744575486}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 69bda9e6ac3137349a7f06bddc7fe58e, type: 3}
 --- !u!21 &1778466836
 Material:
   serializedVersion: 6
@@ -66917,7 +66888,7 @@ MonoBehaviour:
   leftPathTile: {r: 0.051764708, g: 0.0992157, b: 0.11, a: 1}
   leftDistractionTile: {r: 0, g: 0, b: 0, a: 0}
   leftCheckpointTile: {r: 0.051700003, g: 0.09833998, b: 0.11, a: 1}
-  leftSpecialTile: {r: 0.18, g: 0.18, b: 0.18, a: 1}
+  leftSpecialTile: {r: 0.051764708, g: 0.0992157, b: 0.11, a: 1}
   leftMovingTile: {r: 0, g: 0, b: 0, a: 0}
   leftStartingTile: {r: 0.051700003, g: 0.09833998, b: 0.11, a: 1}
   leftWinningTile: {r: 0.051700003, g: 0.09833998, b: 0.11, a: 1}
@@ -66937,7 +66908,7 @@ MonoBehaviour:
   cameraFollowCrackedTiles: 0
   crackedTilesColorStartTime: 0
   crackedTilesColorTime: 0
-  crackedTimeBeforeFading: 25
+  crackedTimeBeforeFading: 0
   crackedTilesColorFading: 0
   crackedTilesColor: {r: 0, g: 0, b: 0, a: 0}
   cameraFollowPathTiles: 1
@@ -66949,7 +66920,7 @@ MonoBehaviour:
   cameraFollowDistractionTiles: 0
   distractionTilesColorStartTime: 0
   distractionTilesColorTime: 0
-  distractionTimeBeforeFading: 25
+  distractionTimeBeforeFading: 0
   distractionTilesColorFading: 0
   distractionTilesColor: {r: 0, g: 0, b: 0, a: 0}
   cameraFollowCheckpointTiles: 0
@@ -66961,27 +66932,27 @@ MonoBehaviour:
   cameraFollowSpecialTiles: 0
   specialTilesColorStartTime: 0
   specialTilesColorTime: 0
-  specialTimeBeforeFading: 25
+  specialTimeBeforeFading: 0
   specialTilesColorFading: 0
   specialTilesColor: {r: 0.18, g: 0.18, b: 0.18, a: 1}
   cameraFollowMovingTiles: 0
   movingTilesColorStartTime: 0
   movingTilesColorTime: 0
-  movingTimeBeforeFading: 25
+  movingTimeBeforeFading: 0
   movingTilesColorFading: 0
   movingTilesColor: {r: 0, g: 0, b: 0, a: 0}
-  cameraFollowStartingTiles: 0
+  cameraFollowStartingTiles: 1
   startingTilesColorStartTime: 0
   startingTilesColorTime: 0
-  startingTimeBeforeFading: 0
-  startingTilesColorFading: 0
+  startingTimeBeforeFading: 28
+  startingTilesColorFading: 1
   startingTilesColor: {r: 0.094000004, g: 0.17879997, b: 0.2, a: 1}
-  cameraFollowWinningTiles: 0
-  winningTilesColorStartTime: 0
-  winningTilesColorTime: 0
+  cameraFollowWinningTiles: 1
+  winningTilesColorStartTime: 28
+  winningTilesColorTime: 1
   winningTimeBeforeFading: 0
   winningTilesColorFading: 0
-  winningTilesColor: {r: 0.18, g: 0.18, b: 0.18, a: 1}
+  winningTilesColor: {r: 0.094000004, g: 0.17879997, b: 0.2, a: 1}
 --- !u!114 &1968276731
 MonoBehaviour:
   m_ObjectHideFlags: 0
