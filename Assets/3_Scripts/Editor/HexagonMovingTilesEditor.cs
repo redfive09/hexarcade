@@ -13,25 +13,31 @@ public class HexagonMovingTilesEditor : Editor {
         base.OnInspectorGUI();
 
  
-        if (GUILayout.Button("Copy Current Position To A"))
+        if (GUILayout.Button("Add current position"))
         {            
-            hexagonMovingTiles.CopyCurrentPositionToA();
+            hexagonMovingTiles.AddNewDestination();
         }
 
-        if (GUILayout.Button("Copy Current Position To B"))
+        if (GUILayout.Button("Change element's position in array"))
         {            
-            hexagonMovingTiles.CopyCurrentPositionToB();
+            hexagonMovingTiles.ElementGoToNextPosition();
+        }
+        
+
+        if (GUILayout.Button("Move Hexagon to next position"))
+        {            
+            hexagonMovingTiles.GoToNextPosition();
         }
 
-        if (GUILayout.Button("Go to A"))
-        {            
-            hexagonMovingTiles.GoToA();
-        }
+        // if (GUILayout.Button("Go to A"))
+        // {            
+        //     hexagonMovingTiles.GoToA();
+        // }
 
-        if (GUILayout.Button("Go to B"))
-        {            
-            hexagonMovingTiles.GoToB();
-        }
+        // if (GUILayout.Button("Go to B"))
+        // {            
+        //     hexagonMovingTiles.GoToB();
+        // }
 
         if (GUILayout.Button("Save current position"))
         {            
