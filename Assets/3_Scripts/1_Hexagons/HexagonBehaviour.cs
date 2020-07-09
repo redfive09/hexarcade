@@ -13,7 +13,7 @@ public class HexagonBehaviour : MonoBehaviour
     
 
     [SerializeField] private float crackedTileTrapsInSeconds;
-    [SerializeField] private float fallDepth = 1.5f;
+    [SerializeField] private float fallDepth = 0;
     private float destructionDelay;
 
     private HashSet<Ball> balls = new HashSet<Ball>(); // All the players who are setting on the tile get saved here

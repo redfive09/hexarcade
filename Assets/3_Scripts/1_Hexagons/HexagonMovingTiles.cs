@@ -5,7 +5,7 @@ using UnityEngine;
 public class HexagonMovingTiles : MonoBehaviour
 {
     [SerializeField] private Vector3[] movingPositions;
-    [SerializeField] private float speedOfMovingTiles = 2f;
+    [SerializeField] private float speedOfMovingTiles = 1;
     [SerializeField] private float startingDelay;
     [SerializeField] private float waitBeforeTurningBack;
 
@@ -174,6 +174,11 @@ public class HexagonMovingTiles : MonoBehaviour
 
     private void checkUsedPositions()
     {
+        if(movingPositions == null)
+        {
+            movingPositions = new Vector3[1];
+        }
+
         countUsedPositions = 0;
 
         for(int i = 0; i < movingPositions.Length; i++)

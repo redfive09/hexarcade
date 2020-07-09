@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16784078, g: 0.56375265, b: 0.59927064, a: 1}
+  m_IndirectSpecularColor: {r: 0.1678406, g: 0.56375265, b: 0.5992705, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -591,6 +591,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &118988863
@@ -1069,6 +1070,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &162071897
@@ -1693,6 +1695,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &220775219
@@ -6915,6 +6918,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &307166542
@@ -7393,6 +7397,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &348572859
@@ -7657,6 +7662,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &358501390
@@ -7816,6 +7822,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &366161465
@@ -7951,7 +7958,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380173032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8, y: 0, z: 0}
+  m_LocalPosition: {x: -3.31, y: 0.86, z: -4.23}
   m_LocalScale: {x: 1, y: 41.49744, z: 1}
   m_Children:
   - {fileID: 1798228139}
@@ -7970,13 +7977,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingTilePosA: {x: 5.09, y: -0.87, z: 7.35}
-  movingTilePosB: {x: 2.683, y: -0.0009999871, z: 4.701}
-  speedOfMovingTiles: 2
+  movingPositions:
+  - {x: 5.09, y: -0.87, z: 7.35}
+  - {x: 3.58, y: -0.00999999, z: 3.12}
+  speedOfMovingTiles: 0.5
   startingDelay: 1
   waitBeforeTurningBack: 1
+  startMovingBeforeGameStarted: 1
+  liftFinishMoving: 1
   isLift: 0
   needsNumberOfPlayersForLifting: 1
+  elementChangePosition: 0
 --- !u!114 &380173036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8827,6 +8838,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &488032715
@@ -9526,6 +9538,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &587555389
@@ -9865,6 +9878,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &628887817
@@ -10249,6 +10263,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &709078948
@@ -11224,6 +11239,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &857682913
@@ -11668,6 +11684,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &880182587
@@ -12497,6 +12514,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1033628159
@@ -12761,6 +12779,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1051821521
@@ -17907,6 +17926,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1119541418
@@ -18972,13 +18992,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingTilePosA: {x: 6.7999997, y: -2.47, z: 1.565}
-  movingTilePosB: {x: 6.8999996, y: -0.86, z: 4.17}
-  speedOfMovingTiles: 2
+  movingPositions:
+  - {x: 6.7999997, y: -2.47, z: 1.565}
+  - {x: 6.897, y: -0.87, z: 4.239}
+  speedOfMovingTiles: 0.5
   startingDelay: 1
   waitBeforeTurningBack: 1
-  isLift: 0
+  startMovingBeforeGameStarted: 0
+  liftFinishMoving: 1
+  isLift: 1
   needsNumberOfPlayersForLifting: 1
+  elementChangePosition: 0
 --- !u!114 &1330137837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19211,6 +19235,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1348810583
@@ -19445,6 +19470,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1356608007
@@ -19754,6 +19780,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1380502759
@@ -20375,6 +20402,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1485393615
@@ -21508,6 +21536,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1636007788
@@ -21667,6 +21696,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1661672868
@@ -22070,6 +22100,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1738405180
@@ -22619,6 +22650,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1791479138
@@ -27836,6 +27868,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1862720965
@@ -28550,6 +28583,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1921474905
@@ -28814,6 +28848,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1969872446
@@ -29052,6 +29087,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2033403242

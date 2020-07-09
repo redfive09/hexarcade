@@ -273,6 +273,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 1.2
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!82 &49084708
@@ -14801,6 +14802,7 @@ MonoBehaviour:
   teleporterNumber: 1
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 2
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!82 &536778332
@@ -41956,6 +41958,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 2
   jumpDirection: {x: 0, y: 300, z: 0}
 --- !u!82 &1024895535
@@ -50178,6 +50181,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 1
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!82 &1572907252
@@ -58795,13 +58799,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debb1bd1d216d9847b5e53eb34fb5adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingTilePosA: {x: 2.6999998, y: 0, z: 1.565}
-  movingTilePosB: {x: 2.6999998, y: -0.99, z: 1.565}
-  speedOfMovingTiles: 2
+  movingPositions:
+  - {x: 2.6999998, y: 0, z: 1.565}
+  - {x: 2.6999998, y: -0.82, z: 1.565}
+  speedOfMovingTiles: 0.5
   startingDelay: 0
   waitBeforeTurningBack: 0
+  startMovingBeforeGameStarted: 0
+  liftFinishMoving: 1
   isLift: 0
   needsNumberOfPlayersForLifting: 1
+  elementChangePosition: 1
 --- !u!114 &1975583521
 MonoBehaviour:
   m_ObjectHideFlags: 0
