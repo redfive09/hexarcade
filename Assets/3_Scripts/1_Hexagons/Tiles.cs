@@ -24,7 +24,29 @@ public class Tiles : MonoBehaviour
     private List<Hexagon> standardTiles = new List<Hexagon>();  // list of all tiles without any special purpose
 
     [SerializeField]
-    private Texture crackedHexagonPattern;
+    private Material crackedHexagons;
+    [SerializeField]
+    private Material pathHexagons;
+    [SerializeField]
+    private Material distractionHexagons;
+    [SerializeField]
+    private Material checkpointHexagons;
+    [SerializeField]
+    private Material teleporterHexagons;
+    [SerializeField]
+    private Material velocityHexagons;
+    [SerializeField]
+    private Material jumpPadHexagons;
+    [SerializeField]
+    private Material loosingHexagons;
+    [SerializeField]
+    private Material movingHexagons;
+    [SerializeField]
+    private Material startingHexagons;
+    [SerializeField]
+    private Material winningHexagons;
+    [SerializeField]
+    private Material standardHexagons;
 
     /* ------------------------------ STARTING METHODS BEGINN ------------------------------  */
     public void GetStarted(bool inEditor)
@@ -91,31 +113,35 @@ public class Tiles : MonoBehaviour
                 {
                     DestroyImmediate(hexagon.GetAudioSource());
                 }
+                
+                if(hexagon.IsPathTile())
+                {
+                    SaveHexagonInList(pathTiles, hexagon, hexagon.GetPathNumber());
+                    hexagon.SetStandardTile(false);
+                    hexagon.SetMaterial(pathHexagons);
+                    //hexagon.SetAudio("cracked");
+                    //GameObject child = hexagon.transform.GetChild(0).gameObject;
+                    //Material material = child.GetComponent<MeshRenderer>().material;
+                    //material.EnableKeyword("_NORMALMAP");
+                    //material.SetTexture("_BumpMap", crackedHexagonPattern);
+                    //material.SetTextureScale("_MainTex", new Vector2(1.95f, 1.95f)); //aka tiling
+                    //material.SetTextureOffset("_MainTex", new Vector2(-0.087f, 0.013f));
+                    // Debug.Log("texture");
+                }
 
                 if(hexagon.IsCrackedTile())
                 {
                     SaveHexagonInList(crackedTiles, hexagon, hexagon.GetCrackedNumber());
                     hexagon.SetStandardTile(false);
                     hexagon.SetAudio("cracked");
-                    GameObject child = hexagon.transform.GetChild(0).gameObject;
-                    Material material = child.GetComponent<MeshRenderer>().material;
-                    material.EnableKeyword("_NORMALMAP");
-                    material.SetTexture("_BumpMap", crackedHexagonPattern);
-                    material.SetTextureScale("_MainTex", new Vector2(1.95f, 1.95f)); //aka tiling
-                    material.SetTextureOffset("_MainTex", new Vector2(-0.087f, 0.013f));
-                    // Debug.Log("texture");
-                }
-
-                if(hexagon.IsPathTile())
-                {
-                    SaveHexagonInList(pathTiles, hexagon, hexagon.GetPathNumber());
-                    hexagon.SetStandardTile(false);
+                    hexagon.SetMaterial(crackedHexagons);
                 }
 
                 if(hexagon.IsDistractionTile())
                 {
                     SaveHexagonInList(distractionTiles, hexagon, hexagon.GetDistractionNumber());
                     hexagon.SetStandardTile(false);
+                    hexagon.SetMaterial(distractionHexagons);
 
                     if(!hexagon.GetComponent<HexagonDistraction>()) hexagon.gameObject.AddComponent<HexagonDistraction>();
 
@@ -138,12 +164,35 @@ public class Tiles : MonoBehaviour
                 {
                     SaveHexagonInList(checkpointTiles, hexagon, hexagon.GetCheckpointNumber());
                     hexagon.SetStandardTile(false);
+                    hexagon.SetMaterial(checkpointHexagons);
                 }
 
                 if(hexagon.IsSpecialTile())
                 {                    
                     SaveHexagonInList(specialTiles, hexagon, hexagon.GetSpecialNumber());                    
                     hexagon.SetStandardTile(false);
+                    switch (hexagon.GetSpecialNumber()) {
+                        case 0: {
+                                hexagon.SetMaterial(teleporterHexagons);
+                                break;
+                            }
+                        case 1: {
+                                hexagon.SetMaterial(velocityHexagons);
+                                break;
+                            }
+                        case 2: {
+                                hexagon.SetMaterial(jumpPadHexagons);
+                                break;
+                            }
+                        case 3: {
+                                hexagon.SetMaterial(loosingHexagons);
+                                break;
+                            }   
+                        defaut: {
+                                hexagon.SetMaterial(standardHexagons);
+                                break;
+                            }
+                    }
                     if(!hexagon.GetComponent<HexagonSpecial>()) hexagon.gameObject.AddComponent<HexagonSpecial>();
                     HexagonSpecial specialScript = hexagon.GetComponent<HexagonSpecial>();                
                     specialScript.GetStarted(specialTiles, this, hexagon, inEditor);
@@ -165,6 +214,7 @@ public class Tiles : MonoBehaviour
                 {
                     SaveHexagonInList(movingTiles, hexagon, hexagon.GetMovingNumber());
                     hexagon.SetStandardTile(false);
+                    hexagon.SetMaterial(movingHexagons);
                     if(!hexagon.GetComponent<HexagonMovingTiles>()) hexagon.gameObject.AddComponent<HexagonMovingTiles>();                    
                 }
                 else
@@ -183,6 +233,7 @@ public class Tiles : MonoBehaviour
                 {
                     SaveHexagonInList(startingTiles, hexagon, hexagon.GetStartingNumber());
                     hexagon.SetStandardTile(false);
+                    hexagon.SetMaterial(startingHexagons);
                     hexagon.SetVisualEffect("StartingVFX", inEditor);
                     destroyVFX = false;
                 }
@@ -190,7 +241,8 @@ public class Tiles : MonoBehaviour
                 if(hexagon.IsWinningTile())
                 {
                     SaveHexagonInList(winningTiles, hexagon, hexagon.GetWinningNumber());
-                    hexagon.SetStandardTile(false);                    
+                    hexagon.SetStandardTile(false);
+                    hexagon.SetMaterial(winningHexagons);
                     hexagon.SetVisualEffect("WinningVFX", inEditor);
                     destroyVFX = false;
                 }
@@ -198,6 +250,7 @@ public class Tiles : MonoBehaviour
                 if(hexagon.IsStandardTile())
                 {
                     standardTiles.Add(hexagon);
+                    hexagon.SetMaterial(standardHexagons);
                     if(inEditor && hexagon.GetComponent<AudioSource>())
                     {
                         DestroyImmediate(hexagon.GetComponent<AudioSource>());
