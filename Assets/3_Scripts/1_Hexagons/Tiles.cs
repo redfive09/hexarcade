@@ -23,8 +23,8 @@ public class Tiles : MonoBehaviour
 
     private List<Hexagon> standardTiles = new List<Hexagon>();  // list of all tiles without any special purpose
 
-    [SerializeField]
-    private Material crackedHexagons = Resources.Load("HexagonStandard.mat", typeof(Material)) as Material;
+    [SerializeField] 
+    private Material crackedHexagons;
     [SerializeField]
     private Material pathHexagons;
     [SerializeField]
