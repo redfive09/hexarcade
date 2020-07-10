@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9987,7 +9987,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0ba334cfef05b488274837dab06a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedHexagonPattern: {fileID: 0}
+  crackedHexagons: {fileID: 0}
+  pathHexagons: {fileID: 0}
+  distractionHexagons: {fileID: 0}
+  checkpointHexagons: {fileID: 0}
+  teleporterHexagons: {fileID: 0}
+  velocityHexagons: {fileID: 0}
+  jumpPadHexagons: {fileID: 0}
+  loosingHexagons: {fileID: 0}
+  movingHexagons: {fileID: 0}
+  startingHexagons: {fileID: 0}
+  winningHexagons: {fileID: 0}
+  standardHexagons: {fileID: 0}
 --- !u!1 &233124547
 GameObject:
   m_ObjectHideFlags: 0
@@ -10329,7 +10340,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
-  normalizePhysics: 0
+  normalizePhysics: 1
   velocity: 1.2
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &311241474
@@ -10619,7 +10630,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
-  normalizePhysics: 0
+  normalizePhysics: 1
   velocity: 1.2
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &346029956
@@ -11016,7 +11027,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
-  normalizePhysics: 0
+  normalizePhysics: 1
   velocity: 1.2
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &366316533
@@ -25518,7 +25529,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
-  normalizePhysics: 0
+  normalizePhysics: 1
   velocity: 1.2
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &467067558
@@ -31134,7 +31145,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
-  normalizePhysics: 0
+  normalizePhysics: 1
   velocity: 1.2
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &833182435
@@ -45989,7 +46000,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
-  normalizePhysics: 0
+  normalizePhysics: 1
   velocity: 1.2
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1174630561
@@ -56262,7 +56273,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
-  normalizePhysics: 0
+  normalizePhysics: 1
   velocity: 1.2
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1345500465
@@ -76148,7 +76159,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
-  normalizePhysics: 0
+  normalizePhysics: 1
   velocity: 1.2
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1753297959
@@ -95882,7 +95893,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
-  normalizePhysics: 0
+  normalizePhysics: 1
   velocity: 1.2
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &2037372749
