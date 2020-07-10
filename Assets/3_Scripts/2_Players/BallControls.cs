@@ -6,7 +6,7 @@ public class BallControls : MonoBehaviour
 {
     [SerializeField] private float speed = 1000.0f;
     private Rigidbody rb;
-    private float multiplier = 2.5f;
+    [SerializeField] private float multiplier = 2.5f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
