@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 1d622d3ee78781d49a01e726f01d4c09, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.16784054, g: 0.5637526, b: 0.59927046, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9987,18 +9987,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0ba334cfef05b488274837dab06a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackedHexagons: {fileID: 0}
-  pathHexagons: {fileID: 0}
-  distractionHexagons: {fileID: 0}
-  checkpointHexagons: {fileID: 0}
-  teleporterHexagons: {fileID: 0}
-  velocityHexagons: {fileID: 0}
-  jumpPadHexagons: {fileID: 0}
-  loosingHexagons: {fileID: 0}
-  movingHexagons: {fileID: 0}
-  startingHexagons: {fileID: 0}
-  winningHexagons: {fileID: 0}
-  standardHexagons: {fileID: 0}
+  crackedHexagons: {fileID: 2100000, guid: 7e239c1a5e0e74d46abdcc8fe7e0f2fd, type: 2}
+  pathHexagons: {fileID: 2100000, guid: 956640a04c3575b4eb839c9300d12ee7, type: 2}
+  distractionHexagons: {fileID: 2100000, guid: 956640a04c3575b4eb839c9300d12ee7, type: 2}
+  checkpointHexagons: {fileID: 2100000, guid: 956640a04c3575b4eb839c9300d12ee7, type: 2}
+  teleporterHexagons: {fileID: 2100000, guid: 956640a04c3575b4eb839c9300d12ee7, type: 2}
+  velocityHexagons: {fileID: 2100000, guid: 956640a04c3575b4eb839c9300d12ee7, type: 2}
+  jumpPadHexagons: {fileID: 2100000, guid: 956640a04c3575b4eb839c9300d12ee7, type: 2}
+  loosingHexagons: {fileID: 2100000, guid: 956640a04c3575b4eb839c9300d12ee7, type: 2}
+  movingHexagons: {fileID: 2100000, guid: 956640a04c3575b4eb839c9300d12ee7, type: 2}
+  startingHexagons: {fileID: 2100000, guid: 956640a04c3575b4eb839c9300d12ee7, type: 2}
+  winningHexagons: {fileID: 2100000, guid: 956640a04c3575b4eb839c9300d12ee7, type: 2}
+  standardHexagons: {fileID: 2100000, guid: 956640a04c3575b4eb839c9300d12ee7, type: 2}
 --- !u!1 &233124547
 GameObject:
   m_ObjectHideFlags: 0
@@ -70716,6 +70716,75 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1001 &1559836030
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 207996198340683922, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
+        type: 3}
+      propertyPath: m_Name
+      value: DiscoLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1268282
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207996198340683923, guid: 545a4c1c7ebacf24b97e8d81836dc74a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 545a4c1c7ebacf24b97e8d81836dc74a, type: 3}
 --- !u!1 &1578828051
 GameObject:
   m_ObjectHideFlags: 0
