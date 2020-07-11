@@ -132,12 +132,6 @@ public class HexagonBehaviour : MonoBehaviour
                 thisHexagon.SetColor(colors[leftCheckpointTile]);
             }
 
-            if(thisHexagon.IsSpecialTile())
-            {
-                thisHexagon.SetColor(colors[leftSpecialTile]);
-                this.transform.GetComponent<HexagonSpecial>().SpecialTileLeft(player);
-            }
-
             if(thisHexagon.IsMovingTile())
             {
                 thisHexagon.SetColor(colors[leftMovingTile]);
@@ -148,6 +142,12 @@ public class HexagonBehaviour : MonoBehaviour
             {
                 thisHexagon.SetColor(colors[leftStartingTile]);
                 player.LeftStartingTile();
+            }
+
+            if(thisHexagon.IsSpecialTile())
+            {
+                thisHexagon.SetColor(colors[leftSpecialTile]);
+                this.transform.GetComponent<HexagonSpecial>().SpecialTileLeft(player);
             }
 
             if(thisHexagon.IsWinningTile())
