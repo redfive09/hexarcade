@@ -41,60 +41,63 @@ public class HexagonBehaviour : MonoBehaviour
     **/
     public void GotOccupied(Ball player)
     {
-        balls.Add(player);
-        thisHexagon.SetIsTouched(true);        
-
-        if(thisHexagon.IsCrackedTile())
-        {            
-            thisHexagon.SetColor(colors[arrivedCrackedTile]);
-            thisHexagon.GetAudioSource().Play();
-            FallAndFade();
-            ActivateCrackedTile();
-        }
-
-        if(thisHexagon.IsPathTile())
+        if(!balls.Contains(player))
         {
-            thisHexagon.SetColor(colors[arrivedPathTile]);
-        }
+            balls.Add(player);            
+            thisHexagon.SetIsTouched(true);
 
-        if(thisHexagon.IsDistractionTile())
-        {
-            thisHexagon.SetColor(colors[arrivedDistractionTile]);
-            this.transform.GetComponent<HexagonDistraction>().DistractionTileTouched(player);
-        }
+            if(thisHexagon.IsCrackedTile())
+            {            
+                thisHexagon.SetColor(colors[arrivedCrackedTile]);
+                thisHexagon.GetAudioSource().Play();
+                FallAndFade();
+                ActivateCrackedTile();
+            }
 
-        if(thisHexagon.IsCheckpointTile())
-        {
-            thisHexagon.SetColor(colors[arrivedCheckpointTile]);
-        }
+            if(thisHexagon.IsPathTile())
+            {
+                thisHexagon.SetColor(colors[arrivedPathTile]);
+            }
 
-        if(thisHexagon.IsSpecialTile())
-        {
-            thisHexagon.SetColor(colors[arrivedSpecialTile]);
-            this.transform.GetComponent<HexagonSpecial>().SpecialTileTouched(player);
-        }
+            if(thisHexagon.IsDistractionTile())
+            {
+                thisHexagon.SetColor(colors[arrivedDistractionTile]);
+                this.transform.GetComponent<HexagonDistraction>().DistractionTileTouched(player);
+            }
 
-        if(thisHexagon.IsMovingTile())
-        {
-            thisHexagon.SetColor(colors[arrivedMovingTile]);
-            this.transform.GetComponent<HexagonMovingTiles>().MovingTileTouched(balls);
-        }
-        
-        if(thisHexagon.IsStartingTile())
-        {
-            thisHexagon.SetColor(colors[arrivedStartingTile]);
-            player.ArrviedStartingTile();
-        }
+            if(thisHexagon.IsCheckpointTile())
+            {
+                thisHexagon.SetColor(colors[arrivedCheckpointTile]);
+            }
 
-        if(thisHexagon.IsWinningTile())
-        {
-            thisHexagon.SetColor(colors[arrivedWinningTile]);
-            player.Won();
-        }
+            if(thisHexagon.IsSpecialTile())
+            {
+                thisHexagon.SetColor(colors[arrivedSpecialTile]);
+                this.transform.GetComponent<HexagonSpecial>().SpecialTileTouched(player);
+            }
 
-        if(thisHexagon.IsStandardTile())
-        {
-            thisHexagon.SetColor(colors[arrivedStandardTile]);
+            if(thisHexagon.IsMovingTile())
+            {
+                thisHexagon.SetColor(colors[arrivedMovingTile]);
+                this.transform.GetComponent<HexagonMovingTiles>().MovingTileTouched(balls);
+            }
+            
+            if(thisHexagon.IsStartingTile())
+            {
+                thisHexagon.SetColor(colors[arrivedStartingTile]);
+                player.ArrviedStartingTile();
+            }
+
+            if(thisHexagon.IsWinningTile())
+            {
+                thisHexagon.SetColor(colors[arrivedWinningTile]);
+                player.Won();
+            }
+
+            if(thisHexagon.IsStandardTile())
+            {
+                thisHexagon.SetColor(colors[arrivedStandardTile]);
+            }
         }
     }
 
@@ -103,56 +106,59 @@ public class HexagonBehaviour : MonoBehaviour
     *  Depending on its values, the tile knows what to do
     **/
     public void GotUnoccupied(Ball player)
-    {            
-        balls.Remove(player);
+    {
+        if(balls.Contains(player))
+        {
+            balls.Remove(player);
 
-        if(thisHexagon.IsCrackedTile())
-        {
-            thisHexagon.SetColor(colors[leftCrackedTile]);            
-        }
+            if(thisHexagon.IsCrackedTile())
+            {
+                thisHexagon.SetColor(colors[leftCrackedTile]);            
+            }
 
-        if(thisHexagon.IsPathTile())
-        {
-            thisHexagon.SetColor(colors[leftPathTile]);
-        }
+            if(thisHexagon.IsPathTile())
+            {
+                thisHexagon.SetColor(colors[leftPathTile]);
+            }
 
-        if(thisHexagon.IsDistractionTile())
-        {
-            thisHexagon.SetColor(colors[leftDistractionTile]);
-            this.transform.GetComponent<HexagonDistraction>().DistractionTileLeft(player);
-        }
+            if(thisHexagon.IsDistractionTile())
+            {
+                thisHexagon.SetColor(colors[leftDistractionTile]);
+                this.transform.GetComponent<HexagonDistraction>().DistractionTileLeft(player);
+            }
 
-        if(thisHexagon.IsCheckpointTile())
-        {
-            thisHexagon.SetColor(colors[leftCheckpointTile]);
-        }
+            if(thisHexagon.IsCheckpointTile())
+            {
+                thisHexagon.SetColor(colors[leftCheckpointTile]);
+            }
 
-        if(thisHexagon.IsSpecialTile())
-        {
-            thisHexagon.SetColor(colors[leftSpecialTile]);
-            this.transform.GetComponent<HexagonSpecial>().SpecialTileLeft(player);
-        }
+            if(thisHexagon.IsSpecialTile())
+            {
+                thisHexagon.SetColor(colors[leftSpecialTile]);
+                this.transform.GetComponent<HexagonSpecial>().SpecialTileLeft(player);
+            }
 
-        if(thisHexagon.IsMovingTile())
-        {
-            thisHexagon.SetColor(colors[leftMovingTile]);
-            this.transform.GetComponent<HexagonMovingTiles>().MovingTileLeft(balls);
-        }
-        
-        if(thisHexagon.IsStartingTile())
-        {
-            thisHexagon.SetColor(colors[leftStartingTile]);
-            player.LeftStartingTile();
-        }
+            if(thisHexagon.IsMovingTile())
+            {
+                thisHexagon.SetColor(colors[leftMovingTile]);
+                this.transform.GetComponent<HexagonMovingTiles>().MovingTileLeft(balls);
+            }
+            
+            if(thisHexagon.IsStartingTile())
+            {
+                thisHexagon.SetColor(colors[leftStartingTile]);
+                player.LeftStartingTile();
+            }
 
-        if(thisHexagon.IsWinningTile())
-        {
-            thisHexagon.SetColor(colors[leftWinningTile]);
-        }
+            if(thisHexagon.IsWinningTile())
+            {
+                thisHexagon.SetColor(colors[leftWinningTile]);
+            }
 
-        if(thisHexagon.IsStandardTile())
-        {
-            thisHexagon.SetColor(colors[leftStandardTile]);
+            if(thisHexagon.IsStandardTile())
+            {
+                thisHexagon.SetColor(colors[leftStandardTile]);
+            }
         }
     }
 

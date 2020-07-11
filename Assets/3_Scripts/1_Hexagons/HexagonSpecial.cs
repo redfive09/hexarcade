@@ -35,7 +35,7 @@ public class HexagonSpecial : MonoBehaviour
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */    
     private Dictionary<int, List<Hexagon>> specialTiles;
     private Tiles tiles;
-    private List<Ball> players = new List<Ball>();
+    private HashSet<Ball> players = new HashSet<Ball>();
     private int getIndexNumberInList;
     private bool hasVFX = false;
     private Hexagon thisHexagon;

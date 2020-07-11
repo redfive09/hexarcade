@@ -33,7 +33,7 @@ public class HexagonDistraction : MonoBehaviour
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */
     private Dictionary<int, List<Hexagon>> distractionTiles;
-    private List<Ball> players = new List<Ball>();
+    private HashSet<Ball> players = new HashSet<Ball>();
     private Hexagon[] platformTiles;
     private Hexagon[] allTiles;
     private Hexagon thisHexagon;
@@ -70,9 +70,10 @@ public class HexagonDistraction : MonoBehaviour
         {
             case BLINKING_START:
             {
-                if(multipleActivationsPossible || !thisHexagon.IsTouched())
+                if(multipleActivationsPossible || !touchedBefore)
                 {
                     thisHexagon.GetAudioSource().Play();
+                    touchedBefore = true;
                     blinking = true;
                     if(onlyThisPlatformIsBlinking)
                     {
@@ -151,6 +152,12 @@ public class HexagonDistraction : MonoBehaviour
 
     private IEnumerator StartBlinking(Hexagon[] hexagons)
     {
+        // for(int i = 0; i < hexagons.Length; i++)
+        // {
+        //     Debug.Log(hexagons[i]);
+        // }
+
+
         // make sure the entered number is not too big for the array
         if(numberOfBlinkingTilesPerCycle > hexagons.Length) numberOfBlinkingTilesPerCycle = hexagons.Length;
 
