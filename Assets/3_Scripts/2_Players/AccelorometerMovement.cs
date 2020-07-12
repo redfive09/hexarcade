@@ -31,12 +31,15 @@ public class AccelorometerMovement : MonoBehaviour
      */
     void FixedUpdate()
     {
-        //Vector3 tilt = Input.acceleration;
-        tilt = AdjustedAccelerometer;
-        tilt.z = 0.0f;
-        tilt = Quaternion.Euler(90, 0, 0) * tilt;
-        tilt *= multiplier;
-        rb.AddForce(tilt, inputApplyment);
+        if(!Game.isPaused)
+        {
+            //Vector3 tilt = Input.acceleration;
+            tilt = AdjustedAccelerometer;
+            tilt.z = 0.0f;
+            tilt = Quaternion.Euler(90, 0, 0) * tilt;
+            tilt *= multiplier;
+            rb.AddForce(tilt, inputApplyment);
+        }
     }
     
  /*

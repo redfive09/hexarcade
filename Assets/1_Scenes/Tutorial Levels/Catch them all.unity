@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 49084707}
   - component: {fileID: 49084708}
   m_Layer: 0
-  m_Name: '-1, 1 || '
+  m_Name: '-1, 1 || Special -> velocity 1.2 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9040,7 +9040,7 @@ GameObject:
   - component: {fileID: 385806969}
   - component: {fileID: 385806962}
   m_Layer: 0
-  m_Name: '1, -2 || Distraction -> scrolling_text || '
+  m_Name: '1, -2 || Distraction -> scrolling_text_start || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43100,7 +43100,7 @@ GameObject:
   - component: {fileID: 1024895534}
   - component: {fileID: 1024895535}
   m_Layer: 0
-  m_Name: '2, -2 || Special -> jumpad || '
+  m_Name: '2, -2 || Special -> jump_pad || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44028,8 +44028,9 @@ GameObject:
   - component: {fileID: 1105320347}
   - component: {fileID: 1105320346}
   - component: {fileID: 1105320345}
+  - component: {fileID: 1105320343}
   m_Layer: 0
-  m_Name: '-1, -3 || Starting 0 || '
+  m_Name: '-1, -3 || Special -> become_standard || Starting 0 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44051,6 +44052,26 @@ Transform:
   m_Father: {fileID: 210382731}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1105320343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105320341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81c0a16295bb6d438012090dd9ea165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleporterEntrance: 0
+  keepSpeedThroughTeleporter: 0
+  teleporterNumber: 0
+  teleporterConnectedWith: 0
+  teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
+  velocity: 0
+  jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1105320345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44081,7 +44102,7 @@ MonoBehaviour:
   isPath: -1
   isDistractionTile: -1
   isCheckpointTile: -1
-  isSpecialTile: -1
+  isSpecialTile: 5
   isMovingTile: -1
   isStartingTile: 0
   isWinningTile: -1
@@ -52820,7 +52841,7 @@ GameObject:
   - component: {fileID: 1572907251}
   - component: {fileID: 1572907252}
   m_Layer: 0
-  m_Name: '3, 1 || '
+  m_Name: '3, 1 || Special -> teleporter, 0 to 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58358,7 +58379,7 @@ GameObject:
   - component: {fileID: 1639461548}
   - component: {fileID: 1639461546}
   m_Layer: 0
-  m_Name: '-2, -1 || Cracked 0 -> Time: 2 || '
+  m_Name: '-2, -1 || Cracked 0 -> Time: 4 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60507,7 +60528,7 @@ GameObject:
   - component: {fileID: 1830739257}
   - component: {fileID: 1830739256}
   m_Layer: 0
-  m_Name: '0, -1 || Special -> teleporter, 0 to 1 || '
+  m_Name: '0, -1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64054,7 +64075,7 @@ GameObject:
   - component: {fileID: 2069701979}
   - component: {fileID: 2069701980}
   m_Layer: 0
-  m_Name: '-2, -2 || Distraction -> blinking_start, length: 0 || '
+  m_Name: '-2, -2 || Distraction -> blinking_start, length: 10 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64602,7 +64623,7 @@ GameObject:
   - component: {fileID: 2085214827}
   - component: {fileID: 2085214826}
   m_Layer: 0
-  m_Name: '-2, 1 || Special -> velocity 0 || '
+  m_Name: '-2, 1 || '
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
