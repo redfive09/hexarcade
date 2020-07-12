@@ -29,13 +29,14 @@ public class HexagonSpecial : MonoBehaviour
     private const int JUMP_PAD = 2;
     private const int LOSING_TILE = 3;
     private const int NON_STANDARD_COUNTER = 4;
+    private const int BECOME_STANDARD = 5;
 
 
 
     /* ------------------------------ GENERAL INFORMATION FOR DIFFERENT OPERATIONS ------------------------------  */    
     private Dictionary<int, List<Hexagon>> specialTiles;
     private Tiles tiles;
-    private List<Ball> players = new List<Ball>();
+    private HashSet<Ball> players = new HashSet<Ball>();
     private int getIndexNumberInList;
     private bool hasVFX = false;
     private Hexagon thisHexagon;
@@ -134,20 +135,23 @@ public class HexagonSpecial : MonoBehaviour
             }
         }
 
+
+        /* ------------------------------ SPECIFIC METHODS FOR JUMP PADS ------------------------------  */
         //If normalizePhysics, means that the gravity will be turned to the normal unity vanilla and drag of rigidbody turned to 0 
         if (normalizePhysics)
         {
             Physics.gravity = new Vector3(0,-9.81f);
             player.GetRigidbody().drag = 0;
-            player.GetComponent<BallControls>().setMultiplier(1);
+            player.GetComponent<BallControls>().SetMultiplier(1);
             //Debug.Log("Normalized physics to vanilla unity");
             //Debug.Log(player.GetComponent<BallControls>().getMultiplier());
         }
         //This else case is to changed back to the setting after physics control 
-        else {
+        else 
+        {
            Physics.gravity = new Vector3(0,-45);
            player.GetRigidbody().drag = 2;
-           player.GetComponent<BallControls>().setMultiplier(2.5f);
+           player.GetComponent<BallControls>().SetMultiplier(2.5f);
            //Debug.Log("Changed back to new Physics setting");
            //Debug.Log(player.GetComponent<BallControls>().getMultiplier());
         }
@@ -158,11 +162,19 @@ public class HexagonSpecial : MonoBehaviour
     {
         players.Remove(player);
 
-        if(specialCase == 0)
+        if(getIndexNumberInList >= 0) // catch potential errors with the special tile list
         {
-            
+            switch(specialCase)
+            {
+            case BECOME_STANDARD:
+                {                    
+                    thisHexagon.SetToStandardTile();
+                    break;
+                }
+            }
         }
     }
+
 
     private int GetIndexNumberInList()
     {
@@ -305,6 +317,11 @@ public class HexagonSpecial : MonoBehaviour
 
             case NON_STANDARD_COUNTER:
                 return prefix + nameof(NON_STANDARD_COUNTER).ToLower();
+
+            case BECOME_STANDARD:
+            {
+                return prefix + nameof(BECOME_STANDARD).ToLower();
+            }
         }
         return "";
     }

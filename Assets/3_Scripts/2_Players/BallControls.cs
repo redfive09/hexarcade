@@ -20,12 +20,12 @@ public class BallControls : MonoBehaviour
         rb.AddForce (movement * (speed * Time.fixedDeltaTime));
     }
 
-    public void setMultiplier(float newMultiplier)
+    public void SetMultiplier(float newMultiplier)
     {
         multiplier = newMultiplier;
     }
 
-    public float getMultiplier()
+    public float GetMultiplier()
     {
         return multiplier;
     }

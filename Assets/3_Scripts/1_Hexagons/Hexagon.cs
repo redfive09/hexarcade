@@ -158,6 +158,20 @@ public class Hexagon : MonoBehaviour
         isStandardTile = status;
     }
 
+    public void SetToStandardTile()
+    {        
+        isCrackedTile = -1;
+        isPath = -1;
+        isDistractionTile = -1;
+        isCheckpointTile = -1;
+        isSpecialTile = -1;
+        isMovingTile = -1;
+        isStartingTile = -1;
+        isWinningTile = -1;
+
+        SetStandardTile(true);
+    }
+
     public void SetIsTouched(bool status)
     {
         isTouched = status;

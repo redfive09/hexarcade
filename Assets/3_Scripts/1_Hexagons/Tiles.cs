@@ -85,7 +85,7 @@ public class Tiles : MonoBehaviour
             Platform platform = this.transform.GetChild(i).GetComponent<Platform>();
             platform.CollectHexagons();
             platforms.Add(platform);
-            numberOfTiles += platform.GetNumberOfHexagons();            
+            numberOfTiles += platform.GetNumberOfHexagons();
         }
         allTiles = new Hexagon[numberOfTiles];
     }

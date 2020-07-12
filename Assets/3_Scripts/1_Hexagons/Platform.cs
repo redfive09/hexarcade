@@ -42,7 +42,7 @@ public class Platform : MonoBehaviour
         allPlatformTiles = new Hexagon[this.transform.childCount];
         for(int i = 0; i < allPlatformTiles.Length; i++)
         {
-            Hexagon hexagon = this.transform.GetChild(i).GetComponent<Hexagon>();
+            Hexagon hexagon = this.transform.GetChild(i).GetComponent<Hexagon>();            
             platformTiles.Add(hexagon);
             allPlatformTiles[i] = hexagon;
         }

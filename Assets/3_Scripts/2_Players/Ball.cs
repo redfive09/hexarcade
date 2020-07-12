@@ -487,11 +487,8 @@ public class Ball : MonoBehaviour
     }
 
     private void AnalyseUnoccupiedHexagon(Hexagon hexagon)
-    {        
-        if(hexagon.IsStartingTile() && settings.IsIntroductionScreen())
-        {
-            hexagon.SetIsStartingTile(-1);
-        }
+    {
+        // Nothing to do yet
     }
 
 
