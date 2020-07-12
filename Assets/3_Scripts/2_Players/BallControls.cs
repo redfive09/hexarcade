@@ -14,10 +14,13 @@ public class BallControls : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis ("Horizontal");
-        float moveVertical = Input.GetAxis ("Vertical");
-        Vector3 movement = new Vector3 (moveHorizontal * multiplier, 0.0f, moveVertical * multiplier);
-        rb.AddForce (movement * (speed * Time.fixedDeltaTime));
+        if(!Game.isPaused)
+        {
+            float moveHorizontal = Input.GetAxis ("Horizontal");
+            float moveVertical = Input.GetAxis ("Vertical");
+            Vector3 movement = new Vector3 (moveHorizontal * multiplier, 0.0f, moveVertical * multiplier);
+            rb.AddForce (movement * (speed * Time.fixedDeltaTime));
+        }
     }
 
     public void SetMultiplier(float newMultiplier)

@@ -351,7 +351,7 @@ public class Ball : MonoBehaviour
             rememberVelocity = rb.velocity;
             rb.constraints = RigidbodyConstraints.FreezeAll;
             wasControlOn = controlOn;
-            DeactivatePlayerControls();
+            // DeactivatePlayerControls();
             timer.Pause();
             timer.Disappear();
         }
@@ -398,10 +398,10 @@ public class Ball : MonoBehaviour
         rb.constraints = RigidbodyConstraints.None;
         rb.velocity = rememberVelocity;
 
-        if(wasControlOn)
-        {
-            ActivatePlayerControls();
-        }
+        // if(wasControlOn)
+        // {
+        //     ActivatePlayerControls();
+        // }
 
         if(distractionAtCanvas) distractionAtCanvas.SetActive(true);
         accelerometerInformation.SetActive(false);
