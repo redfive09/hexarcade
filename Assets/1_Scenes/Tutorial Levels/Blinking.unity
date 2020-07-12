@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16784054, g: 0.5637526, b: 0.59927046, a: 1}
+  m_IndirectSpecularColor: {r: 0.1678406, g: 0.56375265, b: 0.5992705, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3521,15 +3521,15 @@ MonoBehaviour:
   cameraFollowCrackedTiles: 0
   crackedTilesColorStartTime: 0
   crackedTilesColorTime: 0
-  crackedTimeBeforeFading: 13
+  crackedTimeBeforeFading: 0
   crackedTilesColorFading: 0
   crackedTilesColor: {r: 0.18, g: 0.18, b: 0.18, a: 1}
   cameraFollowPathTiles: 1
-  pathTilesColorStartTime: 1
+  pathTilesColorStartTime: 0.5
   pathTilesColorTime: 1
-  pathTimeBeforeFading: 1
-  pathTilesColorFading: 1
-  pathTilesColor: {r: 0.09411766, g: 0.1788235, b: 0.2, a: 1}
+  pathTimeBeforeFading: 0.5
+  pathTilesColorFading: 0
+  pathTilesColor: {r: 1, g: 0, b: 0, a: 1}
   cameraFollowDistractionTiles: 0
   distractionTilesColorStartTime: 0
   distractionTilesColorTime: 0
@@ -3545,7 +3545,7 @@ MonoBehaviour:
   cameraFollowSpecialTiles: 0
   specialTilesColorStartTime: 0
   specialTilesColorTime: 0
-  specialTimeBeforeFading: 13
+  specialTimeBeforeFading: 0
   specialTilesColorFading: 0
   specialTilesColor: {r: 0.18, g: 0.18, b: 0.18, a: 1}
   cameraFollowMovingTiles: 0
@@ -3557,15 +3557,15 @@ MonoBehaviour:
   cameraFollowStartingTiles: 0
   startingTilesColorStartTime: 0
   startingTilesColorTime: 0
-  startingTimeBeforeFading: 13
-  startingTilesColorFading: 1
+  startingTimeBeforeFading: 0
+  startingTilesColorFading: 0
   startingTilesColor: {r: 0.094000004, g: 0.18056667, b: 0.2, a: 1}
   cameraFollowWinningTiles: 1
-  winningTilesColorStartTime: 13
-  winningTilesColorTime: 1
-  winningTimeBeforeFading: 0
+  winningTilesColorStartTime: 3
+  winningTilesColorTime: 0
+  winningTimeBeforeFading: 0.5
   winningTilesColorFading: 0
-  winningTilesColor: {r: 0.094000004, g: 0.18056667, b: 0.2, a: 1}
+  winningTilesColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &466400931
 MonoBehaviour:
   m_ObjectHideFlags: 0
