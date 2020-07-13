@@ -8,6 +8,7 @@ public class Platform : MonoBehaviour
 
     [SerializeField] private int crackedTiles;
     [SerializeField] private int pathTiles;
+    [SerializeField] private int movingTiles;
     [SerializeField] private int startingTiles;
     [SerializeField] private int winningTiles;
     [SerializeField] private int checkpointTiles;
@@ -23,7 +24,9 @@ public class Platform : MonoBehaviour
     // Prepares all the standard values of the [SerializeField] for the editor mode
     public void Setup()
     {
+        crackedTiles = -1;
         pathTiles = -1;
+        movingTiles = -1;
         startingTiles = -1;
         winningTiles = -1;
         checkpointTiles = -1;
@@ -79,6 +82,18 @@ public class Platform : MonoBehaviour
             platformTiles[i].SetIsPathTile(pathTiles);
         }
     }
+
+    public void SetMovingPlatform()
+    {
+        for(int i = 0; i < platformTiles.Count; i++)
+        {
+            platformTiles[i].SetIsMovingTile(movingTiles);
+        }
+    }
+
+    /*
+     * Uses the [SerializeField] startingTiles to set all tiles at once in the editor
+    */
 
     /*
      * Uses the [SerializeField] startingTiles to set all tiles at once in the editor

@@ -35,6 +35,12 @@ public class PlatformEditor : Editor {
             tiles.CollectTiles(true);
             platform.SetPathPlatform();
         }
+
+        if (GUILayout.Button("Set to moving tiles"))
+        {
+            tiles.CollectTiles(true);
+            platform.SetMovingPlatform();
+        }        
         
         if (GUILayout.Button("Set to starting tiles"))
         {
