@@ -13,7 +13,7 @@ public class HexagonBehaviour : MonoBehaviour
     
 
     [SerializeField] private float crackedTileTrapsInSeconds;
-    [SerializeField] private float fallDepth = 0;
+   // [SerializeField] private float fallDepth = 0;
     private float destructionDelay;
 
     private HashSet<Ball> balls = new HashSet<Ball>(); // All the players who are setting on the tile get saved here
@@ -26,7 +26,7 @@ public class HexagonBehaviour : MonoBehaviour
     public void Setup()
     {
         crackedTileTrapsInSeconds = 2f;
-        fallDepth = 0f;
+       // fallDepth = 0f;
     }
 
     void Start()
@@ -50,7 +50,7 @@ public class HexagonBehaviour : MonoBehaviour
             {            
                 thisHexagon.SetColor(colors[arrivedCrackedTile]);
                 thisHexagon.GetAudioSource().Play();
-                FallAndFade();
+               // FallAndFade();
                 ActivateCrackedTile();
             }
 
@@ -194,14 +194,14 @@ public class HexagonBehaviour : MonoBehaviour
         }
     }
 
-    private void FallAndFade()
+   /* private void FallAndFade()
     {
 
         LeanTween.moveY(gameObject, gameObject.transform.position.y - fallDepth, destructionDelay);
         LeanTween.alpha(thisHexagon.gameObject, 0.0f, destructionDelay);
         //gameObject.transform.GetChild(0).gameObject
         //LeanTween.alpha 
-    }
+    }*/
 
     /* ------------------------------ SETTER METHODS BEGINN ------------------------------  */
     public void SetColors(Color[] colors)
@@ -214,10 +214,10 @@ public class HexagonBehaviour : MonoBehaviour
         crackedTileTrapsInSeconds = seconds;
     }
 
-    public void SetFallDepth(float fallDepth)
+   /* public void SetFallDepth(float fallDepth)
     {
         this.fallDepth = fallDepth;
-    }
+    }*/
 
 
     /* ------------------------------ GETTER METHODS BEGINN ------------------------------  */

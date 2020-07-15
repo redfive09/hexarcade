@@ -33,7 +33,7 @@ public class TilesApplyForAll : MonoBehaviour
                 {
                     HexagonBehaviour hexagon = tiles[i].GetComponent<HexagonBehaviour>();
                     hexagon.SetCrackedTileBreaksInTime(crackedTileBreaksInSeconds);
-                    hexagon.SetFallDepth(fallDepth);
+                 //   hexagon.SetFallDepth(fallDepth);
                     break;
                 }            
 
