@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1641092, g: 0.5631615, b: 0.59739244, a: 1}
+  m_IndirectSpecularColor: {r: 0.16410941, g: 0.56316143, b: 0.5973916, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -342,7 +342,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &33474096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +590,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &84699950
@@ -606,7 +606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &84699951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,6 +1004,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &214329796
@@ -1020,7 +1020,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &214329797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,6 +1163,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &228028013
@@ -1179,7 +1179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &228028014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1633,7 +1632,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &331326047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1852,6 +1850,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &361702144
@@ -1867,7 +1866,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &361702145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2609,6 +2607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileBreaksInSeconds: 0.5
+  fallDepth: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &395738610
@@ -2689,6 +2688,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &407033379
@@ -2704,7 +2704,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &407033380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7756,6 +7755,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &464706143
@@ -7771,7 +7771,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &464706144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8020,6 +8019,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &511251008
@@ -8035,7 +8035,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &511251009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8220,6 +8219,7 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   crackedTiles: 0
   pathTiles: -1
+  movingTiles: 0
   startingTiles: -1
   winningTiles: -1
   checkpointTiles: -1
@@ -8349,7 +8349,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &553544114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8697,6 +8696,7 @@ MonoBehaviour:
   teleporterNumber: 1
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &560591134
@@ -8712,7 +8712,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &560591135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8941,6 +8940,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &646599371
@@ -8956,7 +8956,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &646599372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9096,7 +9095,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &648585157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9437,7 +9435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &651887225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14580,6 +14577,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &716492282
@@ -14595,7 +14593,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &716492283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14739,6 +14736,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &718843326
@@ -14754,7 +14752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &718843327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14893,7 +14890,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &735804648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15037,6 +15033,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &763566565
@@ -15052,7 +15049,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &763566566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15196,6 +15192,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &778109130
@@ -15211,7 +15208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &778109131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15670,6 +15666,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &812126759
@@ -15685,7 +15682,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &812126760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15966,6 +15962,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &824880694
@@ -15981,7 +15978,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &824880695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16330,7 +16326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &857983587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16574,7 +16569,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &902013649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16713,7 +16707,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &904180038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16857,6 +16850,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &942808543
@@ -16872,7 +16866,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &942808544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17198,6 +17191,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &969216775
@@ -17213,7 +17207,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &969216776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17432,6 +17425,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &987171295
@@ -17447,7 +17441,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &987171296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18112,7 +18105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1096071019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18354,6 +18346,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 1
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1105024073
@@ -18369,7 +18362,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1105024074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18650,6 +18642,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1120877525
@@ -18665,7 +18658,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1120877526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23779,6 +23771,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1215669002
@@ -23794,7 +23787,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1215669003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24127,7 +24119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1281651352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24346,6 +24337,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1329375093
@@ -24361,7 +24353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1329375094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29833,6 +29824,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1455777877
@@ -29848,7 +29840,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1455777878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34928,6 +34919,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1506485710
@@ -34943,7 +34935,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1506485711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35082,7 +35073,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1511371906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35331,6 +35321,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1514398908
@@ -35346,7 +35337,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1514398909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35979,6 +35969,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1623476995
@@ -35994,7 +35985,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1623476996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36138,6 +36128,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1646756576
@@ -36153,7 +36144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1646756577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36372,6 +36362,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1697340688
@@ -36387,7 +36378,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1697340689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36531,6 +36521,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1745055682
@@ -36546,7 +36537,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1745055683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36690,6 +36680,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1773789433
@@ -36705,7 +36696,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1773789434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36915,6 +36905,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1779194061
@@ -36930,7 +36921,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1779194062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37309,7 +37299,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1889021374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37453,6 +37442,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1893241706
@@ -37468,7 +37458,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1893241707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37612,6 +37601,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1932664686
@@ -37627,7 +37617,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1932664687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37771,6 +37760,7 @@ MonoBehaviour:
   teleporterNumber: 0
   teleporterConnectedWith: 0
   teleporterOffset: {x: 0, y: 0, z: 0}
+  normalizePhysics: 0
   velocity: 0
   jumpDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1937419425
@@ -37786,7 +37776,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1937419426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38010,7 +37999,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993623724}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6999998, y: 0.15, z: 1.565}
+  m_LocalPosition: {x: 2.6999998, y: 0, z: 1.565}
   m_LocalScale: {x: 1, y: 41.49744, z: 1}
   m_Children:
   - {fileID: 402867}
@@ -38030,7 +38019,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &1993623729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38454,7 +38442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedTileTrapsInSeconds: 0.5
-  fallDepth: 1.5
 --- !u!114 &2039130125
 MonoBehaviour:
   m_ObjectHideFlags: 0
