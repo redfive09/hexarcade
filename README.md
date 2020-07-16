@@ -1,16 +1,4 @@
-## HexArcade 
-#### Projektbetreuung
-Prof. Dr. Tobias Lenz
-
-#### Teilnehmende
-Adil Altuner  
-Daphna Beljavskij   
-Diro Baloska  
-Florian Murzov-Pirkl  
-John Warkulat  
-Michael Schlesener   
-
-
+# HexArcade
 ## Beschreibung
 Heutzutage prasseln auf den Menschen eine Vielzahl an verschiedensten Eindrücken ein. Eine Push Benachrichtigung hier, eine Mail dort, noch schnell auf die Nachricht antworten und dabei den Kaffee nicht verschütten, um dann frisch geduscht ins Zoom-Meeting zu kommen. Die konstante Überflutung unserer Reize und die wenige Zeit die uns pro Tag zur Verfügung stehen sorgen dafür, dass es uns immer schwerer fällt Dingen und Aufgaben unsere ungeteilte Aufmerksamkeit schenken zu können.
 
@@ -20,3 +8,9 @@ Deshalb war es unser Ziel, ein Spiel zu entwickeln, das jederzeit und in kurzen 
 
 ### Was ist HexArcade?
 *HexArcade* ist ein in Unity aufgebautes Mobile Game, in dem der Spieler versucht, durch kippen des Smartphones, einen Ball über ein Feld aus Hexagonen zu steuern. Es gibt jedoch nur einen korrekten Weg, um von Start- zum Zielpunkt zu gelangen. Zu Beginn leuchtet dieser Weg kurz auf und der Spieler muss versuchen, sich den Pfad so gut wie möglich in dieser Zeit zu merken. Es ist Konzentration und Geschick gefragt, um den Ball dann so schnell wie möglich ins Ziel zu bringen, vorallem weil genügend Überrauschungen auf dem Weg liegen können ...  
+
+## Kontakt
+*(wird noch ausgefüllt)*
+
+## Quellen
+*(wird noch ausgefüllt)*
