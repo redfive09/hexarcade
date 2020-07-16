@@ -15,6 +15,7 @@ public class HighscoresDisplay : MonoBehaviour
 	private Highscores highscoresManager;	
 	private string level;
 	private bool error = false;
+	private bool playerFound = false;
 	
 	
 
@@ -48,6 +49,7 @@ public class HighscoresDisplay : MonoBehaviour
             highscoreFields[i] = leaderboard.transform.GetChild(i).GetComponent<TextMeshProUGUI>();
 			highscoreFields[i].gameObject.SetActive(true);
 			highscoreFields[i].text = "";
+			highscoreFields[i].color = Color.white;
 		}
 		string message = "Fetching...";
 		SetMiddleTextField(message);
@@ -55,6 +57,9 @@ public class HighscoresDisplay : MonoBehaviour
 	
 	public void OnHighscoresDownloaded(Dictionary<string, LinkedList<Highscore>> levelBestTimes) 
 	{
+		playerFound = false;
+		string playerName = SceneTransitionValues.playerName.ToLower();
+		
 		LinkedListNode<Highscore> currentEntry = null;
 		if(levelBestTimes.TryGetValue(level, out LinkedList<Highscore> levelHighscores))
 		{
@@ -66,6 +71,27 @@ public class HighscoresDisplay : MonoBehaviour
 			if(currentEntry != null)
 			{
 				highscoreFields[i].text = i + 1 + ". " + currentEntry.Value.username + " - " + Timer.GetTimeAsString(currentEntry.Value.time, 3);
+				
+				if(currentEntry.Value.username == playerName)
+				{
+					playerFound = true;
+					highscoreFields[i].color = Color.red;
+				}
+
+				if(i == highscoreFields.Length - 1 && !playerFound)
+				{					
+
+					for(int j = i + 1; j < levelHighscores.Count; j++)
+					{
+						currentEntry = currentEntry.Next;
+
+						if(currentEntry.Value.username == playerName)
+						{							
+							highscoreFields[i].text = j + 1 + ". " + currentEntry.Value.username + " - " + Timer.GetTimeAsString(currentEntry.Value.time, 3);
+							highscoreFields[i].color = Color.red;																
+						}							
+					}
+				}
 				currentEntry = currentEntry.Next;
 			}
 			else
