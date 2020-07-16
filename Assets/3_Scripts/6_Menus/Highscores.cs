@@ -107,6 +107,7 @@ public class Highscores : MonoBehaviour {
 	private void SetPosition(string level, string username, float time)
 	{
 		level = level.Replace('+', ' ');
+		username = username.Replace('+', ' ');
 
 		LinkedList<Highscore> levelHighscores;	
 		if(levelBestTimes.TryGetValue(level, out LinkedList<Highscore> levelHighscoreListExists))
