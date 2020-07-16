@@ -37,7 +37,7 @@ public class WinScreen : MonoBehaviour
     {
         if(!SceneTransitionValues.alreadyEnteredEndScreen)
         {
-            Phone.Vibrate();
+            //Phone.Vibrate();
             if(SceneTransitionValues.newRecord)
             {            
                 UploadTime();

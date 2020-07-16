@@ -17,7 +17,7 @@ public class OptionsScreen : MonoBehaviour
     public void ConfirmReseting()
     {
         SaveLoadManager.ResetTimes();
-        Phone.Vibrate();
+        //Phone.Vibrate();
         TimesDeleted.SetActive(true);
         ResetTimesConfirmationScreen.SetActive(false);
     }

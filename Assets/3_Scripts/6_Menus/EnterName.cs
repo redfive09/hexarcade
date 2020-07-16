@@ -37,20 +37,20 @@ public class EnterName : MonoBehaviour
         SaveLoadManager.Save(nameChanger);
         SceneTransitionValues.playerName = nameDisplay.text;
         saveNameButton.SetActive(false);
-        Phone.Vibrate();
+        //Phone.Vibrate();
     }
 
     void Update()
     {
-        if(TouchScreenKeyboard.visible == false && touchScreenKeyboard != null)
-        {
-            // Debug.Log(touchScreenKeyboard.status.GetType());
-            if(touchScreenKeyboard.done);
-            {
-                nameDisplay.text = touchScreenKeyboard.text.Trim();
-                touchScreenKeyboard = null;
-            }
-        }
+        // if(!TouchScreenKeyboard.visible && touchScreenKeyboard != null)
+        // {
+        //     // Debug.Log(touchScreenKeyboard.status.GetType());
+        //     if(touchScreenKeyboard.done);
+        //     {
+        //         nameDisplay.text = touchScreenKeyboard.text.Trim();
+        //         touchScreenKeyboard = null;
+        //     }
+        // }
 
         if(Input.GetKeyDown(KeyCode.Return) && saveNameButton.activeSelf)
         {

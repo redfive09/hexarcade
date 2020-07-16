@@ -6,6 +6,8 @@ public class Phone
 {
     public static void Vibrate()
     {
-        Handheld.Vibrate();
+        //Not compatible for webGL version
+        //Everything in the game that calls vibrate function is commented
+        //Handheld.Vibrate();
     }
 }
