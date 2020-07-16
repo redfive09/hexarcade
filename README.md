@@ -16,7 +16,14 @@ Deshalb war es unser Ziel, ein Spiel zu entwickeln, das jederzeit und in kurzen 
   * [Link zur Demo](https://fhuu.github.io/HexArcade/)
 
 ## Kontakt
-*(wird noch ausgefüllt)*
+| Name | E-Mail |
+|---|---|
+| [Adil Altuner](https://github.com/Izn18) | s0563459@htw-berlin.de |
+| [Daphna Beljavskij](https://github.com/DaphiFluffi) | Daphna.Beljavskij@student.htw-berlin.de |
+| [Diro Baloska](https://github.com/Fhuu) | Diro.Baloska@Student.HTW-Berlin.de  |
+| [Florian Murzov-Pirkl](https://github.com/loxer) | Florian.Murzov-Pirkl@Student.HTW-Berlin.de |
+| [John Warkulat](https://github.com/redfive09) | John-Peter.Warkulat@Student.HTW-Berlin.de |
+| [Michael Schlesener](https://github.com/maidjerry) | Michael.Schlesener@Student.HTW-Berlin.de |
 
 ## Quellen
 ### Features:
